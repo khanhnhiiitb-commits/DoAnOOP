@@ -16,7 +16,7 @@ Hệ thống giúp tự động hóa các nghiệp vụ bán hàng, giảm sai s
 - Hỗ trợ quản lý và ra quyết định
 - Nâng cao hiệu quả kinh doanh
 ## **Thành Viên**
-1. Tăng Khánh Nhi - KhanhNhiiitb
+1. Tăng Khánh Nhi - KhanhNhi2610
 2. Ngô Thị Thu Duyên - duyenngo-2612
 3. Lê Thị Hồng Nhã - hongnha0586
-4. Giáp Thị Thu Liễu - thulieu2006ee
+4. Giáp Thị Thu Liễu - thulieu2006ee-arch
