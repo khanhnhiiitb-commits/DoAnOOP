@@ -3,14 +3,14 @@
 Chương trình quản lý bán hàng siêu thị được xây dựng nhằm hỗ trợ quản lý sản phẩm,
 bán hàng, khách hàng và nhân viên một cách hiệu quả.  
 Hệ thống giúp tự động hóa các nghiệp vụ bán hàng, giảm sai sót và nâng cao hiệu quả kinh doanh.
-
+<img width="1722" height="1099" alt="ClassDiagramOOP-Page-1 drawio (1)" src="https://github.com/user-attachments/assets/a172c846-2e71-4f75-9409-f94f6f5cde4d" />
 ## Chức năng chính
 - Quản lý sản phẩm và loại sản phẩm
 - Quản lý bán hàng và hóa đơn
 - Quản lý khách hàng
 - Quản lý nhân viên
 - Thống kê, báo cáo doanh thu
-<img width="1722" height="1099" alt="ClassDiagramOOP-Page-1 drawio" src="https://github.com/user-attachments/assets/dad1a00a-6216-4e45-b5d3-b7120e74952a" />
+
 ## Mục tiêu
 - Tin học hóa hoạt động bán hàng siêu thị
 - Hỗ trợ quản lý và ra quyết định
