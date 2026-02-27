@@ -10,6 +10,7 @@ Hệ thống giúp tự động hóa các nghiệp vụ bán hàng, giảm sai s
 - Quản lý khách hàng
 - Quản lý nhân viên
 - Thống kê, báo cáo doanh thu
+<img width="1721" height="1099" alt="ClassDiagramOOP-Page-1 drawio (1)" src="https://github.com/user-attachments/assets/3eaaf2d2-71c5-4c6b-bf44-b7060a97dc63" />
 
 ## Mục tiêu
 - Tin học hóa hoạt động bán hàng siêu thị
