@@ -45,7 +45,7 @@ namespace QuanLySieuThi.Models
                 donGia = value;
                 TinhThanhTien();
             }
-        }
+        } 
 
         public double ThanhTien
         {
