@@ -4,6 +4,6 @@ namespace QuanLySieuThi.Models.Systems
 {
     public class BangChamCong
     {
-        ...
+        hong nha
     }
 }
