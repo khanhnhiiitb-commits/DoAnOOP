@@ -2,24 +2,17 @@ namespace QuanLySieuThi.Models.Systems
 {
     public class ChiTietChuongTrinhKM
     {
-       public string MaCTKM { get; set; }        
-        public string MaMH { get; set; }          
-        public double PhanTramGiam { get; set; }  
-        public string GhiChu { get; set; }         
+       public string MaCTKM { get; set; }
+        public string MaMH { get; set; }
+        public double PhanTramGiam { get; set; } // Ví dụ: 0.1 tương ứng 10%
 
         public ChiTietChuongTrinhKM() { }
 
-        public ChiTietChuongTrinhKM(string maCT, string maMH, double giamGia)
+        public ChiTietChuongTrinhKM(string maKM, string maMH, double giam)
         {
-            MaCTKM = maCT;
+            MaCTKM = maKM;
             MaMH = maMH;
-            PhanTramGiam = giamGia;
-        }
-
-        // Phương thức tính giá sau khi giảm
-        public double TinhGiaSauGiam(double giaGoc)
-        {
-            return giaGoc * (1 - PhanTramGiam);
+            PhanTramGiam = giam;
         }
     }
 }

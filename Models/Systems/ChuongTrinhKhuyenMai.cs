@@ -10,15 +10,16 @@ namespace QuanLySieuThi.Models.Systems
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
         public string NoiDung { get; set; }
-        public double MucGiamGia { get; set; } // Ví dụ: 0.1 cho 10%
 
         public ChuongTrinhKhuyenMai() { }
 
-        // Kiểm tra xem khuyến mãi còn hiệu lực hay không
-        public bool ConHieuLuc()
+        public ChuongTrinhKhuyenMai(string maKM, string ten, DateTime bd, DateTime kt, string nd)
         {
-            DateTime hienTai = DateTime.Now;
-            return (hienTai >= NgayBatDau && hienTai <= NgayKetThuc);
+            MaCTKM = maKM;
+            TenCT = ten;
+            NgayBatDau = bd;
+            NgayKetThuc = kt;
+            NoiDung = nd;
         }
     }
 }
