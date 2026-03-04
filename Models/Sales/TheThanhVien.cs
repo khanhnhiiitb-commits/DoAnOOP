@@ -1,30 +1,16 @@
-namespace QuanLySieuThi.Models
+using System;
+
+namespace Sales
 {
     public class TheThanhVien
     {
-         private string maThe;
+        private string maThe;
         private DateTime ngayDangKy;
-        private string loaiThe;
         private int diemTichLuy;
         private bool trangThai;
 
-        public string MaThe
-        {
-            get { return maThe; }
-            set { maThe = value; }
-        }
-
-        public DateTime NgayDangKy
-        {
-            get { return ngayDangKy; }
-            set { ngayDangKy = value; }
-        }
-
-        public string LoaiThe
-        {
-            get { return loaiThe; }
-            set { loaiThe = value; }
-        }
+        public string MaThe { get { return maThe; } set { maThe = value; } }
+        public DateTime NgayDangKy { get { return ngayDangKy; } set { ngayDangKy = value; } }
 
         public int DiemTichLuy
         {
@@ -32,17 +18,7 @@ namespace QuanLySieuThi.Models
             private set { diemTichLuy = value; }
         }
 
-        public bool TrangThai
-        {
-            get { return trangThai; }
-            set { trangThai = value; }
-        }
-
-        public TheThanhVien()
-        {
-            diemTichLuy = 0;
-            trangThai = true;
-        }
+        public bool TrangThai { get { return trangThai; } set { trangThai = value; } }
 
         public void CongDiem(int diem)
         {
@@ -58,13 +34,6 @@ namespace QuanLySieuThi.Models
             {
                 diemTichLuy = diemTichLuy - diem;
             }
-        }
-
-        public override string ToString()
-        {
-            return "Mã thẻ: " + maThe +
-                   " | Loại: " + loaiThe +
-                   " | Điểm: " + diemTichLuy;
         }
     }
 }

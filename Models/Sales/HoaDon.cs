@@ -1,18 +1,20 @@
-namespace QuanLySieuThi.Models
+using System;
+using System.Collections.Generic;
+
+namespace Sales
 {
     public class HoaDon
     {
-         private string maHoaDon;
+        private string maHD;
         private DateTime ngayTao;
-        private string maNhanVien;
-        private string maKhachHang;
         private double tongTien;
+        private bool trangThaiTT;
         private List<ChiTietHoaDon> danhSachChiTiet;
 
-        public string MaHoaDon
+        public string MaHD
         {
-            get { return maHoaDon; }
-            set { maHoaDon = value; }
+            get { return maHD; }
+            set { maHD = value; }
         }
 
         public DateTime NgayTao
@@ -21,22 +23,16 @@ namespace QuanLySieuThi.Models
             set { ngayTao = value; }
         }
 
-        public string MaNhanVien
-        {
-            get { return maNhanVien; }
-            set { maNhanVien = value; }
-        }
-
-        public string MaKhachHang
-        {
-            get { return maKhachHang; }
-            set { maKhachHang = value; }
-        }
-
         public double TongTien
         {
             get { return tongTien; }
             private set { tongTien = value; }
+        }
+
+        public bool TrangThaiTT
+        {
+            get { return trangThaiTT; }
+            set { trangThaiTT = value; }
         }
 
         public List<ChiTietHoaDon> DanhSachChiTiet
@@ -48,21 +44,28 @@ namespace QuanLySieuThi.Models
         {
             danhSachChiTiet = new List<ChiTietHoaDon>();
             tongTien = 0;
+            trangThaiTT = false;
         }
 
-        public void ThemChiTiet(ChiTietHoaDon chiTiet)
+        public void ThemChiTiet(ChiTietHoaDon ct)
         {
-            danhSachChiTiet.Add(chiTiet);
+            danhSachChiTiet.Add(ct);
             TinhTongTien();
         }
 
         public void TinhTongTien()
         {
             tongTien = 0;
-            for (int i = 0; i < danhSachChiTiet.Count; i++)
+            int i;
+            for (i = 0; i < danhSachChiTiet.Count; i++)
             {
                 tongTien = tongTien + danhSachChiTiet[i].ThanhTien;
             }
+        }
+
+        public void ThanhToan()
+        {
+            trangThaiTT = true;
         }
     }
 }

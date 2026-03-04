@@ -1,51 +1,39 @@
-namespace QuanLySieuThi.Models
+using System;
+
+namespace Sales
 {
     public class ChiTietHoaDon
     {
-        private string maChiTiet;
-        private string maHoaDon;
-        private string maHang;
-        private int soLuong;
-        private double donGia;
+        private string maCTHD;
+        private int soLuongMua;
+        private double giaBan;
         private double thanhTien;
 
-        public string MaChiTiet
+        public string MaCTHD
         {
-            get { return maChiTiet; }
-            set { maChiTiet = value; }
+            get { return maCTHD; }
+            set { maCTHD = value; }
         }
 
-        public string MaHoaDon
+        public int SoLuongMua
         {
-            get { return maHoaDon; }
-            set { maHoaDon = value; }
-        }
-
-        public string MaHang
-        {
-            get { return maHang; }
-            set { maHang = value; }
-        }
-
-        public int SoLuong
-        {
-            get { return soLuong; }
+            get { return soLuongMua; }
             set
             {
-                soLuong = value;
+                soLuongMua = value;
                 TinhThanhTien();
             }
         }
 
-        public double DonGia
+        public double GiaBan
         {
-            get { return donGia; }
+            get { return giaBan; }
             set
             {
-                donGia = value;
+                giaBan = value;
                 TinhThanhTien();
             }
-        } 
+        }
 
         public double ThanhTien
         {
@@ -53,16 +41,9 @@ namespace QuanLySieuThi.Models
             private set { thanhTien = value; }
         }
 
-        public ChiTietHoaDon()
-        {
-            soLuong = 0;
-            donGia = 0;
-            thanhTien = 0;
-        }
-
         private void TinhThanhTien()
         {
-            thanhTien = soLuong * donGia;
+            thanhTien = soLuongMua * giaBan;
         }
     }
 }
