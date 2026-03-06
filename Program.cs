@@ -1,16 +1,16 @@
-namespace ChuongtrinhQuanlybanhangsieuthi;
+using System;
+using System.Collections.Generic;
+using QuanLySieuThi.Models.Products;
+using QuanLySieuThi.Models.People;
+using QuanLySieuThi.Models.Systems;
+using QuanLySieuThi.Services;
 
-static class Program
+namespace QuanLySieuThi
 {
-    /// <summary>
-    ///  The main entry point for the application.
-    /// </summary>
-    [STAThread]
-    static void Main()
+    class Program
     {
-        // To customize application configuration such as set high DPI settings or default font,
-        // see https://aka.ms/applicationconfiguration.
-        ApplicationConfiguration.Initialize();
-        Application.Run(new Form1());
-    }    
+        static void Main(string[] args)
+        {
+        }
+    }
 }

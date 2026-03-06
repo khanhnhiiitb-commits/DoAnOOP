@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Sales
+namespace QuanLySieuThi.Models.Sales
 {
     public class HoaDon
     {

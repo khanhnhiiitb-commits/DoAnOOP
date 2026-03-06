@@ -1,10 +1,10 @@
 
-using ChuongTrinhQuanLySieuThi.Models;
+using QuanLySieuThi.Models;
 
-namespace ChuongTrinhQuanLySieuThi.Data
+namespace QuanLySieuThi.Data
 {
     public class PartnerRepository
     {
-        ...
+        
     }
 }

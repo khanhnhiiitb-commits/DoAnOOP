@@ -1,4 +1,4 @@
-namespace QuanLySieuThi.Models
+namespace QuanLySieuThi.Models.Products
 {
     // Kế thừa từ HangHoa
     public class HangThucPham : HangHoa

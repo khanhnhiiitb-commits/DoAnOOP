@@ -1,10 +1,15 @@
-using ChuongTrinhQuanLySieuThi.Models; 
-using ChuongTrinhQuanLySieuThi.Models.Products; 
+using System;
+using System.Collections.Generic;
+using QuanLySieuThi.Models;
+using QuanLySieuThi.Models.Products;
+using QuanLySieuThi.Models.People;
+using QuanLySieuThi.Models.Systems;
+using QuanLySieuThi.Models.Sales;
 
-namespace ChuongTrinhQuanLySieuThi.Services
+namespace QuanLySieuThi.Services
 {
     public class QuanLyNhapHang
     {
-        ...
+        
     }
 }

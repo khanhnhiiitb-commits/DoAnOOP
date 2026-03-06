@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using ChuongTrinhQuanLySieuThi.Models.Products;
+using QuanLySieuThi.Models.Products;
 
-namespace ChuongTrinhQuanLySieuThi.Data
+namespace QuanLySieuThi.Data
 {
     public class StaffRepository
     {
-        ...
+        
     }
 }

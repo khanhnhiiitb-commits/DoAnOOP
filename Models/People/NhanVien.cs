@@ -1,4 +1,4 @@
-namespace QuanLySieuThi.Models
+namespace QuanLySieuThi.Models.People
 {
     public class NhanVien : Nguoi
     {

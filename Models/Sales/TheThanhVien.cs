@@ -1,6 +1,6 @@
 using System;
 
-namespace Sales
+namespace QuanLySieuThi.Models.Sales
 {
     public class TheThanhVien
     {
