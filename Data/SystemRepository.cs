@@ -1,12 +1,92 @@
+using QuanLySieuThi.Models.Products;
+using QuanLySieuThi.Models.Systems;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using QuanLySieuThi.Models.Products;
 
 namespace QuanLySieuThi.Data
 {
     public class SystemRepository
     {
-        
+        private readonly string filePath = "Data/database_system.txt";
+
+        // --- TAI KHOAN ---
+        public List<TaiKhoan> GetAllTaiKhoan()
+        {
+            List<TaiKhoan> list = new List<TaiKhoan>();
+            if (!File.Exists(filePath)) return list;
+
+            string[] lines = File.ReadAllLines(filePath);
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split('|');
+                if (parts[0] == "TK") list.Add(MapLineToTaiKhoan(parts));
+            }
+            return list;
+        }
+
+        // --- CA LAM VIEC ---
+        public List<CaLamViec> GetAllCaLamViec()
+        {
+            List<CaLamViec> list = new List<CaLamViec>();
+            if (!File.Exists(filePath)) return list;
+
+            string[] lines = File.ReadAllLines(filePath);
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split('|');
+                if (parts[0] == "CA") list.Add(MapLineToCaLamViec(parts));
+            }
+            return list;
+        }
+
+        // --- PHIEU NHAP (Master-Detail) ---
+        public List<PhieuNhap> GetAllPhieuNhap()
+        {
+            List<PhieuNhap> list = new List<PhieuNhap>();
+            // Logic tuong tu SalesRepository de doc Master-Detail
+            return list;
+        }
+
+        // --- LUU TOAN BO HE THONG ---
+        public void SaveSystemData(List<TaiKhoan> tkList, List<CaLamViec> caList)
+        {
+            List<string> lines = new List<string>();
+            foreach (TaiKhoan tk in tkList) lines.Add(MapTaiKhoanToLine(tk));
+            foreach (CaLamViec ca in caList) lines.Add(MapCaToLine(ca));
+
+            File.WriteAllLines(filePath, lines.ToArray());
+        }
+
+        // ---------------- PRIVATE HELPER METHODS ----------------
+
+        private TaiKhoan MapLineToTaiKhoan(string[] p)
+        {
+            // p[0] la prefix "TK"
+            bool status = false;
+            if (p[4] == "True") status = true;
+            return new TaiKhoan(p[1], p[2], p[3], status);
+        }
+
+        private string MapTaiKhoanToLine(TaiKhoan tk)
+        {
+            return "TK|" + tk.TenDangNhap + "|" + tk.MatKhau + "|" + tk.VaiTro + "|" + tk.TrangThai;
+        }
+
+        private CaLamViec MapLineToCaLamViec(string[] p)
+        {
+            return new CaLamViec(p[1], p[2], p[3], p[4]);
+        }
+
+        private string MapCaToLine(CaLamViec ca)
+        {
+            return "CA|" + ca.MaCa + "|" + ca.TenCa + "|" + ca.GioBatDau + "|" + ca.GioKetThuc;
+        }
+
+        private string FormatDate(DateTime dt)
+        {
+            // Ghep chuoi ngay thang thu cong
+            return dt.Year + "-" + dt.Month + "-" + dt.Day;
+        }
     }
 }

@@ -1,0 +1,4 @@
+NCC|NCC001|Cong ty Thuc Pham Sach|123 Quan 1, HCM|0901234567|info@tpsach.com
+KH|KH001|150|VIP999
+NCC|NCC002|Gia Dung Viet|456 Quan 7, HCM|0907778889|contact@giadung.vn
+KH|KH002|50|MEM123
