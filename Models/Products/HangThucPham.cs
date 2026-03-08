@@ -17,7 +17,7 @@ namespace QuanLySieuThi.Models.Products
             set { hSD = value; } 
         }
 
-        public HangThucPham(string ma, string ten, double gia, int ton, DateTime nsx, DateTime hsd) : base(ma, ten, gia, ton)
+        public HangThucPham(string ma, string ten, double gia, int ton, DateTime nsx, DateTime hsd) : base(ma, ten, gia, ton, make, donvi)
         {
             this.ngaySX = nsx;
             this.hSD = hsd;

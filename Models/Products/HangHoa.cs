@@ -42,12 +42,13 @@ namespace QuanLySieuThi.Models.Products
         }
 
         // Constructor 
-        public HangHoa(string ma, string ten, double gia, int ton, string donvi)
+        public HangHoa(string ma, string ten, double gia, int ton,string make, string donvi)
         {
             this.maHH = ma;
             this.tenHang = ten;
             this.donGia = gia;
             this.soLuongTon = ton;
+            this.maKeHang = make;
             this.donViTinh = donvi;
         }
     }

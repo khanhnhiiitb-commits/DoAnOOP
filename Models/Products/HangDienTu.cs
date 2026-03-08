@@ -18,7 +18,7 @@ namespace QuanLySieuThi.Models.Products
         }
 
         public HangDienTu(string ma, string ten, double gia, int ton, int baoHanh, string hang) 
-            : base(ma, ten, gia, ton)
+            : base(ma, ten, gia, ton, make, donvi)
         {
             this.thoiGianBH = baoHanh;
             this.hangSX = hang;
