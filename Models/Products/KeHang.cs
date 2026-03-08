@@ -4,7 +4,7 @@ namespace QuanLySieuThi.Models.Products
     {
         private string maKe;
         private string viTri;
-        private int sucChua; // Vi du: Thuc pham, Gia dung
+        private int sucChua; 
 
         public string MaKe 
         { 
@@ -16,17 +16,17 @@ namespace QuanLySieuThi.Models.Products
             get { return viTri; } 
             set { viTri = value; } 
         }
-        public string SucChua 
+        public int SucChua 
         { 
             get { return sucChua; } 
             set { sucChua = value; } 
         }
 
-        public KeHang(string ma, string ten, string loai)
+        public KeHang(string ma, string ten, int succhua)
         {
             this.maKe = ma;
             this.viTri = ten;
-            this.sucChua = loai;
+            this.sucChua = succhua;
         }
     }
 }
