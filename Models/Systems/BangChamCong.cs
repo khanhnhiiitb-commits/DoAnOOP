@@ -7,7 +7,7 @@ namespace QuanLySieuThi.Models.Systems
        
    
     {
-        // Fields (Dữ liệu private)
+        
         private string maNhanVien;
         private int thang;
         private int nam;
@@ -16,7 +16,7 @@ namespace QuanLySieuThi.Models.Systems
         private double phuCap;
         private string ghiChu;
 
-        // Properties (Thuộc tính công khai)
+       
         public string MaNhanVien
         {
             get { return maNhanVien; }
@@ -59,7 +59,7 @@ namespace QuanLySieuThi.Models.Systems
             set { ghiChu = value; }
         }
 
-        // Constructor (Hàm khởi tạo)
+        // Constructor 
         public BangChamCong(string maNV, int t, int n, int lam, int nghi, double pc, string note)
         {
             this.maNhanVien = maNV;
