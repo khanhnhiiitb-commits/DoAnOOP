@@ -5,6 +5,7 @@ namespace QuanLySieuThi.Models.Products
         private string maKe;
         private string viTri;
         private int sucChua; 
+        private List<HangHoa> danhSachHang = new List<HangHoa>();
 
         public string MaKe 
         { 
@@ -19,8 +20,16 @@ namespace QuanLySieuThi.Models.Products
         public int SucChua 
         { 
             get { return sucChua; } 
-            set { sucChua = value; } 
+            set { if (value >= 0) sucChua = value; } 
+        }       
+
+        public List<HangHoa> DanhSachHang 
+        { 
+            get { return danhSachHang; } 
+            set { danhSachHang = value; } 
         }
+
+        public KeHang() { }
 
         public KeHang(string ma, string ten, int succhua)
         {

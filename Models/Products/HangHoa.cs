@@ -42,6 +42,9 @@ namespace QuanLySieuThi.Models.Products
         }
 
         // Constructor 
+
+        public HangHoa(){}
+
         public HangHoa(string ma, string ten, double gia, int ton, string make, string donvi)
         {
             this.maHH = ma;
@@ -51,5 +54,7 @@ namespace QuanLySieuThi.Models.Products
             this.maKeHang = make;
             this.donViTinh = donvi;
         }
+
+        public abstract bool KiemTraChatLuong();
     }
 }

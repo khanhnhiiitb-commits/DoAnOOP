@@ -17,11 +17,18 @@ namespace QuanLySieuThi.Models.Products
             set { hangSX = value; } 
         }
 
+        public HangDienTu() : base() { }
+
         public HangDienTu(string ma, string ten, double gia, int ton, string make, string donvi, int baoHanh, string hang) 
             : base(ma, ten, gia, ton, make, donvi)
         {
             this.thoiGianBH = baoHanh;
             this.hangSX = hang;
+        }
+        
+        public override bool KiemTraChatLuong()
+        {
+            return thoiGianBH > 0;
         }
     }
 }

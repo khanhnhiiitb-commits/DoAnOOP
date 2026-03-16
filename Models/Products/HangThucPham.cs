@@ -17,10 +17,17 @@ namespace QuanLySieuThi.Models.Products
             set { hSD = value; } 
         }
 
+        public HangThucPham() : base() { }
+
         public HangThucPham(string ma, string ten, double gia, int ton, string make, string donvi, DateTime nsx, DateTime hsd) : base(ma, ten, gia, ton, make, donvi)
         {
             this.ngaySX = nsx;
             this.hSD = hsd;
+        }
+
+        public bool KiemTraHetHan()
+        {
+        return DateTime.Now > hSD;
         }
     }
 }
