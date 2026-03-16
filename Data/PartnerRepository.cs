@@ -1,5 +1,6 @@
-﻿using System.IO;
-using QuanLySieuThi.Models;
+﻿using System;
+using System.IO;
+using System.Collections.Generic;
 using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Sales;
 
@@ -9,51 +10,30 @@ namespace QuanLySieuThi.Data
     {
         private readonly string filePath = "Data/database_partner.txt";
 
-        // Lấy danh sách đối tác (bao gồm NCC và Khách hàng)
         public List<object> GetAll()
         {
             List<object> danhSach = new List<object>();
-
-            if (!File.Exists(filePath))
-            {
-                return danhSach;
-            }
+            if (!File.Exists(filePath)) return danhSach;
 
             string[] lines = File.ReadAllLines(filePath);
-
             foreach (string line in lines)
             {
-                if (string.IsNullOrWhiteSpace(line))
-                {
-                    continue;
-                }
-
+                if (string.IsNullOrWhiteSpace(line)) continue;
                 object doiTac = MapLineToEntity(line);
-                if (doiTac != null)
-                {
-                    danhSach.Add(doiTac);
-                }
+                if (doiTac != null) danhSach.Add(doiTac);
             }
-
             return danhSach;
         }
 
-        // Lưu danh sách đối tác xuống file
         public void Save(List<object> danhSach)
         {
-            string[] lines = new string[danhSach.Count];
-            int index = 0;
-
+            List<string> lines = new List<string>();
             foreach (object obj in danhSach)
             {
-                lines[index] = MapEntityToLine(obj);
-                index = index + 1;
+                lines.Add(MapEntityToLine(obj));
             }
-
             File.WriteAllLines(filePath, lines);
         }
-
-        // ---------------- PRIVATE HELPER METHODS ----------------
 
         private object MapLineToEntity(string line)
         {
@@ -64,24 +44,34 @@ namespace QuanLySieuThi.Data
 
             if (loaiDoiTac == "NCC")
             {
-                NhaCungCap ncc = new NhaCungCap();
-                ncc.MaNCC = parts[1];
-                ncc.TenNCC = parts[2];
-                ncc.DiaChi = parts[3];
-                ncc.SoDienThoai = parts[4];
-                ncc.Email = parts[5];
-                return ncc;
+                return new NhaCungCap
+                {
+                    MaNCC = parts[1],
+                    TenNCC = parts[2],
+                    DiaChi = parts[3],
+                    SoDienThoai = parts[4],
+                    Email = parts[5]
+                };
             }
 
             if (loaiDoiTac == "KH")
             {
                 KhachHang kh = new KhachHang();
-                // Sử dụng các phương thức Set thủ công của lớp KhachHang
-                kh.MaKH = parts[1]; 
+                kh.MaKH = parts[1];
                 kh.DiemTichLuy = int.Parse(parts[2]);
-                kh.MaTheTV = parts[3];
-                // Lưu ý: Các thuộc tính từ lớp Nguoi (như HoTen) nếu có 
-                // bạn có thể bổ sung thêm việc Set tại đây.
+                
+                // KIỂM TRA THẺ THÀNH VIÊN
+                // Nếu dữ liệu file có mã thẻ (không phải "None"), ta khởi tạo đối tượng thẻ
+                if (parts.Length > 3 && parts[3] != "None" && !string.IsNullOrEmpty(parts[3]))
+                {
+                    kh.TheTV = new TheThanhVien(parts[3]);
+                }
+                
+                
+                kh.HoTen = parts[4];  
+                kh.DiaChi = parts[6];
+                kh.SoDienThoai = parts[7];  
+                
                 return kh;
             }
 
@@ -90,17 +80,16 @@ namespace QuanLySieuThi.Data
 
         private string MapEntityToLine(object obj)
         {
-            if (obj is NhaCungCap)
+            if (obj is NhaCungCap ncc)
             {
-                NhaCungCap ncc = (NhaCungCap)obj;
-                return "NCC|" + ncc.MaNCC + "|" + ncc.TenNCC + "|" + ncc.DiaChi + "|" + ncc.SoDienThoai + "|" + ncc.Email;
+                return $"NCC|{ncc.MaNCC}|{ncc.TenNCC}|{ncc.DiaChi}|{ncc.SoDienThoai}|{ncc.Email}";
             }
 
-            if (obj is KhachHang)
+            if (obj is KhachHang kh)
             {
-                KhachHang kh = (KhachHang)obj;
-                // Sử dụng các phương thức Get thủ công của lớp KhachHang
-                return "KH|" + kh.MaKH + "|" + kh.DiemTichLuy + "|" + kh.MaTheTV;
+                // Lấy mã thẻ: Nếu có thẻ thì lấy MaThe, không thì ghi "None"
+                string maThe = kh.TheTV != null ? kh.TheTV.MaThe : "None";
+                return $"KH|{kh.MaKH}|{kh.DiemTichLuy}|{maThe}";
             }
 
             return "";

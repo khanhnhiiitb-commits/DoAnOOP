@@ -38,7 +38,10 @@ namespace QuanLySieuThi.Models.People
             set { maCa = value; } 
         }
 
-        public NhanVien(string ma, string ten, string chucVu) : base(ma, ten) // Đẩy mã và tên lên lớp Nguoi
+        public NhanVien() : base() { }
+
+        public NhanVien(string ma, string ten, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string chucVu) 
+        : base(ma, ten, ngaySinh, gioiTinh, soDienThoai, diaChi) 
         {
             this.maNV = ma;
             this.chucVu = chucVu;
@@ -46,4 +49,4 @@ namespace QuanLySieuThi.Models.People
             this.luongCB = 0; 
         }
     }
-}
+}                                           

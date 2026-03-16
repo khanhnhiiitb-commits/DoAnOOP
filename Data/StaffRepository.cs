@@ -1,8 +1,8 @@
-﻿using QuanLySieuThi.Models.People;
-using QuanLySieuThi.Models.Products;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
+using System.Collections.Generic;
+using QuanLySieuThi.Models.People;
+using QuanLySieuThi.Models.Sales;
 
 namespace QuanLySieuThi.Data
 {
@@ -10,51 +10,30 @@ namespace QuanLySieuThi.Data
     {
         private readonly string filePath = "Data/database_nhanvien.txt";
 
-        // Lấy toàn bộ danh sách (bao gồm cả Nhân viên và Khách hàng)
         public List<Nguoi> GetAll()
         {
             List<Nguoi> danhSach = new List<Nguoi>();
-
-            if (!File.Exists(filePath))
-            {
-                return danhSach;
-            }
+            if (!File.Exists(filePath)) return danhSach;
 
             string[] lines = File.ReadAllLines(filePath);
-
             foreach (string line in lines)
             {
-                if (string.IsNullOrWhiteSpace(line))
-                {
-                    continue;
-                }
-
+                if (string.IsNullOrWhiteSpace(line)) continue;
                 Nguoi p = MapLineToEntity(line);
-                if (p != null)
-                {
-                    danhSach.Add(p);
-                }
+                if (p != null) danhSach.Add(p);
             }
-
             return danhSach;
         }
 
-        // Lưu danh sách xuống file
         public void Save(List<Nguoi> danhSach)
         {
-            string[] lines = new string[danhSach.Count];
-            int index = 0;
-
+            List<string> lines = new List<string>();
             foreach (Nguoi p in danhSach)
             {
-                lines[index] = MapEntityToLine(p);
-                index = index + 1;
+                lines.Add(MapEntityToLine(p));
             }
-
             File.WriteAllLines(filePath, lines);
         }
-
-        // ---------------- PRIVATE HELPER METHODS ----------------
 
         private Nguoi MapLineToEntity(string line)
         {
@@ -63,47 +42,44 @@ namespace QuanLySieuThi.Data
 
             string loai = parts[0];
 
-            // Thông tin chung của lớp Nguoi
-            string maChung = parts[1];
-            string hoTen = parts[2];
-            DateTime ngaySinh = DateTime.Parse(parts[3]);
-            bool gioiTinh = bool.Parse(parts[4]);
-            string sdt = parts[5];
-            string diaChi = parts[6];
-
             if (loai == "NV")
             {
                 NhanVien nv = new NhanVien();
-                // Gan thong tin lop cha
-                nv.SetMa(maChung);
-                nv.SetHoTen(hoTen);
-                nv.SetNgaySinh(ngaySinh);
-                nv.SetGioiTinh(gioiTinh);
-                nv.SetSoDienThoai(sdt);
-                nv.SetDiaChi(diaChi);
-                // Gan thong tin lop con NhanVien
-                nv.SetMaNV(parts[7]);
-                nv.SetChucVu(parts[8]);
-                nv.SetLuongCB(double.Parse(parts[9]));
-                nv.SetNgayVaoLam(DateTime.Parse(parts[10]));
-                nv.SetMaCaLV(parts[11]);
+                // Gán thông tin lớp cha (Nguoi) - Dùng Property thay cho hàm Set
+                nv.Ma = parts[1];
+                nv.HoTen = parts[2];
+                nv.NgaySinh = DateTime.Parse(parts[3]);
+                nv.GioiTinh = bool.Parse(parts[4]);
+                nv.SoDienThoai = parts[5];
+                nv.DiaChi = parts[6];
+
+                // Gán thông tin lớp con (NhanVien)
+                nv.MaNV = parts[7];
+                nv.ChucVu = parts[8];
+                nv.LuongCB = double.Parse(parts[9]);
+                nv.NgayVaoLam = DateTime.Parse(parts[10]);
+                nv.MaCa = parts[11]; // Đổi từ MaCaLV sang MaCa cho khớp Model
                 return nv;
             }
 
             if (loai == "KH")
             {
                 KhachHang kh = new KhachHang();
-                // Gan thong tin lop cha
-                kh.SetMa(maChung);
-                kh.SetHoTen(hoTen);
-                kh.SetNgaySinh(ngaySinh);
-                kh.SetGioiTinh(gioiTinh);
-                kh.SetSoDienThoai(sdt);
-                kh.SetDiaChi(diaChi);
-                // Gan thong tin lop con KhachHang
-                kh.SetMaKH(parts[7]);
-                kh.SetDiemTichLuy(int.Parse(parts[8]));
-                kh.SetMaTheTV(parts[9]);
+                kh.Ma = parts[1];
+                kh.HoTen = parts[2];
+                kh.NgaySinh = DateTime.Parse(parts[3]);
+                kh.GioiTinh = bool.Parse(parts[4]);
+                kh.SoDienThoai = parts[5];
+                kh.DiaChi = parts[6];
+
+                kh.MaKH = parts[7];
+                kh.DiemTichLuy = int.Parse(parts[8]);
+                
+                // Khởi tạo đối tượng thẻ thành viên nếu có mã
+                if (parts.Length > 9 && parts[9] != "None" && !string.IsNullOrEmpty(parts[9]))
+                {
+                    kh.TheTV = new TheThanhVien(parts[9]);
+                }
                 return kh;
             }
 
@@ -112,27 +88,20 @@ namespace QuanLySieuThi.Data
 
         private string MapEntityToLine(Nguoi p)
         {
-            // Format ngay thang thu cong
-            DateTime dSinh = p.GetNgaySinh();
-            string sSinh = dSinh.Year + "-" + dSinh.Month + "-" + dSinh.Day;
+            // Format ngày tháng chuẩn YYYY-MM-DD
+            string sSinh = p.NgaySinh.ToString("yyyy-MM-dd");
+            string baseInfo = $"{p.Ma}|{p.HoTen}|{sSinh}|{p.GioiTinh}|{p.SoDienThoai}|{p.DiaChi}";
 
-            string baseInfo = p.GetMa() + "|" + p.GetHoTen() + "|" + sSinh + "|" +
-                              p.GetGioiTinh() + "|" + p.GetSoDienThoai() + "|" + p.GetDiaChi();
-
-            if (p is NhanVien)
+            if (p is NhanVien nv)
             {
-                NhanVien nv = (NhanVien)p;
-                DateTime dVao = nv.GetNgayVaoLam();
-                string sVao = dVao.Year + "-" + dVao.Month + "-" + dVao.Day;
-
-                return "NV|" + baseInfo + "|" + nv.GetMaNV() + "|" + nv.GetChucVu() + "|" +
-                       nv.GetLuongCB() + "|" + sVao + "|" + nv.GetMaCaLV();
+                string sVao = nv.NgayVaoLam.ToString("yyyy-MM-dd");
+                return $"NV|{baseInfo}|{nv.MaNV}|{nv.ChucVu}|{nv.LuongCB}|{sVao}|{nv.MaCa}";
             }
 
-            if (p is KhachHang)
+            if (p is KhachHang kh)
             {
-                KhachHang kh = (KhachHang)p;
-                return "KH|" + baseInfo + "|" + kh.GetMaKH() + "|" + kh.GetDiemTichLuy() + "|" + kh.GetMaTheTV();
+                string maThe = kh.TheTV != null ? kh.TheTV.MaThe : "None";
+                return $"KH|{baseInfo}|{kh.MaKH}|{kh.DiemTichLuy}|{maThe}";
             }
 
             return "";

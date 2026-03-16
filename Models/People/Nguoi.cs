@@ -24,8 +24,9 @@ namespace QuanLySieuThi.Models.People
 
         public Nguoi() { }
 
-        public Nguoi(string hoTen, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi)
+        public Nguoi(string ma, string hoTen, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi)
         {
+            this.ma = ma;
             this.hoTen = hoTen;
             this.ngaySinh = ngaySinh;
             this.gioiTinh = gioiTinh;
