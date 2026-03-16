@@ -26,7 +26,7 @@ namespace QuanLySieuThi.Services
             hd.MaNV = nv.MaNV;
             hd.MaKH = kh.MaKH;
             hd.NgayTao = DateTime.Now;
-            hd.TrangThaiTT = "ChuaThanhToan";
+            hd.TrangThaiTT = false;
            
             this.danhSachHoaDon.Add(hd);
             return hd;

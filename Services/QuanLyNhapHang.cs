@@ -24,7 +24,7 @@ namespace QuanLySieuThi.Services
         {
             PhieuNhap pn = new PhieuNhap();
             pn.MaNCC = ncc.MaNCC;
-            pn.NgayTao = System.DateTime.Now;
+            pn.NgayLap = System.DateTime.Now;
             this.danhSachPhieuNhap.Add(pn);
             return pn;
         }

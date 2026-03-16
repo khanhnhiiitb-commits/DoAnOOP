@@ -1,10 +1,12 @@
 using System;
+using QuanLySieuThi.Models.Products;
 
 namespace QuanLySieuThi.Models.Sales
 {
     public class ChiTietHoaDon
     {
         private string maCTHD;
+        private string maHH;
         private int soLuongMua;
         private double giaBan;
         private double thanhTien;
@@ -13,6 +15,12 @@ namespace QuanLySieuThi.Models.Sales
         {
             get { return maCTHD; }
             set { maCTHD = value; }
+        }
+
+        public string MaHH
+        {
+            get { return maHH; }
+            set { maHH = value; }
         }
 
         public int SoLuongMua

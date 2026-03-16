@@ -8,54 +8,34 @@ namespace QuanLySieuThi.Models.People
         private DateTime ngayVaoLam;
         private string maCaLV;
 
-        public string GetMaNV()
-        {
-            return maNV;
+        public string MaNV 
+        { 
+            get { return maNV; } 
+            set { maNV = value; } 
         }
 
-        public void SetMaNV(string maNV)
-        {
-            this.maNV = maNV;
+        public string ChucVu 
+        { 
+            get { return chucVu; } 
+            set { chucVu = value; } 
         }
 
-        public string GetChucVu()
-        {
-            return chucVu;
+        public double LuongCB 
+        { 
+            get { return luongCB; } 
+            set { luongCB = value; } 
         }
 
-        public void SetChucVu(string chucVu)
-        {
-            this.chucVu = chucVu;
+        public DateTime NgayVaoLam 
+        { 
+            get { return ngayVaoLam; } 
+            set { ngayVaoLam = value; } 
         }
 
-        public double GetLuongCB()
-        {
-            return luongCB;
-        }
-
-        public void SetLuongCB(double luongCB)
-        {
-            this.luongCB = luongCB;
-        }
-
-        public DateTime GetNgayVaoLam()
-        {
-            return ngayVaoLam;
-        }
-
-        public void SetNgayVaoLam(DateTime ngayVaoLam)
-        {
-            this.ngayVaoLam = ngayVaoLam;
-        }
-
-        public string GetMaCaLV()
-        {
-            return maCaLV;
-        }
-
-        public void SetMaCaLV(string maCaLV)
-        {
-            this.maCaLV = maCaLV;
+        public string MaCaLV 
+        { 
+            get { return maCaLV; } 
+            set { maCaLV = value; } 
         }
     }
 }

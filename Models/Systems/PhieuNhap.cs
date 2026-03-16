@@ -5,7 +5,8 @@ namespace QuanLySieuThi.Models.Systems
 {//sua
     public class PhieuNhap
     {
-       public string MaPN { get; set; }           
+       public string MaPN { get; set; } 
+        public string MaNCC {get; set;}          
         public DateTime NgayNhap { get; set; }      
         public string TongTien { get; set; }        
         public string SoDienThoai { get; set; }     

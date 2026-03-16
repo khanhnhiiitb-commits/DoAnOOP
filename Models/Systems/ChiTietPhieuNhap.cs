@@ -3,14 +3,14 @@ namespace QuanLySieuThi.Systems
     public class ChiTietPhieuNhap
     {
         private string maPN;
-        private string maMH;
+        private string maHH;
         private int soLuong;
         private double donGia;
 
         public string MaPN { get {return maPN;} set {maPN = value;} }
         public string MaHH { get {return maHH;} set {maHH = value;} }
-        public string SoLuong { get {return soLuong;} set {soLuong = value;} }
-        public string DonGia { get {return donGia;} set {donGia} }
+        public int SoLuong { get {return soLuong;} set {soLuong = value;} }
+        public double DonGia { get {return donGia;} set {donGia;} }
 
         public ChiTietPhieuNhap() { }
 

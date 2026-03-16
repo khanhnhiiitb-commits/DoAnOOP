@@ -20,7 +20,7 @@ namespace QuanLySieuThi.Models.People
             set { loaiKhachHang = value; } 
         }
 
-        public string DiemTichLuy 
+        public int DiemTichLuy 
         { 
             get { return diemTichLuy; } 
             set { diemTichLuy = value; } 
