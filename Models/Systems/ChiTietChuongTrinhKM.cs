@@ -26,7 +26,7 @@ namespace QuanLySieuThi.Models.Systems
             set 
             { 
                 // Logic kiểm tra: Phần trăm giảm giá không được âm
-                if (value >= 0) 
+                if (value >= 0 && value <=100) 
                     phanTramGiam = value; 
             }
         }

@@ -25,6 +25,11 @@ namespace QuanLySieuThi.Models.Products
             this.hSD = hsd;
         }
 
+        public override bool KiemTraChatLuong()
+        {
+        return DateTime.Now < hSD;
+        }
+
         public bool KiemTraHetHan()
         {
         return DateTime.Now > hSD;

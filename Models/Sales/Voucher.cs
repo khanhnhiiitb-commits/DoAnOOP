@@ -35,5 +35,32 @@ namespace QuanLySieuThi.Models.Sales
 
             return false;
         }
+
+        public Voucher() { }
+
+        public Voucher(string ma, string ten, double gt, DateTime batDau, DateTime ketThuc)
+        {
+            this.maVoucher = ma;
+            this.tenVoucher = ten;
+            this.giaTri = gt;
+            this.ngayBatDau = batDau;
+            this.ngayKetThuc = ketThuc;
+            this.trangThai = true; // Mặc định tạo ra là có thể dùng ngay
+        }
+
+        public double TinhSoTienGiam(double tongTienHoaDon)
+        {
+            if (!KiemTraHieuLuc()) return 0;
+
+            if (loaiVoucher == "PhanTram")
+            {
+            // Ví dụ giaTri = 10 (tức là 10%)
+            return tongTienHoaDon * (giaTri / 100);
+            }
+            else // Giam theo so tien co dinh
+            {
+                return giaTri;
+            }
+        }
     }
 }

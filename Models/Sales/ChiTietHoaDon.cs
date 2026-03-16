@@ -53,5 +53,16 @@ namespace QuanLySieuThi.Models.Sales
         {
             thanhTien = soLuongMua * giaBan;
         }
+
+        public ChiTietHoaDon() { }
+
+        public ChiTietHoaDon(string maCT, string maH, int sl, double gia)
+        {
+        this.maCTHD = maCT;
+        this.maHH = maH;
+        this.soLuongMua = sl;
+        this.giaBan = gia;
+        TinhThanhTien(); 
+        }
     }
 }

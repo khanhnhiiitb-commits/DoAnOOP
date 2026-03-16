@@ -43,5 +43,11 @@ namespace QuanLySieuThi.Models.Systems
             this.vaiTro = vaiTro;
             this.trangThai = trangThai;
         }
+
+        public bool KiemTraMatKhau(string mk)
+        {
+            // Kiểm tra xem mật khẩu nhập vào có khớp với mật khẩu lưu trữ không
+            return this.matKhau == mk;
+        }
     }
 }

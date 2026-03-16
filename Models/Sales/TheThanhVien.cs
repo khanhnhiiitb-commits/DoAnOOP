@@ -35,5 +35,15 @@ namespace QuanLySieuThi.Models.Sales
                 diemTichLuy = diemTichLuy - diem;
             }
         }
+
+        public TheThanhVien() { }
+
+        public TheThanhVien(string ma)
+        {
+            this.maThe = ma;
+            this.ngayDangKy = DateTime.Now;
+            this.diemTichLuy = 0;
+            this.trangThai = true; // Thẻ mới mặc định là đang hoạt động
+        }
     }
 }

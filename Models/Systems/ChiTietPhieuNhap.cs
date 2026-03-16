@@ -1,4 +1,4 @@
-namespace QuanLySieuThi.Systems
+namespace QuanLySieuThi.Models.Systems
 {
     public class ChiTietPhieuNhap
     {
@@ -6,7 +6,6 @@ namespace QuanLySieuThi.Systems
         private string maMH;
         private int soLuong;
         private double donGia;
-        private List<ChiTietPhieuNhap> danhSachChiTiet = new List<ChiTietPhieuNhap>();
 
         // Properties
         public string MaPN
@@ -40,14 +39,6 @@ namespace QuanLySieuThi.Systems
             { 
                 return soLuong * donGia; 
             } 
-        }
-
-        
-
-        public List<ChiTietPhieuNhap> DanhSachChiTiet
-        {
-            get { return danhSachChiTiet; }
-            set { danhSachChiTiet = value; }
         }
 
         // Constructor mặc định

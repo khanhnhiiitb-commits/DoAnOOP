@@ -10,6 +10,7 @@ namespace QuanLySieuThi.Models.Systems
         private DateTime ngayBatDau;
         private DateTime ngayKetThuc;
         private string noiDung;
+        private List<ChiTietChuongTrinhKM> danhSachChiTiet = new List<ChiTietChuongTrinhKM>();
 
         // Properties
         public string MaCTKM
@@ -47,6 +48,12 @@ namespace QuanLySieuThi.Models.Systems
             set { noiDung = value; }
         }
 
+        public List<ChiTietChuongTrinhKM> DanhSachChiTiet 
+        { 
+            get { return danhSachChiTiet; } 
+            set { danhSachChiTiet = value; } 
+        }
+
         // Constructor mặc định
         public ChuongTrinhKhuyenMai() { }
 
@@ -58,6 +65,12 @@ namespace QuanLySieuThi.Models.Systems
             this.ngayBatDau = bd;
             this.ngayKetThuc = kt;
             this.noiDung = nd;
+        }
+
+        public bool DangDienRa()
+        {
+            DateTime hienTai = DateTime.Now;
+            return hienTai >= ngayBatDau && hienTai <= ngayKetThuc;
         }
     }
 }

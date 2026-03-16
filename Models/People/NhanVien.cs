@@ -6,7 +6,7 @@ namespace QuanLySieuThi.Models.People
         private string chucVu;
         private double luongCB;
         private DateTime ngayVaoLam;
-        private string maCaLV;
+        private string maCa;
 
         public string MaNV 
         { 
@@ -32,10 +32,10 @@ namespace QuanLySieuThi.Models.People
             set { ngayVaoLam = value; } 
         }
 
-        public string MaCaLV 
+        public string MaCa
         { 
-            get { return maCaLV; } 
-            set { maCaLV = value; } 
+            get { return maCa; } 
+            set { maCa = value; } 
         }
 
         public NhanVien(string ma, string ten, string chucVu) : base(ma, ten) // Đẩy mã và tên lên lớp Nguoi

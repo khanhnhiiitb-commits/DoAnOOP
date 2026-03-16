@@ -5,9 +5,6 @@ namespace QuanLySieuThi.Models.Systems
     public class BangChamCong
     {
        
-   
-    
-        
         private string maNhanVien;
         private int thang;
         private int nam;
@@ -60,6 +57,9 @@ namespace QuanLySieuThi.Models.Systems
         }
 
         // Constructor 
+
+        public BangChamCong() { }
+
         public BangChamCong(string maNV, int t, int n, int lam, int nghi, double pc, string note)
         {
             this.maNhanVien = maNV;
@@ -75,6 +75,13 @@ namespace QuanLySieuThi.Models.Systems
         public int TinhTongCong()
         {
             return soNgayLamViec + soNgayNghi;
+        }
+
+        public double TinhLuongThucNhan(double luongCB)
+        {
+        // Giả sử: Lương = (Lương cơ bản / 26 ngày công) * số ngày làm + Phụ cấp
+        double luongMotNgay = luongCB / 26;
+        return (luongMotNgay * soNgayLamViec) + phuCap;
         }
     }
 }
