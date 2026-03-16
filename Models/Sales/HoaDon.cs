@@ -6,6 +6,8 @@ namespace QuanLySieuThi.Models.Sales
     public class HoaDon
     {
         private string maHD;
+        private string maNV;
+        private string maKH;
         private DateTime ngayTao;
         private double tongTien;
         private bool trangThaiTT;
@@ -17,6 +19,18 @@ namespace QuanLySieuThi.Models.Sales
             set { maHD = value; }
         }
 
+        public string MaNV 
+        { 
+            get { return maNV; } 
+            set { maNV = value; } 
+        }
+
+        public string MaKH 
+        { 
+            get { return maKH; } 
+            set { maKH = value; } 
+        }
+
         public DateTime NgayTao
         {
             get { return ngayTao; }
@@ -26,7 +40,7 @@ namespace QuanLySieuThi.Models.Sales
         public double TongTien
         {
             get { return tongTien; }
-            private set { tongTien = value; }
+            set { tongTien = value; }
         }
 
         public bool TrangThaiTT
@@ -45,6 +59,17 @@ namespace QuanLySieuThi.Models.Sales
             danhSachChiTiet = new List<ChiTietHoaDon>();
             tongTien = 0;
             trangThaiTT = false;
+        }
+        
+        public HoaDon(string ma, string maNV, string maKH)
+        {
+            this.maHD = ma;
+            this.maNV = maNV; 
+            this.maKH = maKH; 
+            this.ngayTao = DateTime.Now; 
+            this.danhSachChiTiet = new List<ChiTietHoaDon>();
+            this.tongTien = 0;
+            this.trangThaiTT = false;
         }
 
         public void ThemChiTiet(ChiTietHoaDon ct)

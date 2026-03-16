@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace QuanLySieuThi.Models.Systems
-{
+{//sua
     public class PhieuNhap
     {
        public string MaPN { get; set; }           

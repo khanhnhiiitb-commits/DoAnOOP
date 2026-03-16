@@ -4,37 +4,32 @@ namespace QuanLySieuThi.Models.People
     public class KhachHang : Nguoi
     {
         private string maKH;
+        private string loaiKhachHang;
         private int diemTichLuy;
         private string maTheTV;
 
-        public string GetMaKH()
-        {
-            return maKH;
+        public string MaKH 
+        { 
+            get { return maKH; } 
+            set { maKH = value; } 
         }
 
-        public void SetMaKH(string maKH)
-        {
-            this.maKH = maKH;
+        public string LoaiKhachHang 
+        { 
+            get { return loaiKhachHang; } 
+            set { loaiKhachHang = value; } 
         }
 
-        public int GetDiemTichLuy()
-        {
-            return diemTichLuy;
+        public string DiemTichLuy 
+        { 
+            get { return diemTichLuy; } 
+            set { diemTichLuy = value; } 
         }
 
-        public void SetDiemTichLuy(int diemTichLuy)
-        {
-            this.diemTichLuy = diemTichLuy;
-        }
-
-        public string GetMaTheTV()
-        {
-            return maTheTV;
-        }
-
-        public void SetMaTheTV(string maTheTV)
-        {
-            this.maTheTV = maTheTV;
+        public string MaTheTV 
+        { 
+            get { return maTheTV; } 
+            set { maTheTV = value; } 
         }
     }
 }

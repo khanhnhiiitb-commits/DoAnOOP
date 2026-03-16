@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace QuanLySieuThi.Models.Systems
-{
+{//sua
     public class ChuongTrinhKhuyenMai
     {
        public string MaCTKM { get; set; }

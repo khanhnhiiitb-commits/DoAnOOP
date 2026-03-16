@@ -1,5 +1,5 @@
 namespace QuanLySieuThi.Models.Systems
-{
+{//sua
     public class TaiKhoan
     {
         public string TenDangNhap { get; set; } // Đúng tên trong hình

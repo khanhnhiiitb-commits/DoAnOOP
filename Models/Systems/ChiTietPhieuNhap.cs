@@ -2,27 +2,24 @@ namespace QuanLySieuThi.Systems
 {
     public class ChiTietPhieuNhap
     {
-   public string MaPN { get; set; }
-        public string MaMH { get; set; }
-        public int SoLuong { get; set; }
-        public double DonGia { get; set; }
+        private string maPN;
+        private string maMH;
+        private int soLuong;
+        private double donGia;
 
-        public double ThanhTien 
-        { 
-            get 
-            { 
-                return SoLuong * DonGia; 
-            } 
-        }
+        public string MaPN { get {return maPN;} set {maPN = value;} }
+        public string MaHH { get {return maHH;} set {maHH = value;} }
+        public string SoLuong { get {return soLuong;} set {soLuong = value;} }
+        public string DonGia { get {return donGia;} set {donGia} }
 
         public ChiTietPhieuNhap() { }
 
         public ChiTietPhieuNhap(string maPN, string maMH, int sl, double dg)
         {
-            MaPN = maPN;
-            MaMH = maMH;
-            SoLuong = sl;
-            DonGia = dg;
+            this.maPN = maPN;
+            this.maMH = maMH;
+            this.soLuong = sl;
+            this.donGia = dg;
         }
     }
 }

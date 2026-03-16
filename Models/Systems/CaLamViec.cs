@@ -1,11 +1,11 @@
 namespace QuanLySieuThi.Models.Systems
 {
     public class CaLamViec
-    {
-        public string MaCa { get; set; }
-        public string TenCa { get; set; }
-        public string GioBatDau { get; set; }
-        public string GioKetThuc { get; set; }
+    {//sua
+        private string MaCa { get; set; }
+        private string TenCa { get; set; }
+        private string GioBatDau { get; set; }
+        private string GioKetThuc { get; set; }
 
         public CaLamViec() { }
 

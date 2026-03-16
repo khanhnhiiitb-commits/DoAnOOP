@@ -1,7 +1,7 @@
 using System;
 
 namespace QuanLySieuThi.Models.Systems
-{
+{//sua
     public class BangChamCong
     {
         public string MaNV { get; set; }           
