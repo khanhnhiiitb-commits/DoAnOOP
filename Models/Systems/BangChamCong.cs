@@ -6,7 +6,7 @@ namespace QuanLySieuThi.Models.Systems
     {
        
    
-    {
+    
         
         private string maNhanVien;
         private int thang;
@@ -76,7 +76,5 @@ namespace QuanLySieuThi.Models.Systems
         {
             return soNgayLamViec + soNgayNghi;
         }
-    }
-}
     }
 }

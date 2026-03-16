@@ -37,5 +37,13 @@ namespace QuanLySieuThi.Models.People
             get { return maCaLV; } 
             set { maCaLV = value; } 
         }
+
+        public NhanVien(string ma, string ten, string chucVu) : base(ma, ten) // Đẩy mã và tên lên lớp Nguoi
+        {
+            this.maNV = ma;
+            this.chucVu = chucVu;
+            this.ngayVaoLam = DateTime.Now; 
+            this.luongCB = 0; 
+        }
     }
 }

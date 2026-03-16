@@ -1,18 +1,11 @@
 namespace QuanLySieuThi.Models.Systems
 {
     public class ChiTietChuongTrinhKM
-<<<<<<< HEAD
-    {//sua
-       public string MaCTKM { get; set; }
-        public string MaMH { get; set; }
-        public double PhanTramGiam { get; set; } // Ví dụ: 0.1 tương ứng 10%
-=======
     {
     
         private string maCTKM;
         private string maMH;
         private double phanTramGiam;
->>>>>>> 1c50ed41b2c3072aa0c0c13d75b4afb9211f2b03
 
     
         public string MaCTKM

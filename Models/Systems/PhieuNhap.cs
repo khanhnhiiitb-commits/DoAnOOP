@@ -3,22 +3,28 @@ using System.Collections.Generic;
 
 namespace QuanLySieuThi.Models.Systems
 {//sua
-    public class PhieuNhap
-  {
+  public class PhieuNhap
+ {
     
        // Private Fields
         private string maPN;
+        private string maNCC;
         private DateTime ngayNhap;
         private double tongTien; 
         private string soDienThoai;
         private string email;
->>>>>>> 1c50ed41b2c3072aa0c0c13d75b4afb9211f2b03
 
         // Properties
         public string MaPN
         {
             get { return maPN; }
             set { maPN = value; }
+        }
+
+        public string MaNCC
+        {
+            get { return maNCC; }
+            set { maNCC = value; }
         }
 
         public DateTime NgayNhap
@@ -57,5 +63,5 @@ namespace QuanLySieuThi.Models.Systems
             this.soDienThoai = soDienThoai;
             this.email = email;
         }
-    }
+   }
 }

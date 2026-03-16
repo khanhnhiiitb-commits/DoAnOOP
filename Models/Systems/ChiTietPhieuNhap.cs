@@ -2,21 +2,11 @@ namespace QuanLySieuThi.Systems
 {
     public class ChiTietPhieuNhap
     {
-<<<<<<< HEAD
-        private string maPN;
-        private string maHH;
-        private int soLuong;
-        private double donGia;
-
-        public string MaPN { get {return maPN;} set {maPN = value;} }
-        public string MaHH { get {return maHH;} set {maHH = value;} }
-        public int SoLuong { get {return soLuong;} set {soLuong = value;} }
-        public double DonGia { get {return donGia;} set {donGia;} }
-=======
    private string maPN;
         private string maMH;
         private int soLuong;
         private double donGia;
+        private List<ChiTietPhieuNhap> danhSachChiTiet = new List<ChiTietPhieuNhap>();
 
         // Properties
         public string MaPN
@@ -51,7 +41,14 @@ namespace QuanLySieuThi.Systems
                 return soLuong * donGia; 
             } 
         }
->>>>>>> 1c50ed41b2c3072aa0c0c13d75b4afb9211f2b03
+
+        
+
+        public List<ChiTietPhieuNhap> DanhSachChiTiet
+        {
+            get { return danhSachChiTiet; }
+            set { danhSachChiTiet = value; }
+        }
 
         // Constructor mặc định
         public ChiTietPhieuNhap() { }

@@ -36,7 +36,7 @@ namespace QuanLySieuThi.Models.Systems
         // Constructor mặc định
         public TaiKhoan() { }
 
-        public TaiKhoan(string tenDN, string matKhau, string vaiTro, bool trangThai)
+        public TaiKhoan(string tenDN, string matKhau, string vaiTro, bool trangThai = true)
         {
             this.tenDangNhap = tenDN;
             this.matKhau = matKhau;
