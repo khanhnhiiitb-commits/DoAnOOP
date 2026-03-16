@@ -77,9 +77,9 @@ namespace QuanLySieuThi.Data
             {
                 KhachHang kh = new KhachHang();
                 // Sử dụng các phương thức Set thủ công của lớp KhachHang
-                kh.MaKH;
-                kh.DiemTichLuy;
-                kh.MaTheTV;
+                kh.MaKH = parts[1]; 
+                kh.DiemTichLuy = int.Parse(parts[2]);
+                kh.MaTheTV = parts[3];
                 // Lưu ý: Các thuộc tính từ lớp Nguoi (như HoTen) nếu có 
                 // bạn có thể bổ sung thêm việc Set tại đây.
                 return kh;
