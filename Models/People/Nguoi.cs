@@ -9,63 +9,27 @@ namespace QuanLySieuThi.Models.People
         private string soDienThoai;
         private string diaChi;
 
-        public string GetMa()
-        {
-            return ma;
-        }
+        public string Ma{ get{ return ma; } set {ma = value;} }
 
-        public void SetMa(string ma)
-        {
-            this.ma = ma;
-        }
+        public string HoTen{ get{ return hoTen; } set {hoTen = value;} }
 
-        public string GetHoTen()
-        {
-            return hoTen;
-        }
+        public DateTime NgaySinh{ get{ return ngaySinh; } set {ngaySinh = value;} }
 
-        public void SetHoTen(string hoTen)
+        public bool GioiTinh{ get{ return gioiTinh; } set {gioiTinh = value;} }
+
+        public string SoDienThoai{ get{ return soDienThoai; } set {soDienThoai = value;} }
+
+        public string DiaChi{ get{ return diaChi; } set {diaChi = value;} }
+        
+
+        public Nguoi() { }
+
+        public Nguoi(string hoTen, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi)
         {
             this.hoTen = hoTen;
-        }
-
-        public DateTime GetNgaySinh()
-        {
-            return ngaySinh;
-        }
-
-        public void SetNgaySinh(DateTime ngaySinh)
-        {
             this.ngaySinh = ngaySinh;
-        }
-
-        public bool GetGioiTinh()
-        {
-            return gioiTinh;
-        }
-
-        public void SetGioiTinh(bool gioiTinh)
-        {
             this.gioiTinh = gioiTinh;
-        }
-
-        public string GetSoDienThoai()
-        {
-            return soDienThoai;
-        }
-
-        public void SetSoDienThoai(string soDienThoai)
-        {
             this.soDienThoai = soDienThoai;
-        }
-
-        public string GetDiaChi()
-        {
-            return diaChi;
-        }
-
-        public void SetDiaChi(string diaChi)
-        {
             this.diaChi = diaChi;
         }
     }
