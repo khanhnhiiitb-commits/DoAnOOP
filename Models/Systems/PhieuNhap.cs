@@ -4,15 +4,8 @@ using System.Collections.Generic;
 namespace QuanLySieuThi.Models.Systems
 {//sua
     public class PhieuNhap
-    {
-<<<<<<< HEAD
-       public string MaPN { get; set; } 
-        public string MaNCC {get; set;}          
-        public DateTime NgayNhap { get; set; }      
-        public string TongTien { get; set; }        
-        public string SoDienThoai { get; set; }     
-        public string Email { get; set; }          
-=======
+  {
+    
        // Private Fields
         private string maPN;
         private DateTime ngayNhap;
