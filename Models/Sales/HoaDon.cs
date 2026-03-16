@@ -12,7 +12,13 @@ namespace QuanLySieuThi.Models.Sales
         private double tongTien;
         private bool trangThaiTT;
         private List<ChiTietHoaDon> danhSachChiTiet;
+        private bool daApDungVoucher = false;
 
+        public bool DaApDungVoucher 
+        { 
+            get {return daApDungVoucher;}
+            set  {daApDungVoucher = value;}
+        }
         public string MaHD
         {
             get { return maHD; }
