@@ -2,19 +2,46 @@ namespace QuanLySieuThi.Models.Systems
 {//sua
     public class TaiKhoan
     {
-        public string TenDangNhap { get; set; } // Đúng tên trong hình
-        public string MatKhau { get; set; }     // Đúng tên trong hình
-        public string VaiTro { get; set; }      // Sửa từ LoaiTaiKhoan -> VaiTro
-        public bool TrangThai { get; set; }     // Sửa từ TinhTrang -> TrangThai
+     
+        private string tenDangNhap;
+        private string matKhau;
+        private string vaiTro;
+        private bool trangThai;
 
+    
+        public string TenDangNhap
+        {
+            get { return tenDangNhap; }
+            set { tenDangNhap = value; }
+        }
+
+        public string MatKhau
+        {
+            get { return matKhau; }
+            set { matKhau = value; }
+        }
+
+        public string VaiTro
+        {
+            get { return vaiTro; }
+            set { vaiTro = value; }
+        }
+
+        public bool TrangThai
+        {
+            get { return trangThai; }
+            set { trangThai = value; }
+        }
+
+        // Constructor mặc định
         public TaiKhoan() { }
 
         public TaiKhoan(string tenDN, string matKhau, string vaiTro, bool trangThai)
         {
-            TenDangNhap = tenDN;
-            MatKhau = matKhau;
-            VaiTro = vaiTro;
-            TrangThai = trangThai;
+            this.tenDangNhap = tenDN;
+            this.matKhau = matKhau;
+            this.vaiTro = vaiTro;
+            this.trangThai = trangThai;
         }
     }
 }
