@@ -5,8 +5,10 @@ namespace QuanLySieuThi.Models.Systems
      
         private string tenDangNhap;
         private string matKhau;
-        private string vaiTro;
         private bool trangThai;
+        private Role userRole;
+
+
 
     
         public string TenDangNhap
@@ -21,10 +23,10 @@ namespace QuanLySieuThi.Models.Systems
             set { matKhau = value; }
         }
 
-        public string VaiTro
+        public Role UserRole    
         {
-            get { return vaiTro; }
-            set { vaiTro = value; }
+            get { return userRole; }
+            set { userRole = value; }
         }
 
         public bool TrangThai
@@ -36,11 +38,11 @@ namespace QuanLySieuThi.Models.Systems
         // Constructor mặc định
         public TaiKhoan() { }
 
-        public TaiKhoan(string tenDN, string matKhau, string vaiTro, bool trangThai = true)
+        public TaiKhoan(string tenDN, string matKhau, Role role, bool trangThai = true)
         {
             this.tenDangNhap = tenDN;
             this.matKhau = matKhau;
-            this.vaiTro = vaiTro;
+            this.userRole = role;
             this.trangThai = trangThai;
         }
 
