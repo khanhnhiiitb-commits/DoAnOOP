@@ -62,6 +62,7 @@ namespace QuanLySieuThi.Models.Sales
         this.maHH = maH;
         this.soLuongMua = sl;
         this.giaBan = gia;
+        
         TinhThanhTien(); 
         }
     }

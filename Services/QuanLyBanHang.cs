@@ -80,22 +80,22 @@ namespace QuanLySieuThi.Services
             return false;
         }
 
-        // 4. Áp dụng Voucher 
+        // 4. Áp dụng Voucher (Sử dụng Đa hình)
         public string ApDungVoucher(HoaDon hd, Voucher v)
         {
             if (v == null) return "Lỗi: Voucher không tồn tại!";
             if (hd.DaApDungVoucher) return "Lỗi: Hóa đơn này đã được áp dụng voucher trước đó!";
-    
+
             if (v.KiemTraHieuLuc())
             {
-                double soTienGiam = (v.LoaiVoucher == "PhanTram") 
-                            ? hd.TongTien * (v.GiaTri / 100) 
-                            : v.GiaTri;
+        
+                // Đối tượng v (dù là Tiền mặt hay Phần trăm) sẽ tự biết cách tính số tiền giảm.
+                double soTienGiam = v.TinhSoTienGiam(hd.TongTien);
 
                 hd.TongTien -= soTienGiam;
                 if (hd.TongTien < 0) hd.TongTien = 0;
-        
-                hd.DaApDungVoucher = true; // Đánh dấu đã dùng voucher
+
+                hd.DaApDungVoucher = true; 
                 return $"Thành công: Đã giảm {soTienGiam:N0} VNĐ.";
             }
             return "Lỗi: Voucher không hiệu lực hoặc hết hạn.";
