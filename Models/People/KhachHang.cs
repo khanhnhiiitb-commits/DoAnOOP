@@ -4,6 +4,7 @@ namespace QuanLySieuThi.Models.People
 {
     public class KhachHang : Nguoi
     {
+    
         private string maKH;
         private string loaiKhachHang;
         private int diemTichLuy;
