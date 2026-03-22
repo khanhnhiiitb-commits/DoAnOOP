@@ -1,19 +1,12 @@
-using System;
-using System.Collections.Generic;
-using QuanLySieuThi.Models.Products;
-using QuanLySieuThi.Models.People;
-using QuanLySieuThi.Models.Systems;
-using QuanLySieuThi.Services;
+namespace ChuongtrinhQuanlybanhangsieuthi;
 
-
-namespace QuanLySieuThi
+static class Program
 {
-    class Program
+    [STAThread]
+    static void Main()
     {
-        static void Main(string[] args)
-        {
-            
-        }
+        // Các cấu hình giao diện cơ bản
+        ApplicationConfiguration.Initialize();
+        Application.Run(new FrmLogin()); 
     }
 }
-
