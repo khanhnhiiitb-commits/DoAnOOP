@@ -80,7 +80,7 @@ namespace QuanLySieuThi.Services
             return false;
         }
 
-        // 4. Áp dụng Voucher (Sử dụng Đa hình)
+        // 4. Áp dụng Voucher
         public string ApDungVoucher(HoaDon hd, Voucher v)
         {
             if (v == null) return "Lỗi: Voucher không tồn tại!";
@@ -88,8 +88,6 @@ namespace QuanLySieuThi.Services
 
             if (v.KiemTraHieuLuc())
             {
-        
-                // Đối tượng v (dù là Tiền mặt hay Phần trăm) sẽ tự biết cách tính số tiền giảm.
                 double soTienGiam = v.TinhSoTienGiam(hd.TongTien);
 
                 hd.TongTien -= soTienGiam;

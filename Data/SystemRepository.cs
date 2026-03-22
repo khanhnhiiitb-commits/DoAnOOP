@@ -70,7 +70,7 @@ namespace QuanLySieuThi.Data
 
         private string MapTaiKhoanToLine(TaiKhoan tk)
         {
-            return "TK|" + tk.TenDangNhap + "|" + tk.MatKhau + "|" + tk.VaiTro + "|" + tk.TrangThai;
+            return "TK|" + tk.TenDangNhap + "|" + tk.MatKhau + "|" + tk.QuyenHan.TenRole + "|" + tk.TrangThai;
         }
 
         private CaLamViec MapLineToCaLamViec(string[] p)
