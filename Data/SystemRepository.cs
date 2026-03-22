@@ -77,7 +77,7 @@ namespace QuanLySieuThi.Data
 
         private string MapTaiKhoanToLine(TaiKhoan tk)
         {
-            string tenRole = (tk.QuyenHan != null) ? tk.QuyenHan.TenRole : "NhanVien";
+            string tenRole = (tk.Role != null) ? tk.Role.UserRole : "NhanVien";
             return "TK|" + tk.TenDangNhap + "|" + tk.MatKhau + "|" + tenRole + "|" + tk.TrangThai;
         }
 
