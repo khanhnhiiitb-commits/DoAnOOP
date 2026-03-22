@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using QuanLySieuThi.Models.Sales;
 
 namespace QuanLySieuThi.Models.Systems
 {//sua
-    public class ChuongTrinhKhuyenMai
+    public abstract class ChuongTrinhKhuyenMai
     {
        private string maCTKM;
         private string tenCT;
@@ -72,5 +73,8 @@ namespace QuanLySieuThi.Models.Systems
             DateTime hienTai = DateTime.Now;
             return hienTai >= ngayBatDau && hienTai <= ngayKetThuc;
         }
+
+        public abstract bool KiemTraDieuKien(HoaDon hd);
+        public abstract double TinhSoTienGiam(double tongTienHD);
     }
 }

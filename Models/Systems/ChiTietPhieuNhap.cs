@@ -3,7 +3,7 @@ namespace QuanLySieuThi.Models.Systems
     public class ChiTietPhieuNhap
     {
    private string maPN;
-        private string maMH;
+        private string maHH;
         private int soLuong;
         private double donGia;
 
@@ -14,10 +14,10 @@ namespace QuanLySieuThi.Models.Systems
             set { maPN = value; }
         }
 
-        public string MaMH
+        public string MaHH
         {
-            get { return maMH; }
-            set { maMH = value; }
+            get { return maHH; }
+            set { maHH = value; }
         }
 
         public int SoLuong
@@ -45,10 +45,10 @@ namespace QuanLySieuThi.Models.Systems
         public ChiTietPhieuNhap() { }
 
         // Constructor đầy đủ tham số
-        public ChiTietPhieuNhap(string maPN, string maMH, int sl, double dg)
+        public ChiTietPhieuNhap(string maPN, string maHH, int sl, double dg)
         {
             this.maPN = maPN;
-            this.maMH = maMH;
+            this.maHH = maHH;
             this.soLuong = sl;
             this.donGia = dg;
         }
