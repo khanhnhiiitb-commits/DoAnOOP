@@ -60,17 +60,25 @@ namespace QuanLySieuThi.Data
 
         // ---------------- PRIVATE HELPER METHODS ----------------
 
+        private Role LayRoleHeThong(string tenRole)
+        {
+            if (tenRole == "Admin") 
+                return new Role("R01", "Admin", "Toàn quyền hệ thống");
+    
+            return new Role("R02", "NhanVien", "Nhân viên bán hàng");
+        }
         private TaiKhoan MapLineToTaiKhoan(string[] p)
         {
-            // p[0] la prefix "TK"
-            bool status = false;
-            if (p[4] == "True") status = true;
-            return new TaiKhoan(p[1], p[2], p[3], status);
+        string tenRoleTuFile = p[3]; 
+        Role roleTuongUng = LayRoleHeThong(tenRoleTuFile);
+        TaiKhoan tk = new TaiKhoan(p[1], p[2], roleTuongUng, bool.Parse(p[4]));
+        return tk; 
         }
 
         private string MapTaiKhoanToLine(TaiKhoan tk)
         {
-            return "TK|" + tk.TenDangNhap + "|" + tk.MatKhau + "|" + tk.QuyenHan.TenRole + "|" + tk.TrangThai;
+            string tenRole = (tk.QuyenHan != null) ? tk.QuyenHan.TenRole : "NhanVien";
+            return "TK|" + tk.TenDangNhap + "|" + tk.MatKhau + "|" + tenRole + "|" + tk.TrangThai;
         }
 
         private CaLamViec MapLineToCaLamViec(string[] p)

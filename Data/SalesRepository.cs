@@ -71,6 +71,24 @@ namespace QuanLySieuThi.Data
 
         // ---------------- PRIVATE HELPER METHODS (Data Mapping) ----------------
 
+
+        private string MapVoucherToLine(Voucher vc)
+        {
+            string nbd = vc.NgayBatDau.ToString("yyyy-MM-dd");
+            string nkt = vc.NgayKetThuc.ToString("yyyy-MM-dd");
+            string baseData = $"VC|{vc.MaVoucher}|{vc.TenVoucher}|{nbd}|{nkt}|{vc.DKApDung}|{vc.TrangThai}";
+
+            if (vc is VoucherPhanTram vp)
+            {
+                return baseData + $"|PhanTram|{vp.PhanTramGiam}|{vp.GiamToiDa}";
+            }
+            else if (vc is VoucherTienMat vt)
+            {
+                return baseData + $"|TienMat|{vt.SoTienGiamCoDinh}|0";
+            }
+
+            return baseData;
+        }       
         private HoaDon MapLineToHoaDon(string[] p)
         {
             HoaDon hd = new HoaDon();
