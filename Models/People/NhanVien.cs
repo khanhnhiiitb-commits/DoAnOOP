@@ -1,3 +1,5 @@
+using QuanLySieuThi.Models.Systems;
+
 namespace QuanLySieuThi.Models.People
 {
     public class NhanVien : Nguoi
@@ -7,6 +9,13 @@ namespace QuanLySieuThi.Models.People
         private double luongCB;
         private DateTime ngayVaoLam;
         private string maCa;
+        private TaiKhoan taikhoan;
+
+        public TaiKhoan Taikhoan
+        {
+            get { return taikhoan; }
+            set { taikhoan = value; }
+        }
 
         public string MaNV 
         { 

@@ -1,3 +1,6 @@
+using QuanLySieuThi.Data;
+using QuanLySieuThi.Models.People;
+
 namespace ChuongtrinhQuanlybanhangsieuthi;
 
 public partial class FrmLogin : Form
@@ -5,10 +8,10 @@ public partial class FrmLogin : Form
     public FrmLogin()
     {
         InitializeComponent();
-        
+
         // Đăng ký sự kiện Click cho nút Đăng nhập
         this.btnLogin.Click += new EventHandler(btnLogin_Click);
-        
+
         // Đăng ký sự kiện Click cho nút Thoát
         this.btnExit.Click += new EventHandler(btnExit_Click);
     }
@@ -16,17 +19,52 @@ public partial class FrmLogin : Form
     // Hàm xử lý khi bấm nút Đăng nhập
     private void btnLogin_Click(object sender, EventArgs e)
     {
-        if (txtUser.Text == "admin" && txtPass.Text == "123")
+        string user = txtUser.Text.Trim();
+        string pass = txtPass.Text.Trim();
+        NhanVien foundNV = null;
+
+        // Duyệt thủ công (không LINQ)
+        foreach (NhanVien nv in DataStorage.DanhSachNV)
         {
-            MessageBox.Show("Đăng nhập thành công!", "Thông báo");
+            // Kiểm tra đa tầng: nv tồn tại -> có taikhoan -> khớp user/pass
+            if (nv != null && nv.Taikhoan != null &&
+                nv.Taikhoan.TenDangNhap == user &&
+                nv.Taikhoan.MatKhau == pass)
+            {
+                foundNV = nv;
+                break;
+            }
+        }
+
+        if (foundNV != null)
+        {
+            // Kiểm tra xem nhân viên này đã được gán Role chưa trước khi cho vào
+            if (foundNV.Taikhoan.UserRole == null)
+            {
+                MessageBox.Show("Tài khoản này chưa được phân quyền hệ thống!", "Cảnh báo");
+                return;
+            }
+
+            DataStorage.NhanVienDangNhap = foundNV;
+            MessageBox.Show($"Đăng nhập thành công! Chào {foundNV.HoTen}", "Thông báo");
+
+            FrmMain main = new FrmMain();
+            main.Show();
+            this.Hide();
         }
         else
         {
-            MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Lỗi");
+            MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!", "Lỗi");
         }
     }
+
+    // Hàm xử lý khi người dùng nhấn nút Thoát
     private void btnExit_Click(object sender, EventArgs e)
     {
         Application.Exit();
+    }
+    private void FrmLogin_Load(object sender, EventArgs e)
+    {
+
     }
 }

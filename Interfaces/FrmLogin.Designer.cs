@@ -26,68 +26,98 @@ partial class FrmLogin
 
     private void InitializeComponent()
     {
-        this.lblTitle = new System.Windows.Forms.Label();
-        this.lblUser = new System.Windows.Forms.Label();
-        this.lblPass = new System.Windows.Forms.Label();
-        this.txtUser = new System.Windows.Forms.TextBox();
-        this.txtPass = new System.Windows.Forms.TextBox();
-        this.btnLogin = new System.Windows.Forms.Button();
-        this.btnExit = new System.Windows.Forms.Button();
-        this.SuspendLayout();
-
+        lblTitle = new Label();
+        lblUser = new Label();
+        lblPass = new Label();
+        txtUser = new TextBox();
+        txtPass = new TextBox();
+        btnLogin = new Button();
+        btnExit = new Button();
+        SuspendLayout();
+        // 
         // lblTitle
-        this.lblTitle.AutoSize = true;
-        this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-        this.lblTitle.Location = new System.Drawing.Point(100, 30);
-        this.lblTitle.Text = "ĐĂNG NHẬP HỆ THỐNG";
-
-        // lblUser (Nhãn Tên đăng nhập)
-        this.lblUser.Location = new System.Drawing.Point(50, 100);
-        this.lblUser.Text = "Tên đăng nhập:";
-
-        // txtUser (Ô nhập User)
-        this.txtUser.Location = new System.Drawing.Point(180, 97);
-        this.txtUser.Size = new System.Drawing.Size(200, 23);
-        this.txtUser.Name = "txtUser";
-
-        // lblPass (Nhãn Mật khẩu)
-        this.lblPass.Location = new System.Drawing.Point(50, 140);
-        this.lblPass.Text = "Mật khẩu:";
-
-        // txtPass (Ô nhập Pass)
-        this.txtPass.Location = new System.Drawing.Point(180, 137);
-        this.txtPass.Size = new System.Drawing.Size(200, 23);
-        this.txtPass.PasswordChar = '*'; // Hiện dấu sao để bảo mật
-        this.txtPass.Name = "txtPass";
-
+        // 
+        lblTitle.AutoSize = true;
+        lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+        lblTitle.Location = new Point(34, 45);
+        lblTitle.Name = "lblTitle";
+        lblTitle.Size = new Size(496, 41);
+        lblTitle.TabIndex = 6;
+        lblTitle.Text = "ĐĂNG NHẬP HỆ THỐNG SIÊU THỊ";
+        // 
+        // lblUser
+        // 
+        lblUser.Location = new Point(57, 133);
+        lblUser.Name = "lblUser";
+        lblUser.Size = new Size(114, 31);
+        lblUser.TabIndex = 5;
+        lblUser.Text = "Tên đăng nhập:";
+        // 
+        // lblPass
+        // 
+        lblPass.Location = new Point(57, 187);
+        lblPass.Name = "lblPass";
+        lblPass.Size = new Size(114, 31);
+        lblPass.TabIndex = 3;
+        lblPass.Text = "Mật khẩu:";
+        // 
+        // txtUser
+        // 
+        txtUser.BackColor = SystemColors.Menu;
+        txtUser.Location = new Point(206, 129);
+        txtUser.Margin = new Padding(3, 4, 3, 4);
+        txtUser.Name = "txtUser";
+        txtUser.Size = new Size(228, 27);
+        txtUser.TabIndex = 4;
+        // 
+        // txtPass
+        // 
+        txtPass.BackColor = SystemColors.Menu;
+        txtPass.Location = new Point(206, 183);
+        txtPass.Margin = new Padding(3, 4, 3, 4);
+        txtPass.Name = "txtPass";
+        txtPass.PasswordChar = '*';
+        txtPass.Size = new Size(228, 27);
+        txtPass.TabIndex = 2;
+        // 
         // btnLogin
-        this.btnLogin.Location = new System.Drawing.Point(180, 180);
-        this.btnLogin.Size = new System.Drawing.Size(90, 35);
-        this.btnLogin.Text = "Đăng nhập";
-        this.btnLogin.Name = "btnLogin";
-
+        // 
+        btnLogin.Location = new Point(206, 240);
+        btnLogin.Margin = new Padding(3, 4, 3, 4);
+        btnLogin.Name = "btnLogin";
+        btnLogin.Size = new Size(103, 47);
+        btnLogin.TabIndex = 1;
+        btnLogin.Text = "Đăng nhập";
+        // 
         // btnExit
-        this.btnExit.Location = new System.Drawing.Point(290, 180);
-        this.btnExit.Size = new System.Drawing.Size(90, 35);
-        this.btnExit.Text = "Thoát";
-        this.btnExit.Name = "btnExit";
-
-        // FrmLogin (Cài đặt chung cho Form)
-        this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(450, 260);
-        this.Controls.Add(this.btnExit);
-        this.Controls.Add(this.btnLogin);
-        this.Controls.Add(this.txtPass);
-        this.Controls.Add(this.lblPass);
-        this.Controls.Add(this.txtUser);
-        this.Controls.Add(this.lblUser);
-        this.Controls.Add(this.lblTitle);
-        this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-        this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-        this.Text = "Đăng nhập - Siêu thị Nhi";
-        this.ResumeLayout(false);
-        this.PerformLayout();
+        // 
+        btnExit.Location = new Point(331, 240);
+        btnExit.Margin = new Padding(3, 4, 3, 4);
+        btnExit.Name = "btnExit";
+        btnExit.Size = new Size(103, 47);
+        btnExit.TabIndex = 0;
+        btnExit.Text = "Thoát";
+        // 
+        // FrmLogin
+        // 
+        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleMode = AutoScaleMode.Font;
+        BackColor = SystemColors.GradientInactiveCaption;
+        ClientSize = new Size(561, 348);
+        Controls.Add(btnExit);
+        Controls.Add(btnLogin);
+        Controls.Add(txtPass);
+        Controls.Add(lblPass);
+        Controls.Add(txtUser);
+        Controls.Add(lblUser);
+        Controls.Add(lblTitle);
+        FormBorderStyle = FormBorderStyle.FixedDialog;
+        Margin = new Padding(3, 4, 3, 4);
+        Name = "FrmLogin";
+        StartPosition = FormStartPosition.CenterScreen;
+        Load += FrmLogin_Load;
+        ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
