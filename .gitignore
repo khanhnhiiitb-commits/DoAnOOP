@@ -4,6 +4,7 @@
 
 # Chặn file cấu hình cá nhân của VS Code
 .vscode/
+.vs/
 
 # Chặn các file tạm của Visual Studio
 *.user

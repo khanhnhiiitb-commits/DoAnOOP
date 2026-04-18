@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLySieuThi.Data;
 
 namespace ChuongtrinhQuanlybanhangsieuthi
 {
@@ -19,7 +20,15 @@ namespace ChuongtrinhQuanlybanhangsieuthi
 
         private void ucAdminPanel_Load(object sender, EventArgs e)
         {
+            if (DataStorage.Instance.NhanVienDangNhap != null)
+            {
 
+                label1.Text = "Xin chào, " + DataStorage.Instance.NhanVienDangNhap.HoTen + "!";
+            }
+            else
+            {
+                label1.Text = "Xin chào, Admin ẩn danh!";
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -32,6 +41,9 @@ namespace ChuongtrinhQuanlybanhangsieuthi
 
         }
 
-        
+        private void pnlAdminContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

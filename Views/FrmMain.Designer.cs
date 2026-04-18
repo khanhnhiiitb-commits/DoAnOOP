@@ -36,16 +36,17 @@
             pnlContent.Dock = DockStyle.Fill;
             pnlContent.Location = new Point(0, 0);
             pnlContent.Name = "pnlContent";
-            pnlContent.Size = new Size(800, 450);
+            pnlContent.Size = new Size(800, 417);
             pnlContent.TabIndex = 0;
             // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 417);
             Controls.Add(pnlContent);
             Name = "FrmMain";
+            Load += FrmMain_Load;
             ResumeLayout(false);
         }
 

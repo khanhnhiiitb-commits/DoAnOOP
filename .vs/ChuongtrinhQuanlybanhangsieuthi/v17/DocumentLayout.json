@@ -3,28 +3,8 @@
   "WorkspaceRootPath": "F:\\ChuongtrinhQuanlybanhangsieuthi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\chuongtrinhquanlybanhangsieuthi\\interfaces\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:interfaces\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|F:\\ChuongtrinhQuanlybanhangsieuthi\\ucadminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:ucadminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|F:\\ChuongtrinhQuanlybanhangsieuthi\\interfaces\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:interfaces\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\chuongtrinhquanlybanhangsieuthi\\data\\datastorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:data\\datastorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\chuongtrinhquanlybanhangsieuthi\\ucadminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:ucadminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\chuongtrinhquanlybanhangsieuthi\\ucadminpanel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:ucadminpanel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\chuongtrinhquanlybanhangsieuthi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,74 +19,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FrmMain.cs",
-              "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\Interfaces\\FrmMain.cs",
-              "RelativeDocumentMoniker": "Interfaces\\FrmMain.cs",
-              "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\Interfaces\\FrmMain.cs",
-              "RelativeToolTip": "Interfaces\\FrmMain.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwBsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T06:57:45.969Z",
-              "IsPinned": true,
+              "Title": ".gitignore",
+              "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-18T07:46:29.618Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmMain.cs [Design]",
-              "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\Interfaces\\FrmMain.cs",
-              "RelativeDocumentMoniker": "Interfaces\\FrmMain.cs",
-              "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\Interfaces\\FrmMain.cs [Design]",
-              "RelativeToolTip": "Interfaces\\FrmMain.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T06:57:35.163Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ucAdminPanel.cs [Design]",
-              "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\ucAdminPanel.cs",
-              "RelativeDocumentMoniker": "ucAdminPanel.cs",
-              "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\ucAdminPanel.cs [Design]",
-              "RelativeToolTip": "ucAdminPanel.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T08:48:22.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ucAdminPanel.Designer.cs",
-              "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\ucAdminPanel.Designer.cs",
-              "RelativeDocumentMoniker": "ucAdminPanel.Designer.cs",
-              "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\ucAdminPanel.Designer.cs",
-              "RelativeToolTip": "ucAdminPanel.Designer.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAlwDMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T08:42:57.854Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ucAdminPanel.cs",
-              "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\ucAdminPanel.cs",
-              "RelativeDocumentMoniker": "ucAdminPanel.cs",
-              "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\ucAdminPanel.cs",
-              "RelativeToolTip": "ucAdminPanel.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAqwB4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T08:32:31.825Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DataStorage.cs",
-              "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\Data\\DataStorage.cs",
-              "RelativeDocumentMoniker": "Data\\DataStorage.cs",
-              "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\Data\\DataStorage.cs",
-              "RelativeToolTip": "Data\\DataStorage.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAQwCkAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T08:24:01.64Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }
