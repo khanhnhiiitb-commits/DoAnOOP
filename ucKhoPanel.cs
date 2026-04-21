@@ -15,6 +15,8 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         public ucKhoPanel()
         {
             InitializeComponent();
+            GanSuKien();
+            LoadPanel(CreateDanhSach());
         }
         // Gán sự kiện cho button
         private void GanSuKien()
