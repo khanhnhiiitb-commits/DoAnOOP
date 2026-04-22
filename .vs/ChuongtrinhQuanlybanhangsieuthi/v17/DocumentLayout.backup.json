@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:ucadminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\chuongtrinhquanlybanhangsieuthi\\interfaces\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|F:\\ChuongtrinhQuanlybanhangsieuthi\\interfaces\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:interfaces\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "Interfaces\\FrmMain.cs",
               "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\Interfaces\\FrmMain.cs",
               "RelativeToolTip": "Interfaces\\FrmMain.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-24T06:57:45.969Z",
               "IsPinned": true,
@@ -59,8 +59,7 @@
               "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\Interfaces\\FrmMain.cs [Design]",
               "RelativeToolTip": "Interfaces\\FrmMain.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T06:57:35.163Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-03-24T06:57:35.163Z"
             },
             {
               "$type": "Document",
@@ -71,8 +70,7 @@
               "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\ucAdminPanel.cs [Design]",
               "RelativeToolTip": "ucAdminPanel.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T08:48:22.065Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-03-22T08:48:22.065Z"
             },
             {
               "$type": "Document",
@@ -84,8 +82,7 @@
               "RelativeToolTip": "ucAdminPanel.Designer.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAlwDMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T08:42:57.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-22T08:42:57.854Z"
             },
             {
               "$type": "Document",
@@ -97,8 +94,7 @@
               "RelativeToolTip": "ucAdminPanel.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAqwB4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T08:32:31.825Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-22T08:32:31.825Z"
             },
             {
               "$type": "Document",
@@ -110,8 +106,7 @@
               "RelativeToolTip": "Data\\DataStorage.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAQwCkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T08:24:01.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-22T08:24:01.64Z"
             }
           ]
         }
