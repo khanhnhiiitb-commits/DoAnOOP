@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "F:\\ChuongtrinhQuanlybanhangsieuthi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\chuongtrinhquanlybanhangsieuthi\\view\\uckhopanel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\uckhopanel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\chuongtrinhquanlybanhangsieuthi\\view\\uckhopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\uckhopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\chuongtrinhquanlybanhangsieuthi\\view\\uckhopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\uckhopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\chuongtrinhquanlybanhangsieuthi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
@@ -35,6 +47,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ucKhoPanel.Designer.cs",
+              "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\View\\ucKhoPanel.Designer.cs",
+              "RelativeDocumentMoniker": "View\\ucKhoPanel.Designer.cs",
+              "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\View\\ucKhoPanel.Designer.cs*",
+              "RelativeToolTip": "View\\ucKhoPanel.Designer.cs*",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAiwG8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T17:35:05.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ucKhoPanel.cs",
+              "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\View\\ucKhoPanel.cs",
+              "RelativeDocumentMoniker": "View\\ucKhoPanel.cs",
+              "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\View\\ucKhoPanel.cs*",
+              "RelativeToolTip": "View\\ucKhoPanel.cs*",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAiwJcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T17:33:25.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ucKhoPanel.cs [Design]",
+              "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\View\\ucKhoPanel.cs",
+              "RelativeDocumentMoniker": "View\\ucKhoPanel.cs",
+              "ToolTip": "F:\\ChuongtrinhQuanlybanhangsieuthi\\View\\ucKhoPanel.cs [Design]*",
+              "RelativeToolTip": "View\\ucKhoPanel.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T17:33:03.407Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": ".gitignore",
               "DocumentMoniker": "F:\\ChuongtrinhQuanlybanhangsieuthi\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
