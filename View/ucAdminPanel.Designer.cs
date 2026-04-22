@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             AdminMenu = new Panel();
+            button1 = new Button();
             label1 = new Label();
             btnReports = new Button();
             btnManageProducts = new Button();
@@ -40,6 +41,7 @@
             // AdminMenu
             // 
             AdminMenu.BackColor = SystemColors.ControlDark;
+            AdminMenu.Controls.Add(button1);
             AdminMenu.Controls.Add(label1);
             AdminMenu.Controls.Add(btnReports);
             AdminMenu.Controls.Add(btnManageProducts);
@@ -47,15 +49,24 @@
             AdminMenu.Dock = DockStyle.Left;
             AdminMenu.Location = new Point(0, 0);
             AdminMenu.Name = "AdminMenu";
-            AdminMenu.Size = new Size(250, 310);
+            AdminMenu.Size = new Size(244, 310);
             AdminMenu.TabIndex = 0;
             AdminMenu.Paint += panel1_Paint;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(3, 270);
+            button1.Name = "button1";
+            button1.Size = new Size(88, 37);
+            button1.TabIndex = 4;
+            button1.Text = "Đăng xuất";
+            button1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ControlLight;
-            label1.Location = new Point(35, 14);
+            label1.Location = new Point(15, 21);
             label1.Name = "label1";
             label1.Size = new Size(88, 20);
             label1.TabIndex = 3;
@@ -63,7 +74,7 @@
             // 
             // btnReports
             // 
-            btnReports.Location = new Point(35, 221);
+            btnReports.Location = new Point(35, 194);
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(186, 53);
             btnReports.TabIndex = 2;
@@ -72,7 +83,7 @@
             // 
             // btnManageProducts
             // 
-            btnManageProducts.Location = new Point(35, 143);
+            btnManageProducts.Location = new Point(35, 124);
             btnManageProducts.Name = "btnManageProducts";
             btnManageProducts.Size = new Size(186, 53);
             btnManageProducts.TabIndex = 1;
@@ -81,7 +92,7 @@
             // 
             // btnManageStaff
             // 
-            btnManageStaff.Location = new Point(35, 62);
+            btnManageStaff.Location = new Point(35, 54);
             btnManageStaff.Name = "btnManageStaff";
             btnManageStaff.Size = new Size(186, 53);
             btnManageStaff.TabIndex = 0;
@@ -92,10 +103,11 @@
             // pnlAdminContent
             // 
             pnlAdminContent.Dock = DockStyle.Fill;
-            pnlAdminContent.Location = new Point(250, 0);
+            pnlAdminContent.Location = new Point(244, 0);
             pnlAdminContent.Name = "pnlAdminContent";
-            pnlAdminContent.Size = new Size(671, 310);
+            pnlAdminContent.Size = new Size(677, 310);
             pnlAdminContent.TabIndex = 1;
+            pnlAdminContent.Paint += pnlAdminContent_Paint;
             // 
             // ucAdminPanel
             // 
@@ -119,5 +131,6 @@
         private Button btnManageStaff;
         private Label label1;
         private Panel pnlAdminContent;
+        private Button button1;
     }
 }

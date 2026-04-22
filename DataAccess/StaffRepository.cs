@@ -59,6 +59,7 @@ namespace QuanLySieuThi.Data
                 nv.LuongCB = double.Parse(parts[9]);
                 nv.NgayVaoLam = DateTime.Parse(parts[10]);
                 nv.MaCa = parts[11]; // Đổi từ MaCaLV sang MaCa cho khớp Model
+                //nv.Taikhoan = parts[12];
                 return nv;
             }
 

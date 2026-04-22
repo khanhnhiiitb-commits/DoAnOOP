@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Products;
@@ -6,53 +7,108 @@ using QuanLySieuThi.Models.Systems;
 
 namespace QuanLySieuThi.Data
 {
-    public static class DataStorage
+    public class DataStorage
     {
-        // Danh sách dùng chung cho toàn ứng dụng (Dữ liệu tạm trên RAM)
-        public static List<HangHoa> DanhSachHang = new List<HangHoa>();
-        public static List<NhanVien> DanhSachNV = new List<NhanVien>();
-        public static List<HoaDon> DanhSachHD = new List<HoaDon>();
-        public static NhanVien NhanVienDangNhap = null;
+        // 1. Biến static duy nhất lưu trữ thực thể của lớp
+        private static DataStorage instance;
 
-        // Hàm này để nạp sẵn vài dữ liệu mẫu cho Giao diện đẹp khi vừa mở lên
-        public static void KhoiTaoDuLieuMau()
+        // 2. Constructor private: Không cho phép "new" từ bên ngoài
+        private DataStorage()
+        {
+            DanhSachHang = new List<HangHoa>();
+            DanhSachNV = new List<NhanVien>();
+            DanhSachHD = new List<HoaDon>();
+            KhoiTaoDuLieuMau();
+        }
+
+        // 3. Property duy nhất để truy cập vào kho dữ liệu
+        public static DataStorage Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new DataStorage();
+                }
+                return instance;
+            }
+        }
+
+        // Các danh sách dữ liệu (Bỏ chữ static ở đây)
+        public List<HangHoa> DanhSachHang { get; set; }
+        public List<NhanVien> DanhSachNV { get; set; }
+        public List<HoaDon> DanhSachHD { get; set; }
+        public NhanVien NhanVienDangNhap { get; set; }
+
+        public void KhoiTaoDuLieuMau()
         {
             if (DanhSachHang.Count == 0)
             {
+                
                 DanhSachHang.Add(new HangThucPham { MaHH = "SP01", TenHang = "Sữa tươi", DonGia = 10000, SoLuongTon = 50 });
-                DanhSachHang.Add(new HangThucPham { MaHH = "SP02", TenHang = "Bánh mì", DonGia = 5000, SoLuongTon = 20 });
-            }
+               
 
-                // Admin
+            // Admin
+
             NhanVien admin = new NhanVien("NV01", "Huynh Thi B", new DateTime(1999, 10, 26), false, "0123456789", "HCM", "Quản trị viên");
-            // Phải tạo đối tượng tài khoản cho nhân viên này
+
+           
+
             admin.Taikhoan = new TaiKhoan
+
             {
+
                 TenDangNhap = "admin",
+
                 MatKhau = "123",
+
                 UserRole = new Role
+
                 {
+
                     MaRole = "admin",
+
                     TenRole = "Quản trị viên"
+
                 }
+
             };
+
+
 
             DanhSachNV.Add(admin);
 
+
+
             // cashier
+
             NhanVien cashier = new NhanVien("NV02", "Nguyen Thi B", new DateTime(2003, 01, 22), false, "0123355637", "HCM", "Thu ngân");
+
             cashier.Taikhoan = new TaiKhoan
+
             {
+
                 TenDangNhap = "cashier",
+
                 MatKhau = "456",
+
                 UserRole = new Role
+
                 {
+
                     MaRole = "cashier",
+
                     TenRole = "Thu ngân"
+
                 }
+
             };
 
+
+
             DanhSachNV.Add(cashier);
+
+
 
             // warehouse manager
             NhanVien warehouse = new NhanVien("NV03", "Tran Van C", new DateTime(2001, 12, 18), true, "0123355637", "HCM", "Thủ kho");
@@ -66,9 +122,8 @@ namespace QuanLySieuThi.Data
                     TenRole = "Thủ kho"
                 }
             };
-
             DanhSachNV.Add(warehouse);
         }
     }
-    
+}
 }
