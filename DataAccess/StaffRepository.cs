@@ -1,20 +1,20 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Sales;
+using QuanLySieuThi.Models.Systems;
 
 namespace QuanLySieuThi.Data
 {
     public class StaffRepository
     {
-        private readonly string filePath = "Data/database_nhanvien.txt";
+        private readonly string filePath = "DataAccess/DatabaseFile/database_nhanvien.txt";
 
         public List<Nguoi> GetAll()
         {
             List<Nguoi> danhSach = new List<Nguoi>();
             if (!File.Exists(filePath)) return danhSach;
-
             string[] lines = File.ReadAllLines(filePath);
             foreach (string line in lines)
             {
@@ -38,7 +38,7 @@ namespace QuanLySieuThi.Data
         private Nguoi MapLineToEntity(string line)
         {
             string[] parts = line.Split('|');
-            if (parts.Length < 7) return null;
+            if (parts.Length < 12) return null;
 
             string loai = parts[0];
 
@@ -59,7 +59,19 @@ namespace QuanLySieuThi.Data
                 nv.LuongCB = double.Parse(parts[9]);
                 nv.NgayVaoLam = DateTime.Parse(parts[10]);
                 nv.MaCa = parts[11]; // Đổi từ MaCaLV sang MaCa cho khớp Model
-                //nv.Taikhoan = parts[12];
+                if (parts.Length > 12 && !string.IsNullOrEmpty(parts[12]))
+                {
+                    string[] accParts = parts[12].Split('-'); // Chẻ chuỗi bằng dấu gạch ngang
+                    if (accParts.Length >= 3)
+                    {
+                        nv.Taikhoan = new TaiKhoan
+                        {
+                            TenDangNhap = accParts[0],
+                            MatKhau = accParts[1],
+                            UserRole = new Role { MaRole = accParts[2] }
+                        };
+                    }
+                }
                 return nv;
             }
 
@@ -89,16 +101,21 @@ namespace QuanLySieuThi.Data
 
         private string MapEntityToLine(Nguoi p)
         {
-            // Format ngày tháng chuẩn YYYY-MM-DD
             string sSinh = p.NgaySinh.ToString("yyyy-MM-dd");
             string baseInfo = $"{p.Ma}|{p.HoTen}|{sSinh}|{p.GioiTinh}|{p.SoDienThoai}|{p.DiaChi}";
-
             if (p is NhanVien nv)
             {
                 string sVao = nv.NgayVaoLam.ToString("yyyy-MM-dd");
-                return $"NV|{baseInfo}|{nv.MaNV}|{nv.ChucVu}|{nv.LuongCB}|{sVao}|{nv.MaCa}";
-            }
 
+                // Xử lý chuỗi Tài khoản (nếu không có thì ghi là "None")
+                string sTaiKhoan = "None";
+                if (nv.Taikhoan != null && nv.Taikhoan.UserRole != null)
+                {
+                    // Định dạng: Username-Password-RoleID
+                    sTaiKhoan = $"{nv.Taikhoan.TenDangNhap}-{nv.Taikhoan.MatKhau}-{nv.Taikhoan.UserRole.MaRole}";
+                }
+                return $"NV|{baseInfo}|{nv.MaNV}|{nv.ChucVu}|{nv.LuongCB}|{sVao}|{nv.MaCa}|{sTaiKhoan}";
+            }
             if (p is KhachHang kh)
             {
                 string maThe = kh.TheTV != null ? kh.TheTV.MaThe : "None";

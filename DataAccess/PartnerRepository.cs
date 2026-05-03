@@ -8,7 +8,7 @@ namespace QuanLySieuThi.Data
 {
     public class PartnerRepository
     {
-        private readonly string filePath = "Data/database_partner.txt";
+        private readonly string filePath = "DataAccess/DatabaseFile/database_partner.txt";
 
         public List<object> GetAll()
         {

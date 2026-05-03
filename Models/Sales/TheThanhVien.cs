@@ -35,7 +35,10 @@ namespace QuanLySieuThi.Models.Sales
                 diemTichLuy = diemTichLuy - diem;
             }
         }
-
+        public void NapDiemTuFile(int diem)
+        {
+            DiemTichLuy = diem;
+        }
         public TheThanhVien() { }
 
         public TheThanhVien(string ma)

@@ -7,7 +7,7 @@ namespace QuanLySieuThi.Data
 {
     public class InventoryRepository
     {
-        private readonly string filePath = "Data/database_hanghoa.txt";
+        private readonly string filePath = "DataAccess/DatabaseFile/database_hanghoa.txt";
 
         // Lấy danh sách hàng hóa từ file
         public List<HangHoa> GetAll()

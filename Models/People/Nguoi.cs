@@ -1,4 +1,4 @@
-namespace QuanLySieuThi.Models.People
+﻿namespace QuanLySieuThi.Models.People
 {
     public abstract class Nguoi
     {
@@ -20,8 +20,17 @@ namespace QuanLySieuThi.Models.People
         public string SoDienThoai{ get{ return soDienThoai; } set {soDienThoai = value;} }
 
         public string DiaChi{ get{ return diaChi; } set {diaChi = value;} }
-        
 
+        public string HienThiGioiTinh
+        {
+            get
+            {
+                if (GioiTinh == true)
+                    return "Nam";
+                else
+                    return "Nữ";
+            }
+        }
         public Nguoi() { }
 
         public Nguoi(string ma, string hoTen, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi)
