@@ -18,7 +18,17 @@ namespace QuanLySieuThi.Data
             DanhSachHang = new List<HangHoa>();
             DanhSachNV = new List<NhanVien>();
             DanhSachHD = new List<HoaDon>();
-            KhoiTaoDuLieuMau();
+            //KhoiTaoDuLieuMau();
+            StaffRepository staffRepo = new StaffRepository();
+            // DanhSachKH = new List<KhachHang>(); 
+            List<Nguoi> danhSachChung = staffRepo.GetAll();
+            foreach (Nguoi ng in danhSachChung)
+            {
+                if (ng is NhanVien nv)
+                {
+                    DanhSachNV.Add(nv);
+                }
+            }
         }
 
         // 3. Property duy nhất để truy cập vào kho dữ liệu
@@ -111,7 +121,7 @@ namespace QuanLySieuThi.Data
 
 
             // warehouse manager
-            NhanVien warehouse = new NhanVien("NV03", "Tran Van C", new DateTime(2001, 12, 18), true, "0123355637", "HCM", "Thủ kho");
+            NhanVien warehouse = new NhanVien("NV003", "Tran Van C", new DateTime(2001, 12, 18), true, "0123355637", "HCM", "Thủ kho");
             warehouse.Taikhoan = new TaiKhoan
             {
                 TenDangNhap = "warehouse",

@@ -53,6 +53,8 @@ namespace ChuongtrinhQuanlybanhangsieuthi
                 MessageBox.Show("Không tìm thấy thông tin đăng nhập!");
                 // Có thể đóng Form để quay lại Login tại đây
             }
+
         }
+
     }
 }
