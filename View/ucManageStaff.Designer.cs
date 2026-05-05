@@ -186,10 +186,10 @@
             // dgvNhanVien
             // 
             dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNhanVien.Location = new Point(35, 232);
+            dgvNhanVien.Location = new Point(3, 226);
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.RowHeadersWidth = 51;
-            dgvNhanVien.Size = new Size(1067, 357);
+            dgvNhanVien.Size = new Size(1108, 357);
             dgvNhanVien.TabIndex = 1;
             // 
             // btnThem
