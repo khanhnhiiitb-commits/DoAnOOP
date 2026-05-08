@@ -41,7 +41,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
                         Navigation(new ucBanHangPanel());
                         break;
                     case "warehouse":
-                        Navigation(new pnlMenu());
+                        Navigation(new panelKho());
                         break;
                     default:
                         MessageBox.Show("Quyền truy cập không hợp lệ!");
