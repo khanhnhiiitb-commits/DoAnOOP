@@ -1,4 +1,6 @@
+using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Products;
+using QuanLySieuThi.Models.Sales;
 using QuanLySieuThi.Models.Systems;
 using System;
 using System.Collections.Generic;
@@ -19,8 +21,14 @@ namespace QuanLySieuThi.Data
             string[] lines = File.ReadAllLines(filePath);
             foreach (string line in lines)
             {
+                if (string.IsNullOrWhiteSpace(line)) continue; // Bỏ qua dòng trống
+
                 string[] parts = line.Split('|');
-                if (parts[0] == "TK") list.Add(MapLineToTaiKhoan(parts));
+                if (parts[0] == "TK")
+                {
+                    TaiKhoan tk = MapLineToTaiKhoan(parts);
+                    if (tk != null) list.Add(tk);
+                }
             }
             return list;
         }
@@ -34,26 +42,33 @@ namespace QuanLySieuThi.Data
             string[] lines = File.ReadAllLines(filePath);
             foreach (string line in lines)
             {
+                if (string.IsNullOrWhiteSpace(line)) continue; // Bỏ qua dòng trống
+
                 string[] parts = line.Split('|');
-                if (parts[0] == "CA") list.Add(MapLineToCaLamViec(parts));
+                if (parts[0] == "CA")
+                {
+                    CaLamViec ca = MapLineToCaLamViec(parts);
+                    if (ca != null) list.Add(ca);
+                }
             }
             return list;
         }
 
-        // --- PHIEU NHAP (Master-Detail) ---
-        public List<PhieuNhap> GetAllPhieuNhap()
-        {
-            List<PhieuNhap> list = new List<PhieuNhap>();
-            // Logic tuong tu SalesRepository de doc Master-Detail
-            return list;
-        }
-
         // --- LUU TOAN BO HE THONG ---
+        // Hàm này gom chung Save vì Tài Khoản và Ca Làm Việc lưu chung 1 file
         public void SaveSystemData(List<TaiKhoan> tkList, List<CaLamViec> caList)
         {
             List<string> lines = new List<string>();
-            foreach (TaiKhoan tk in tkList) lines.Add(MapTaiKhoanToLine(tk));
-            foreach (CaLamViec ca in caList) lines.Add(MapCaToLine(ca));
+
+            foreach (TaiKhoan tk in tkList)
+            {
+                lines.Add(MapTaiKhoanToLine(tk));
+            }
+
+            foreach (CaLamViec ca in caList)
+            {
+                lines.Add(MapCaToLine(ca));
+            }
 
             File.WriteAllLines(filePath, lines.ToArray());
         }
@@ -62,39 +77,40 @@ namespace QuanLySieuThi.Data
 
         private Role LayRoleHeThong(string tenRole)
         {
-            if (tenRole == "Admin") 
+            if (tenRole == "Admin")
                 return new Role("R01", "Admin", "Toàn quyền hệ thống");
-    
+
             return new Role("R02", "NhanVien", "Nhân viên bán hàng");
         }
+
         private TaiKhoan MapLineToTaiKhoan(string[] p)
         {
-        string tenRoleTuFile = p[3]; 
-        Role roleTuongUng = LayRoleHeThong(tenRoleTuFile);
-        TaiKhoan tk = new TaiKhoan(p[1], p[2], roleTuongUng, bool.Parse(p[4]));
-        return tk; 
+            // Format an toàn: TK | TenDangNhap | MatKhau | TenRole | TrangThai
+            if (p.Length < 5) return null;
+
+            string tenRoleTuFile = p[3];
+            Role roleTuongUng = LayRoleHeThong(tenRoleTuFile);
+            TaiKhoan tk = new TaiKhoan(p[1], p[2], roleTuongUng, bool.Parse(p[4]));
+            return tk;
         }
 
         private string MapTaiKhoanToLine(TaiKhoan tk)
         {
             string tenRole = (tk.UserRole != null) ? tk.UserRole.TenRole : "NhanVien";
-            return "TK|" + tk.TenDangNhap + "|" + tk.MatKhau + "|" + tenRole + "|" + tk.TrangThai;
+            return $"TK|{tk.TenDangNhap}|{tk.MatKhau}|{tenRole}|{tk.TrangThai}";
         }
 
         private CaLamViec MapLineToCaLamViec(string[] p)
         {
+            // Format an toàn: CA | MaCa | TenCa | GioBatDau | GioKetThuc
+            if (p.Length < 5) return null;
+
             return new CaLamViec(p[1], p[2], p[3], p[4]);
         }
 
         private string MapCaToLine(CaLamViec ca)
         {
-            return "CA|" + ca.MaCa + "|" + ca.TenCa + "|" + ca.GioBatDau + "|" + ca.GioKetThuc;
-        }
-
-        private string FormatDate(DateTime dt)
-        {
-            // Ghep chuoi ngay thang thu cong
-            return dt.Year + "-" + dt.Month + "-" + dt.Day;
+            return $"CA|{ca.MaCa}|{ca.TenCa}|{ca.GioBatDau}|{ca.GioKetThuc}";
         }
     }
 }

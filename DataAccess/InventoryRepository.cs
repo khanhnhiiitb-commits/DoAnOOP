@@ -5,7 +5,7 @@ using QuanLySieuThi.Models.Products;
 
 namespace QuanLySieuThi.Data
 {
-    public class InventoryRepository
+    public class InventoryRepository : ITextSerializable<HangHoa>
     {
         private readonly string filePath = "DataAccess/DatabaseFile/database_hanghoa.txt";
 

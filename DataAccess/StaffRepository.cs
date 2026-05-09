@@ -7,7 +7,7 @@ using QuanLySieuThi.Models.Systems;
 
 namespace QuanLySieuThi.Data
 {
-    public class StaffRepository
+    public class StaffRepository : ITextSerializable<Nguoi>
     {
         private readonly string filePath = "DataAccess/DatabaseFile/database_nhanvien.txt";
 
@@ -38,14 +38,19 @@ namespace QuanLySieuThi.Data
         private Nguoi MapLineToEntity(string line)
         {
             string[] parts = line.Split('|');
-            if (parts.Length < 12) return null;
+
+            // Chỉ check an toàn tối thiểu (Loại + 6 thông tin cơ bản)
+            if (parts.Length < 8) return null;
 
             string loai = parts[0];
 
             if (loai == "NV")
             {
+                // NV cần ít nhất 12 phần tử thì mới check ở đây
+                if (parts.Length < 12) return null;
+
                 NhanVien nv = new NhanVien();
-                // Gán thông tin lớp cha (Nguoi) - Dùng Property thay cho hàm Set
+                // Gán thông tin lớp cha (Nguoi)
                 nv.Ma = parts[1];
                 nv.HoTen = parts[2];
                 nv.NgaySinh = DateTime.Parse(parts[3]);
@@ -58,10 +63,11 @@ namespace QuanLySieuThi.Data
                 nv.ChucVu = parts[8];
                 nv.LuongCB = double.Parse(parts[9]);
                 nv.NgayVaoLam = DateTime.Parse(parts[10]);
-                nv.MaCa = parts[11]; // Đổi từ MaCaLV sang MaCa cho khớp Model
-                if (parts.Length > 12 && !string.IsNullOrEmpty(parts[12]))
+                nv.MaCa = parts[11];
+
+                if (parts.Length > 12 && !string.IsNullOrEmpty(parts[12]) && parts[12] != "None")
                 {
-                    string[] accParts = parts[12].Split('-'); // Chẻ chuỗi bằng dấu gạch ngang
+                    string[] accParts = parts[12].Split('-');
                     if (accParts.Length >= 3)
                     {
                         nv.Taikhoan = new TaiKhoan
@@ -77,6 +83,9 @@ namespace QuanLySieuThi.Data
 
             if (loai == "KH")
             {
+                // KH cần ít nhất 9 phần tử
+                if (parts.Length < 9) return null;
+
                 KhachHang kh = new KhachHang();
                 kh.Ma = parts[1];
                 kh.HoTen = parts[2];
@@ -87,7 +96,7 @@ namespace QuanLySieuThi.Data
 
                 kh.MaKH = parts[7];
                 kh.DiemTichLuy = int.Parse(parts[8]);
-                
+
                 // Khởi tạo đối tượng thẻ thành viên nếu có mã
                 if (parts.Length > 9 && parts[9] != "None" && !string.IsNullOrEmpty(parts[9]))
                 {

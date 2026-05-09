@@ -38,6 +38,7 @@ namespace QuanLySieuThi.Data
             }
             return danhSach;
         }
+
         public List<TheThanhVien> GetTheThanhViens()
         {
             List<TheThanhVien> danhSach = new List<TheThanhVien>();
@@ -73,49 +74,7 @@ namespace QuanLySieuThi.Data
             }
             return danhSach;
         }
-        private TheThanhVien MapLineToTheThanhVien(string[] p)
-        {
-            TheThanhVien tv = new TheThanhVien();
-            tv.MaThe = p[1];
-            tv.NgayDangKy = DateTime.Parse(p[2]);
-            tv.NapDiemTuFile(int.Parse(p[3]));
-            tv.TrangThai = bool.Parse(p[4]); 
-            return tv;
-        }
 
-        private Voucher MapLineToVoucher(string[] p)
-        {
-            // Dựa theo cấu trúc bạn nối chuỗi ở MapVoucherToLine:
-            // p[0]=VC | p[1]=Ma | p[2]=Ten | p[3]=NgayBD | p[4]=NgayKT | p[5]=DK | p[6]=TrangThai | p[7]=Loai | p[8]=GiaTri1 | p[9]=GiaTri2
-
-            string loaiVoucher = p[7];
-
-            if (loaiVoucher == "PhanTram")
-            {
-                VoucherPhanTram vp = new VoucherPhanTram();
-                vp.MaVoucher = p[1];
-                vp.TenVoucher = p[2];
-                vp.NgayBatDau = DateTime.Parse(p[3]);
-                vp.NgayKetThuc = DateTime.Parse(p[4]);
-                vp.DKApDung = (p[5]);
-                vp.TrangThai = bool.Parse(p[6]);
-                vp.PhanTramGiam = float.Parse(p[8]);
-                vp.GiamToiDa = double.Parse(p[9]);
-                return vp;
-            }
-            else // Trường hợp "TienMat"
-            {
-                VoucherTienMat vt = new VoucherTienMat();
-                vt.MaVoucher = p[1];
-                vt.TenVoucher = p[2];
-                vt.NgayBatDau = DateTime.Parse(p[3]);
-                vt.NgayKetThuc = DateTime.Parse(p[4]);
-                vt.DKApDung = (p[5]);
-                vt.TrangThai = bool.Parse(p[6]);
-                vt.SoTienGiamCoDinh = double.Parse(p[8]);
-                return vt;
-            }
-        }
         // 2. Lưu toàn bộ dữ liệu Sales (Hóa đơn, Thẻ, Voucher)
         public void SaveAll(List<HoaDon> hdList, List<TheThanhVien> tvList, List<Voucher> vcList)
         {
@@ -148,6 +107,46 @@ namespace QuanLySieuThi.Data
 
         // ---------------- PRIVATE HELPER METHODS (Data Mapping) ----------------
 
+        private TheThanhVien MapLineToTheThanhVien(string[] p)
+        {
+            TheThanhVien tv = new TheThanhVien();
+            tv.MaThe = p[1];
+            tv.NgayDangKy = DateTime.Parse(p[2]);
+            tv.NapDiemTuFile(int.Parse(p[3]));
+            tv.TrangThai = bool.Parse(p[4]);
+            return tv;
+        }
+
+        private Voucher MapLineToVoucher(string[] p)
+        {
+            string loaiVoucher = p[7];
+
+            if (loaiVoucher == "PhanTram")
+            {
+                VoucherPhanTram vp = new VoucherPhanTram();
+                vp.MaVoucher = p[1];
+                vp.TenVoucher = p[2];
+                vp.NgayBatDau = DateTime.Parse(p[3]);
+                vp.NgayKetThuc = DateTime.Parse(p[4]);
+                vp.DKApDung = p[5];
+                vp.TrangThai = bool.Parse(p[6]);
+                vp.PhanTramGiam = float.Parse(p[8]);
+                vp.GiamToiDa = double.Parse(p[9]);
+                return vp;
+            }
+            else // Trường hợp "TienMat"
+            {
+                VoucherTienMat vt = new VoucherTienMat();
+                vt.MaVoucher = p[1];
+                vt.TenVoucher = p[2];
+                vt.NgayBatDau = DateTime.Parse(p[3]);
+                vt.NgayKetThuc = DateTime.Parse(p[4]);
+                vt.DKApDung = p[5];
+                vt.TrangThai = bool.Parse(p[6]);
+                vt.SoTienGiamCoDinh = double.Parse(p[8]);
+                return vt;
+            }
+        }
 
         private string MapVoucherToLine(Voucher vc)
         {
@@ -165,42 +164,52 @@ namespace QuanLySieuThi.Data
             }
 
             return baseData;
-        }       
+        }
+
+        // ĐÃ SỬA: Thêm MaNV, MaKH, DaApDungVoucher
         private HoaDon MapLineToHoaDon(string[] p)
         {
             HoaDon hd = new HoaDon();
             hd.MaHD = p[1];
             hd.NgayTao = DateTime.Parse(p[2]);
             if (p[3] == "True") hd.ThanhToan();
+
+            if (p.Length > 4) hd.MaNV = p[4];
+            if (p.Length > 5) hd.MaKH = p[5];
+            if (p.Length > 6) hd.DaApDungVoucher = bool.Parse(p[6]);
+
             return hd;
         }
 
+        // ĐÃ SỬA: Thêm MaHH vào index [2]
         private ChiTietHoaDon MapLineToChiTiet(string[] p)
         {
             ChiTietHoaDon ct = new ChiTietHoaDon();
             ct.MaCTHD = p[1];
-            ct.SoLuongMua = int.Parse(p[2]);
-            ct.GiaBan = double.Parse(p[3]);
+            ct.MaHH = p[2];
+            ct.SoLuongMua = int.Parse(p[3]);
+            ct.GiaBan = double.Parse(p[4]);
             return ct;
         }
 
+        // ĐÃ SỬA: Thêm MaNV, MaKH, DaApDungVoucher vào chuỗi
         private string MapHoaDonToLine(HoaDon hd)
         {
-            string ngay = hd.NgayTao.Year + "-" + hd.NgayTao.Month + "-" + hd.NgayTao.Day;
-            return "HD|" + hd.MaHD + "|" + ngay + "|" + hd.TrangThaiTT;
+            string ngay = hd.NgayTao.ToString("yyyy-MM-dd");
+            return $"HD|{hd.MaHD}|{ngay}|{hd.TrangThaiTT}|{hd.MaNV}|{hd.MaKH}|{hd.DaApDungVoucher}";
         }
 
+        // ĐÃ SỬA: Thêm MaHH vào chuỗi
         private string MapChiTietToLine(ChiTietHoaDon ct)
         {
-            return "CT|" + ct.MaCTHD + "|" + ct.SoLuongMua + "|" + ct.GiaBan;
+            return $"CT|{ct.MaCTHD}|{ct.MaHH}|{ct.SoLuongMua}|{ct.GiaBan}";
         }
 
         private string MapTheToLine(TheThanhVien tv)
         {
-            string ngay = tv.NgayDangKy.Year + "-" + tv.NgayDangKy.Month + "-" + tv.NgayDangKy.Day;
-            return "TV|" + tv.MaThe + "|" + ngay + "|" + tv.DiemTichLuy + "|" + tv.TrangThai;
+            string ngay = tv.NgayDangKy.ToString("yyyy-MM-dd");
+            return $"TV|{tv.MaThe}|{ngay}|{tv.DiemTichLuy}|{tv.TrangThai}";
         }
-
     }
 }
     
