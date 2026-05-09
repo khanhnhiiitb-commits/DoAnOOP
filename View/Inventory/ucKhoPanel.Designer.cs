@@ -142,11 +142,11 @@
             label1.BackColor = SystemColors.ActiveCaption;
             label1.Font = new Font("Segoe UI Emoji", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(16, 10);
+            label1.Location = new Point(47, 18);
             label1.Name = "label1";
-            label1.Size = new Size(233, 40);
+            label1.Size = new Size(151, 40);
             label1.TabIndex = 0;
-            label1.Text = "SmartInventory";
+            label1.Text = "Inventory";
             // 
             // pnlContainer
             // 

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChuongtrinhQuanlybanhangsieuthi.View;
+using ChuongtrinhQuanlybanhangsieuthi.View.Admin;
 using QuanLySieuThi.Data;
 using QuanLySieuThi.Services;
 
@@ -50,30 +51,30 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         private void btnLogout_Click(object sender, EventArgs e)
         {
 
-            DialogResult xacNhan = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?", 
+            DialogResult xacNhan = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?",
                 "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (xacNhan == DialogResult.Yes)
             {
-              
+
                 Application.Restart();
             }
         }
-        
+
         private void btnManageStaff_Click(object sender, EventArgs e)
         {
             HighlightActiveButton(sender);
             Navigation(new ucManageStaff());
         }
 
-        
+
 
         private void btnManageProducts_Click(object sender, EventArgs e)
         {
             HighlightActiveButton(sender);
-            Navigation(new ucManageProducts());
+            Navigation(new ucManageProduct());
         }
-        
+
         private void btnReports_Click(object sender, EventArgs e)
         {
             HighlightActiveButton(sender);
@@ -88,7 +89,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
                 if (ctrl is Button)
                 {
                     Button btn = (Button)ctrl;
-                    btn.BackColor = SystemColors.ControlDark;
+                    btn.BackColor = SystemColors.ActiveCaption;
                 }
             }
             clickedBtn.BackColor = SystemColors.Control;
@@ -96,6 +97,18 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         private void pnlAdminContent_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnTongQuan_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(sender);
+            Navigation(new ucDashboard());
+        }
+
+        private void btnKM_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(sender);
+            Navigation(new ucKM());
         }
     }
 }

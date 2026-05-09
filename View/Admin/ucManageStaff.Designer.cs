@@ -52,6 +52,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = SystemColors.ActiveBorder;
             groupBox1.Controls.Add(richTextBox1);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(rtbDiaChi);
@@ -65,9 +66,9 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(35, 25);
+            groupBox1.Location = new Point(110, 38);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(704, 186);
+            groupBox1.Size = new Size(877, 162);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
@@ -77,7 +78,7 @@
             // 
             richTextBox1.Location = new Point(427, 84);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(91, 27);
+            richTextBox1.Size = new Size(188, 27);
             richTextBox1.TabIndex = 11;
             richTextBox1.Text = "";
             // 
@@ -94,9 +95,9 @@
             // 
             // rtbDiaChi
             // 
-            rtbDiaChi.Location = new Point(82, 154);
+            rtbDiaChi.Location = new Point(397, 117);
             rtbDiaChi.Name = "rtbDiaChi";
-            rtbDiaChi.Size = new Size(453, 27);
+            rtbDiaChi.Size = new Size(218, 27);
             rtbDiaChi.TabIndex = 9;
             rtbDiaChi.Text = "";
             // 
@@ -104,7 +105,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(6, 154);
+            label5.Location = new Point(322, 117);
             label5.Name = "label5";
             label5.Size = new Size(69, 25);
             label5.TabIndex = 8;
@@ -146,6 +147,7 @@
             // 
             // rtbMaNV
             // 
+            rtbMaNV.BackColor = SystemColors.Window;
             rtbMaNV.Location = new Point(82, 45);
             rtbMaNV.Name = "rtbMaNV";
             rtbMaNV.Size = new Size(125, 27);
@@ -186,47 +188,53 @@
             // dgvNhanVien
             // 
             dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNhanVien.Location = new Point(3, 226);
+            dgvNhanVien.Location = new Point(17, 217);
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.RowHeadersWidth = 51;
-            dgvNhanVien.Size = new Size(1108, 357);
+            dgvNhanVien.Size = new Size(1167, 389);
             dgvNhanVien.TabIndex = 1;
             // 
             // btnThem
             // 
-            btnThem.Location = new Point(790, 42);
+            btnThem.BackColor = SystemColors.ActiveCaption;
+            btnThem.ForeColor = SystemColors.ControlText;
+            btnThem.Location = new Point(1006, 38);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(94, 57);
+            btnThem.Size = new Size(94, 36);
             btnThem.TabIndex = 2;
             btnThem.Text = "Thêm";
-            btnThem.UseVisualStyleBackColor = true;
+            btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // btnSua
             // 
-            btnSua.Location = new Point(790, 130);
+            btnSua.BackColor = SystemColors.ActiveCaption;
+            btnSua.Location = new Point(1006, 122);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(94, 52);
+            btnSua.Size = new Size(94, 36);
             btnSua.TabIndex = 3;
             btnSua.Text = "Sửa";
-            btnSua.UseVisualStyleBackColor = true;
+            btnSua.UseVisualStyleBackColor = false;
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(959, 42);
+            btnXoa.BackColor = SystemColors.ActiveCaption;
+            btnXoa.Location = new Point(1006, 80);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(94, 55);
+            btnXoa.Size = new Size(94, 36);
             btnXoa.TabIndex = 4;
             btnXoa.Text = "Xóa";
-            btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.UseVisualStyleBackColor = false;
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(959, 130);
+            btnLuu.BackColor = SystemColors.ActiveCaption;
+            btnLuu.Location = new Point(1006, 164);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(94, 52);
+            btnLuu.Size = new Size(94, 36);
             btnLuu.TabIndex = 5;
             btnLuu.Text = "Lưu";
-            btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.UseVisualStyleBackColor = false;
             // 
             // ucManageStaff
             // 
@@ -239,7 +247,7 @@
             Controls.Add(dgvNhanVien);
             Controls.Add(groupBox1);
             Name = "ucManageStaff";
-            Size = new Size(1114, 602);
+            Size = new Size(1202, 676);
             Load += ucManageStaff_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

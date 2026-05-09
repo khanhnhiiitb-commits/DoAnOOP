@@ -24,7 +24,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                 dgvNhanVien.Columns["Taikhoan"].Visible = false;
             }
             if (dgvNhanVien.Columns["GioiTinh"] != null)
-                dgvNhanVien.Columns["GioiTinh"].Visible = false; 
+                dgvNhanVien.Columns["GioiTinh"].Visible = false;
             if (dgvNhanVien.Columns["HienThiGioiTinh"] != null)
                 dgvNhanVien.Columns["HienThiGioiTinh"].HeaderText = "Giới tính";
             dgvNhanVien.Columns["Ma"].Visible = false;
@@ -51,6 +51,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
         {
 
         }
