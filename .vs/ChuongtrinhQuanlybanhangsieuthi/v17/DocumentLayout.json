@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucadminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucadminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucmanagestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucmanagestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\view\\admin\\ucadminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucadminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucmanageproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucmanageproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\uckm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\uckm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\view\\admin\\ucdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,51 +42,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ucManageStaff.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageStaff.cs",
-              "RelativeDocumentMoniker": "View\\Admin\\ucManageStaff.cs",
-              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageStaff.cs [Design]",
-              "RelativeToolTip": "View\\Admin\\ucManageStaff.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "ucAdminPanel.cs",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucAdminPanel.cs",
+              "RelativeDocumentMoniker": "View\\Admin\\ucAdminPanel.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucAdminPanel.cs",
+              "RelativeToolTip": "View\\Admin\\ucAdminPanel.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAA7wE0AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T14:15:33.024Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-05-09T14:17:21.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ucAdminPanel.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucAdminPanel.cs",
+              "RelativeDocumentMoniker": "View\\Admin\\ucAdminPanel.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucAdminPanel.cs [Design]",
+              "RelativeToolTip": "View\\Admin\\ucAdminPanel.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T14:17:18.442Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ucManageProduct.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageProduct.cs",
-              "RelativeDocumentMoniker": "View\\Admin\\ucManageProduct.cs",
-              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageProduct.cs [Design]",
-              "RelativeToolTip": "View\\Admin\\ucManageProduct.cs [Design]",
+              "Title": "ucDashboard.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucDashboard.cs",
+              "RelativeDocumentMoniker": "View\\Admin\\ucDashboard.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucDashboard.cs [Design]",
+              "RelativeToolTip": "View\\Admin\\ucDashboard.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T14:15:29.515Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ucReports.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucReports.cs",
-              "RelativeDocumentMoniker": "View\\Admin\\ucReports.cs",
-              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucReports.cs [Design]",
-              "RelativeToolTip": "View\\Admin\\ucReports.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T14:15:24.953Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ucKM.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucKM.cs",
-              "RelativeDocumentMoniker": "View\\Admin\\ucKM.cs",
-              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucKM.cs [Design]",
-              "RelativeToolTip": "View\\Admin\\ucKM.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T14:15:20.591Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-05-09T14:17:16.601Z"
             }
           ]
         }
