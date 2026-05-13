@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            txtDVT = new TextBox();
+            label10 = new Label();
+            btnLuu = new Button();
+            btnReset = new Button();
             btnXoa = new Button();
             btnCapnhat = new Button();
             btnThem = new Button();
@@ -63,6 +67,10 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txtDVT);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(btnLuu);
+            panel1.Controls.Add(btnReset);
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnCapnhat);
             panel1.Controls.Add(btnThem);
@@ -85,32 +93,73 @@
             panel1.Size = new Size(428, 589);
             panel1.TabIndex = 0;
             // 
+            // txtDVT
+            // 
+            txtDVT.Location = new Point(132, 206);
+            txtDVT.Name = "txtDVT";
+            txtDVT.Size = new Size(279, 27);
+            txtDVT.TabIndex = 21;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Location = new Point(18, 202);
+            label10.Name = "label10";
+            label10.Size = new Size(108, 28);
+            label10.TabIndex = 20;
+            label10.Text = "Đơn vị tính";
+            // 
+            // btnLuu
+            // 
+            btnLuu.BackColor = SystemColors.ActiveCaption;
+            btnLuu.Location = new Point(146, 501);
+            btnLuu.Name = "btnLuu";
+            btnLuu.Size = new Size(125, 58);
+            btnLuu.TabIndex = 19;
+            btnLuu.Text = "Lưu";
+            btnLuu.UseVisualStyleBackColor = false;
+            btnLuu.Click += btnLuu_Click;
+            // 
+            // btnReset
+            // 
+            btnReset.BackColor = Color.IndianRed;
+            btnReset.Location = new Point(277, 501);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(125, 58);
+            btnReset.TabIndex = 18;
+            btnReset.Text = "Reset";
+            btnReset.UseVisualStyleBackColor = false;
+            btnReset.Click += btnReset_Click;
+            // 
             // btnXoa
             // 
             btnXoa.BackColor = Color.IndianRed;
-            btnXoa.Location = new Point(283, 483);
+            btnXoa.Location = new Point(220, 437);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(125, 58);
+            btnXoa.Size = new Size(148, 58);
             btnXoa.TabIndex = 17;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnCapnhat
             // 
-            btnCapnhat.BackColor = Color.Yellow;
-            btnCapnhat.Location = new Point(149, 483);
+            btnCapnhat.BackColor = SystemColors.ActiveCaption;
+            btnCapnhat.Location = new Point(15, 501);
             btnCapnhat.Name = "btnCapnhat";
             btnCapnhat.Size = new Size(125, 58);
             btnCapnhat.TabIndex = 16;
             btnCapnhat.Text = "Cập nhật";
             btnCapnhat.UseVisualStyleBackColor = false;
+            btnCapnhat.Click += btnCapNhat_Click;
             // 
             // btnThem
             // 
-            btnThem.BackColor = Color.LimeGreen;
-            btnThem.Location = new Point(18, 483);
+            btnThem.BackColor = SystemColors.ActiveCaption;
+            btnThem.Location = new Point(67, 437);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(125, 58);
+            btnThem.Size = new Size(148, 58);
             btnThem.TabIndex = 15;
             btnThem.Text = "Thêm mới";
             btnThem.UseVisualStyleBackColor = false;
@@ -139,7 +188,7 @@
             // 
             // txtDonGia
             // 
-            txtDonGia.Location = new Point(102, 199);
+            txtDonGia.Location = new Point(105, 159);
             txtDonGia.Name = "txtDonGia";
             txtDonGia.Size = new Size(306, 27);
             txtDonGia.TabIndex = 11;
@@ -177,7 +226,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(15, 198);
+            label6.Location = new Point(18, 155);
             label6.Name = "label6";
             label6.Size = new Size(81, 28);
             label6.TabIndex = 7;
@@ -208,7 +257,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(15, 124);
+            label3.Location = new Point(15, 97);
             label3.Name = "label3";
             label3.Size = new Size(90, 28);
             label3.TabIndex = 4;
@@ -216,7 +265,7 @@
             // 
             // txtTenHH
             // 
-            txtTenHH.Location = new Point(102, 128);
+            txtTenHH.Location = new Point(102, 101);
             txtTenHH.Name = "txtTenHH";
             txtTenHH.Size = new Size(306, 27);
             txtTenHH.TabIndex = 3;
@@ -255,6 +304,7 @@
             dgvHangHoa.RowHeadersWidth = 51;
             dgvHangHoa.Size = new Size(700, 539);
             dgvHangHoa.TabIndex = 0;
+            dgvHangHoa.CellClick += dgvHangHoa_CellClick;
             // 
             // panel3
             // 
@@ -351,5 +401,9 @@
         private Button btnCapnhat;
         private Label label9;
         private TextBox txtTimHH;
+        private Button btnReset;
+        private Button btnLuu;
+        private TextBox txtDVT;
+        private Label label10;
     }
 }
