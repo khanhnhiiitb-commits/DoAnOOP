@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DataAccess\DatabaseFIle\database_hanghoa.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="DataAccess\DatabaseFIle\database_hanghoa.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.0" />
   </ItemGroup>
 

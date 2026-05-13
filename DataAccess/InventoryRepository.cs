@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 using QuanLySieuThi.Models.Products;
+using System.Windows.Forms;
 
 namespace QuanLySieuThi.Data
 {
     public class InventoryRepository
     {
-        private readonly string filePath = "DataAccess/DatabaseFile/database_hanghoa.txt";
-
+        private readonly string filePath =
+            Application.StartupPath +
+            @"\DataAccess\DatabaseFile\database_hanghoa.txt";
         // Lấy danh sách hàng hóa từ file
         public List<HangHoa> GetAll()
         {

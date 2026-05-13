@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button5 = new Button();
             txtSearch = new TextBox();
             panel1 = new Panel();
+            btnSearchTonKho = new Button();
             label1 = new Label();
             panel2 = new Panel();
             panel7 = new Panel();
@@ -53,6 +53,7 @@
             panel4 = new Panel();
             lblSapHet = new Label();
             label3 = new Label();
+            btnLoadTonKho = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel7.SuspendLayout();
@@ -63,17 +64,6 @@
             panel4.SuspendLayout();
             SuspendLayout();
             // 
-            // button5
-            // 
-            button5.BackColor = SystemColors.ActiveCaption;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Location = new Point(512, 45);
-            button5.Name = "button5";
-            button5.Size = new Size(199, 43);
-            button5.TabIndex = 9;
-            button5.Text = "+ Tạo phiếu nhập mới";
-            button5.UseVisualStyleBackColor = false;
-            // 
             // txtSearch
             // 
             txtSearch.Location = new Point(28, 61);
@@ -81,17 +71,29 @@
             txtSearch.PlaceholderText = "Tìm mã hàng, tên hàng...";
             txtSearch.Size = new Size(291, 27);
             txtSearch.TabIndex = 8;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnLoadTonKho);
+            panel1.Controls.Add(btnSearchTonKho);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(txtSearch);
-            panel1.Controls.Add(button5);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(733, 113);
             panel1.TabIndex = 10;
+            // 
+            // btnSearchTonKho
+            // 
+            btnSearchTonKho.Location = new Point(347, 59);
+            btnSearchTonKho.Name = "btnSearchTonKho";
+            btnSearchTonKho.Size = new Size(94, 29);
+            btnSearchTonKho.TabIndex = 11;
+            btnSearchTonKho.Text = "Search";
+            btnSearchTonKho.UseVisualStyleBackColor = true;
+            btnSearchTonKho.Click += btnSearchTonKho_Click;
             // 
             // label1
             // 
@@ -298,6 +300,16 @@
             label3.TabIndex = 0;
             label3.Text = "Cảnh báo sắp hết";
             // 
+            // btnLoadTonKho
+            // 
+            btnLoadTonKho.Location = new Point(470, 59);
+            btnLoadTonKho.Name = "btnLoadTonKho";
+            btnLoadTonKho.Size = new Size(94, 29);
+            btnLoadTonKho.TabIndex = 12;
+            btnLoadTonKho.Text = "Load";
+            btnLoadTonKho.UseVisualStyleBackColor = true;
+            btnLoadTonKho.Click += btnLoadTonKho_Click;
+            // 
             // ucTonKho
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -306,6 +318,7 @@
             Controls.Add(panel1);
             Name = "ucTonKho";
             Size = new Size(733, 600);
+            Load += ucTonKho_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -324,7 +337,6 @@
         }
 
         #endregion
-        private Button button5;
         private TextBox txtSearch;
         private Panel panel1;
         private Panel panel2;
@@ -349,5 +361,7 @@
         private Label label1;
         private Panel panel6;
         private Panel panel7;
+        private Button btnSearchTonKho;
+        private Button btnLoadTonKho;
     }
 }
