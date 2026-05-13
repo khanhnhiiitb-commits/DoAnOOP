@@ -30,8 +30,8 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            txtSearchKeHang = new TextBox();
             groupBox1 = new GroupBox();
-            btnLamMoiKeHang = new Button();
             btnXoaKeHang = new Button();
             btnSuaKeHang = new Button();
             btnThemKeHang = new Button();
@@ -51,7 +51,6 @@
             colLoaiHang = new DataGridViewTextBoxColumn();
             colSucChua = new DataGridViewTextBoxColumn();
             colTrangThai = new DataGridViewTextBoxColumn();
-            txtSearchKeHang = new TextBox();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvKeHang).BeginInit();
@@ -77,9 +76,17 @@
             panel1.Size = new Size(733, 113);
             panel1.TabIndex = 2;
             // 
+            // txtSearchKeHang
+            // 
+            txtSearchKeHang.Location = new Point(28, 61);
+            txtSearchKeHang.Name = "txtSearchKeHang";
+            txtSearchKeHang.PlaceholderText = "Tìm mã kệ...";
+            txtSearchKeHang.Size = new Size(339, 27);
+            txtSearchKeHang.TabIndex = 2;
+            txtSearchKeHang.TextChanged += txtSearchKeHang_TextChanged;
+            // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnLamMoiKeHang);
             groupBox1.Controls.Add(btnXoaKeHang);
             groupBox1.Controls.Add(btnSuaKeHang);
             groupBox1.Controls.Add(btnThemKeHang);
@@ -101,17 +108,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin kệ hàng";
             // 
-            // btnLamMoiKeHang
-            // 
-            btnLamMoiKeHang.BackColor = SystemColors.GradientInactiveCaption;
-            btnLamMoiKeHang.FlatStyle = FlatStyle.Flat;
-            btnLamMoiKeHang.Location = new Point(202, 399);
-            btnLamMoiKeHang.Name = "btnLamMoiKeHang";
-            btnLamMoiKeHang.Size = new Size(94, 48);
-            btnLamMoiKeHang.TabIndex = 17;
-            btnLamMoiKeHang.Text = "Làm mới";
-            btnLamMoiKeHang.UseVisualStyleBackColor = false;
-            // 
             // btnXoaKeHang
             // 
             btnXoaKeHang.BackColor = SystemColors.GradientInactiveCaption;
@@ -122,17 +118,19 @@
             btnXoaKeHang.TabIndex = 16;
             btnXoaKeHang.Text = "Xoá";
             btnXoaKeHang.UseVisualStyleBackColor = false;
+            btnXoaKeHang.Click += btnXoaKeHang_Click;
             // 
             // btnSuaKeHang
             // 
             btnSuaKeHang.BackColor = SystemColors.GradientInactiveCaption;
             btnSuaKeHang.FlatStyle = FlatStyle.Flat;
-            btnSuaKeHang.Location = new Point(59, 399);
+            btnSuaKeHang.Location = new Point(132, 400);
             btnSuaKeHang.Name = "btnSuaKeHang";
             btnSuaKeHang.Size = new Size(94, 48);
             btnSuaKeHang.TabIndex = 15;
             btnSuaKeHang.Text = "Sửa";
             btnSuaKeHang.UseVisualStyleBackColor = false;
+            btnSuaKeHang.Click += btnSuaKeHang_Click;
             // 
             // btnThemKeHang
             // 
@@ -144,6 +142,7 @@
             btnThemKeHang.TabIndex = 14;
             btnThemKeHang.Text = "Thêm";
             btnThemKeHang.UseVisualStyleBackColor = false;
+            btnThemKeHang.Click += btnThemKeHang_Click;
             // 
             // label6
             // 
@@ -243,6 +242,7 @@
             dgvKeHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvKeHang.Size = new Size(366, 487);
             dgvKeHang.TabIndex = 4;
+            dgvKeHang.CellClick += dgvKeHang_CellClick;
             // 
             // colMaKe
             // 
@@ -274,14 +274,6 @@
             colTrangThai.MinimumWidth = 6;
             colTrangThai.Name = "colTrangThai";
             // 
-            // txtSearchKeHang
-            // 
-            txtSearchKeHang.Location = new Point(28, 61);
-            txtSearchKeHang.Name = "txtSearchKeHang";
-            txtSearchKeHang.PlaceholderText = "Tìm mã kệ...";
-            txtSearchKeHang.Size = new Size(339, 27);
-            txtSearchKeHang.TabIndex = 2;
-            // 
             // ucQuanLyKeHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -291,6 +283,7 @@
             Controls.Add(panel1);
             Name = "ucQuanLyKeHang";
             Size = new Size(733, 600);
+            Load += ucQuanLyKeHang_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox1.ResumeLayout(false);
@@ -314,7 +307,6 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private Button btnLamMoiKeHang;
         private Button btnXoaKeHang;
         private Button btnSuaKeHang;
         private Button btnThemKeHang;
