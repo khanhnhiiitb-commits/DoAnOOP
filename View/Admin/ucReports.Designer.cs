@@ -41,7 +41,8 @@
             lblTongHD = new Label();
             label4 = new Label();
             panel1 = new Panel();
-            btnXemBC = new Button();
+            btnXuatBC = new Button();
+            btnXemBaoCao = new Button();
             DatePicker2 = new DateTimePicker();
             label2 = new Label();
             label1 = new Label();
@@ -178,7 +179,8 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(btnXemBC);
+            panel1.Controls.Add(btnXuatBC);
+            panel1.Controls.Add(btnXemBaoCao);
             panel1.Controls.Add(DatePicker2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
@@ -188,15 +190,27 @@
             panel1.Size = new Size(1079, 115);
             panel1.TabIndex = 6;
             // 
-            // btnXemBC
+            // btnXuatBC
             // 
-            btnXemBC.BackColor = SystemColors.ActiveCaption;
-            btnXemBC.Location = new Point(639, 45);
-            btnXemBC.Name = "btnXemBC";
-            btnXemBC.Size = new Size(109, 48);
-            btnXemBC.TabIndex = 4;
-            btnXemBC.Text = "Xem báo cáo";
-            btnXemBC.UseVisualStyleBackColor = false;
+            btnXuatBC.BackColor = SystemColors.ActiveCaption;
+            btnXuatBC.Location = new Point(811, 45);
+            btnXuatBC.Name = "btnXuatBC";
+            btnXuatBC.Size = new Size(109, 48);
+            btnXuatBC.TabIndex = 5;
+            btnXuatBC.Text = "Xuất báo cáo";
+            btnXuatBC.UseVisualStyleBackColor = false;
+            btnXuatBC.Click += btnXuatBC_Click;
+            // 
+            // btnXemBaoCao
+            // 
+            btnXemBaoCao.BackColor = SystemColors.ActiveCaption;
+            btnXemBaoCao.Location = new Point(669, 45);
+            btnXemBaoCao.Name = "btnXemBaoCao";
+            btnXemBaoCao.Size = new Size(109, 48);
+            btnXemBaoCao.TabIndex = 4;
+            btnXemBaoCao.Text = "Xem báo cáo";
+            btnXemBaoCao.UseVisualStyleBackColor = false;
+            btnXemBaoCao.Click += btnXemBaoCao_Click;
             // 
             // DatePicker2
             // 
@@ -273,10 +287,11 @@
         private Label lblTongHD;
         private Label label4;
         private Panel panel1;
-        private Button btnXemBC;
         private DateTimePicker DatePicker2;
         private Label label2;
         private Label label1;
         private DateTimePicker DatePicker1;
+        private Button btnXuatBC;
+        private Button btnXemBaoCao;
     }
 }

@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            txtSearchKeHang = new TextBox();
+            txtSearchNCC = new TextBox();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            rtxtDiaChi = new RichTextBox();
+            txtDiaChi = new TextBox();
             txtSDT = new TextBox();
             txtTenNCC = new TextBox();
-            btnLamMoiNCC = new Button();
             btnXoaNCC = new Button();
             btnSuaNCC = new Button();
             btnThemNCC = new Button();
@@ -49,9 +48,9 @@
             dgvNCC = new DataGridView();
             colMaNCC = new DataGridViewTextBoxColumn();
             colTenNCC = new DataGridViewTextBoxColumn();
+            colDiaChi = new DataGridViewTextBoxColumn();
             colSDT = new DataGridViewTextBoxColumn();
             colEmail = new DataGridViewTextBoxColumn();
-            colDiaChi = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNCC).BeginInit();
@@ -59,7 +58,7 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(txtSearchKeHang);
+            panel1.Controls.Add(txtSearchNCC);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -67,13 +66,14 @@
             panel1.Size = new Size(733, 113);
             panel1.TabIndex = 3;
             // 
-            // txtSearchKeHang
+            // txtSearchNCC
             // 
-            txtSearchKeHang.Location = new Point(28, 61);
-            txtSearchKeHang.Name = "txtSearchKeHang";
-            txtSearchKeHang.PlaceholderText = "Tìm mã NCC...";
-            txtSearchKeHang.Size = new Size(339, 27);
-            txtSearchKeHang.TabIndex = 2;
+            txtSearchNCC.Location = new Point(28, 61);
+            txtSearchNCC.Name = "txtSearchNCC";
+            txtSearchNCC.PlaceholderText = "Tìm mã NCC...";
+            txtSearchNCC.Size = new Size(339, 27);
+            txtSearchNCC.TabIndex = 2;
+            txtSearchNCC.TextChanged += txtSearchNCC_TextChanged;
             // 
             // label1
             // 
@@ -87,10 +87,9 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(rtxtDiaChi);
+            groupBox1.Controls.Add(txtDiaChi);
             groupBox1.Controls.Add(txtSDT);
             groupBox1.Controls.Add(txtTenNCC);
-            groupBox1.Controls.Add(btnLamMoiNCC);
             groupBox1.Controls.Add(btnXoaNCC);
             groupBox1.Controls.Add(btnSuaNCC);
             groupBox1.Controls.Add(btnThemNCC);
@@ -109,19 +108,18 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin nhà cung cấp";
             // 
-            // rtxtDiaChi
+            // txtDiaChi
             // 
-            rtxtDiaChi.Location = new Point(106, 262);
-            rtxtDiaChi.Name = "rtxtDiaChi";
-            rtxtDiaChi.Size = new Size(227, 29);
-            rtxtDiaChi.TabIndex = 20;
-            rtxtDiaChi.Text = "";
+            txtDiaChi.Location = new Point(80, 166);
+            txtDiaChi.Name = "txtDiaChi";
+            txtDiaChi.Size = new Size(146, 27);
+            txtDiaChi.TabIndex = 20;
             // 
             // txtSDT
             // 
-            txtSDT.Location = new Point(77, 160);
+            txtSDT.Location = new Point(80, 216);
             txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(151, 27);
+            txtSDT.Size = new Size(146, 27);
             txtSDT.TabIndex = 19;
             // 
             // txtTenNCC
@@ -130,17 +128,6 @@
             txtTenNCC.Name = "txtTenNCC";
             txtTenNCC.Size = new Size(151, 27);
             txtTenNCC.TabIndex = 18;
-            // 
-            // btnLamMoiNCC
-            // 
-            btnLamMoiNCC.BackColor = SystemColors.GradientInactiveCaption;
-            btnLamMoiNCC.FlatStyle = FlatStyle.Flat;
-            btnLamMoiNCC.Location = new Point(202, 399);
-            btnLamMoiNCC.Name = "btnLamMoiNCC";
-            btnLamMoiNCC.Size = new Size(94, 48);
-            btnLamMoiNCC.TabIndex = 17;
-            btnLamMoiNCC.Text = "Làm mới";
-            btnLamMoiNCC.UseVisualStyleBackColor = false;
             // 
             // btnXoaNCC
             // 
@@ -152,17 +139,19 @@
             btnXoaNCC.TabIndex = 16;
             btnXoaNCC.Text = "Xoá";
             btnXoaNCC.UseVisualStyleBackColor = false;
+            btnXoaNCC.Click += btnXoaNCC_Click;
             // 
             // btnSuaNCC
             // 
             btnSuaNCC.BackColor = SystemColors.GradientInactiveCaption;
             btnSuaNCC.FlatStyle = FlatStyle.Flat;
-            btnSuaNCC.Location = new Point(59, 399);
+            btnSuaNCC.Location = new Point(132, 400);
             btnSuaNCC.Name = "btnSuaNCC";
             btnSuaNCC.Size = new Size(94, 48);
             btnSuaNCC.TabIndex = 15;
             btnSuaNCC.Text = "Sửa";
             btnSuaNCC.UseVisualStyleBackColor = false;
+            btnSuaNCC.Click += btnSuaNCC_Click;
             // 
             // btnThemNCC
             // 
@@ -174,11 +163,12 @@
             btnThemNCC.TabIndex = 14;
             btnThemNCC.Text = "Thêm";
             btnThemNCC.UseVisualStyleBackColor = false;
+            btnThemNCC.Click += btnThemNCC_Click;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(16, 271);
+            label6.Location = new Point(16, 169);
             label6.Name = "label6";
             label6.Size = new Size(58, 20);
             label6.TabIndex = 9;
@@ -187,7 +177,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(16, 216);
+            label5.Location = new Point(19, 272);
             label5.Name = "label5";
             label5.Size = new Size(49, 20);
             label5.TabIndex = 8;
@@ -196,7 +186,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(16, 167);
+            label4.Location = new Point(19, 223);
             label4.Name = "label4";
             label4.Size = new Size(39, 20);
             label4.TabIndex = 7;
@@ -222,9 +212,9 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(77, 209);
+            txtEmail.Location = new Point(80, 265);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(151, 27);
+            txtEmail.Size = new Size(146, 27);
             txtEmail.TabIndex = 1;
             // 
             // txtMaNCC
@@ -240,7 +230,7 @@
             dgvNCC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNCC.BorderStyle = BorderStyle.None;
             dgvNCC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNCC.Columns.AddRange(new DataGridViewColumn[] { colMaNCC, colTenNCC, colSDT, colEmail, colDiaChi });
+            dgvNCC.Columns.AddRange(new DataGridViewColumn[] { colMaNCC, colTenNCC, colDiaChi, colSDT, colEmail });
             dgvNCC.Dock = DockStyle.Fill;
             dgvNCC.Location = new Point(367, 113);
             dgvNCC.Name = "dgvNCC";
@@ -249,6 +239,8 @@
             dgvNCC.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvNCC.Size = new Size(366, 487);
             dgvNCC.TabIndex = 5;
+            dgvNCC.CellClick += dgvNCC_CellClick;
+            dgvNCC.CellContentClick += dgvNCC_CellContentClick;
             // 
             // colMaNCC
             // 
@@ -262,6 +254,12 @@
             colTenNCC.MinimumWidth = 6;
             colTenNCC.Name = "colTenNCC";
             // 
+            // colDiaChi
+            // 
+            colDiaChi.HeaderText = "Địa chỉ";
+            colDiaChi.MinimumWidth = 6;
+            colDiaChi.Name = "colDiaChi";
+            // 
             // colSDT
             // 
             colSDT.HeaderText = "SĐT";
@@ -274,12 +272,6 @@
             colEmail.MinimumWidth = 6;
             colEmail.Name = "colEmail";
             // 
-            // colDiaChi
-            // 
-            colDiaChi.HeaderText = "Địa chỉ";
-            colDiaChi.MinimumWidth = 6;
-            colDiaChi.Name = "colDiaChi";
-            // 
             // ucNhaCungCap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -289,6 +281,7 @@
             Controls.Add(panel1);
             Name = "ucNhaCungCap";
             Size = new Size(733, 600);
+            Load += ucNhaCungCap_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox1.ResumeLayout(false);
@@ -300,10 +293,9 @@
         #endregion
 
         private Panel panel1;
-        private TextBox txtSearchKeHang;
+        private TextBox txtSearchNCC;
         private Label label1;
         private GroupBox groupBox1;
-        private Button btnLamMoiNCC;
         private Button btnXoaNCC;
         private Button btnSuaNCC;
         private Button btnThemNCC;
@@ -317,14 +309,14 @@
         private ComboBox cboKhuVuc;
         private TextBox txtEmail;
         private TextBox txtMaNCC;
-        private RichTextBox rtxtDiaChi;
         private TextBox txtSDT;
         private TextBox txtTenNCC;
         private DataGridView dgvNCC;
+        private TextBox txtDiaChi;
         private DataGridViewTextBoxColumn colMaNCC;
         private DataGridViewTextBoxColumn colTenNCC;
+        private DataGridViewTextBoxColumn colDiaChi;
         private DataGridViewTextBoxColumn colSDT;
         private DataGridViewTextBoxColumn colEmail;
-        private DataGridViewTextBoxColumn colDiaChi;
     }
 }

@@ -23,6 +23,7 @@ namespace QuanLySieuThi.Data
             DanhSachHD = new List<HoaDon>();
             DanhSachKH = new List<KhachHang>();
             DanhSachNCC = new List<NhaCungCap>();
+            DanhSachBCM = new List<BangChamCong>();
             DanhSachPhieuNhap = new List<PhieuNhap>();
             DanhSachKhuyenMai = new List<ChuongTrinhKhuyenMai>();
             DanhSachVoucher = new List<Voucher>();
@@ -51,6 +52,7 @@ namespace QuanLySieuThi.Data
         public List<HoaDon> DanhSachHD { get; set; }
         public List<KhachHang> DanhSachKH { get; set; }
         public List<NhaCungCap> DanhSachNCC { get; set; }
+        public List<BangChamCong> DanhSachBCM { get; set; }
         public List<PhieuNhap> DanhSachPhieuNhap { get; set; }
         public List<ChuongTrinhKhuyenMai> DanhSachKhuyenMai { get; set; }
         public List<Voucher> DanhSachVoucher { get; set; }

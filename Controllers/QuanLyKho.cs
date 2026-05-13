@@ -56,10 +56,12 @@ namespace QuanLySieuThi.Services
         public List<HangHoa> TimKiemHangHoa(string keyword)
         {
             List<HangHoa> ketQua = new List<HangHoa>();
+            string tuKhoaThuong = keyword.ToLower();
+
             foreach (HangHoa hh in danhSachHang)
             {
-                // Kiểm tra xem từ khóa có nằm trong Mã hoặc Tên không
-                if (hh.MaHH.Contains(keyword) || hh.TenHang.Contains(keyword))
+                if (hh.MaHH.ToLower().Contains(tuKhoaThuong) ||
+                    hh.TenHang.ToLower().Contains(tuKhoaThuong))
                 {
                     ketQua.Add(hh);
                 }

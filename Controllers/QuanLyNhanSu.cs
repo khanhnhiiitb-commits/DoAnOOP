@@ -37,6 +37,18 @@ namespace QuanLySieuThi.Services
             }
             return false;
         }
+        public bool XoaNhanVien(string maNV)
+        {
+            for (int i = 0; i < danhNV.Count; i++)
+            {
+                if (danhNV[i].MaNV == maNV)
+                {
+                    danhNV.RemoveAt(i); // Xóa nhân viên tại vị trí tìm thấy
+                    return true;
+                }
+            }
+            return false; 
+        }
 
         // Logic Đăng nhập (Duyệt thủ công qua danh sách tài khoản)
         public TaiKhoan DangNhap(string tenDangNhap, string matKhau)
@@ -106,6 +118,25 @@ namespace QuanLySieuThi.Services
                 }
             }
             return false;
+        }
+        public List<NhanVien> TimKiemNhanVien(string tuKhoa)
+        {
+            List<NhanVien> ketQua = new List<NhanVien>();
+            string lowerKey = tuKhoa.ToLower();
+
+            foreach (var item in danhNV)
+            {
+                if (item is NhanVien nv)
+                {
+                    if (nv.MaNV.ToLower().Contains(lowerKey) ||
+                        nv.HoTen.ToLower().Contains(lowerKey) ||
+                        nv.SoDienThoai.Contains(tuKhoa))
+                    {
+                        ketQua.Add(nv);
+                    }
+                }
+            }
+            return ketQua;
         }
     }
 }

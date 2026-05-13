@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button5 = new Button();
             txtSearch = new TextBox();
             panel1 = new Panel();
+            btnLoadTonKho = new Button();
+            btnSearchTonKho = new Button();
             label1 = new Label();
-            panel2 = new Panel();
             panel7 = new Panel();
             label6 = new Label();
             dgvKho = new DataGridView();
@@ -54,7 +54,6 @@
             lblSapHet = new Label();
             label3 = new Label();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvKho).BeginInit();
             panel6.SuspendLayout();
@@ -63,17 +62,6 @@
             panel4.SuspendLayout();
             SuspendLayout();
             // 
-            // button5
-            // 
-            button5.BackColor = SystemColors.ActiveCaption;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Location = new Point(512, 45);
-            button5.Name = "button5";
-            button5.Size = new Size(199, 43);
-            button5.TabIndex = 9;
-            button5.Text = "+ Tạo phiếu nhập mới";
-            button5.UseVisualStyleBackColor = false;
-            // 
             // txtSearch
             // 
             txtSearch.Location = new Point(28, 61);
@@ -81,17 +69,44 @@
             txtSearch.PlaceholderText = "Tìm mã hàng, tên hàng...";
             txtSearch.Size = new Size(291, 27);
             txtSearch.TabIndex = 8;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.Control;
+            panel1.Controls.Add(btnLoadTonKho);
+            panel1.Controls.Add(btnSearchTonKho);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(txtSearch);
-            panel1.Controls.Add(button5);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(733, 113);
             panel1.TabIndex = 10;
+            // 
+            // btnLoadTonKho
+            // 
+            btnLoadTonKho.BackColor = SystemColors.GradientActiveCaption;
+            btnLoadTonKho.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnLoadTonKho.Location = new Point(470, 59);
+            btnLoadTonKho.Name = "btnLoadTonKho";
+            btnLoadTonKho.Size = new Size(141, 29);
+            btnLoadTonKho.TabIndex = 12;
+            btnLoadTonKho.Text = "Hiển thị DSHH";
+            btnLoadTonKho.UseVisualStyleBackColor = false;
+            btnLoadTonKho.Click += btnLoadTonKho_Click;
+            // 
+            // btnSearchTonKho
+            // 
+            btnSearchTonKho.BackColor = SystemColors.GradientActiveCaption;
+            btnSearchTonKho.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnSearchTonKho.Location = new Point(347, 59);
+            btnSearchTonKho.Name = "btnSearchTonKho";
+            btnSearchTonKho.Size = new Size(94, 29);
+            btnSearchTonKho.TabIndex = 11;
+            btnSearchTonKho.Text = "Search";
+            btnSearchTonKho.UseVisualStyleBackColor = false;
+            btnSearchTonKho.Click += btnSearchTonKho_Click;
             // 
             // label1
             // 
@@ -103,22 +118,13 @@
             label1.TabIndex = 10;
             label1.Text = "Tồn Kho";
             // 
-            // panel2
-            // 
-            panel2.Controls.Add(panel7);
-            panel2.Controls.Add(panel6);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 113);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(733, 487);
-            panel2.TabIndex = 11;
-            // 
             // panel7
             // 
+            panel7.BackColor = SystemColors.Control;
             panel7.Controls.Add(label6);
             panel7.Controls.Add(dgvKho);
             panel7.Dock = DockStyle.Fill;
-            panel7.Location = new Point(0, 154);
+            panel7.Location = new Point(0, 267);
             panel7.Name = "panel7";
             panel7.Size = new Size(733, 333);
             panel7.TabIndex = 23;
@@ -141,7 +147,7 @@
             dgvKho.BorderStyle = BorderStyle.None;
             dgvKho.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvKho.Columns.AddRange(new DataGridViewColumn[] { colMa, colTen, colLoai, colTon, colViTri, colTrangThai });
-            dgvKho.Location = new Point(11, 43);
+            dgvKho.Location = new Point(13, 43);
             dgvKho.Name = "dgvKho";
             dgvKho.RowHeadersVisible = false;
             dgvKho.RowHeadersWidth = 51;
@@ -187,18 +193,20 @@
             // 
             // panel6
             // 
+            panel6.BackColor = SystemColors.Control;
             panel6.Controls.Add(panel5);
             panel6.Controls.Add(label5);
             panel6.Controls.Add(panel3);
             panel6.Controls.Add(panel4);
             panel6.Dock = DockStyle.Top;
-            panel6.Location = new Point(0, 0);
+            panel6.Location = new Point(0, 113);
             panel6.Name = "panel6";
             panel6.Size = new Size(733, 154);
             panel6.TabIndex = 22;
             // 
             // panel5
             // 
+            panel5.BackColor = SystemColors.GradientActiveCaption;
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(lblTongGiaTri);
             panel5.Controls.Add(label4);
@@ -239,6 +247,7 @@
             // 
             // panel3
             // 
+            panel3.BackColor = SystemColors.GradientActiveCaption;
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(lblTongSKU);
             panel3.Controls.Add(label2);
@@ -269,6 +278,7 @@
             // 
             // panel4
             // 
+            panel4.BackColor = SystemColors.GradientActiveCaption;
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(lblSapHet);
             panel4.Controls.Add(label3);
@@ -302,13 +312,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel2);
+            AutoScroll = true;
+            Controls.Add(panel7);
+            Controls.Add(panel6);
             Controls.Add(panel1);
             Name = "ucTonKho";
             Size = new Size(733, 600);
+            Load += ucTonKho_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvKho).EndInit();
@@ -324,10 +336,8 @@
         }
 
         #endregion
-        private Button button5;
         private TextBox txtSearch;
         private Panel panel1;
-        private Panel panel2;
         private Label label5;
         private Label label6;
         private DataGridView dgvKho;
@@ -349,5 +359,7 @@
         private Label label1;
         private Panel panel6;
         private Panel panel7;
+        private Button btnSearchTonKho;
+        private Button btnLoadTonKho;
     }
 }

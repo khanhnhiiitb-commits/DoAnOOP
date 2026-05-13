@@ -57,14 +57,14 @@ namespace QuanLySieuThi.Services
         {
             if (hd == null) return 0; // Thêm kiểm tra null để an toàn
             double tongGiam = 0;
-    
-                foreach (ChuongTrinhKhuyenMai km in danhSachCTKM)
+
+            foreach (ChuongTrinhKhuyenMai km in danhSachCTKM)
+            {
+                if (km.KiemTraDieuKien(hd))
                 {
-                    if (km.KiemTraDieuKien(hd))
-                    {
-                        tongGiam += km.TinhSoTienGiam(hd.TongTien);
-                    }   
-                }   
+                    tongGiam += km.TinhSoTienGiam(hd.TongTien);
+                }
+            }
             return tongGiam;
         }
 
@@ -85,7 +85,49 @@ namespace QuanLySieuThi.Services
             return hd != null && hd.TongTien > 0;
         }
 
-        
-        
+          
+        public void ThemVoucher(Voucher v)
+        {
+            if (v != null)
+            {
+                danhSachVoucher.Add(v);
+            }
+        }
+
+        // 2. Cập nhật thông tin Voucher
+        public bool CapNhatVoucher(string maVoucher, Voucher voucherMoi)
+        {
+            for (int i = 0; i < danhSachVoucher.Count; i++)
+            {
+                if (danhSachVoucher[i].MaVoucher == maVoucher)
+                {
+                    danhSachVoucher[i] = voucherMoi;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // 3. Hàm Vô hiệu hóa / Khởi động lại Voucher (Toggle Status)
+        public bool DoiTrangThaiVoucher(string maVoucher)
+        {
+            for (int i = 0; i < danhSachVoucher.Count; i++)
+            {
+                if (danhSachVoucher[i].MaVoucher == maVoucher)
+                {
+                   danhSachVoucher[i].TrangThai = !danhSachVoucher[i].TrangThai;
+                    return true; 
+                }
+            }
+            return false; 
+        }
+        public List<Voucher> LayDanhSachVoucher()
+        {
+            return danhSachVoucher;
+        }
     }
-}   
+}
+
+        
+        
+   
