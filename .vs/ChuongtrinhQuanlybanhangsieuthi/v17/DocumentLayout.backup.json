@@ -1,46 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\",
+  "WorkspaceRootPath": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\hong nha\\downloads\\doanoop\\view\\inventory\\uctonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\uctonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\dataaccess\\databasefile\\database_hanghoa.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\databasefile\\database_hanghoa.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\hong nha\\downloads\\doanoop\\dataaccess\\inventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\dataaccess\\datastorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\datastorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\dataaccess\\databasefile\\database_nhanvien.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\databasefile\\database_nhanvien.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\dataaccess\\databasefile\\database_system.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\databasefile\\database_system.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\dataaccess\\databasefile\\database_partner.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\databasefile\\database_partner.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\dataaccess\\databasefile\\database_phieunhap.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\databasefile\\database_phieunhap.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucmanageproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucmanageproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\dataaccess\\inventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\inventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\hong nha\\downloads\\doanoop\\view\\inventory\\uctonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\uctonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucmanageproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucmanageproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\view\\inventory\\uckhopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\uckhopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\view\\inventory\\ucphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\ucphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucmanagestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucmanagestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\view\\inventory\\ucnhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\ucnhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\hong nha\\downloads\\doanoop\\view\\inventory\\ucnhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\ucnhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\view\\inventory\\ucquanlykehang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\ucquanlykehang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\hong nha\\downloads\\doanoop\\view\\inventory\\uckhopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\uckhopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\hong nha\\downloads\\doanoop\\view\\inventory\\ucphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\ucphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,133 +62,190 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 8,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InventoryRepository.cs",
-              "DocumentMoniker": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\DataAccess\\InventoryRepository.cs",
-              "RelativeDocumentMoniker": "DataAccess\\InventoryRepository.cs",
-              "ToolTip": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\DataAccess\\InventoryRepository.cs",
-              "RelativeToolTip": "DataAccess\\InventoryRepository.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAgwAkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T09:38:28.564Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ucTonKho.cs",
-              "DocumentMoniker": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucTonKho.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucTonKho.cs",
-              "ToolTip": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucTonKho.cs",
-              "RelativeToolTip": "View\\Inventory\\ucTonKho.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKYAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:34:01.265Z",
+              "DocumentIndex": 4,
+              "Title": "database_system.txt",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DatabaseFIle\\database_system.txt",
+              "RelativeDocumentMoniker": "DataAccess\\DatabaseFIle\\database_system.txt",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DatabaseFIle\\database_system.txt",
+              "RelativeToolTip": "DataAccess\\DatabaseFIle\\database_system.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-13T10:17:59.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "database_partner.txt",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DatabaseFIle\\database_partner.txt",
+              "RelativeDocumentMoniker": "DataAccess\\DatabaseFIle\\database_partner.txt",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DatabaseFIle\\database_partner.txt",
+              "RelativeToolTip": "DataAccess\\DatabaseFIle\\database_partner.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-13T10:17:56.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "database_phieunhap.txt",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DatabaseFIle\\database_phieunhap.txt",
+              "RelativeDocumentMoniker": "DataAccess\\DatabaseFIle\\database_phieunhap.txt",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DatabaseFIle\\database_phieunhap.txt",
+              "RelativeToolTip": "DataAccess\\DatabaseFIle\\database_phieunhap.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-13T10:17:55.538Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ucKhoPanel.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucKhoPanel.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucKhoPanel.cs",
-              "ToolTip": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucKhoPanel.cs [Design]",
-              "RelativeToolTip": "View\\Inventory\\ucKhoPanel.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:20:19.301Z",
-              "EditorCaption": " [Design]"
+              "Title": "database_nhanvien.txt",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DatabaseFIle\\database_nhanvien.txt",
+              "RelativeDocumentMoniker": "DataAccess\\DatabaseFIle\\database_nhanvien.txt",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DatabaseFIle\\database_nhanvien.txt",
+              "RelativeToolTip": "DataAccess\\DatabaseFIle\\database_nhanvien.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-13T10:17:53.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "database_hanghoa.txt",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DatabaseFIle\\database_hanghoa.txt",
+              "RelativeDocumentMoniker": "DataAccess\\DatabaseFIle\\database_hanghoa.txt",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DatabaseFIle\\database_hanghoa.txt",
+              "RelativeToolTip": "DataAccess\\DatabaseFIle\\database_hanghoa.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-13T10:06:43.808Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ucTonKho.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucTonKho.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucTonKho.cs",
-              "ToolTip": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucTonKho.cs [Design]",
-              "RelativeToolTip": "View\\Inventory\\ucTonKho.cs [Design]",
+              "Title": "DataStorage.cs",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DataStorage.cs",
+              "RelativeDocumentMoniker": "DataAccess\\DataStorage.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DataStorage.cs",
+              "RelativeToolTip": "DataAccess\\DataStorage.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwFwAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:21:22.346Z",
+              "WhenOpened": "2026-05-13T09:58:20.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmLogin.cs",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\FrmLogin.cs",
+              "RelativeDocumentMoniker": "View\\FrmLogin.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\FrmLogin.cs",
+              "RelativeToolTip": "View\\FrmLogin.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAYwEwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T09:56:46.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FrmMain.cs",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\FrmMain.cs",
+              "RelativeDocumentMoniker": "View\\FrmMain.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\FrmMain.cs",
+              "RelativeToolTip": "View\\FrmMain.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAYwBsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T09:55:28.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FrmMain.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\FrmMain.cs",
+              "RelativeDocumentMoniker": "View\\FrmMain.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\FrmMain.cs [Design]",
+              "RelativeToolTip": "View\\FrmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T09:55:26.017Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ucPhieuNhap.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucPhieuNhap.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucPhieuNhap.cs",
-              "ToolTip": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucPhieuNhap.cs [Design]",
-              "RelativeToolTip": "View\\Inventory\\ucPhieuNhap.cs [Design]",
+              "DocumentIndex": 8,
+              "Title": "InventoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\InventoryRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\InventoryRepository.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\InventoryRepository.cs",
+              "RelativeToolTip": "DataAccess\\InventoryRepository.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAUwGoAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:51:01.687Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ucNhaCungCap.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucNhaCungCap.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucNhaCungCap.cs",
-              "ToolTip": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucNhaCungCap.cs [Design]",
-              "RelativeToolTip": "View\\Inventory\\ucNhaCungCap.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T13:15:33.252Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ucNhaCungCap.cs",
-              "DocumentMoniker": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucNhaCungCap.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucNhaCungCap.cs",
-              "ToolTip": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucNhaCungCap.cs",
-              "RelativeToolTip": "View\\Inventory\\ucNhaCungCap.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAiwBIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T13:16:13.951Z",
+              "WhenOpened": "2026-05-13T09:48:59.795Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "ucQuanLyKeHang.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucQuanLyKeHang.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucQuanLyKeHang.cs",
-              "ToolTip": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucQuanLyKeHang.cs [Design]",
-              "RelativeToolTip": "View\\Inventory\\ucQuanLyKeHang.cs [Design]",
+              "Title": "ucManageProduct.cs",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageProduct.cs",
+              "RelativeDocumentMoniker": "View\\Admin\\ucManageProduct.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageProduct.cs",
+              "RelativeToolTip": "View\\Admin\\ucManageProduct.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAQwFAAAABrAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T12:36:32.561Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ucKhoPanel.cs",
-              "DocumentMoniker": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucKhoPanel.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucKhoPanel.cs",
-              "ToolTip": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucKhoPanel.cs",
-              "RelativeToolTip": "View\\Inventory\\ucKhoPanel.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAADwvyYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:31:06.639Z"
+              "WhenOpened": "2026-05-13T09:43:53.204Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ucPhieuNhap.cs",
-              "DocumentMoniker": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucPhieuNhap.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucPhieuNhap.cs",
-              "ToolTip": "C:\\Users\\HONG NHA\\Downloads\\DoAnOOP\\View\\Inventory\\ucPhieuNhap.cs",
-              "RelativeToolTip": "View\\Inventory\\ucPhieuNhap.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Title": "ucManageProduct.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageProduct.cs",
+              "RelativeDocumentMoniker": "View\\Admin\\ucManageProduct.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageProduct.cs [Design]",
+              "RelativeToolTip": "View\\Admin\\ucManageProduct.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:53:49.335Z"
+              "WhenOpened": "2026-05-13T09:39:49.309Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ucManageStaff.cs",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageStaff.cs",
+              "RelativeDocumentMoniker": "View\\Admin\\ucManageStaff.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageStaff.cs",
+              "RelativeToolTip": "View\\Admin\\ucManageStaff.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwBAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T09:38:21.694Z",
+              "EditorCaption": ""
             }
           ]
         }

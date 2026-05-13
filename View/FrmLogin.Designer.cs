@@ -33,13 +33,15 @@ partial class FrmLogin
         txtPass = new TextBox();
         btnLogin = new Button();
         btnExit = new Button();
+        panel1 = new Panel();
+        panel1.SuspendLayout();
         SuspendLayout();
         // 
         // lblTitle
         // 
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-        lblTitle.Location = new Point(34, 45);
+        lblTitle.Location = new Point(14, 35);
         lblTitle.Name = "lblTitle";
         lblTitle.Size = new Size(496, 41);
         lblTitle.TabIndex = 6;
@@ -47,7 +49,7 @@ partial class FrmLogin
         // 
         // lblUser
         // 
-        lblUser.Location = new Point(57, 133);
+        lblUser.Location = new Point(37, 123);
         lblUser.Name = "lblUser";
         lblUser.Size = new Size(114, 31);
         lblUser.TabIndex = 5;
@@ -55,7 +57,7 @@ partial class FrmLogin
         // 
         // lblPass
         // 
-        lblPass.Location = new Point(57, 187);
+        lblPass.Location = new Point(37, 177);
         lblPass.Name = "lblPass";
         lblPass.Size = new Size(114, 31);
         lblPass.TabIndex = 3;
@@ -64,7 +66,7 @@ partial class FrmLogin
         // txtUser
         // 
         txtUser.BackColor = SystemColors.Menu;
-        txtUser.Location = new Point(206, 129);
+        txtUser.Location = new Point(186, 119);
         txtUser.Margin = new Padding(3, 4, 3, 4);
         txtUser.Name = "txtUser";
         txtUser.Size = new Size(228, 27);
@@ -73,7 +75,7 @@ partial class FrmLogin
         // txtPass
         // 
         txtPass.BackColor = SystemColors.Menu;
-        txtPass.Location = new Point(206, 183);
+        txtPass.Location = new Point(186, 173);
         txtPass.Margin = new Padding(3, 4, 3, 4);
         txtPass.Name = "txtPass";
         txtPass.PasswordChar = '*';
@@ -82,7 +84,7 @@ partial class FrmLogin
         // 
         // btnLogin
         // 
-        btnLogin.Location = new Point(206, 240);
+        btnLogin.Location = new Point(186, 230);
         btnLogin.Margin = new Padding(3, 4, 3, 4);
         btnLogin.Name = "btnLogin";
         btnLogin.Size = new Size(103, 47);
@@ -91,34 +93,46 @@ partial class FrmLogin
         // 
         // btnExit
         // 
-        btnExit.Location = new Point(331, 240);
+        btnExit.Location = new Point(311, 230);
         btnExit.Margin = new Padding(3, 4, 3, 4);
         btnExit.Name = "btnExit";
         btnExit.Size = new Size(103, 47);
         btnExit.TabIndex = 0;
         btnExit.Text = "Thoát";
         // 
+        // panel1
+        // 
+        panel1.BorderStyle = BorderStyle.FixedSingle;
+        panel1.Controls.Add(lblTitle);
+        panel1.Controls.Add(btnExit);
+        panel1.Controls.Add(lblUser);
+        panel1.Controls.Add(btnLogin);
+        panel1.Controls.Add(txtUser);
+        panel1.Controls.Add(txtPass);
+        panel1.Controls.Add(lblPass);
+        panel1.Location = new Point(12, 12);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(529, 314);
+        panel1.TabIndex = 7;
+        // 
         // FrmLogin
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
-        ClientSize = new Size(561, 348);
-        Controls.Add(btnExit);
-        Controls.Add(btnLogin);
-        Controls.Add(txtPass);
-        Controls.Add(lblPass);
-        Controls.Add(txtUser);
-        Controls.Add(lblUser);
-        Controls.Add(lblTitle);
+        ClientSize = new Size(554, 341);
+        Controls.Add(panel1);
         FormBorderStyle = FormBorderStyle.FixedDialog;
         Margin = new Padding(3, 4, 3, 4);
         Name = "FrmLogin";
         StartPosition = FormStartPosition.CenterScreen;
         Load += FrmLogin_Load;
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
         ResumeLayout(false);
-        PerformLayout();
     }
 
     #endregion
+
+    private Panel panel1;
 }

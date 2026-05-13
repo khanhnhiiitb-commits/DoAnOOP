@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ChuongtrinhQuanlybanhangsieuthi.View
+namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
 {
-    public partial class ucManageProducts : UserControl
+    public partial class ucDashboard : UserControl
     {
-        public ucManageProducts()
+        public ucDashboard()
         {
             InitializeComponent();
         }

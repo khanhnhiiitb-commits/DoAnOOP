@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace QuanLySieuThi.Data
 {
-    public class InventoryRepository
+    public class InventoryRepository : ITextSerializable<HangHoa>
     {
         private readonly string filePath =
             Application.StartupPath +

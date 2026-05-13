@@ -6,39 +6,42 @@ using QuanLySieuThi.Models.Sales;
 
 namespace QuanLySieuThi.Data
 {
-    public class PartnerRepository
+    public class PartnerRepository : ITextSerializable<NhaCungCap>
     {
         private readonly string filePath = "DataAccess/DatabaseFile/database_partner.txt";
-
-        public List<object> GetAll()
+        public List<NhaCungCap> GetAll()
         {
-            List<object> danhSach = new List<object>();
+            List<NhaCungCap> danhSach = new List<NhaCungCap>();
             if (!File.Exists(filePath)) return danhSach;
 
             string[] lines = File.ReadAllLines(filePath);
             foreach (string line in lines)
             {
                 if (string.IsNullOrWhiteSpace(line)) continue;
-                object doiTac = MapLineToEntity(line);
-                if (doiTac != null) danhSach.Add(doiTac);
+
+                NhaCungCap ncc = MapLineToEntity(line);
+                if (ncc != null) danhSach.Add(ncc);
             }
             return danhSach;
         }
 
-        public void Save(List<object> danhSach)
+        public void Save(List<NhaCungCap> danhSach)
         {
             List<string> lines = new List<string>();
-            foreach (object obj in danhSach)
+            foreach (NhaCungCap ncc in danhSach)
             {
-                lines.Add(MapEntityToLine(obj));
+                lines.Add(MapEntityToLine(ncc));
             }
             File.WriteAllLines(filePath, lines);
         }
-
-        private object MapLineToEntity(string line)
+        
+        // --- HELPER METHODS ---
+        private NhaCungCap MapLineToEntity(string line)
         {
             string[] parts = line.Split('|');
-            if (parts.Length < 2) return null;
+
+            // Format: NCC | MaNCC | TenNCC | DiaChi | SDT | Email (Đủ 6 phần tử)
+            if (parts.Length < 6) return null;
 
             string loaiDoiTac = parts[0];
 
@@ -54,45 +57,11 @@ namespace QuanLySieuThi.Data
                 };
             }
 
-            if (loaiDoiTac == "KH")
-            {
-                KhachHang kh = new KhachHang();
-                kh.MaKH = parts[1];
-                kh.DiemTichLuy = int.Parse(parts[2]);
-                
-                // KIỂM TRA THẺ THÀNH VIÊN
-                // Nếu dữ liệu file có mã thẻ (không phải "None"), ta khởi tạo đối tượng thẻ
-                if (parts.Length > 3 && parts[3] != "None" && !string.IsNullOrEmpty(parts[3]))
-                {
-                    kh.TheTV = new TheThanhVien(parts[3]);
-                }
-                
-                
-                kh.HoTen = parts[4];  
-                kh.DiaChi = parts[6];
-                kh.SoDienThoai = parts[7];  
-                
-                return kh;
-            }
-
             return null;
         }
-
-        private string MapEntityToLine(object obj)
+        private string MapEntityToLine(NhaCungCap ncc)
         {
-            if (obj is NhaCungCap ncc)
-            {
-                return $"NCC|{ncc.MaNCC}|{ncc.TenNCC}|{ncc.DiaChi}|{ncc.SoDienThoai}|{ncc.Email}";
-            }
-
-            if (obj is KhachHang kh)
-            {
-                // Lấy mã thẻ: Nếu có thẻ thì lấy MaThe, không thì ghi "None"
-                string maThe = kh.TheTV != null ? kh.TheTV.MaThe : "None";
-                return $"KH|{kh.MaKH}|{kh.DiemTichLuy}|{maThe}";
-            }
-
-            return "";
+            return $"NCC|{ncc.MaNCC}|{ncc.TenNCC}|{ncc.DiaChi}|{ncc.SoDienThoai}|{ncc.Email}";
         }
     }
 }

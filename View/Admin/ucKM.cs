@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ChuongtrinhQuanlybanhangsieuthi.View
+namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
 {
-    public partial class ucReports: UserControl
+    public partial class ucKM : UserControl
     {
-        public ucReports()
+        public ucKM()
         {
             InitializeComponent();
         }
