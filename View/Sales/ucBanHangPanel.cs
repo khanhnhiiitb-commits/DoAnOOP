@@ -50,5 +50,35 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         {
 
         }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Giohang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pB1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
