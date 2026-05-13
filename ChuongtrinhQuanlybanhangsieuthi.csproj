@@ -59,6 +59,9 @@
     <None Update="DataAccess\DatabaseFIle\database_system.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="DataAccess\DatabaseFIle\database_voucher.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

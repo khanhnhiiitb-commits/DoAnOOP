@@ -157,7 +157,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
 
         private void txtSearchNCC_TextChanged(object sender, EventArgs e)
         {
-            string keyword =txtSearchNCC.Text.Trim().ToLower();
+            string keyword = txtSearchNCC.Text.Trim().ToLower();
 
             dgvNCC.Rows.Clear();
 
@@ -180,6 +180,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
                     );
                 }
             }
+        }
+
+        private void dgvNCC_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

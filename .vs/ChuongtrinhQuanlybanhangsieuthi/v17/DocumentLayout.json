@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucmanagestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucmanagestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\dataaccess\\staffrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\staffrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\dataaccess\\datastorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\datastorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucmanagestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucmanagestaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\controllers\\quanlynhansu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:controllers\\quanlynhansu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucmanagestaff.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucmanagestaff.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|c:\\users\\khanh\\source\\repos\\doanoop\\view\\admin\\ucreports.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucreports.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,79 +42,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ucManageStaff.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageStaff.cs",
-              "RelativeDocumentMoniker": "View\\Admin\\ucManageStaff.cs",
-              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageStaff.cs [Design]*",
-              "RelativeToolTip": "View\\Admin\\ucManageStaff.cs [Design]*",
+              "DocumentIndex": 0,
+              "Title": "ucReports.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucReports.cs",
+              "RelativeDocumentMoniker": "View\\Admin\\ucReports.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucReports.cs [Design]*",
+              "RelativeToolTip": "View\\Admin\\ucReports.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T14:06:37.932Z",
+              "WhenOpened": "2026-05-13T16:28:57.61Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ucManageStaff.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Khanh\\Source\\Repos\\DoAnOOP\\View\\Admin\\ucManageStaff.Designer.cs",
-              "RelativeDocumentMoniker": "View\\Admin\\ucManageStaff.Designer.cs",
-              "ToolTip": "C:\\Users\\Khanh\\Source\\Repos\\DoAnOOP\\View\\Admin\\ucManageStaff.Designer.cs*",
-              "RelativeToolTip": "View\\Admin\\ucManageStaff.Designer.cs*",
-              "ViewState": "AgIAAAsBAAAAAAAAAAAvwCABAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T14:06:12.357Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DataStorage.cs",
-              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DataStorage.cs",
-              "RelativeDocumentMoniker": "DataAccess\\DataStorage.cs",
-              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\DataStorage.cs",
-              "RelativeToolTip": "DataAccess\\DataStorage.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwDYAAAA7AAAAAAAAAA==",
+              "Title": "ucReports.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Khanh\\Source\\Repos\\DoAnOOP\\View\\Admin\\ucReports.Designer.cs",
+              "RelativeDocumentMoniker": "View\\Admin\\ucReports.Designer.cs",
+              "ToolTip": "C:\\Users\\Khanh\\Source\\Repos\\DoAnOOP\\View\\Admin\\ucReports.Designer.cs",
+              "RelativeToolTip": "View\\Admin\\ucReports.Designer.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAEwMkAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T13:28:02.194Z",
+              "WhenOpened": "2026-05-13T16:28:30.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "StaffRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\StaffRepository.cs",
-              "RelativeDocumentMoniker": "DataAccess\\StaffRepository.cs",
-              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\DataAccess\\StaffRepository.cs",
-              "RelativeToolTip": "DataAccess\\StaffRepository.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAowIUAAAAWAAAAAAAAAA==",
+              "Title": "ucReports.cs",
+              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucReports.cs",
+              "RelativeDocumentMoniker": "View\\Admin\\ucReports.cs",
+              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucReports.cs*",
+              "RelativeToolTip": "View\\Admin\\ucReports.cs*",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAIwHIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T13:26:25.501Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "QuanLyNhanSu.cs",
-              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\Controllers\\QuanLyNhanSu.cs",
-              "RelativeDocumentMoniker": "Controllers\\QuanLyNhanSu.cs",
-              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\Controllers\\QuanLyNhanSu.cs",
-              "RelativeToolTip": "Controllers\\QuanLyNhanSu.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAowHoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T13:25:12.499Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ucManageStaff.cs",
-              "DocumentMoniker": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageStaff.cs",
-              "RelativeDocumentMoniker": "View\\Admin\\ucManageStaff.cs",
-              "ToolTip": "C:\\Users\\Khanh\\source\\repos\\DoAnOOP\\View\\Admin\\ucManageStaff.cs*",
-              "RelativeToolTip": "View\\Admin\\ucManageStaff.cs*",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAUwCoAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T13:23:11.681Z",
+              "WhenOpened": "2026-05-13T16:21:09.437Z",
               "EditorCaption": ""
             }
           ]
