@@ -15,6 +15,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
 {
     public partial class ucManageProduct : UserControl
     {
+        private InventoryRepository inventoryRepo = new InventoryRepository();
         public ucManageProduct()
         {
             InitializeComponent();
@@ -33,6 +34,13 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+        private void HienThiLenBang()
+        {
+            dgvHangHoa.DataSource = null;
+            dgvHangHoa.DataSource = DataStorage.Instance.DanhSachHang;
+            if (dgvHangHoa.Columns["MaKeHang"] != null)
+                dgvHangHoa.Columns["MaKeHang"].Visible = false;
         }
         public void XuLyThemHang(string luaChonTuComboBox)
         {
@@ -65,6 +73,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
         private void btnThem_Click(object sender, EventArgs e)
         {
             XuLyThemHang(cbLoaiHH.Text);
+        }
+
+        private void ucManageProduct_Load(object sender, EventArgs e)
+        {
+            HienThiLenBang();
         }
     }
 }

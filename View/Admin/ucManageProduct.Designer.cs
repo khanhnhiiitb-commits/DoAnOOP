@@ -47,7 +47,7 @@
             txtMaHH = new TextBox();
             label2 = new Label();
             panel2 = new Panel();
-            dgvSanPham = new DataGridView();
+            dgvHangHoa = new DataGridView();
             panel3 = new Panel();
             txtTimHH = new TextBox();
             label9 = new Label();
@@ -55,7 +55,7 @@
             panel4 = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSanPham).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHangHoa).BeginInit();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             SuspendLayout();
@@ -241,20 +241,20 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(dgvSanPham);
+            panel2.Controls.Add(dgvHangHoa);
             panel2.Location = new Point(467, 119);
             panel2.Name = "panel2";
             panel2.Size = new Size(700, 539);
             panel2.TabIndex = 1;
             // 
-            // dgvSanPham
+            // dgvHangHoa
             // 
-            dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSanPham.Location = new Point(-1, -1);
-            dgvSanPham.Name = "dgvSanPham";
-            dgvSanPham.RowHeadersWidth = 51;
-            dgvSanPham.Size = new Size(700, 539);
-            dgvSanPham.TabIndex = 0;
+            dgvHangHoa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHangHoa.Location = new Point(-1, -1);
+            dgvHangHoa.Name = "dgvHangHoa";
+            dgvHangHoa.RowHeadersWidth = 51;
+            dgvHangHoa.Size = new Size(700, 539);
+            dgvHangHoa.TabIndex = 0;
             // 
             // panel3
             // 
@@ -312,10 +312,11 @@
             Controls.Add(panel1);
             Name = "ucManageProduct";
             Size = new Size(1202, 676);
+            Load += ucManageProduct_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvSanPham).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHangHoa).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
@@ -334,7 +335,7 @@
         private TextBox txtMaHH;
         private Label label2;
         private Panel panel2;
-        private DataGridView dgvSanPham;
+        private DataGridView dgvHangHoa;
         private Panel panel3;
         private Label label1;
         private Panel panel4;

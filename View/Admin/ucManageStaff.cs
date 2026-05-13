@@ -14,7 +14,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
     public partial class ucManageStaff : UserControl
     {
 
-        private StaffRepository staffRepo = new StaffRepository();
+        
         private void HienThiLenBang()
         {
             dgvNhanVien.DataSource = null;

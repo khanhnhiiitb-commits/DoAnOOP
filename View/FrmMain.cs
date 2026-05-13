@@ -24,7 +24,10 @@ namespace ChuongtrinhQuanlybanhangsieuthi
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            // SỬA TẠI ĐÂY: Dùng DataStorage.Instance thay vì gọi trực tiếp
+            
+            
+                DataStorage.Instance.LoadAllData();
+            
             NhanVien nv = DataStorage.Instance.NhanVienDangNhap;
 
             if (nv != null && nv.Taikhoan != null && nv.Taikhoan.UserRole != null)
@@ -54,6 +57,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
                 // Có thể đóng Form để quay lại Login tại đây
             }
 
+            
         }
 
     }

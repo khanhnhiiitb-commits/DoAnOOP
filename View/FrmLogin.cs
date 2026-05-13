@@ -70,6 +70,10 @@ namespace ChuongtrinhQuanlybanhangsieuthi
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            if (DataStorage.Instance.DanhSachNV.Count == 0)
+            {
+                DataStorage.Instance.LoadAllData();
+            }
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
