@@ -23,17 +23,17 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
         {
             InitializeComponent();
 
-            repo =new PhieuNhapRepository();
+            repo = new PhieuNhapRepository();
 
-            dsPhieuNhap =repo.GetAll();
+            dsPhieuNhap = repo.GetAll();
 
-            inventoryRepo =new InventoryRepository();
+            inventoryRepo = new InventoryRepository();
 
-            dsHangHoa =inventoryRepo.GetAll();
+            dsHangHoa = inventoryRepo.GetAll();
 
-            serviceKho =new QuanLyKho(dsHangHoa,new List<KeHang>());
+            serviceKho = new QuanLyKho(dsHangHoa, new List<KeHang>());
 
-            serviceNhapHang =new QuanLyNhapHang(dsPhieuNhap);
+            serviceNhapHang = new QuanLyNhapHang(dsPhieuNhap);
         }
         private void HienThiDanhSach()
         {
@@ -48,7 +48,9 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
                     pn.TrangThai,
                     pn.TongTien
                 );
+
             }
+
         }
 
         private void ucPhieuNhap_Load(object sender, EventArgs e)
@@ -77,12 +79,12 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
             try
             {
                 // TẠO NHÀ CUNG CẤP
-                NhaCungCap ncc =new NhaCungCap();
+                NhaCungCap ncc = new NhaCungCap();
 
-                ncc.MaNCC =txtNCC.Text.Trim();
+                ncc.MaNCC = txtNCC.Text.Trim();
 
                 // LẬP PHIẾU NHẬP
-                PhieuNhap pn =serviceNhapHang.LapPhieuNhap(ncc);
+                PhieuNhap pn = serviceNhapHang.LapPhieuNhap(ncc);
 
                 // TÌM HÀNG HÓA
                 HangHoa hangDuocChon = null;
@@ -98,12 +100,12 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
                 }
 
                 // THÊM CHI TIẾT PHIẾU NHẬP
-                serviceNhapHang.ThemChiTietPhieuNhap(pn,hangDuocChon,
+                serviceNhapHang.ThemChiTietPhieuNhap(pn, hangDuocChon,
                         int.Parse(txtSoLuongNhap.Text),
                         double.Parse(txtDonGiaNhap.Text));
 
                 // XÁC NHẬN NHẬP KHO
-                serviceNhapHang.XacNhanNhapKho(pn,serviceKho);
+                serviceNhapHang.XacNhanNhapKho(pn, serviceKho);
 
                 // LƯU FILE PHIẾU NHẬP
                 repo.Save(dsPhieuNhap);
@@ -145,32 +147,56 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
 
         private void dgvPhieuNhap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            // Bỏ qua nếu click vào tiêu đề cột hoặc click vào dòng trắng cuối cùng
+            if (e.RowIndex < 0 || dgvPhieuNhap.Rows[e.RowIndex].IsNewRow)
             {
                 return;
             }
 
-            txtMaPN.Text =
-                dgvPhieuNhap.Rows[e.RowIndex]
-                .Cells[0].Value.ToString();
+            // Tạo biến row cho ngắn gọn, dễ gõ
+            DataGridViewRow row = dgvPhieuNhap.Rows[e.RowIndex];
 
-            txtNCC.Text =
-                dgvPhieuNhap.Rows[e.RowIndex]
-                .Cells[1].Value.ToString();
+            // ==============================================================
+            // VIỆC 1: ĐỔ DỮ LIỆU LÊN CÁC TEXTBOX (Code của Nhi)
+            // ==============================================================
+            // Dùng dấu "?" trước ToString() để an toàn, lỡ ô đó rỗng thì phần mềm không bị văng lỗi
+            txtMaPN.Text = row.Cells[0].Value?.ToString();
+            txtNCC.Text = row.Cells[1].Value?.ToString();
 
-            dtNgayNhap.Value =
-                DateTime.Parse(
-                    dgvPhieuNhap.Rows[e.RowIndex]
-                    .Cells[2].Value.ToString()
-                );
+            // An toàn hơn khi Parse ngày tháng
+            if (DateTime.TryParse(row.Cells[2].Value?.ToString(), out DateTime ngayNhap))
+            {
+                dtNgayNhap.Value = ngayNhap;
+            }
 
-            cboTrangThai.Text =
-                dgvPhieuNhap.Rows[e.RowIndex]
-                .Cells[3].Value.ToString();
+            cboTrangThai.Text = row.Cells[3].Value?.ToString();
+            txtTongTien.Text = row.Cells[4].Value?.ToString();
 
-            txtTongTien.Text =
-                dgvPhieuNhap.Rows[e.RowIndex]
-                .Cells[4].Value.ToString();
+            // ==============================================================
+            // VIỆC 2: TẢI DANH SÁCH MẶT HÀNG XUỐNG BẢNG 2 (dgvChiTietPhieuNhap)
+            // ==============================================================
+            string maDuocChon = txtMaPN.Text; // Lấy luôn cái mã PN vừa nạp vào TextBox
+
+            dgvChiTietPhieuNhap.Rows.Clear(); // Xóa sạch mặt hàng của phiếu cũ
+
+            // Tìm phiếu nhập này trong Kho RAM (Giả sử Nhi đang dùng list dsPhieuNhap)
+            foreach (PhieuNhap p in dsPhieuNhap)
+            {
+                if (p.MaPN == maDuocChon)
+                {
+                    // Nếu tìm thấy, móc cái ruột (DanhSachChiTiet) ra đổ vào Bảng 2
+                    foreach (ChiTietPhieuNhap ctpn in p.DanhSachChiTiet)
+                    {
+                        dgvChiTietPhieuNhap.Rows.Add(
+                            ctpn.MaHH,
+                            ctpn.SoLuong,
+                            ctpn.DonGia.ToString("N0"),
+                            (ctpn.SoLuong * ctpn.DonGia).ToString("N0") // Thành tiền = Số lượng * Đơn giá
+                        );
+                    }
+                    break; // Đổ xong rồi thì thoát vòng lặp cho nhẹ máy
+                }
+            }
         }
 
         private void btnSuaPN_Click(object sender, EventArgs e)
@@ -230,6 +256,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
                     );
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
