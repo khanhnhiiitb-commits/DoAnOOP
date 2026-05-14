@@ -1,5 +1,6 @@
 ﻿using ChuongtrinhQuanlybanhangsieuthi.DataAccess;
 using QuanLySieuThi.Data;
+using QuanLySieuThi.Models.Products;
 using QuanLySieuThi.Models.Sales;
 using QuanLySieuThi.Models.Systems;
 using QuanLySieuThi.Services;
@@ -12,14 +13,27 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
 
         private List<PhieuNhap> dsPhieuNhap;
         private QuanLyNhapHang serviceNhapHang;
+
+        private InventoryRepository inventoryRepo;
+
+        private List<HangHoa> dsHangHoa;
+
+        private QuanLyKho serviceKho;
         public ucPhieuNhap()
         {
             InitializeComponent();
 
-            repo =
-        repo = new PhieuNhapRepository();
+            repo =new PhieuNhapRepository();
 
-            dsPhieuNhap = repo.GetAll();
+            dsPhieuNhap =repo.GetAll();
+
+            inventoryRepo =new InventoryRepository();
+
+            dsHangHoa =inventoryRepo.GetAll();
+
+            serviceKho =new QuanLyKho(dsHangHoa,new List<KeHang>());
+
+            serviceNhapHang =new QuanLyNhapHang(dsPhieuNhap);
         }
         private void HienThiDanhSach()
         {
@@ -51,42 +65,56 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
             cboTrangThai.Items.Add("DaHuy");
 
             HienThiDanhSach();
+
+            foreach (HangHoa hh in dsHangHoa)
+            {
+                cboMaHang.Items.Add(hh.MaHH);
+            }
         }
 
         private void btnThemPN_Click(object sender, EventArgs e)
         {
             try
             {
-                PhieuNhap pn = new PhieuNhap();
+                // TẠO NHÀ CUNG CẤP
+                NhaCungCap ncc =new NhaCungCap();
 
-                pn.MaPN =
-                    txtMaPN.Text.Trim();
+                ncc.MaNCC =txtNCC.Text.Trim();
 
-                pn.MaNCC =
-                    txtNCC.Text.Trim();
+                // LẬP PHIẾU NHẬP
+                PhieuNhap pn =serviceNhapHang.LapPhieuNhap(ncc);
 
-                pn.NgayNhap =
-                    dtNgayNhap.Value;
+                // TÌM HÀNG HÓA
+                HangHoa hangDuocChon = null;
 
-                pn.TrangThai =
-                    cboTrangThai.Text;
+                foreach (HangHoa hh in dsHangHoa)
+                {
+                    if (hh.MaHH == cboMaHang.Text)
+                    {
+                        hangDuocChon = hh;
 
-                pn.TongTien =
-                    double.Parse(txtTongTien.Text);
+                        break;
+                    }
+                }
 
-                pn.SoDienThoai = "";
+                // THÊM CHI TIẾT PHIẾU NHẬP
+                serviceNhapHang.ThemChiTietPhieuNhap(pn,hangDuocChon,
+                        int.Parse(txtSoLuongNhap.Text),
+                        double.Parse(txtDonGiaNhap.Text));
 
-                pn.Email = "";
+                // XÁC NHẬN NHẬP KHO
+                serviceNhapHang.XacNhanNhapKho(pn,serviceKho);
 
-                dsPhieuNhap.Add(pn);
-
+                // LƯU FILE PHIẾU NHẬP
                 repo.Save(dsPhieuNhap);
 
+                // LƯU FILE KHO
+                inventoryRepo.Save(dsHangHoa);
+
+                // HIỂN THỊ LẠI
                 HienThiDanhSach();
 
-                MessageBox.Show(
-                    "Thêm phiếu nhập thành công!"
-                );
+                MessageBox.Show("Nhập hàng thành công!");
             }
             catch (Exception ex)
             {
