@@ -65,6 +65,7 @@
             label1.Size = new Size(88, 20);
             label1.TabIndex = 3;
             label1.Text = "AdminPanel";
+            label1.Click += label1_Click;
             // 
             // flowLayoutPanel1
             // 

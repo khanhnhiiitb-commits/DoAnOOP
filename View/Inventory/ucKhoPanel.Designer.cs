@@ -25,7 +25,7 @@
         {
             pnlMenu = new Panel();
             pnlUser = new Panel();
-            lnkDangXuat = new LinkLabel();
+            btnLogout = new Button();
             lblNhanVien = new Label();
             btnNhaCungCap = new Button();
             btnQuanLyKeHang = new Button();
@@ -41,6 +41,7 @@
             // 
             pnlMenu.BackColor = SystemColors.ActiveCaption;
             pnlMenu.Controls.Add(pnlUser);
+            pnlMenu.Controls.Add(lblNhanVien);
             pnlMenu.Controls.Add(btnNhaCungCap);
             pnlMenu.Controls.Add(btnQuanLyKeHang);
             pnlMenu.Controls.Add(btnPhieuNhap);
@@ -54,30 +55,28 @@
             // 
             // pnlUser
             // 
-            pnlUser.Controls.Add(lnkDangXuat);
-            pnlUser.Controls.Add(lblNhanVien);
+            pnlUser.Controls.Add(btnLogout);
             pnlUser.Dock = DockStyle.Bottom;
             pnlUser.Location = new Point(0, 539);
             pnlUser.Name = "pnlUser";
             pnlUser.Size = new Size(267, 61);
             pnlUser.TabIndex = 5;
             // 
-            // lnkDangXuat
+            // btnLogout
             // 
-            lnkDangXuat.AutoSize = true;
-            lnkDangXuat.LinkColor = Color.Red;
-            lnkDangXuat.Location = new Point(47, 34);
-            lnkDangXuat.Name = "lnkDangXuat";
-            lnkDangXuat.Size = new Size(77, 20);
-            lnkDangXuat.TabIndex = 1;
-            lnkDangXuat.TabStop = true;
-            lnkDangXuat.Text = "Đăng xuất";
+            btnLogout.Location = new Point(16, 14);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(88, 37);
+            btnLogout.TabIndex = 6;
+            btnLogout.Text = "Đăng xuất";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // lblNhanVien
             // 
             lblNhanVien.AutoSize = true;
             lblNhanVien.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNhanVien.Location = new Point(47, 14);
+            lblNhanVien.Location = new Point(3, 506);
             lblNhanVien.Name = "lblNhanVien";
             lblNhanVien.Size = new Size(83, 20);
             lblNhanVien.TabIndex = 0;
@@ -164,10 +163,10 @@
             Controls.Add(pnlMenu);
             Name = "panelKho";
             Size = new Size(1000, 600);
+            Load += panelKho_Load;
             pnlMenu.ResumeLayout(false);
             pnlMenu.PerformLayout();
             pnlUser.ResumeLayout(false);
-            pnlUser.PerformLayout();
             ResumeLayout(false);
         }
         private Panel pnlMenu;
@@ -177,9 +176,9 @@
         private Button btnPhieuNhap;
         private Button btnTonKho;
         private Panel pnlUser;
-        private LinkLabel lnkDangXuat;
         private Label lblNhanVien;
         private Panel pnlContainer;
+        private Button btnLogout;
     }
 }
 #region Component Designer generated code

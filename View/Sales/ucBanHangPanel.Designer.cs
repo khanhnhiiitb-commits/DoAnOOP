@@ -29,36 +29,26 @@
         private void InitializeComponent()
         {
             txtTimKiem = new TextBox();
-            btnTimKiem = new Button();
+            btnDienTu = new Button();
             groupBox1 = new GroupBox();
-            panel2 = new Panel();
-            label1 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            pictureBox1 = new PictureBox();
-            button2 = new Button();
-            button1 = new Button();
-            panel1 = new Panel();
-            lbTon = new Label();
-            lbGia = new Label();
-            label9 = new Label();
-            pB1 = new PictureBox();
+            dgvSanPham = new DataGridView();
+            btnThucPham = new Button();
+            btnTatCa = new Button();
             groupBox2 = new GroupBox();
             dgvGioHang = new DataGridView();
             panel4 = new Panel();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            btnLamMoi = new Button();
-            textBox1 = new TextBox();
+            btnThanhToan = new Button();
+            txtTimKH = new TextBox();
             Giohang = new Label();
             folderBrowserDialog1 = new FolderBrowserDialog();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
+            btnLogout = new Button();
+            label1 = new Label();
             groupBox1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pB1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSanPham).BeginInit();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGioHang).BeginInit();
             panel4.SuspendLayout();
@@ -76,195 +66,85 @@
             txtTimKiem.Text = "Quét mã vạch hoặc tìm tên hàng...";
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
-            // btnTimKiem
+            // btnDienTu
             // 
-            btnTimKiem.BackColor = SystemColors.ButtonHighlight;
-            btnTimKiem.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTimKiem.ForeColor = SystemColors.ControlDarkDark;
-            btnTimKiem.Location = new Point(517, 23);
-            btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.RightToLeft = RightToLeft.Yes;
-            btnTimKiem.Size = new Size(81, 30);
-            btnTimKiem.TabIndex = 2;
-            btnTimKiem.Text = "Điện tử";
-            btnTimKiem.UseVisualStyleBackColor = false;
+            btnDienTu.BackColor = SystemColors.ButtonHighlight;
+            btnDienTu.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDienTu.ForeColor = SystemColors.ControlDarkDark;
+            btnDienTu.Location = new Point(517, 23);
+            btnDienTu.Name = "btnDienTu";
+            btnDienTu.RightToLeft = RightToLeft.Yes;
+            btnDienTu.Size = new Size(81, 30);
+            btnDienTu.TabIndex = 2;
+            btnDienTu.Text = "Điện tử";
+            btnDienTu.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.White;
-            groupBox1.Controls.Add(panel2);
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(panel1);
-            groupBox1.Controls.Add(btnTimKiem);
+            groupBox1.Controls.Add(dgvSanPham);
+            groupBox1.Controls.Add(btnThucPham);
+            groupBox1.Controls.Add(btnTatCa);
+            groupBox1.Controls.Add(btnDienTu);
             groupBox1.Controls.Add(txtTimKiem);
             groupBox1.FlatStyle = FlatStyle.Flat;
             groupBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = SystemColors.ActiveCaption;
             groupBox1.Location = new Point(9, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(753, 578);
+            groupBox1.Size = new Size(753, 543);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // panel2
+            // dgvSanPham
             // 
-            panel2.BackColor = SystemColors.ButtonHighlight;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(pictureBox1);
-            panel2.ForeColor = SystemColors.ButtonFace;
-            panel2.Location = new Point(268, 84);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(200, 181);
-            panel2.TabIndex = 7;
+            dgvSanPham.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSanPham.Location = new Point(27, 73);
+            dgvSanPham.Name = "dgvSanPham";
+            dgvSanPham.RowHeadersWidth = 51;
+            dgvSanPham.Size = new Size(708, 505);
+            dgvSanPham.TabIndex = 10;
             // 
-            // label1
+            // btnThucPham
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.DarkSeaGreen;
-            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label1.ForeColor = Color.DarkGreen;
-            label1.Location = new Point(146, 141);
-            label1.Name = "label1";
-            label1.Size = new Size(39, 23);
-            label1.TabIndex = 6;
-            label1.Text = "Tồn";
+            btnThucPham.BackColor = SystemColors.ButtonHighlight;
+            btnThucPham.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThucPham.ForeColor = SystemColors.ControlDarkDark;
+            btnThucPham.Location = new Point(615, 23);
+            btnThucPham.Name = "btnThucPham";
+            btnThucPham.RightToLeft = RightToLeft.Yes;
+            btnThucPham.Size = new Size(120, 30);
+            btnThucPham.TabIndex = 9;
+            btnThucPham.Text = "Thực phẩm";
+            btnThucPham.UseVisualStyleBackColor = false;
             // 
-            // label5
+            // btnTatCa
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label5.ForeColor = Color.FromArgb(0, 0, 192);
-            label5.Location = new Point(19, 141);
-            label5.Name = "label5";
-            label5.Size = new Size(35, 23);
-            label5.TabIndex = 5;
-            label5.Text = "Giá";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label6.ForeColor = SystemColors.ActiveCaptionText;
-            label6.Location = new Point(3, 106);
-            label6.Name = "label6";
-            label6.Size = new Size(116, 23);
-            label6.TabIndex = 4;
-            label6.Text = "Tên sản phẩm";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = SystemColors.ButtonFace;
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(186, 100);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = SystemColors.ButtonHighlight;
-            button2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.ControlDarkDark;
-            button2.Location = new Point(615, 23);
-            button2.Name = "button2";
-            button2.RightToLeft = RightToLeft.Yes;
-            button2.Size = new Size(120, 30);
-            button2.TabIndex = 9;
-            button2.Text = "Thực phẩm";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.ButtonHighlight;
-            button1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ControlDarkDark;
-            button1.Location = new Point(415, 23);
-            button1.Name = "button1";
-            button1.RightToLeft = RightToLeft.Yes;
-            button1.Size = new Size(81, 30);
-            button1.TabIndex = 8;
-            button1.Text = "Tất cả";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.ButtonHighlight;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(lbTon);
-            panel1.Controls.Add(lbGia);
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(pB1);
-            panel1.ForeColor = SystemColors.ButtonFace;
-            panel1.Location = new Point(27, 84);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(200, 181);
-            panel1.TabIndex = 5;
-            // 
-            // lbTon
-            // 
-            lbTon.AutoSize = true;
-            lbTon.BackColor = Color.DarkSeaGreen;
-            lbTon.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            lbTon.ForeColor = Color.DarkGreen;
-            lbTon.Location = new Point(146, 141);
-            lbTon.Name = "lbTon";
-            lbTon.Size = new Size(39, 23);
-            lbTon.TabIndex = 6;
-            lbTon.Text = "Tồn";
-            // 
-            // lbGia
-            // 
-            lbGia.AutoSize = true;
-            lbGia.BackColor = Color.Transparent;
-            lbGia.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            lbGia.ForeColor = Color.FromArgb(0, 0, 192);
-            lbGia.Location = new Point(19, 141);
-            lbGia.Name = "lbGia";
-            lbGia.Size = new Size(35, 23);
-            lbGia.TabIndex = 5;
-            lbGia.Text = "Giá";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Transparent;
-            label9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            label9.ForeColor = SystemColors.ActiveCaptionText;
-            label9.Location = new Point(19, 106);
-            label9.Name = "label9";
-            label9.Size = new Size(116, 23);
-            label9.TabIndex = 4;
-            label9.Text = "Tên sản phẩm";
-            label9.Click += label9_Click;
-            // 
-            // pB1
-            // 
-            pB1.BackColor = SystemColors.ButtonFace;
-            pB1.Location = new Point(3, 3);
-            pB1.Name = "pB1";
-            pB1.Size = new Size(186, 100);
-            pB1.TabIndex = 0;
-            pB1.TabStop = false;
-            pB1.Click += pB1_Click;
+            btnTatCa.BackColor = SystemColors.ButtonHighlight;
+            btnTatCa.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTatCa.ForeColor = SystemColors.ControlDarkDark;
+            btnTatCa.Location = new Point(415, 23);
+            btnTatCa.Name = "btnTatCa";
+            btnTatCa.RightToLeft = RightToLeft.Yes;
+            btnTatCa.Size = new Size(81, 30);
+            btnTatCa.TabIndex = 8;
+            btnTatCa.Text = "Tất cả";
+            btnTatCa.UseVisualStyleBackColor = false;
+            btnTatCa.Click += button1_Click;
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.White;
             groupBox2.Controls.Add(dgvGioHang);
             groupBox2.Controls.Add(panel4);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(txtTimKH);
             groupBox2.Controls.Add(Giohang);
             groupBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox2.Location = new Point(768, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(607, 578);
+            groupBox2.Size = new Size(607, 543);
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
             groupBox2.Enter += groupBox2_Enter;
@@ -284,10 +164,10 @@
             panel4.Controls.Add(label4);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label2);
-            panel4.Controls.Add(btnLamMoi);
+            panel4.Controls.Add(btnThanhToan);
             panel4.Location = new Point(17, 322);
             panel4.Name = "panel4";
-            panel4.Size = new Size(569, 236);
+            panel4.Size = new Size(569, 221);
             panel4.TabIndex = 10;
             // 
             // label4
@@ -324,28 +204,29 @@
             label2.TabIndex = 10;
             label2.Text = "Tạm tính (1 sản phẩm)";
             // 
-            // btnLamMoi
+            // btnThanhToan
             // 
-            btnLamMoi.BackColor = SystemColors.InactiveCaption;
-            btnLamMoi.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnLamMoi.ForeColor = SystemColors.Control;
-            btnLamMoi.Location = new Point(184, 177);
-            btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(272, 43);
-            btnLamMoi.TabIndex = 8;
-            btnLamMoi.Text = "THANH TOÁN VÀ IN BILL";
-            btnLamMoi.UseVisualStyleBackColor = false;
+            btnThanhToan.BackColor = SystemColors.InactiveCaption;
+            btnThanhToan.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnThanhToan.ForeColor = SystemColors.Control;
+            btnThanhToan.Location = new Point(166, 149);
+            btnThanhToan.Name = "btnThanhToan";
+            btnThanhToan.Size = new Size(272, 43);
+            btnThanhToan.TabIndex = 8;
+            btnThanhToan.Text = "THANH TOÁN VÀ IN BILL";
+            btnThanhToan.UseVisualStyleBackColor = false;
+            btnThanhToan.Click += btnLamMoi_Click;
             // 
-            // textBox1
+            // txtTimKH
             // 
-            textBox1.BackColor = SystemColors.InactiveCaption;
-            textBox1.Font = new Font("Times New Roman", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = Color.Gray;
-            textBox1.Location = new Point(17, 59);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(569, 27);
-            textBox1.TabIndex = 6;
-            textBox1.Text = "Nhập SĐT khách hàng...";
+            txtTimKH.BackColor = SystemColors.InactiveCaption;
+            txtTimKH.Font = new Font("Times New Roman", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtTimKH.ForeColor = Color.Gray;
+            txtTimKH.Location = new Point(17, 59);
+            txtTimKH.Name = "txtTimKH";
+            txtTimKH.Size = new Size(569, 27);
+            txtTimKH.TabIndex = 6;
+            txtTimKH.Text = "Nhập SĐT khách hàng...";
             // 
             // Giohang
             // 
@@ -359,11 +240,34 @@
             Giohang.Text = "Khách hàng";
             Giohang.Click += Giohang_Click;
             // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(1266, 568);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(88, 37);
+            btnLogout.TabIndex = 6;
+            btnLogout.Text = "Đăng xuất";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.AliceBlue;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.Desktop;
+            label1.Location = new Point(9, 576);
+            label1.Name = "label1";
+            label1.Size = new Size(317, 25);
+            label1.TabIndex = 11;
+            label1.Text = "nv";
+            // 
             // ucBanHangPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
+            Controls.Add(label1);
+            Controls.Add(btnLogout);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "ucBanHangPanel";
@@ -371,12 +275,7 @@
             Load += ucBanHangPanel_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pB1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSanPham).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGioHang).EndInit();
@@ -387,30 +286,23 @@
 
         #endregion
         private TextBox txtTimKiem;
-        private Button btnTimKiem;
+        private Button btnDienTu;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private Label Giohang;
-        private Button btnLamMoi;
-        private Panel panel1;
-        private Label lbGia;
-        private Label label9;
-        private PictureBox pB1;
-        private Label lbTon;
-        private TextBox textBox1;
+        private Button btnThanhToan;
+        private TextBox txtTimKH;
         private FolderBrowserDialog folderBrowserDialog1;
-        private Button button2;
-        private Button button1;
+        private Button btnThucPham;
+        private Button btnTatCa;
         private Panel panel4;
         private Label label2;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private Label label3;
         private Label label4;
-        private Panel panel2;
-        private Label label1;
-        private Label label5;
-        private Label label6;
-        private PictureBox pictureBox1;
         private DataGridView dgvGioHang;
+        private DataGridView dgvSanPham;
+        private Button btnLogout;
+        private Label label1;
     }
 }

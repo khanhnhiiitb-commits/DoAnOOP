@@ -28,6 +28,7 @@ namespace QuanLySieuThi.Data
             DanhSachKhuyenMai = new List<ChuongTrinhKhuyenMai>();
             DanhSachVoucher = new List<Voucher>();
             DanhSachTheTV = new List<TheThanhVien>();
+            DanhSachKeHang = new List<KeHang>();
 
             // Nạp toàn bộ dữ liệu từ txt lên RAM khi hệ thống bắt đầu
             LoadAllData();
@@ -60,7 +61,7 @@ namespace QuanLySieuThi.Data
 
         // Lưu vết người đang sử dụng phần mềm
         public NhanVien NhanVienDangNhap { get; set; }
-
+        public List<KeHang> DanhSachKeHang { get; set; }
         // --- HÀM NẠP DỮ LIỆU TỪ TẤT CẢ REPOSITORY ---
         public void LoadAllData()
         {

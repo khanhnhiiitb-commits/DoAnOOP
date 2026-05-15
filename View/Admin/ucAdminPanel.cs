@@ -33,6 +33,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
 
         private void ucAdminPanel_Load(object sender, EventArgs e)
         {
+
             if (DataStorage.Instance.NhanVienDangNhap != null)
             {
 
@@ -42,6 +43,8 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             {
                 label1.Text = "Xin chào, Admin ẩn danh!";
             }
+            HighlightActiveButton(btnTongQuan); 
+            Navigation(new ucDashboard());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -109,6 +112,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         {
             HighlightActiveButton(sender);
             Navigation(new ucKM());
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

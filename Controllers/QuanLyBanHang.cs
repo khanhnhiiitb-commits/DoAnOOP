@@ -14,9 +14,9 @@ namespace QuanLySieuThi.Services
         private List<HangHoa> danhSachHangHoa;
         public List<HoaDon> DanhSachHoaDon { get {return danhSachHoaDon;} }
 
-        public QuanLyBanHang(List<HangHoa> khoHang)
+        public QuanLyBanHang(List<HangHoa> khoHang, List<HoaDon> dsHoaDon)
         {
-            danhSachHoaDon = new List<HoaDon>();
+            danhSachHoaDon = dsHoaDon;
             danhSachHangHoa = khoHang;
         }
 
@@ -133,15 +133,36 @@ namespace QuanLySieuThi.Services
 
         public string LayNoiDungHoaDon(HoaDon hd)
         {
-            string content = "---------- HÓA ĐƠN ----------\n";
-            content += $"Mã HD: {hd.MaHD}\nNgày: {hd.NgayTao}\n";
-            content += "-----------------------------\n";
+            string content = "========== SIÊU THỊ ==========\n";
+            content += "             PHIẾU THANH TOÁN           \n";
+            content += "========================================\n";
+            content += $"Mã HD: {hd.MaHD}\n";
+            content += $"Ngày: {hd.NgayTao.ToString("dd/MM/yyyy HH:mm")}\n";
+            content += "----------------------------------------\n";
+
             foreach (var ct in hd.DanhSachChiTiet)
             {
-                content += $"{ct.MaHH} x {ct.SoLuongMua} = {ct.ThanhTien}\n";
+                string tenSP = ct.MaHH; 
+                foreach (var hh in danhSachHangHoa)
+                {
+                    if (hh.MaHH == ct.MaHH)
+                    {
+                        tenSP = hh.TenHang;
+                        break;
+                    }
+                }
+                content += $"{tenSP}\n";
+                content += $"   {ct.SoLuongMua} x {ct.GiaBan.ToString("N0")} = {ct.ThanhTien.ToString("N0")} đ\n";
             }
-            content += "-----------------------------\n";
-            content += $"TỔNG CỘNG: {hd.TongTien}\n";
+
+            content += "----------------------------------------\n";
+            if (hd.DaApDungVoucher)
+            {
+                content += "(Hóa đơn đã được áp dụng mã giảm giá)\n";
+            }
+
+            content += $"TỔNG CỘNG: {hd.TongTien.ToString("N0")} đ\n";
+
             return content;
         }
     }
