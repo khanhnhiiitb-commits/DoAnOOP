@@ -23,13 +23,25 @@ namespace QuanLySieuThi.Models.Systems
         public int SoLuong
         {
             get { return soLuong; }
-            set { if (value >= 0) soLuong = value; }
+            set 
+            {
+                if (value >= 0)
+                    soLuong = value;
+                else
+                    soLuong = 0;
+            }
         }
 
         public double DonGia
         {
             get { return donGia; }
-            set { if (value >= 0) donGia = value; }
+            set
+            {
+                if (value >= 0)
+                    donGia = value;
+                else
+                    donGia = 0;
+            }
         }
 
        
@@ -37,7 +49,7 @@ namespace QuanLySieuThi.Models.Systems
         { 
             get 
             { 
-                return soLuong * donGia; 
+                return SoLuong * DonGia; 
             } 
         }
 
@@ -47,10 +59,10 @@ namespace QuanLySieuThi.Models.Systems
         // Constructor đầy đủ tham số
         public ChiTietPhieuNhap(string maPN, string maHH, int sl, double dg)
         {
-            this.maPN = maPN;
-            this.maHH = maHH;
-            this.soLuong = sl;
-            this.donGia = dg;
+            this.MaPN = maPN;
+            this.MaHH = maHH;
+            this.SoLuong = sl;
+            this.DonGia = dg;
         }
     }
 }

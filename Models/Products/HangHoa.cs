@@ -28,7 +28,12 @@ namespace QuanLySieuThi.Models.Products
         public int SoLuongTon 
         { 
             get { return soLuongTon; } 
-            set { if (value >= 0) soLuongTon = value; } 
+            set {
+                if (value >= 0)
+                    donGia = value;
+                else
+                    donGia = 0;
+            } 
         }
         public string MaKeHang 
         { 
@@ -47,12 +52,12 @@ namespace QuanLySieuThi.Models.Products
 
         public HangHoa(string ma, string ten, double gia, int ton, string make, string donvi)
         {
-            this.maHH = ma;
-            this.tenHang = ten;
-            this.donGia = gia;
-            this.soLuongTon = ton;
-            this.maKeHang = make;
-            this.donViTinh = donvi;
+            this.MaHH = ma;
+            this.TenHang = ten;
+            this.DonGia = gia;
+            this.SoLuongTon = ton;
+            this.MaKeHang = make;
+            this.DonViTinh = donvi;
         }
 
         public abstract bool KiemTraChatLuong();

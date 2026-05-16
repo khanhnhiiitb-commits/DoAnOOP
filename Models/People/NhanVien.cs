@@ -4,7 +4,7 @@ namespace QuanLySieuThi.Models.People
 {
     public class NhanVien : Nguoi
     {
-        private string maNV;
+    
         private string chucVu;
         private double luongCB;
         private DateTime ngayVaoLam;
@@ -17,11 +17,7 @@ namespace QuanLySieuThi.Models.People
             set { taikhoan = value; }
         }
 
-        public string MaNV 
-        { 
-            get { return maNV; } 
-            set { maNV = value; } 
-        }
+        
 
         public string ChucVu 
         { 
@@ -32,7 +28,16 @@ namespace QuanLySieuThi.Models.People
         public double LuongCB 
         { 
             get { return luongCB; } 
-            set { luongCB = value; } 
+            set {
+                if (value >= 0)
+                {
+                    luongCB = value;
+                }
+                else
+                {
+                    luongCB = 0;
+                }
+            } 
         }
 
         public DateTime NgayVaoLam 
@@ -52,10 +57,9 @@ namespace QuanLySieuThi.Models.People
         public NhanVien(string ma, string ten, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string chucVu) 
         : base(ma, ten, ngaySinh, gioiTinh, soDienThoai, diaChi) 
         {
-            this.maNV = ma;
-            this.chucVu = chucVu;
-            this.ngayVaoLam = DateTime.Now; 
-            this.luongCB = 0; 
+            this.ChucVu = chucVu;
+            this.NgayVaoLam = DateTime.Now; 
+            this.LuongCB = 0; 
         }
     }
 }                                           

@@ -20,11 +20,11 @@ namespace QuanLySieuThi.Models.Sales
 
         public NhaCungCap(string maNCC, string tenNCC, string diaChi, string soDienThoai, string email) 
         {
-            this.maNCC = maNCC;
-            this.tenNCC = tenNCC;
-            this.diaChi = diaChi;
-            this.soDienThoai = soDienThoai;
-            this.email = email; 
+            this.MaNCC = maNCC;
+            this.TenNCC = tenNCC;
+            this.DiaChi = diaChi;
+            this.SoDienThoai = soDienThoai;
+            this.Email = email;
         }
     }
 }

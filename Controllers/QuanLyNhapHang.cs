@@ -9,7 +9,12 @@ namespace QuanLySieuThi.Services
     public class QuanLyNhapHang
     {
         private List<PhieuNhap> danhSachPhieuNhap;
+        public List<PhieuNhap> DanhSachPhieuNhap
+        {
+            get { return danhSachPhieuNhap; }
+        }
 
+       
         public QuanLyNhapHang(List<PhieuNhap> dsPN)
         {
             this.danhSachPhieuNhap = dsPN;
@@ -19,13 +24,10 @@ namespace QuanLySieuThi.Services
         public PhieuNhap LapPhieuNhap(NhaCungCap ncc)
         {
             if (ncc == null) return null;
-            
-            PhieuNhap pn = new PhieuNhap();
-            pn.MaPN = "PN" + (danhSachPhieuNhap.Count + 1);
-            pn.NgayNhap = DateTime.Now;
-            pn.NhaCC = ncc; // Association với Nhà cung cấp
-            pn.TrangThai = "ChoXacNhan";
-            
+            string maMoi = "PN" + (danhSachPhieuNhap.Count + 1).ToString("D3");
+
+            PhieuNhap pn = new PhieuNhap(maMoi, ncc, DateTime.Now, 0);
+
             danhSachPhieuNhap.Add(pn);
             return pn;
         }
@@ -35,23 +37,12 @@ namespace QuanLySieuThi.Services
         {
             if (pn != null && hh != null)
             {
-                ChiTietPhieuNhap ct = new ChiTietPhieuNhap(hh.MaHH, hh.TenHang, soLuong, giaNhap);
-        
-                pn.DanhSachChiTiet.Add(ct);
-                TinhTongTien(pn);
+                ChiTietPhieuNhap ct = new ChiTietPhieuNhap(pn.MaPN, hh.MaHH, soLuong, giaNhap);
+                pn.ThemChiTiet(ct);
             }
         }
 
-        // Tính tổng tiền cho phiếu nhập (Duyệt vòng lặp truyền thống)
-        public void TinhTongTien(PhieuNhap pn)
-        {
-            double tong = 0;
-            foreach (ChiTietPhieuNhap ct in pn.DanhSachChiTiet)
-            {
-                tong += ct.SoLuong * ct.DonGia;
-            }
-            pn.TongTien = tong;
-        }
+        
 
         // Xác nhận nhập kho: Lúc này hàng mới thực sự cộng vào tồn kho
         public void XacNhanNhapKho(PhieuNhap pn, QuanLyKho serviceKho)
@@ -60,12 +51,15 @@ namespace QuanLySieuThi.Services
             {
                 foreach (ChiTietPhieuNhap ct in pn.DanhSachChiTiet)
                 {
-                    // Gọi sang QuanLyKho để tăng số lượng tồn
+                    // Gọi sang QuanLyKho để tăng số lượng tồn kho thực tế
                     serviceKho.CapNhatSoLuong(ct.MaHH, ct.SoLuong);
-                    // Cập nhật giá nhập mới nhất cho hàng hóa
+
+                    // Cập nhật giá vốn mới nhất cho hàng hóa trong kho
                     CapNhatGiaNhap(ct.MaHH, ct.DonGia, serviceKho);
                 }
-                pn.TrangThai = "DaNhapKho";
+
+                // Khắc phục: Sử dụng phương thức hành vi đóng gói của Model để đổi trạng thái văn minh
+                pn.XacNhanXuatKho();
             }
         }
 
@@ -90,7 +84,7 @@ namespace QuanLySieuThi.Services
                 {
                     if (danhSachPhieuNhap[i].TrangThai == "ChoXacNhan")
                     {
-                        danhSachPhieuNhap[i].TrangThai = "DaHuy";
+                        danhSachPhieuNhap[i].HuyDonPhieu();
                         return true;
                     }
                 }

@@ -1,19 +1,13 @@
-namespace QuanLySieuThi.Models.Products
+﻿namespace QuanLySieuThi.Models.Products
 {
     public class KeHang
     {
         private string maKe;
-
         private string viTri;
-
         private int sucChua;
-
         private string loaiHang;
 
-        private string trangThai;
-
-        private List<HangHoa> danhSachHang =
-            new List<HangHoa>();
+        private List<HangHoa> danhSachHang = new List<HangHoa>();
 
         public string MaKe
         {
@@ -36,6 +30,22 @@ namespace QuanLySieuThi.Models.Products
                 {
                     sucChua = value;
                 }
+                else
+                {
+                    sucChua = 0;
+                }
+            }
+        }
+        public string TrangThai
+        {
+            get
+            {
+                if (danhSachHang.Count == 0)
+                    return "Trống";
+                else if (danhSachHang.Count >= sucChua)
+                    return "Đầy";
+                else
+                    return "Còn chỗ";
             }
         }
 
@@ -45,38 +55,28 @@ namespace QuanLySieuThi.Models.Products
             set { loaiHang = value; }
         }
 
-        public string TrangThai
-        {
-            get { return trangThai; }
-            set { trangThai = value; }
-        }
-
         public List<HangHoa> DanhSachHang
         {
             get { return danhSachHang; }
-            set { danhSachHang = value; }
         }
 
         public KeHang() { }
 
-        public KeHang
-        (
-            string ma,
-            string vitri,
-            int succhua,
-            string loai,
-            string trangthai
-        )
+        public KeHang(string ma,string vitri,int succhua,string loai,string trangthai)
         {
-            this.maKe = ma;
-
-            this.viTri = vitri;
-
-            this.sucChua = succhua;
-
-            this.loaiHang = loai;
-
-            this.trangThai = trangthai;
+            this.MaKe = ma;
+            this.ViTri = vitri;
+            this.SucChua = succhua;
+            this.LoaiHang = loai;
+        }
+        public bool ThemHangHoa(HangHoa hh)
+        {
+            if (danhSachHang.Count < sucChua)
+            {
+                danhSachHang.Add(hh);
+                return true; // Thêm thành công
+            }
+            return false; // Kệ đã đầy
         }
     }
 }

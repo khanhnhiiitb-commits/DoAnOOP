@@ -34,16 +34,26 @@ namespace QuanLySieuThi.Models.Systems
             get { return trangThai; }
             set { trangThai = value; }
         }
+        public string TenTrangThai
+        {
+            get
+            {
+                if (trangThai == true)
+                    return "Hoạt động";
+                else
+                    return "Bị khóa";
+            }
+        }
 
         // Constructor mặc định
         public TaiKhoan() { }
 
         public TaiKhoan(string tenDN, string matKhau, Role role, bool trangThai = true)
         {
-            this.tenDangNhap = tenDN;
-            this.matKhau = matKhau;
-            this.userRole = role;
-            this.trangThai = trangThai;
+            this.TenDangNhap = tenDN;
+            this.MatKhau = matKhau;
+            this.UserRole = role;
+            this.TrangThai = trangThai;
         }
 
         public bool KiemTraMatKhau(string mk)

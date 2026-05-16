@@ -35,12 +35,17 @@
 
         public Nguoi(string ma, string hoTen, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi)
         {
-            this.ma = ma;
-            this.hoTen = hoTen;
-            this.ngaySinh = ngaySinh;
-            this.gioiTinh = gioiTinh;
-            this.soDienThoai = soDienThoai;
-            this.diaChi = diaChi;
+            this.Ma = ma;
+            this.HoTen = hoTen;
+            this.NgaySinh = ngaySinh;
+            this.GioiTinh = gioiTinh;
+            this.SoDienThoai = soDienThoai;
+            this.DiaChi = diaChi;
+        }
+        public Nguoi(string ma, string hoTen)
+        {
+            this.Ma = ma;
+            this.HoTen = hoTen;
         }
     }
 }

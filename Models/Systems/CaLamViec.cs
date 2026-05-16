@@ -5,8 +5,8 @@ namespace QuanLySieuThi.Models.Systems
         // Private Fields (Trường dữ liệu riêng tư)
         private string maCa;
         private string tenCa;
-        private string gioBatDau;
-        private string gioKetThuc;
+        private TimeSpan gioBatDau;
+        private TimeSpan gioKetThuc;
 
         // Properties 
         public string MaCa
@@ -21,27 +21,38 @@ namespace QuanLySieuThi.Models.Systems
             set { tenCa = value; }
         }
 
-        public string GioBatDau
+        public TimeSpan GioBatDau
         {
             get { return gioBatDau; }
             set { gioBatDau = value; }
         }
 
-        public string GioKetThuc
+        public TimeSpan GioKetThuc
         {
             get { return gioKetThuc; }
-            set { gioKetThuc = value; }
+            set 
+            {
+                if (value > gioBatDau)
+                {
+                    gioKetThuc = value;
+                }
+                else
+                {
+                    // Nếu nhập sai, tự động cộng thêm 8 tiếng làm việc tiêu chuẩn tính từ giờ bắt đầu
+                    gioKetThuc = gioBatDau.Add(TimeSpan.FromHours(8));
+                }
+            }
         }
 
         // Constructor 
         public CaLamViec() { }
 
-        public CaLamViec(string maCa, string tenCa, string batDau, string ketThuc)
+        public CaLamViec(string maCa, string tenCa, TimeSpan batDau, TimeSpan ketThuc)
         {
-            this.maCa = maCa;
-            this.tenCa = tenCa;
-            this.gioBatDau = batDau;
-            this.gioKetThuc = ketThuc;
+            this.MaCa = maCa;
+            this.TenCa = tenCa;
+            this.GioBatDau = batDau;
+            this.GioKetThuc = ketThuc;
         }
     
     }

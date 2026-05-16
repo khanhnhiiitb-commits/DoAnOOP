@@ -10,7 +10,18 @@ namespace QuanLySieuThi.Services
         private List<NhanVien> danhNV;
         private List<BangChamCong> danhSachChamCong;
         private List<TaiKhoan> danhSachTaiKhoan;
-
+        public List<NhanVien> DanhNV
+        {
+            get { return danhNV; }
+        }
+        public List<BangChamCong> DanhSachChamCong
+        {
+            get { return danhSachChamCong; }
+        }
+        public List<TaiKhoan> DanhSachTaiKhoan
+        {
+            get { return danhSachTaiKhoan; }
+        }
         public QuanLyNhanSu(List<NhanVien> dsNV, List<BangChamCong> dsCC, List<TaiKhoan> dsTK)
         {
             this.danhNV = dsNV;
@@ -27,11 +38,17 @@ namespace QuanLySieuThi.Services
 
         public bool CapNhatThongTinNhanVien(string maNV, NhanVien nvMoi)
         {
-            for (int i = 0; i < danhNV.Count; i++)
+            int i;
+            for (i = 0; i < danhNV.Count; i++)
             {
-                if (danhNV[i].MaNV == maNV)
+                if (danhNV[i].Ma == maNV)
                 {
-                    danhNV[i] = nvMoi;
+   
+                    danhNV[i].HoTen = nvMoi.HoTen;
+                    danhNV[i].SoDienThoai = nvMoi.SoDienThoai;
+                    danhNV[i].DiaChi = nvMoi.DiaChi;
+                    danhNV[i].ChucVu = nvMoi.ChucVu;
+                    danhNV[i].LuongCB = nvMoi.LuongCB;
                     return true;
                 }
             }
@@ -39,11 +56,12 @@ namespace QuanLySieuThi.Services
         }
         public bool XoaNhanVien(string maNV)
         {
-            for (int i = 0; i < danhNV.Count; i++)
+            int i;
+            for (i = 0; i < danhNV.Count; i++)
             {
-                if (danhNV[i].MaNV == maNV)
+                if (danhNV[i].Ma == maNV)
                 {
-                    danhNV.RemoveAt(i); // Xóa nhân viên tại vị trí tìm thấy
+                    danhNV.RemoveAt(i);
                     return true;
                 }
             }
@@ -57,7 +75,7 @@ namespace QuanLySieuThi.Services
             {
                 if (tk.TenDangNhap == tenDangNhap && tk.KiemTraMatKhau(matKhau))
                 {
-                    if (tk.TrangThai) return tk; // Tài khoản còn hoạt động
+                    if (tk.TrangThai) return tk;
                 }
             }
             return null;
@@ -98,11 +116,10 @@ namespace QuanLySieuThi.Services
                     double luongCB = 0;
                     foreach (NhanVien nv in danhNV)
                     {
-                        if (nv.MaNV == maNV) { luongCB = nv.LuongCB; break; }
+                        if (nv.Ma == maNV) { luongCB = nv.LuongCB; break; }
                     }
-            
                     return bcc.TinhLuongThucNhan(luongCB);
-                }   
+                }
             }
             return 0;
         }
@@ -113,7 +130,7 @@ namespace QuanLySieuThi.Services
             {
                 if (tk.TenDangNhap == tenDangNhap)
                 {
-                    tk.TrangThai = false; // Vô hiệu hóa tài khoản
+                    tk.TrangThai = false; 
                     return true;
                 }
             }
@@ -124,16 +141,14 @@ namespace QuanLySieuThi.Services
             List<NhanVien> ketQua = new List<NhanVien>();
             string lowerKey = tuKhoa.ToLower();
 
-            foreach (var item in danhNV)
+            foreach (NhanVien nv in danhNV)
             {
-                if (item is NhanVien nv)
+                // Khắc phục: Đổi MaNV thành Ma
+                if (nv.Ma.ToLower().Contains(lowerKey) ||
+                    nv.HoTen.ToLower().Contains(lowerKey) ||
+                    nv.SoDienThoai.Contains(tuKhoa))
                 {
-                    if (nv.MaNV.ToLower().Contains(lowerKey) ||
-                        nv.HoTen.ToLower().Contains(lowerKey) ||
-                        nv.SoDienThoai.Contains(tuKhoa))
-                    {
-                        ketQua.Add(nv);
-                    }
+                    ketQua.Add(nv);
                 }
             }
             return ketQua;

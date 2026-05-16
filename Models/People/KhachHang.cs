@@ -5,7 +5,6 @@ namespace QuanLySieuThi.Models.People
     public class KhachHang : Nguoi
     {
     
-        private string maKH;
         private string loaiKhachHang;
         private int diemTichLuy;
         private TheThanhVien theTV; // Có thể là null
@@ -16,11 +15,7 @@ namespace QuanLySieuThi.Models.People
             set { theTV = value; } 
         }
 
-        public string MaKH 
-        { 
-            get { return maKH; } 
-            set { maKH = value; } 
-        }
+        
 
         public string LoaiKhachHang 
         { 
@@ -31,7 +26,16 @@ namespace QuanLySieuThi.Models.People
         public int DiemTichLuy 
         { 
             get { return diemTichLuy; } 
-            set { diemTichLuy = value; } 
+            set {
+                if (value >= 0)
+                {
+                    diemTichLuy = value;
+                }
+                else
+                {
+                    diemTichLuy = 0;
+                }
+            } 
         }
 
 
@@ -41,18 +45,19 @@ namespace QuanLySieuThi.Models.People
                  string loaiKH, int diem, TheThanhVien the) 
                  : base(ma, hoTen, ngaySinh, gioiTinh, soDienThoai, diaChi)
             {
-            this.maKH = ma;
-            this.loaiKhachHang = loaiKH;
-            this.diemTichLuy = diem;
-            this.theTV = the;
+
+            this.LoaiKhachHang = loaiKH;
+            this.DiemTichLuy = diem;
+            this.TheTV = the;
             }
 
             // Constructor này không cần truyền tham số thẻ
-        public KhachHang(string ma, string hoTen) : base()
+        public KhachHang(string ma, string hoTen) : base(ma, hoTen)
         {
-            this.maKH = ma;
-            this.theTV = null; // Xác nhận khách này chưa có thẻ
-            this.diemTichLuy = 0;
+
+            this.TheTV = null; // Xác nhận khách này chưa có thẻ
+            this.DiemTichLuy = 0;
+            this.LoaiKhachHang = "Thường"; // Gán giá trị mặc định tránh null
         }
     }
 }

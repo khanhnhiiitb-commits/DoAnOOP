@@ -10,7 +10,15 @@ namespace QuanLySieuThi.Services
     {
         private List<ChuongTrinhKhuyenMai> danhSachCTKM;
         private List<Voucher> danhSachVoucher;
+        public List<ChuongTrinhKhuyenMai> DanhSachCTKM
+        {
+            get { return danhSachCTKM; }
+        }
 
+        public List<Voucher> DanhSachVoucher
+        {
+            get { return danhSachVoucher; }
+        }
         public QuanLyKhuyenMai(List<ChuongTrinhKhuyenMai> dsKM, List<Voucher> dsVC)
         {
             this.danhSachCTKM = dsKM;
@@ -58,7 +66,7 @@ namespace QuanLySieuThi.Services
             if (hd == null) return 0; // Thêm kiểm tra null để an toàn
             double tongGiam = 0;
 
-            foreach (ChuongTrinhKhuyenMai km in danhSachCTKM)
+            foreach(ChuongTrinhKhuyenMai km in danhSachCTKM)
             {
                 if (km.KiemTraDieuKien(hd))
                 {
@@ -74,8 +82,7 @@ namespace QuanLySieuThi.Services
             if (KiemTraDieuKienApDung(hd))
             {
                 double soTienGiam = TinhTienGiam(hd);
-                hd.TongTien -= soTienGiam;
-                if (hd.TongTien < 0) hd.TongTien = 0;
+                hd.ApDungGiamGia(soTienGiam);
             }
         }
 
@@ -115,8 +122,8 @@ namespace QuanLySieuThi.Services
             {
                 if (danhSachVoucher[i].MaVoucher == maVoucher)
                 {
-                   danhSachVoucher[i].TrangThai = !danhSachVoucher[i].TrangThai;
-                    return true; 
+                    danhSachVoucher[i].ThayDoiTrangThai();
+                    return true;
                 }
             }
             return false; 

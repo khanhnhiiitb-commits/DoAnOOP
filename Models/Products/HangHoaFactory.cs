@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using QuanLySieuThi.Models.Products;
-
-namespace ChuongtrinhQuanlybanhangsieuthi.Models.Products
+namespace QuanLySieuThi.Models.Products
 {
-    internal class HangHoaFactory
+    public class HangHoaFactory
     {
         public static HangHoa TaoHangHoa(string loaiHang)
         {
@@ -14,9 +10,10 @@ namespace ChuongtrinhQuanlybanhangsieuthi.Models.Products
             {
                 case "thucpham":
                     return new HangThucPham();
+
                 case "dientu":
                     return new HangDienTu();
-                
+
                 default:
                     throw new ArgumentException("Loại hàng hóa không hợp lệ!");
             }

@@ -9,7 +9,16 @@ namespace QuanLySieuThi.Models.Products
         public int ThoiGianBH 
         { 
             get { return thoiGianBH; } 
-            set { thoiGianBH = value; } 
+            set {
+                if (value >= 0)
+                {
+                    thoiGianBH = value;
+                }
+                else
+                {
+                    thoiGianBH = 0;
+                }
+            } 
         }
         public string HangSX 
         { 
@@ -22,8 +31,8 @@ namespace QuanLySieuThi.Models.Products
         public HangDienTu(string ma, string ten, double gia, int ton, string make, string donvi, int baoHanh, string hang) 
             : base(ma, ten, gia, ton, make, donvi)
         {
-            this.thoiGianBH = baoHanh;
-            this.hangSX = hang;
+            this.ThoiGianBH = baoHanh;
+            this.HangSX = hang;
         }
         
         public override bool KiemTraChatLuong()

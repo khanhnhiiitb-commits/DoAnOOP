@@ -28,7 +28,10 @@ namespace QuanLySieuThi.Models.Sales
             get { return soLuongMua; }
             set
             {
-                soLuongMua = value;
+                if (value >= 0)
+                    soLuongMua = value;
+                else
+                    soLuongMua = 0;
                 TinhThanhTien();
             }
         }
@@ -38,7 +41,10 @@ namespace QuanLySieuThi.Models.Sales
             get { return giaBan; }
             set
             {
-                giaBan = value;
+                if (value >= 0)
+                    giaBan = value;
+                else
+                    giaBan = 0;
                 TinhThanhTien();
             }
         }
@@ -51,19 +57,17 @@ namespace QuanLySieuThi.Models.Sales
 
         private void TinhThanhTien()
         {
-            thanhTien = soLuongMua * giaBan;
+            ThanhTien = soLuongMua * giaBan;
         }
 
         public ChiTietHoaDon() { }
 
         public ChiTietHoaDon(string maCT, string maH, int sl, double gia)
         {
-        this.maCTHD = maCT;
-        this.maHH = maH;
-        this.soLuongMua = sl;
-        this.giaBan = gia;
-        
-        TinhThanhTien(); 
+         this.MaCTHD = maCT;
+         this.MaHH = maH;
+         this.SoLuongMua = sl;
+         this.GiaBan = gia;
         }
     }
 }

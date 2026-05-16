@@ -29,10 +29,9 @@ namespace QuanLySieuThi.Services
         // 1. Thêm khách hàng mới
         public bool ThemKhachHang(KhachHang kh)
         {
-            // Kiểm tra trùng mã 
-            foreach (var item in danhSachKH)
+            foreach (KhachHang item in danhSachKH)
             {
-                if (item.MaKH == kh.MaKH) return false; 
+                if (item.Ma == kh.Ma) return false;
             }
             danhSachKH.Add(kh);
             return true;
@@ -51,13 +50,17 @@ namespace QuanLySieuThi.Services
         // 3. Tích điểm (Cứ 10k được 1 điểm)
         public bool TichDiem(string maKH, double tongTien)
         {
-            foreach (var kh in danhSachKH)
+            foreach(KhachHang kh in danhSachKH)
             {
-                if (kh.MaKH == maKH)
+                if (kh.Ma == maKH)
                 {
-                    int diemCong = (int)(tongTien / 10000);
-                    kh.DiemTichLuy += diemCong;
-                    return true;
+                    if (kh.TheTV != null)
+                    {
+                        int diemCong = (int)(tongTien / 10000);
+                        kh.TheTV.CongDiem(diemCong);
+                        return true;
+                    }
+                    return false; 
                 }
             }
             return false;
@@ -66,16 +69,22 @@ namespace QuanLySieuThi.Services
         // 4. Trừ điểm (Khi khách đổi quà hoặc dùng điểm thanh toán)
         public string TruDiem(string maKH, int diemDoi)
         {
-            foreach (var kh in danhSachKH)
+            foreach (KhachHang kh in danhSachKH)
             {
-                if (kh.MaKH == maKH)
+                if (kh.Ma == maKH)
                 {
-                    if (kh.DiemTichLuy >= diemDoi)
+                    if (kh.TheTV == null)
+                        return "Khách hàng này chưa đăng ký thẻ thành viên!";
+
+                    // Điểm sáng Đóng gói: Ủy thác cho thẻ tự kiểm tra quỹ điểm nội bộ và thực hiện trừ điểm
+                    if (kh.TheTV.TruDiem(diemDoi) == true)
                     {
-                        kh.DiemTichLuy -= diemDoi;
                         return "Trừ điểm thành công!";
                     }
-                    return "Số điểm tích lũy không đủ!";
+                    else
+                    {
+                        return "Số điểm tích lũy không đủ!";
+                    }
                 }
             }
             return "Không tìm thấy khách hàng!";
@@ -84,7 +93,7 @@ namespace QuanLySieuThi.Services
         // 5. Thêm nhà cung cấp
         public bool ThemNhaCungCap(NhaCungCap ncc)
         {
-            foreach (var item in danhSachNCC)
+            foreach (NhaCungCap item in danhSachNCC)
             {
                 if (item.MaNCC == ncc.MaNCC) return false;
             }
@@ -95,7 +104,7 @@ namespace QuanLySieuThi.Services
         // 6. Cập nhật thông tin NCC
         public bool CapNhatThongTinNCC(string maNCC, string tenMoi, string sdtMoi, string emailMoi)
         {
-            foreach (var ncc in danhSachNCC)
+            foreach (NhaCungCap ncc in danhSachNCC)
             {
                 if (ncc.MaNCC == maNCC)
                 {

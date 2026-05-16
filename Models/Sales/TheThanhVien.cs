@@ -18,35 +18,55 @@ namespace QuanLySieuThi.Models.Sales
             private set { diemTichLuy = value; }
         }
 
-        public bool TrangThai { get { return trangThai; } set { trangThai = value; } }
+        public bool TrangThai 
+        { 
+            get { return trangThai; } 
+            private set { trangThai = value; } 
+        }
 
         public void CongDiem(int diem)
         {
             if (diem > 0)
             {
-                diemTichLuy = diemTichLuy + diem;
+                DiemTichLuy = DiemTichLuy + diem;
             }
         }
 
-        public void TruDiem(int diem)
+        public bool TruDiem(int diemDoi)
         {
-            if (diem > 0 && diem <= diemTichLuy)
+         
+            if (this.diemTichLuy >= diemDoi)
             {
-                diemTichLuy = diemTichLuy - diem;
+                this.diemTichLuy -= diemDoi;
+                return true;
             }
+
+            return false; 
         }
         public void NapDiemTuFile(int diem)
         {
-            DiemTichLuy = diem;
+            if (diem >= 0)
+            {
+                DiemTichLuy = diem;
+            }
+        }
+        public void KhoaThe()
+        {
+            TrangThai = false;
+        }
+
+        public void KichHoatThe()
+        {
+            TrangThai = true;
         }
         public TheThanhVien() { }
 
         public TheThanhVien(string ma)
         {
-            this.maThe = ma;
-            this.ngayDangKy = DateTime.Now;
-            this.diemTichLuy = 0;
-            this.trangThai = true; // Thẻ mới mặc định là đang hoạt động
+            this.MaThe = ma;
+            this.NgayDangKy = DateTime.Now;
+            this.DiemTichLuy = 0;
+            this.TrangThai = true;
         }
     }
 }

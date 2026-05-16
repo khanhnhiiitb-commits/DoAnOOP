@@ -24,7 +24,7 @@ namespace QuanLySieuThi.Services
         public HoaDon TaoHoaDon(NhanVien nv, KhachHang kh)
         {
             string maHD = "HD" + (danhSachHoaDon.Count + 1).ToString("D3");
-            HoaDon hdMoi = new HoaDon(maHD, nv.MaNV, kh.MaKH);
+            HoaDon hdMoi = new HoaDon(maHD, nv, kh);
             danhSachHoaDon.Add(hdMoi);
             return hdMoi;
         }
@@ -36,12 +36,14 @@ namespace QuanLySieuThi.Services
                 return "Lỗi: Số lượng tồn kho không đủ!";
 
             // Kiểm tra xem món hàng này đã có trong hóa đơn chưa (để cộng dồn thay vì thêm dòng mới)
-            foreach (var item in hd.DanhSachChiTiet)
+            foreach (ChiTietHoaDon item in hd.DanhSachChiTiet)
             {
                 if (item.MaHH == hh.MaHH)
                 {
                     item.SoLuongMua += soLuong;
                     hh.SoLuongTon -= soLuong;
+
+                    // Điểm sáng: Gọi hàm tính lại của Model thay vì tự sửa trường thô
                     hd.TinhTongTien();
                     return "Thành công: Đã cộng dồn số lượng.";
                 }
@@ -90,8 +92,7 @@ namespace QuanLySieuThi.Services
             {
                 double soTienGiam = v.TinhSoTienGiam(hd.TongTien);
 
-                hd.TongTien -= soTienGiam;
-                if (hd.TongTien < 0) hd.TongTien = 0;
+                hd.ApDungGiamGia(soTienGiam);
 
                 hd.DaApDungVoucher = true; 
                 return $"Thành công: Đã giảm {soTienGiam:N0} VNĐ.";
@@ -109,9 +110,9 @@ namespace QuanLySieuThi.Services
             double tienThua = soTienKhachDua - hd.TongTien;
 
             //gọi lệnh sang bên QuanLyDoiTac
-            if (kh != null)
+            if (kh != null && doiTacService != null)
             {
-                doiTacService.TichDiem(kh.MaKH, hd.TongTien);
+                doiTacService.TichDiem(kh.Ma, hd.TongTien);
             }
 
             return tienThua.ToString(); 
@@ -140,10 +141,10 @@ namespace QuanLySieuThi.Services
             content += $"Ngày: {hd.NgayTao.ToString("dd/MM/yyyy HH:mm")}\n";
             content += "----------------------------------------\n";
 
-            foreach (var ct in hd.DanhSachChiTiet)
+            foreach (ChiTietHoaDon ct in hd.DanhSachChiTiet)
             {
-                string tenSP = ct.MaHH; 
-                foreach (var hh in danhSachHangHoa)
+                string tenSP = ct.MaHH;
+                foreach (HangHoa hh in danhSachHangHoa)
                 {
                     if (hh.MaHH == ct.MaHH)
                     {

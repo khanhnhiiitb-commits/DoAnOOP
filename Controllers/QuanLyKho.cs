@@ -8,7 +8,15 @@ namespace QuanLySieuThi.Services
     {
         private List<HangHoa> danhSachHang;
         private List<KeHang> danhSachKe;
+        public List<HangHoa> DanhSachHang
+        {
+            get { return danhSachHang; }
+        }
 
+        public List<KeHang> DanhSachKe
+        {
+            get { return danhSachKe; }
+        }
         public QuanLyKho(List<HangHoa> dsHang, List<KeHang> dsKe)
         {
             this.danhSachHang = dsHang;
@@ -31,7 +39,9 @@ namespace QuanLySieuThi.Services
             {
                 if (danhSachHang[i].MaHH == maHH)
                 {
-                    danhSachHang[i] = hhMoi;
+                    danhSachHang[i].TenHang = hhMoi.TenHang;
+                    danhSachHang[i].DonGia = hhMoi.DonGia;
+                    danhSachHang[i].DonViTinh = hhMoi.DonViTinh;
                     return true;
                 }
             }
@@ -90,8 +100,6 @@ namespace QuanLySieuThi.Services
                 if (hh.MaHH == maHH)
                 {
                     hh.SoLuongTon += soLuongThayDoi;
-                    // Đảm bảo số lượng không nhỏ hơn 0
-                    if (hh.SoLuongTon < 0) hh.SoLuongTon = 0;
                     return true;
                 }
             }
@@ -117,7 +125,7 @@ namespace QuanLySieuThi.Services
 
             if (hangTimThay != null && keTimThay != null)
             {
-                hangTimThay.MaKeHang = maKe; // Gán mã kệ vào hàng hóa
+                keTimThay.ThemHangHoa(hangTimThay); // Gán mã kệ vào hàng hóa
                 return true;
             }
             return false;

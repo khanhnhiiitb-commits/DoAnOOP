@@ -23,31 +23,61 @@ namespace QuanLySieuThi.Models.Systems
         public int Thang
         {
             get { return thang; }
-            set { if (value >= 1 && value <= 12) thang = value; }
+            set 
+            {
+                if (value >= 1 && value <= 12)
+                    thang = value;
+                else
+                    thang = 1;
+            }
         }
 
         public int Nam
         {
             get { return nam; }
-            set { if (value > 0) nam = value; }
+            set 
+            {
+                if (value > 0)
+                    nam = value;
+                else
+                    nam = DateTime.Now.Year;
+            }
         }
 
         public int SoNgayLamViec
         {
             get { return soNgayLamViec; }
-            set { if (value >= 0) soNgayLamViec = value; }
+            set 
+            {
+                if (value >= 0 && value <= 31) // Chặn nhập quá 31 ngày/tháng
+                    soNgayLamViec = value;
+                else
+                    soNgayLamViec = 0;
+            }
         }
 
         public int SoNgayNghi
         {
             get { return soNgayNghi; }
-            set { if (value >= 0) soNgayNghi = value; }
+            set 
+            {
+                if (value >= 0 && value <= 31)
+                    soNgayNghi = value;
+                else
+                    soNgayNghi = 0;
+            }
         }
 
         public double PhuCap
         {
             get { return phuCap; }
-            set { if (value >= 0) phuCap = value; }
+            set
+            {
+                if (value >= 0)
+                    phuCap = value;
+                else
+                    phuCap = 0;
+            }
         }
 
         public string GhiChu
@@ -62,13 +92,13 @@ namespace QuanLySieuThi.Models.Systems
 
         public BangChamCong(string maNV, int t, int n, int lam, int nghi, double pc, string note)
         {
-            this.maNhanVien = maNV;
-            this.thang = t;
-            this.nam = n;
-            this.soNgayLamViec = lam;
-            this.soNgayNghi = nghi;
-            this.phuCap = pc;
-            this.ghiChu = note;
+            this.MaNhanVien = maNV;
+            this.Thang = t;
+            this.Nam = n;
+            this.SoNgayLamViec = lam;
+            this.SoNgayNghi = nghi;
+            this.PhuCap = pc;
+            this.GhiChu = note;
         }
 
 

@@ -9,16 +9,17 @@ namespace QuanLySieuThi.Models.Systems
         public string MaRole 
         { 
             get {return maRole;}
-          set{ maRole = value;} 
+            set{ maRole = value;} 
         }
         public string TenRole 
         { 
             get{return tenRole;}
             set{tenRole = value;}
-         }                           // Ví dụ: "Quản trị viên", "Thu ngân"
+         }  // Ví dụ: "Quản trị viên", "Thu ngân"
         public string MoTa 
-        { get{return moTa;}
-         set{moTa = value;} 
+        { 
+            get{return moTa;}
+            set{moTa = value;} 
          }
 
         public Role()

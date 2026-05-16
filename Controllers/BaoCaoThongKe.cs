@@ -49,6 +49,13 @@ namespace QuanLySieuThi.Services
         // 3. Thống kê hóa đơn theo khoảng thời gian
         public List<HoaDon> ThongKeHoaDonTheoKhoang(DateTime tuNgay, DateTime denNgay)
         {
+            if (tuNgay.Date > denNgay.Date)
+            {
+                DateTime tempDate = tuNgay;
+                tuNgay = denNgay;
+                denNgay = tempDate;
+            }
+
             List<HoaDon> ketQua = new List<HoaDon>();
             foreach (HoaDon hd in _danhSachHoaDon)
             {
@@ -66,16 +73,16 @@ namespace QuanLySieuThi.Services
         public double TinhTongChiPhiNhap(List<PhieuNhap> danhSachPhieuNhap)
         {
             double tong = 0;
-            foreach (var pn in danhSachPhieuNhap)
+            foreach (PhieuNhap pn in danhSachPhieuNhap)
             {
-                tong += pn.TongTien; // Giả sử PhieuNhap có thuộc tính TongTien
+                tong += pn.TongTien;
             }
             return tong;
         }
-        public void LayThongSoDashboard(out double doanhThu, out int donHang, out double chiPhi)
+        public void LayThongSoDashboard(List<PhieuNhap> danhSachPhieuNhap, out double doanhThu, out int donHang, out double chiPhi)
         {
             doanhThu = 0;
-            donHang = _danhSachHoaDon.Count; // Tổng số đơn hàng
+            donHang = _danhSachHoaDon.Count;
             chiPhi = 0;
 
             int thangNay = DateTime.Now.Month;
@@ -89,25 +96,33 @@ namespace QuanLySieuThi.Services
                     doanhThu += hd.TongTien;
                 }
             }
+
+            //Hoàn thành tính toán chi phí thực tế cho tháng hiện tại
+            foreach (PhieuNhap pn in danhSachPhieuNhap)
+            {
+                if (pn.NgayNhap.Month == thangNay && pn.NgayNhap.Year == namNay)
+                {
+                    chiPhi += pn.TongTien;
+                }
+            }
         }
         // 9. Lấy Top sản phẩm có doanh thu cao nhất (Duyệt thủ công)
         public List<HangHoaDoanhThu> LayTopSanPhamBanChay(int top)
         {
             List<HangHoaDoanhThu> dsKetQua = new List<HangHoaDoanhThu>();
-            foreach (var hang in _danhSachHangHoa)
+            foreach (HangHoa hang in _danhSachHangHoa)
             {
                 double tongDoanhThuSP = 0;
 
-                // Duyệt qua tất cả hóa đơn để cộng dồn tiền của mặt hàng này
-                foreach (var hd in _danhSachHoaDon)
+                foreach (HoaDon hd in _danhSachHoaDon)
                 {
-                    if (hd.TrangThaiTT) // Chỉ tính hóa đơn đã thanh toán
+                    if (hd.TrangThaiTT)
                     {
-                        foreach (var ct in hd.DanhSachChiTiet) 
+                        foreach (ChiTietHoaDon ct in hd.DanhSachChiTiet)
                         {
                             if (ct.MaHH == hang.MaHH)
                             {
-                                tongDoanhThuSP += ct.SoLuongMua * ct.GiaBan;
+                                tongDoanhThuSP += ct.ThanhTien;
                             }
                         }
                     }
@@ -115,27 +130,25 @@ namespace QuanLySieuThi.Services
 
                 if (tongDoanhThuSP > 0)
                 {
-                    dsKetQua.Add(new HangHoaDoanhThu
-                    {
-                        TenHang = hang.TenHang,
-                        DoanhThu = tongDoanhThuSP
-                    });
+                    HangHoaDoanhThu item = new HangHoaDoanhThu();
+                    item.TenHang = hang.TenHang;
+                    item.DoanhThu = tongDoanhThuSP;
+                    dsKetQua.Add(item);
                 }
             }
-
-            // Sắp xếp giảm dần bằng thuật toán Bubble Sort (Do không dùng LINQ)
             for (int i = 0; i < dsKetQua.Count - 1; i++)
             {
                 for (int j = i + 1; j < dsKetQua.Count; j++)
                 {
                     if (dsKetQua[i].DoanhThu < dsKetQua[j].DoanhThu)
                     {
-                        var temp = dsKetQua[i];
+                        HangHoaDoanhThu temp = dsKetQua[i];
                         dsKetQua[i] = dsKetQua[j];
                         dsKetQua[j] = temp;
                     }
                 }
             }
+
             if (dsKetQua.Count > top)
             {
                 return dsKetQua.GetRange(0, top);
@@ -152,7 +165,7 @@ namespace QuanLySieuThi.Services
         // 4. Thống kê tồn kho
         public List<HangHoa> LayDanhSachTonKho()
         {
-            return _danhSachHangHoa; // Trả về nguyên list để WinForms tự hiển thị
+            return _danhSachHangHoa; 
         }
 
         // 5. Danh sách hàng sắp hết (Ví dụ: dưới 10 sản phẩm)

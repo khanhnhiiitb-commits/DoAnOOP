@@ -24,10 +24,15 @@ namespace QuanLySieuThi.Models.Systems
         {
             get { return phanTramGiam; }
             set 
-            { 
-                // Logic kiểm tra: Phần trăm giảm giá không được âm
-                if (value >= 0 && value <=100) 
-                    phanTramGiam = value; 
+            {
+                if (value >= 0 && value <= 100)
+                {
+                    phanTramGiam = value;
+                }
+                else
+                {
+                    phanTramGiam = 0; 
+                }
             }
         }
 
@@ -37,9 +42,9 @@ namespace QuanLySieuThi.Models.Systems
      
         public ChiTietChuongTrinhKM(string maKM, string maMH, double giam)
         {
-            this.maCTKM = maKM;
-            this.maMH = maMH;
-            this.phanTramGiam = giam;
+            this.MaCTKM = maKM;
+            this.MaMH = maMH;
+            this.PhanTramGiam = giam;
         }
     }
 }

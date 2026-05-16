@@ -8,13 +8,10 @@ namespace QuanLySieuThi.Models.Systems
  {
     
         private string maPN;
-        private string maNCC;
         private NhaCungCap nhaCC;
         private DateTime ngayNhap;
         private double tongTien; 
         private string trangThai;
-        private string soDienThoai;
-        private string email;
         private List<ChiTietPhieuNhap> danhSachChiTiet = new List<ChiTietPhieuNhap>();
 
         // Properties
@@ -22,12 +19,6 @@ namespace QuanLySieuThi.Models.Systems
         {
             get { return maPN; }
             set { maPN = value; }
-        }
-
-        public string MaNCC
-        {
-            get { return maNCC; }
-            set { maNCC = value; }
         }
 
         public string TrangThai
@@ -41,7 +32,19 @@ namespace QuanLySieuThi.Models.Systems
             get { return nhaCC; }
             set { nhaCC = value; }
         }
+        public string MaNCC
+        {
+            get { return nhaCC != null ? nhaCC.MaNCC : string.Empty; }
+        }
+        public string SoDienThoai
+        {
+            get { return nhaCC != null ? nhaCC.SoDienThoai : string.Empty; }
+        }
 
+        public string Email
+        {
+            get { return nhaCC != null ? nhaCC.Email : string.Empty; }
+        }
         public DateTime NgayNhap
         {
             get { return ngayNhap; }
@@ -51,19 +54,13 @@ namespace QuanLySieuThi.Models.Systems
         public double TongTien
         {
             get { return tongTien; }
-            set { if (value >= 0) tongTien = value; }
-        }
-
-        public string SoDienThoai
-        {
-            get { return soDienThoai; }
-            set { soDienThoai = value; }
-        }
-
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
+            private set 
+            { 
+                if (value >= 0) 
+                    tongTien = value; 
+                else 
+                    tongTien = 0;
+            }
         }
 
         public List<ChiTietPhieuNhap> DanhSachChiTiet 
@@ -75,28 +72,44 @@ namespace QuanLySieuThi.Models.Systems
         public void TinhTongTien()
         {
             double tong = 0;
-            foreach (var ct in danhSachChiTiet)
+            int i;
+            for (i = 0; i < danhSachChiTiet.Count; i++)
             {
-                tong += ct.ThanhTien;
+                tong = tong + (danhSachChiTiet[i].SoLuong * danhSachChiTiet[i].DonGia);
             }
-            this.tongTien = tong;
+            this.TongTien = tong;
         }
 
         // Constructor mặc định
         public PhieuNhap() { }
 
 
-        public PhieuNhap(string maPN, NhaCungCap ncc, DateTime ngayNhap, double tongTien, string sdt, string email)
+        public PhieuNhap(string maPN, NhaCungCap ncc, DateTime ngayNhap, double tongTien)
         {
-            this.maPN = maPN;
-            this.nhaCC = ncc; // Lưu cả đối tượng thay vì chỉ lưu mã
-            this.maNCC = ncc?.MaNCC; // Vẫn giữ mã để sau này lưu file txt dễ dàng
-            this.ngayNhap = ngayNhap;
-            this.tongTien = tongTien;
-            this.soDienThoai = sdt;
-            this.email = email;
-            this.trangThai = "ChoXacNhan"; // Trạng thái mặc định
+            this.MaPN = maPN;
+            this.NhaCC = ncc;
+            this.NgayNhap = ngayNhap;
+            this.TongTien = tongTien;
+            this.TrangThai = "ChoXacNhan";
             this.danhSachChiTiet = new List<ChiTietPhieuNhap>();
         }
-   }
+        public void ThemChiTiet(ChiTietPhieuNhap ct)
+        {
+            if (ct != null)
+            {
+                this.danhSachChiTiet.Add(ct);
+
+                TinhTongTien(); 
+            }
+        }
+        public void XacNhanXuatKho() 
+        {
+            this.trangThai = "DaNhapKho";
+        }
+
+        public void HuyDonPhieu()
+        {
+            this.trangThai = "DaHuy";
+        }
+    }
 }

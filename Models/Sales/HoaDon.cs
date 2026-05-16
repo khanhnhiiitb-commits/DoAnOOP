@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using QuanLySieuThi.Models.People;
 
 
 namespace QuanLySieuThi.Models.Sales
@@ -7,8 +8,8 @@ namespace QuanLySieuThi.Models.Sales
     public class HoaDon
     {
         private string maHD;
-        private string maNV;
-        private string maKH;
+        private NhanVien nv;
+        private KhachHang kh;
         private DateTime ngayTao;
         private double tongTien;
         private bool trangThaiTT;
@@ -26,18 +27,6 @@ namespace QuanLySieuThi.Models.Sales
             set { maHD = value; }
         }
 
-        public string MaNV 
-        { 
-            get { return maNV; } 
-            set { maNV = value; } 
-        }
-
-        public string MaKH 
-        { 
-            get { return maKH; } 
-            set { maKH = value; } 
-        }
-
         public DateTime NgayTao
         {
             get { return ngayTao; }
@@ -47,35 +36,42 @@ namespace QuanLySieuThi.Models.Sales
         public double TongTien
         {
             get { return tongTien; }
-            set { tongTien = value; }
+            private set { tongTien = value; }
         }
 
         public bool TrangThaiTT
         {
             get { return trangThaiTT; }
-            set { trangThaiTT = value; }
         }
 
         public List<ChiTietHoaDon> DanhSachChiTiet
         {
             get { return danhSachChiTiet; }
         }
+        public string MaNV
+        {
+            get { return nv.Ma != null ? nv.Ma : string.Empty; }
+        }
 
+        public string MaKH
+        {
+            get { return kh.Ma != null ? kh.Ma : string.Empty; }
+        }
         public HoaDon()
         {
             danhSachChiTiet = new List<ChiTietHoaDon>();
-            tongTien = 0;
+            TongTien = 0;
             trangThaiTT = false;
         }
         
-        public HoaDon(string ma, string maNV, string maKH)
+        public HoaDon(string ma, NhanVien nv, KhachHang kh)
         {
-            this.maHD = ma;
-            this.maNV = maNV; 
-            this.maKH = maKH; 
-            this.ngayTao = DateTime.Now; 
+            this.MaHD = ma;
+            this.nv = nv;   
+            this.kh = kh;
+            this.NgayTao = DateTime.Now; 
             this.danhSachChiTiet = new List<ChiTietHoaDon>();
-            this.tongTien = 0;
+            this.TongTien = 0;
             this.trangThaiTT = false;
         }
 
@@ -87,14 +83,25 @@ namespace QuanLySieuThi.Models.Sales
 
         public void TinhTongTien()
         {
-            tongTien = 0;
+            double thanhTienGoc = 0;
             int i;
             for (i = 0; i < danhSachChiTiet.Count; i++)
             {
-                tongTien = tongTien + danhSachChiTiet[i].ThanhTien;
+                thanhTienGoc = thanhTienGoc + danhSachChiTiet[i].ThanhTien;
             }
-        }
+            double ketQua = thanhTienGoc - soTienGiam;
 
+            if (ketQua >= 0)
+                this.TongTien = ketQua;
+            else
+                this.TongTien = 0; 
+        }
+        private double soTienGiam = 0;
+        public void ApDungGiamGia(double tienGiam)
+        {
+            this.soTienGiam = tienGiam;
+            TinhTongTien(); 
+        }
         public void ThanhToan()
         {
             trangThaiTT = true;
