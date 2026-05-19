@@ -12,8 +12,7 @@ namespace QuanLySieuThi.Data
     {
         // 1. Biến static duy nhất lưu trữ thực thể của lớp
         private static DataStorage instance;
-        public List<TaiKhoan> DanhSachTaiKhoan { get; set; } = new List<TaiKhoan>();
-        public List<CaLamViec> DanhSachCaLamViec { get; set; } = new List<CaLamViec>();
+        
         // 2. Constructor private: Không cho phép "new" từ bên ngoài
         private DataStorage()
         {
@@ -29,6 +28,8 @@ namespace QuanLySieuThi.Data
             DanhSachVoucher = new List<Voucher>();
             DanhSachTheTV = new List<TheThanhVien>();
             DanhSachKeHang = new List<KeHang>();
+            DanhSachTaiKhoan = new List<TaiKhoan>();
+            DanhSachCaLamViec = new List<CaLamViec>();
 
             // Nạp toàn bộ dữ liệu từ txt lên RAM khi hệ thống bắt đầu
             LoadAllData();
@@ -58,10 +59,13 @@ namespace QuanLySieuThi.Data
         public List<ChuongTrinhKhuyenMai> DanhSachKhuyenMai { get; set; }
         public List<Voucher> DanhSachVoucher { get; set; }
         public List<TheThanhVien> DanhSachTheTV { get; set; }
+        public List<TaiKhoan> DanhSachTaiKhoan { get; set; }
+        public List<KeHang> DanhSachKeHang { get; set; }
+        public List<CaLamViec> DanhSachCaLamViec { get; set; } 
 
         // Lưu vết người đang sử dụng phần mềm
         public NhanVien NhanVienDangNhap { get; set; }
-        public List<KeHang> DanhSachKeHang { get; set; }
+      
         // --- HÀM NẠP DỮ LIỆU TỪ TẤT CẢ REPOSITORY ---
         public void LoadAllData()
         {

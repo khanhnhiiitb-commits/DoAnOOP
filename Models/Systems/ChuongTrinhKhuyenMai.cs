@@ -82,7 +82,13 @@ namespace QuanLySieuThi.Models.Systems
             DateTime hienTai = DateTime.Now;
             return hienTai >= ngayBatDau && hienTai <= ngayKetThuc;
         }
-
+        public void ThemChiTiet(ChiTietChuongTrinhKM ct)
+        {
+            if (ct != null)
+            {
+                this.DanhSachChiTiet.Add(ct);
+            }
+        }
         public abstract bool KiemTraDieuKien(HoaDon hd);
         public abstract double TinhSoTienGiam(double tongTienHD);
     }

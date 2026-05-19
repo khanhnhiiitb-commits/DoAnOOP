@@ -3,38 +3,43 @@ using QuanLySieuThi.Models.Sales;
 using System;
 using System.Collections.Generic;
 using System.IO;
-
+using System.Windows.Forms;
 namespace QuanLySieuThi.Data
 {
-    public class SalesRepository
+    public class SalesRepository 
     {
-        private readonly string filePath = "DataAccess/DatabaseFile/database_sales.txt";
-
+        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_sales.txt";
         // 1. Lấy danh sách Hóa đơn (bao gồm cả các Chi tiết bên trong)
         public List<HoaDon> GetHoaDons()
         {
             List<HoaDon> danhSach = new List<HoaDon>();
             if (!File.Exists(filePath)) return danhSach;
 
-            string[] lines = File.ReadAllLines(filePath);
-            HoaDon currentHD = null;
-
-            foreach (string line in lines)
+            try
             {
-                if (string.IsNullOrWhiteSpace(line)) continue;
+                string[] lines = File.ReadAllLines(filePath);
+                HoaDon currentHD = null;
 
-                string[] parts = line.Split('|');
-                string loai = parts[0];
+                foreach (string line in lines)
+                {
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+                    string[] parts = line.Split('|');
+                    string loai = parts[0];
 
-                if (loai == "HD")
-                {
-                    currentHD = MapLineToHoaDon(parts);
-                    danhSach.Add(currentHD);
+                    if (loai == "HD")
+                    {
+                        currentHD = MapLineToHoaDon(parts);
+                        danhSach.Add(currentHD);
+                    }
+                    else if (loai == "CT" && currentHD != null)
+                    {
+                        currentHD.ThemChiTiet(MapLineToChiTiet(parts));
+                    }
                 }
-                else if (loai == "CT" && currentHD != null)
-                {
-                    currentHD.ThemChiTiet(MapLineToChiTiet(parts));
-                }
+            }
+            catch
+            { 
+                MessageBox.Show("Lỗi đọc file hóa đơn.");
             }
             return danhSach;
         }
@@ -44,16 +49,24 @@ namespace QuanLySieuThi.Data
             List<TheThanhVien> danhSach = new List<TheThanhVien>();
             if (!File.Exists(filePath)) return danhSach;
 
-            string[] lines = File.ReadAllLines(filePath);
-            foreach (string line in lines)
+            try
             {
-                if (string.IsNullOrWhiteSpace(line)) continue;
-                string[] parts = line.Split('|');
-                if (parts[0] == "TV")
+                string[] lines = File.ReadAllLines(filePath);
+                foreach (string line in lines)
                 {
-                    danhSach.Add(MapLineToTheThanhVien(parts));
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+                    string[] parts = line.Split('|');
+                    if (parts[0] == "TV")
+                    {
+                        danhSach.Add(MapLineToTheThanhVien(parts));
+                    }
                 }
             }
+            catch
+            {
+                MessageBox.Show("Lỗi đọc file Thẻ thành viên.");
+            }
+
             return danhSach;
         }
 
@@ -61,16 +74,23 @@ namespace QuanLySieuThi.Data
         {
             List<Voucher> danhSach = new List<Voucher>();
             if (!File.Exists(filePath)) return danhSach;
-
-            string[] lines = File.ReadAllLines(filePath);
-            foreach (string line in lines)
+            try
             {
-                if (string.IsNullOrWhiteSpace(line)) continue;
-                string[] parts = line.Split('|');
-                if (parts[0] == "VC")
+                string[] lines = File.ReadAllLines(filePath);
+                foreach (string line in lines)
                 {
-                    danhSach.Add(MapLineToVoucher(parts));
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+                    string[] parts = line.Split('|');
+                    if (parts[0] == "VC")
+                    {
+                        danhSach.Add(MapLineToVoucher(parts));
+                    }
                 }
+            }
+            
+            catch
+            {
+                MessageBox.Show("Lỗi đọc file Voucher.");
             }
             return danhSach;
         }
@@ -102,7 +122,8 @@ namespace QuanLySieuThi.Data
                 lines.Add(MapVoucherToLine(vc));
             }
 
-            File.WriteAllLines(filePath, lines.ToArray());
+            try { File.WriteAllLines(filePath, lines.ToArray()); }
+            catch { MessageBox.Show("Lỗi lưu file sales."); }
         }
 
         // ---------------- PRIVATE HELPER METHODS (Data Mapping) ----------------

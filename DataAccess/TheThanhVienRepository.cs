@@ -2,43 +2,31 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-
+using System.Windows.Forms;
 namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
-    public class TheThanhVienRepository
+    public class TheThanhVienRepository 
     {
-        private string filePath = @"DataAccess\DatabaseFile\database_thethanhvien.txt";
-
+        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_thethanhvien.txt";
         public List<TheThanhVien> GetAll()
         {
             List<TheThanhVien> danhSach = new List<TheThanhVien>();
             if (!File.Exists(filePath)) return danhSach;
 
-            string[] lines = File.ReadAllLines(filePath);
-            foreach (string line in lines)
+            try
             {
-                if (string.IsNullOrWhiteSpace(line)) continue;
-
-                string[] parts = line.Split('|');
-                if (parts[0] == "TV")
+                string[] lines = File.ReadAllLines(filePath);
+                foreach (string line in lines)
                 {
-                    TheThanhVien tv = new TheThanhVien();
-                    tv.MaThe = parts[1];
-                    tv.NgayDangKy = DateTime.Parse(parts[2]);
-                    tv.NapDiemTuFile(int.Parse(parts[3]));
-                    bool trangThaiTuFile = bool.Parse(parts[4]);
+                    if (string.IsNullOrWhiteSpace(line)) continue;
 
-                    if (trangThaiTuFile == true)
-                    {
-                        tv.KichHoatThe(); // Dùng hàm public của class để set trạng thái
-                    }
-                    else
-                    {
-                        tv.KhoaThe();
-                    }
-
-                    danhSach.Add(tv);
+                    TheThanhVien tv = MapLineToEntity(line);
+                    if (tv != null) danhSach.Add(tv);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi đọc file thẻ thành viên: " + ex.Message);
             }
             return danhSach;
         }
@@ -48,10 +36,53 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
             List<string> lines = new List<string>();
             foreach (TheThanhVien tv in danhSach)
             {
-                string ngay = tv.NgayDangKy.ToString("yyyy-MM-dd");
-                lines.Add($"TV|{tv.MaThe}|{ngay}|{tv.DiemTichLuy}|{tv.TrangThai}");
+                lines.Add(MapEntityToLine(tv));
             }
-            File.WriteAllLines(filePath, lines.ToArray());
+
+            try
+            {
+                File.WriteAllLines(filePath, lines.ToArray());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi lưu file thẻ thành viên: " + ex.Message);
+            }
+        }
+        // --- HELPER METHODS ---
+
+        private TheThanhVien MapLineToEntity(string line)
+        {
+            try
+            {
+                string[] parts = line.Split('|');
+                if (parts.Length < 5) return null;
+
+                TheThanhVien tv = new TheThanhVien();
+                tv.MaThe = parts[1];
+                tv.NgayDangKy = DateTime.Parse(parts[2]);
+                tv.NapDiemTuFile(int.Parse(parts[3]));
+
+                bool trangThaiTuFile = bool.Parse(parts[4]);
+                if (trangThaiTuFile)
+                {
+                    tv.KichHoatThe();
+                }
+                else
+                {
+                    tv.KhoaThe();
+                }
+                return tv;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private string MapEntityToLine(TheThanhVien tv)
+        {
+            string ngay = tv.NgayDangKy.ToString("yyyy-MM-dd");
+            return "TV|" + tv.MaThe + "|" + ngay + "|" + tv.DiemTichLuy + "|" + tv.TrangThai;
         }
     }
 }

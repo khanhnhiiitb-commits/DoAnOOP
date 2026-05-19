@@ -4,23 +4,29 @@ using System.IO;
 using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Sales;
 using QuanLySieuThi.Models.Systems;
-
+using System.Windows.Forms;
 namespace QuanLySieuThi.Data
 {
     public class StaffRepository : ITextSerializable<Nguoi>
     {
-        private readonly string filePath = "DataAccess/DatabaseFile/database_nhanvien.txt";
-
+        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_nhanvien.txt";
         public List<Nguoi> GetAll()
         {
             List<Nguoi> danhSach = new List<Nguoi>();
             if (!File.Exists(filePath)) return danhSach;
-            string[] lines = File.ReadAllLines(filePath);
-            foreach (string line in lines)
+            try
             {
-                if (string.IsNullOrWhiteSpace(line)) continue;
-                Nguoi p = MapLineToEntity(line);
-                if (p != null) danhSach.Add(p);
+                string[] lines = File.ReadAllLines(filePath);
+                foreach (string line in lines)
+                {
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+                    Nguoi p = MapLineToEntity(line);
+                    if (p != null) danhSach.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi đọc file nhân viên/khách hàng: " + ex.Message);
             }
             return danhSach;
         }
@@ -32,7 +38,15 @@ namespace QuanLySieuThi.Data
             {
                 lines.Add(MapEntityToLine(p));
             }
-            File.WriteAllLines(filePath, lines);
+
+            try
+            {
+                File.WriteAllLines(filePath, lines.ToArray());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu file nhân viên/khách hàng: " + ex.Message);
+            }
         }
 
         private Nguoi MapLineToEntity(string line)

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLySieuThi.Data;
+using QuanLySieuThi.Models.Systems;
 using QuanLySieuThi.Services;
 using static QuanLySieuThi.Services.BaoCaoThongKe;
 
@@ -44,17 +45,16 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
             double doanhThuThang = serviceThongKe.TinhDoanhThuTheoThang(bayGio.Month, bayGio.Year);
             int soDonHang = DataStorage.Instance.DanhSachHD.Count;
             int soKhachHang = DataStorage.Instance.DanhSachKH.Count;
-
             double chiPhiNhap = 0;
-            foreach (var pn in DataStorage.Instance.DanhSachPhieuNhap) chiPhiNhap += pn.TongTien;
+            foreach (PhieuNhap pn in DataStorage.Instance.DanhSachPhieuNhap)
+            {
+                chiPhiNhap += pn.TongTien;
+            }
 
             lblTongDT.Text = doanhThuThang.ToString("N0") + " đ";
             lblSoDonHang.Text = soDonHang.ToString();
             lblKHMoi.Text = soKhachHang.ToString();
             lblCPNhapHang.Text = chiPhiNhap.ToString("N0") + " đ";
-
-            // 4. Vẽ biểu đồ doanh thu
-            //VeBieuDoDoanhThu(serviceThongKe);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

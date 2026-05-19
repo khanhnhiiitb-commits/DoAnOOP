@@ -131,21 +131,33 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(txtMaKM.Text) || string.IsNullOrWhiteSpace(txtMucGiam.Text))
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
+                    return;
+                }
+
                 if (DatePicker2.Value.Date < DatePicker1.Value.Date)
                 {
-                    MessageBox.Show("Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!", "Lỗi nhập liệu");
+                    MessageBox.Show("Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!");
                     return;
                 }
 
                 string loaiGiam = cbLoaiGiam.Text;
-                double mucGiam = double.Parse(txtMucGiam.Text);
+                double mucGiam;
+                if (!double.TryParse(txtMucGiam.Text, out mucGiam))
+                {
+                    MessageBox.Show("Mức giảm phải là số!");
+                    return;
+                }
+
                 Voucher vMoi = null;
 
                 if (loaiGiam == "%")
                 {
                     VoucherPhanTram vPt = new VoucherPhanTram();
                     vPt.PhanTramGiam = (float)mucGiam;
-                    vPt.GiamToiDa = 500000;
+                    vPt.GiamToiDa = 500000; 
                     vMoi = vPt;
                 }
                 else
@@ -162,8 +174,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
                 vMoi.TrangThai = true;
 
                 serviceKM.ThemVoucher(vMoi);
-
-                // BỔ SUNG 5: Lưu Voucher mới tạo xuống File
                 voucherRepo.Save(DataStorage.Instance.DanhSachVoucher);
 
                 HienThiLenBang();
@@ -171,7 +181,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi nhập liệu: Vui lòng nhập số cho mức giảm. " + ex.Message);
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
             }
         }
 

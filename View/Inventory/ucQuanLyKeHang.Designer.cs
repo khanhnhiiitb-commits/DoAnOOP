@@ -243,6 +243,7 @@
             dgvKeHang.Size = new Size(366, 487);
             dgvKeHang.TabIndex = 4;
             dgvKeHang.CellClick += dgvKeHang_CellClick;
+            dgvKeHang.CellContentClick += dgvKeHang_CellContentClick;
             // 
             // colMaKe
             // 

@@ -10,8 +10,7 @@ namespace QuanLySieuThi.Data
 {
     public class SystemRepository
     {
-        private readonly string filePath = "DataAccess/DatabaseFile/database_system.txt";
-
+        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_system.txt";
         // --- TAI KHOAN ---
         public List<TaiKhoan> GetAllTaiKhoan()
         {

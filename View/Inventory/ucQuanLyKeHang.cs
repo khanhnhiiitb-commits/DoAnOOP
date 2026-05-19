@@ -24,7 +24,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
         {
             // Nạp dữ liệu từ File txt thẳng vào KHO RAM
             DataStorage.Instance.DanhSachKeHang = repo.GetAll();
-
+            HienThiDanhSach();
             cboKhuVuc.Items.Clear();
             cboKhuVuc.Items.Add("Khu A");
             cboKhuVuc.Items.Add("Khu B");
@@ -39,7 +39,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
             cboTrangThai.Items.Add("Còn trống");
             cboTrangThai.Items.Add("Đang sử dụng");
 
-            HienThiDanhSach();
+           
         }
 
         private void HienThiDanhSach()
@@ -166,6 +166,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
                     );
                 }
             }
+        }
+
+        private void dgvKeHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

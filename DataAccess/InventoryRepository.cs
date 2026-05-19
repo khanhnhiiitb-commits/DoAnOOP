@@ -21,21 +21,28 @@ namespace QuanLySieuThi.Data
                 return danhSach;
             }
 
-            string[] lines = File.ReadAllLines(filePath);
-
-            foreach (string line in lines)
+            try
             {
-                if (string.IsNullOrWhiteSpace(line))
-                {
-                    continue;
-                }
+                string[] lines = File.ReadAllLines(filePath);
 
-                HangHoa hh = MapLineToEntity(line);
-
-                if (hh != null)
+                foreach (string line in lines)
                 {
-                    danhSach.Add(hh);
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        continue;
+                    }
+
+                    HangHoa hh = MapLineToEntity(line);
+
+                    if (hh != null)
+                    {
+                        danhSach.Add(hh);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi đọc file hàng hóa: " + ex.Message);
             }
 
             return danhSach;
@@ -53,7 +60,14 @@ namespace QuanLySieuThi.Data
                 index = index + 1;
             }
 
-            File.WriteAllLines(filePath, lines);
+            try
+            {
+                File.WriteAllLines(filePath, lines);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu file hàng hóa: " + ex.Message);
+            }
         }
 
         //  PRIVATE HELPER METHODS 
@@ -69,30 +83,34 @@ namespace QuanLySieuThi.Data
                 return null;
             }
 
-            string loai = parts[0];
-            string ma = parts[1];
-            string ten = parts[2];
-            double gia = double.Parse(parts[3]);
-            int ton = int.Parse(parts[4]);
-            string make = parts[5];
-            string donvi = parts[6];
-
-            if (loai == "DIENTU")
+            try
             {
-                int baoHanh = int.Parse(parts[7]);
-                string hang = parts[8];
+                string loai = parts[0];
+                string ma = parts[1];
+                string ten = parts[2];
+                double gia = double.Parse(parts[3]);
+                int ton = int.Parse(parts[4]);
+                string make = parts[5];
+                string donvi = parts[6];
 
-                // Gọi đúng Constructor 8 tham số của HangDienTu
-                return new HangDienTu(ma, ten, gia, ton, make, donvi, baoHanh, hang);
+                if (loai == "DIENTU")
+                {
+                    int baoHanh = int.Parse(parts[7]);
+                    string hang = parts[8];
+                    return new HangDienTu(ma, ten, gia, ton, make, donvi, baoHanh, hang);
+                }
+
+                if (loai == "THUCPHAM")
+                {
+                    DateTime nsx = DateTime.Parse(parts[7]);
+                    DateTime hsd = DateTime.Parse(parts[8]);
+                    return new HangThucPham(ma, ten, gia, ton, make, donvi, nsx, hsd);
+                }
             }
-
-            if (loai == "THUCPHAM")
+            catch
             {
-                DateTime nsx = DateTime.Parse(parts[7]);
-                DateTime hsd = DateTime.Parse(parts[8]);
-
-                // Gọi đúng Constructor 8 tham số của HangThucPham
-                return new HangThucPham(ma, ten, gia, ton, make, donvi, nsx, hsd);
+                // Bỏ qua đối tượng này nếu quá trình ép kiểu Parse gặp lỗi dữ liệu thô
+                return null;
             }
 
             return null;
@@ -104,7 +122,6 @@ namespace QuanLySieuThi.Data
             if (hh is HangDienTu)
             {
                 HangDienTu dt = (HangDienTu)hh;
-
                 return "DIENTU|" + dt.MaHH + "|" + dt.TenHang + "|" + dt.DonGia + "|" +
                        dt.SoLuongTon + "|" + dt.MaKeHang + "|" + dt.DonViTinh + "|" +
                        dt.ThoiGianBH + "|" + dt.HangSX;
@@ -113,8 +130,6 @@ namespace QuanLySieuThi.Data
             if (hh is HangThucPham)
             {
                 HangThucPham tp = (HangThucPham)hh;
-
-                // Định dạng ngày tháng thủ công (yyyy-MM-dd)
                 string sNSX = tp.NgaySX.Year + "-" + tp.NgaySX.Month + "-" + tp.NgaySX.Day;
                 string sHSD = tp.HSD.Year + "-" + tp.HSD.Month + "-" + tp.HSD.Day;
 
