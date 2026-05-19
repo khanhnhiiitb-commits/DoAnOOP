@@ -68,12 +68,17 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             if (DataStorage.Instance.NhanVienDangNhap != null)
             {
 
-                label1.Text = "Xin chào, " + DataStorage.Instance.NhanVienDangNhap.HoTen + "!";
+                lblNhanVien.Text = "Xin chào, " + DataStorage.Instance.NhanVienDangNhap.HoTen + "!";
             }
             else
             {
-                label1.Text = "Xin chào, Thủ kho ẩn danh!";
+                lblNhanVien.Text = "Xin chào, Thủ kho ẩn danh!";
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

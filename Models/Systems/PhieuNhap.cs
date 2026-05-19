@@ -35,15 +35,30 @@ namespace QuanLySieuThi.Models.Systems
         public string MaNCC
         {
             get { return nhaCC != null ? nhaCC.MaNCC : string.Empty; }
+            set
+            {
+                if (nhaCC == null) nhaCC = new NhaCungCap();
+                nhaCC.MaNCC = value;
+            }
         }
         public string SoDienThoai
         {
             get { return nhaCC != null ? nhaCC.SoDienThoai : string.Empty; }
+            set
+            {
+                if (nhaCC == null) nhaCC = new NhaCungCap();
+                nhaCC.SoDienThoai = value;
+            }
         }
 
         public string Email
         {
             get { return nhaCC != null ? nhaCC.Email : string.Empty; }
+            set
+            {
+                if (nhaCC == null) nhaCC = new NhaCungCap();
+                nhaCC.Email = value;
+            }
         }
         public DateTime NgayNhap
         {
@@ -54,7 +69,7 @@ namespace QuanLySieuThi.Models.Systems
         public double TongTien
         {
             get { return tongTien; }
-            private set 
+            internal set 
             { 
                 if (value >= 0) 
                     tongTien = value; 

@@ -13,6 +13,7 @@ namespace QuanLySieuThi.Models.Products
             get { return ngaySX; } 
             set
             {
+                ngaySX = value;
                 if (hSD != DateTime.MinValue && ngaySX > hSD)
                 {
                     hSD = ngaySX;
@@ -24,6 +25,7 @@ namespace QuanLySieuThi.Models.Products
             get { return hSD; } 
             set 
             {
+                hSD = value;
                 if (value >= ngaySX)
                 {
                     hSD = value;

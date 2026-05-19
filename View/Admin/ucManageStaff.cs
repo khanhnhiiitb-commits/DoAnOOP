@@ -83,7 +83,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                 var row = dgvNhanVien.Rows[e.RowIndex];
                 if (row.DataBoundItem is NhanVien nv)
                 {
-                    txtMaNV.Text = nv.MaNV;
+                    txtMaNV.Text = nv.Ma;
                     txtHoTen.Text = nv.HoTen;
                     cboGioiTinh.Text = nv.GioiTinh ? "Nam" : "Nữ";
 
@@ -98,7 +98,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
             try
             {
                 NhanVien nvMoi = new NhanVien();
-                nvMoi.MaNV = txtMaNV.Text;
+                nvMoi.Ma = txtMaNV.Text;
                 nvMoi.HoTen = txtHoTen.Text;
                 nvMoi.SoDienThoai = txtSDT.Text;
                 nvMoi.ChucVu = txtChucVu.Text;
@@ -148,7 +148,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
 
                 foreach (NhanVien nvOld in DataStorage.Instance.DanhSachNV)
                 {
-                    if (nvOld.MaNV == maSua)
+                    if (nvOld.Ma == maSua)
                     {
                         ngayVaoLamGoc = nvOld.NgayVaoLam;
 
@@ -156,7 +156,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                     }
                 }
                 NhanVien nvUpdate = new NhanVien();
-                nvUpdate.MaNV = maSua;
+                nvUpdate.Ma = maSua;
                 nvUpdate.HoTen = txtHoTen.Text;
                 nvUpdate.SoDienThoai = txtSDT.Text;
                 nvUpdate.ChucVu = txtChucVu.Text;

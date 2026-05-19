@@ -59,7 +59,7 @@ namespace QuanLySieuThi.Data
                 nv.DiaChi = parts[6];
 
                 // Gán thông tin lớp con (NhanVien)
-                nv.MaNV = parts[7];
+                nv.Ma = parts[7];
                 nv.ChucVu = parts[8];
                 nv.LuongCB = double.Parse(parts[9]);
                 nv.NgayVaoLam = DateTime.Parse(parts[10]);
@@ -94,7 +94,7 @@ namespace QuanLySieuThi.Data
                 kh.SoDienThoai = parts[5];
                 kh.DiaChi = parts[6];
 
-                kh.MaKH = parts[7];
+                kh.Ma = parts[7];
                 kh.DiemTichLuy = int.Parse(parts[8]);
 
                 // Khởi tạo đối tượng thẻ thành viên nếu có mã
@@ -123,12 +123,12 @@ namespace QuanLySieuThi.Data
                     // Định dạng: Username-Password-RoleID
                     sTaiKhoan = $"{nv.Taikhoan.TenDangNhap}-{nv.Taikhoan.MatKhau}-{nv.Taikhoan.UserRole.MaRole}";
                 }
-                return $"NV|{baseInfo}|{nv.MaNV}|{nv.ChucVu}|{nv.LuongCB}|{sVao}|{nv.MaCa}|{sTaiKhoan}";
+                return $"NV|{baseInfo}|{nv.Ma}|{nv.ChucVu}|{nv.LuongCB}|{sVao}|{nv.MaCa}|{sTaiKhoan}";
             }
             if (p is KhachHang kh)
             {
                 string maThe = kh.TheTV != null ? kh.TheTV.MaThe : "None";
-                return $"KH|{baseInfo}|{kh.MaKH}|{kh.DiemTichLuy}|{maThe}";
+                return $"KH|{baseInfo}|{kh.Ma}|{kh.DiemTichLuy}|{maThe}";
             }
 
             return "";

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label5 = new Label();
             panel7 = new Panel();
             dgvTopSanPham = new DataGridView();
             label7 = new Label();
@@ -44,7 +45,6 @@
             panel2 = new Panel();
             lblTongDT = new Label();
             label1 = new Label();
-            label5 = new Label();
             panel1.SuspendLayout();
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTopSanPham).BeginInit();
@@ -68,25 +68,36 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Black", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ActiveCaption;
+            label5.Location = new Point(30, 228);
+            label5.Name = "label5";
+            label5.Size = new Size(264, 60);
+            label5.TabIndex = 6;
+            label5.Text = "Tổng Quan";
+            // 
             // panel7
             // 
             panel7.BackColor = SystemColors.ActiveBorder;
             panel7.BorderStyle = BorderStyle.FixedSingle;
             panel7.Controls.Add(dgvTopSanPham);
             panel7.Controls.Add(label7);
-            panel7.Location = new Point(41, 230);
+            panel7.Location = new Point(30, 312);
             panel7.Name = "panel7";
-            panel7.Size = new Size(619, 415);
+            panel7.Size = new Size(1134, 331);
             panel7.TabIndex = 7;
             // 
             // dgvTopSanPham
             // 
             dgvTopSanPham.BackgroundColor = SystemColors.Control;
             dgvTopSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTopSanPham.Location = new Point(32, 53);
+            dgvTopSanPham.Location = new Point(22, 41);
             dgvTopSanPham.Name = "dgvTopSanPham";
             dgvTopSanPham.RowHeadersWidth = 51;
-            dgvTopSanPham.Size = new Size(553, 357);
+            dgvTopSanPham.Size = new Size(1078, 289);
             dgvTopSanPham.TabIndex = 5;
             // 
             // label7
@@ -105,7 +116,7 @@
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(lblCPNhapHang);
             panel5.Controls.Add(label4);
-            panel5.Location = new Point(786, 472);
+            panel5.Location = new Point(906, 36);
             panel5.Name = "panel5";
             panel5.Size = new Size(258, 147);
             panel5.TabIndex = 1;
@@ -136,7 +147,7 @@
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(lblKHMoi);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(786, 262);
+            panel4.Location = new Point(612, 36);
             panel4.Name = "panel4";
             panel4.Size = new Size(258, 147);
             panel4.TabIndex = 1;
@@ -167,7 +178,7 @@
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(lblSoDonHang);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(786, 36);
+            panel3.Location = new Point(318, 36);
             panel3.Name = "panel3";
             panel3.Size = new Size(258, 147);
             panel3.TabIndex = 1;
@@ -198,7 +209,7 @@
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(lblTongDT);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(402, 36);
+            panel2.Location = new Point(30, 36);
             panel2.Name = "panel2";
             panel2.Size = new Size(258, 147);
             panel2.TabIndex = 0;
@@ -222,17 +233,6 @@
             label1.Size = new Size(140, 25);
             label1.TabIndex = 2;
             label1.Text = "Tổng doanh thu";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Black", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.ActiveCaption;
-            label5.Location = new Point(49, 36);
-            label5.Name = "label5";
-            label5.Size = new Size(264, 60);
-            label5.TabIndex = 6;
-            label5.Text = "Tổng Quan";
             // 
             // ucDashboard
             // 

@@ -50,8 +50,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
                 ke.SucChua =
                     int.Parse(parts[3]);
 
-                ke.TrangThai = parts[4];
-
                 danhSach.Add(ke);
             }
 

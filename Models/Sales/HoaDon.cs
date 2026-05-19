@@ -51,11 +51,21 @@ namespace QuanLySieuThi.Models.Sales
         public string MaNV
         {
             get { return nv.Ma != null ? nv.Ma : string.Empty; }
+            set
+            {
+                if (nv == null) nv = new NhanVien();
+                nv.Ma = value;
+            }
         }
 
         public string MaKH
         {
             get { return kh.Ma != null ? kh.Ma : string.Empty; }
+            set
+            {
+                if (kh == null) kh = new KhachHang();
+                kh.Ma = value;
+            }
         }
         public HoaDon()
         {

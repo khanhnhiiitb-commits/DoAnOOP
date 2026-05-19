@@ -30,9 +30,9 @@ namespace QuanLySieuThi.Models.Products
             get { return soLuongTon; } 
             set {
                 if (value >= 0)
-                    donGia = value;
+                    soLuongTon = value;
                 else
-                    donGia = 0;
+                    soLuongTon = 0;
             } 
         }
         public string MaKeHang 

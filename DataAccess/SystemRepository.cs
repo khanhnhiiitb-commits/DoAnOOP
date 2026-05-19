@@ -105,7 +105,7 @@ namespace QuanLySieuThi.Data
             // Format an toàn: CA | MaCa | TenCa | GioBatDau | GioKetThuc
             if (p.Length < 5) return null;
 
-            return new CaLamViec(p[1], p[2], p[3], p[4]);
+            return new CaLamViec(p[1], p[2], TimeSpan.Parse(p[3]), TimeSpan.Parse(p[4]));
         }
 
         private string MapCaToLine(CaLamViec ca)

@@ -68,7 +68,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
                 ke.ViTri = cboKhuVuc.Text;
                 ke.LoaiHang = cboLoaiHang.Text;
                 ke.SucChua = int.Parse(txtSucChua.Text); // Nếu nhập chữ sẽ nhảy xuống catch
-                ke.TrangThai = cboTrangThai.Text;
 
                 // Thêm vào Kho RAM
                 DataStorage.Instance.DanhSachKeHang.Add(ke);
@@ -120,7 +119,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
                 DataStorage.Instance.DanhSachKeHang[index].ViTri = cboKhuVuc.Text;
                 DataStorage.Instance.DanhSachKeHang[index].LoaiHang = cboLoaiHang.Text;
                 DataStorage.Instance.DanhSachKeHang[index].SucChua = int.Parse(txtSucChua.Text);
-                DataStorage.Instance.DanhSachKeHang[index].TrangThai = cboTrangThai.Text;
 
                 // Lưu lại File txt
                 repo.Save(DataStorage.Instance.DanhSachKeHang);

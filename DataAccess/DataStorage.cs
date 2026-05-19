@@ -96,9 +96,18 @@ namespace QuanLySieuThi.Data
             KhuyenMaiRepository kmRepo = new KhuyenMaiRepository();
             DanhSachKhuyenMai = kmRepo.GetAll();
 
+            // 7. Nạp Voucher
+            VoucherRepository vRepo = new VoucherRepository();
+            DanhSachVoucher = vRepo.GetAll();
+
+            // 8. Nạp Thẻ thành viên
+            TheThanhVienRepository theRepo = new TheThanhVienRepository();
+            DanhSachTheTV = theRepo.GetAll();
+
             SystemRepository sysRepo = new SystemRepository();
             DanhSachTaiKhoan = sysRepo.GetAllTaiKhoan();
             DanhSachCaLamViec = sysRepo.GetAllCaLamViec();
+            
         }
     }
 }

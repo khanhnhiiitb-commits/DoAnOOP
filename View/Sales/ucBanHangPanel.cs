@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using ChuongtrinhQuanlybanhangsieuthi.DataAccess;
 using QuanLySieuThi.Data;
 using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Products;
@@ -197,7 +198,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             if (khTimThay != null)
             {
                 _khachHangHienTai = khTimThay;
-                _hoaDonHienTai.MaKH = khTimThay.MaKH;
+                _hoaDonHienTai.MaKH = khTimThay.Ma;
 
                 string info = "Khách: " + khTimThay.HoTen + "  |  Điểm: " + khTimThay.DiemTichLuy;
                 if (khTimThay.TheTV != null) info += "  |  Thẻ: " + khTimThay.TheTV.MaThe;
@@ -326,7 +327,12 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             NhanVien nv = _db.NhanVienDangNhap;
             if (nv == null)
             {
-                _hoaDonHienTai = new HoaDon("HD_TAM", "NV_TEST", "KH_VANGLAI");
+                _hoaDonHienTai = new HoaDon()
+                {
+                    MaHD = "HD_TAM",
+                    MaNV = "NV_TEST",
+                    MaKH = "KH_VANGLAI"
+                };
             }
             else
             {
@@ -337,7 +343,10 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             _khachHangHienTai = null;
             CapNhatGioHangUI();
             CapNhatTongTienUI();
-            Giohang.Text = "Khách hàng: Vãng lai";
+            if (Giohang != null)
+            {
+                Giohang.Text = "Khách hàng: Vãng lai";
+            }
         }
 
         private void CapNhatGioHangUI()
@@ -496,6 +505,66 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             {
 
                 Application.Restart();
+            }
+        }
+
+        private void btnDangKyThe_Click(object sender, EventArgs e)
+        {
+            string sdt = txtTimKH.Text.Trim();
+
+            if (_khachHangHienTai == null)
+            {
+                if (string.IsNullOrEmpty(sdt) || sdt == "Nhập SĐT khách hàng...") 
+                {
+                    MessageBox.Show("Vui lòng nhập SĐT khách hàng vào ô tìm kiếm trước!",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DialogResult hoiNhanh = MessageBox.Show("SĐT này chưa có trong hệ thống. Bạn có muốn tạo khách hàng mới để cấp thẻ không?",
+                    "Khách hàng mới", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (hoiNhanh == DialogResult.Yes)
+                {
+                    string tenKhach = Microsoft.VisualBasic.Interaction.InputBox("Nhập TÊN khách hàng mới:", "Đăng ký thành viên", "Khách vãng lai");
+                    if (string.IsNullOrWhiteSpace(tenKhach)) return;
+
+                    KhachHang khMoi = new KhachHang();
+                    khMoi.Ma = "KH" + (DataStorage.Instance.DanhSachKH.Count + 1).ToString("D3");
+                    khMoi.HoTen = tenKhach;
+                    khMoi.SoDienThoai = sdt;
+                    khMoi.DiemTichLuy = 0;
+                    DataStorage.Instance.DanhSachKH.Add(khMoi);
+
+                    _khachHangHienTai = khMoi;
+                    _hoaDonHienTai.MaKH = khMoi.Ma;
+                }
+                else
+                {
+                    return; 
+                }
+            }
+
+            string maTheMoi = "TV" + _khachHangHienTai.SoDienThoai;
+            string ketQua = _doiTacService.DangKyThanhVien(_khachHangHienTai, maTheMoi);
+
+            if (ketQua == "Đăng ký thẻ thành viên thành công!")
+            {
+                DataStorage.Instance.DanhSachTheTV.Add(_khachHangHienTai.TheTV);
+                TheThanhVienRepository theRepo = new TheThanhVienRepository();
+                theRepo.Save(DataStorage.Instance.DanhSachTheTV);
+
+                // Cập nhật lại giao diện ngay lập tức
+                string info = "Khách: " + _khachHangHienTai.HoTen
+                            + "  |  Điểm: " + _khachHangHienTai.DiemTichLuy
+                            + "  |  Thẻ: " + _khachHangHienTai.TheTV.MaThe;
+                Giohang.Text = info;
+
+                MessageBox.Show(ketQua, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(ketQua, "Lỗi đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

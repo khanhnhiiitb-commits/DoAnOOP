@@ -113,7 +113,15 @@ namespace QuanLySieuThi.Data
             tv.MaThe = p[1];
             tv.NgayDangKy = DateTime.Parse(p[2]);
             tv.NapDiemTuFile(int.Parse(p[3]));
-            tv.TrangThai = bool.Parse(p[4]);
+            bool trangThaiTuFile = bool.Parse(p[4]);
+            if (trangThaiTuFile) 
+            { 
+                tv.KichHoatThe();
+            }
+            else 
+            { 
+                tv.KhoaThe(); 
+            }
             return tv;
         }
 

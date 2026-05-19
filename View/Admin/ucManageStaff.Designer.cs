@@ -274,7 +274,7 @@
             txtTim.Name = "txtTim";
             txtTim.Size = new Size(357, 27);
             txtTim.TabIndex = 6;
-            txtTim.Text = "Tìm kiếm hàng hóa";
+            txtTim.Text = "Tìm kiếm nhân viên";
             txtTim.Click += txtTim_Click;
             // 
             // btnTim

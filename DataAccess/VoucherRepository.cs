@@ -4,7 +4,7 @@ using System.IO;
 using QuanLySieuThi.Models.Sales; // Nơi chứa các class Voucher
 using QuanLySieuThi.Data;         // Nơi chứa Interface ITextSerializable<T>
 
-namespace QuanLySieuThi.DataAccess
+namespace QuanLySieuThi.Data
 {
     // Kế thừa Interface và truyền cụ thể kiểu dữ liệu là Voucher
     public class VoucherRepository : ITextSerializable<Voucher>

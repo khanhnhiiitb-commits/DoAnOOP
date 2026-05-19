@@ -10,7 +10,7 @@ using QuanLySieuThi.Data;
 using QuanLySieuThi.Models.Sales;
 using QuanLySieuThi.Models.Systems;
 using QuanLySieuThi.Services;
-using QuanLySieuThi.DataAccess; 
+using QuanLySieuThi.Data; 
 
 namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
 {

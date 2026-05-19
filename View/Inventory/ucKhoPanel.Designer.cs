@@ -146,6 +146,7 @@
             label1.Size = new Size(151, 40);
             label1.TabIndex = 0;
             label1.Text = "Inventory";
+            label1.Click += label1_Click;
             // 
             // pnlContainer
             // 

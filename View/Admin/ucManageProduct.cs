@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ChuongtrinhQuanlybanhangsieuthi.Models.Products;
+using QuanLySieuThi.Models.Products;
 using QuanLySieuThi.Data;
 using QuanLySieuThi.Models.Products;
 using QuanLySieuThi.Services;

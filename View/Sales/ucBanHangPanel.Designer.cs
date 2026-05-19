@@ -47,6 +47,7 @@
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             btnLogout = new Button();
             label1 = new Label();
+            btnDangKyThe = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSanPham).BeginInit();
             groupBox2.SuspendLayout();
@@ -261,11 +262,22 @@
             label1.TabIndex = 11;
             label1.Text = "nv";
             // 
+            // btnDangKyThe
+            // 
+            btnDangKyThe.Location = new Point(1067, 568);
+            btnDangKyThe.Name = "btnDangKyThe";
+            btnDangKyThe.Size = new Size(180, 37);
+            btnDangKyThe.TabIndex = 12;
+            btnDangKyThe.Text = "Đăng ký Thẻ thành viên";
+            btnDangKyThe.UseVisualStyleBackColor = true;
+            btnDangKyThe.Click += btnDangKyThe_Click;
+            // 
             // ucBanHangPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
+            Controls.Add(btnDangKyThe);
             Controls.Add(label1);
             Controls.Add(btnLogout);
             Controls.Add(groupBox2);
@@ -304,5 +316,6 @@
         private DataGridView dgvSanPham;
         private Button btnLogout;
         private Label label1;
+        private Button btnDangKyThe;
     }
 }
