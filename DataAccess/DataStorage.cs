@@ -12,11 +12,9 @@ namespace QuanLySieuThi.Data
     {
         // 1. Biến static duy nhất lưu trữ thực thể của lớp
         private static DataStorage instance;
-        
         // 2. Constructor private: Không cho phép "new" từ bên ngoài
         private DataStorage()
         {
-            // Khởi tạo TẤT CẢ các danh sách trống để tránh lỗi NullReferenceException
             DanhSachHang = new List<HangHoa>();
             DanhSachNV = new List<NhanVien>();
             DanhSachHD = new List<HoaDon>();
@@ -30,11 +28,8 @@ namespace QuanLySieuThi.Data
             DanhSachKeHang = new List<KeHang>();
             DanhSachTaiKhoan = new List<TaiKhoan>();
             DanhSachCaLamViec = new List<CaLamViec>();
-
-            // Nạp toàn bộ dữ liệu từ txt lên RAM khi hệ thống bắt đầu
             LoadAllData();
         }
-
         // 3. Property duy nhất để truy cập vào kho dữ liệu
         public static DataStorage Instance
         {
@@ -47,7 +42,6 @@ namespace QuanLySieuThi.Data
                 return instance;
             }
         }
-
         // --- CÁC DANH SÁCH DỮ LIỆU ---
         public List<HangHoa> DanhSachHang { get; set; }
         public List<NhanVien> DanhSachNV { get; set; }
@@ -77,37 +71,29 @@ namespace QuanLySieuThi.Data
                 if (ng is NhanVien nv) DanhSachNV.Add(nv);
                 else if (ng is KhachHang kh) DanhSachKH.Add(kh);
             }
-
             // 2. Nạp Hàng Hóa
             InventoryRepository invRepo = new InventoryRepository();
             DanhSachHang = invRepo.GetAll();
-
             // 3. Nạp Đối Tác (Nhà cung cấp)
             PartnerRepository partnerRepo = new PartnerRepository();
             DanhSachNCC = partnerRepo.GetAll();
-
             // 4. Nạp Dữ liệu Bán Hàng (Hóa Đơn, Voucher, Thẻ)
             SalesRepository salesRepo = new SalesRepository();
             DanhSachHD = salesRepo.GetHoaDons();
             DanhSachVoucher = salesRepo.GetVouchers();
             DanhSachTheTV = salesRepo.GetTheThanhViens();
-
             // 5. Nạp Phiếu Nhập
             PhieuNhapRepository pnRepo = new PhieuNhapRepository();
             DanhSachPhieuNhap = pnRepo.GetAll();
-
             // 6. Nạp Khuyến Mãi
             KhuyenMaiRepository kmRepo = new KhuyenMaiRepository();
             DanhSachKhuyenMai = kmRepo.GetAll();
-
             // 7. Nạp Voucher
             VoucherRepository vRepo = new VoucherRepository();
             DanhSachVoucher = vRepo.GetAll();
-
             // 8. Nạp Thẻ thành viên
             TheThanhVienRepository theRepo = new TheThanhVienRepository();
             DanhSachTheTV = theRepo.GetAll();
-
             SystemRepository sysRepo = new SystemRepository();
             DanhSachTaiKhoan = sysRepo.GetAllTaiKhoan();
             DanhSachCaLamViec = sysRepo.GetAllCaLamViec();

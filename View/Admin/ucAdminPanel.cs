@@ -16,11 +16,19 @@ namespace ChuongtrinhQuanlybanhangsieuthi
 {
     public partial class ucAdminPanel : UserControl
     {
+        private ucDashboard manHinhDashboard;
+        private ucManageProduct manHinhSanPham;
         public ucAdminPanel()
         {
             InitializeComponent();
+            manHinhDashboard = new ucDashboard();
+            manHinhSanPham = new ucManageProduct();
+            manHinhSanPham.DuLieuDaThayDoi += ManHinhSanPham_DuLieuDaThayDoi;
         }
-
+        private void ManHinhSanPham_DuLieuDaThayDoi(object sender, EventArgs e)
+        {
+            manHinhDashboard.CapNhatGiaoDien();
+        }
         private void Navigation(UserControl uc)
         {
             if (pnlAdminContent != null)
@@ -72,11 +80,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
 
 
 
-        private void btnManageProducts_Click(object sender, EventArgs e)
-        {
-            HighlightActiveButton(sender);
-            Navigation(new ucManageProduct());
-        }
+        
 
         private void btnReports_Click(object sender, EventArgs e)
         {
@@ -105,7 +109,12 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         private void btnTongQuan_Click(object sender, EventArgs e)
         {
             HighlightActiveButton(sender);
-            Navigation(new ucDashboard());
+            Navigation(manHinhDashboard);
+        }
+        private void btnManageProducts_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton(sender);
+            Navigation(manHinhSanPham);
         }
 
         private void btnKM_Click(object sender, EventArgs e)

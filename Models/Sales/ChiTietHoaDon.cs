@@ -35,7 +35,6 @@ namespace QuanLySieuThi.Models.Sales
                 TinhThanhTien();
             }
         }
-
         public double GiaBan
         {
             get { return giaBan; }

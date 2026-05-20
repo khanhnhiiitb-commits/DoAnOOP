@@ -8,30 +8,23 @@ namespace QuanLySieuThi.Data
 {
     public class InventoryRepository : ITextSerializable<HangHoa>
     {
-        private readonly string filePath =
-            Application.StartupPath +
-            @"\DataAccess\DatabaseFile\database_hanghoa.txt";
-        // Lấy danh sách hàng hóa từ file
+        private readonly string filePath = Application.StartupPath +@"\DataAccess\DatabaseFile\database_hanghoa.txt";
         public List<HangHoa> GetAll()
         {
             List<HangHoa> danhSach = new List<HangHoa>();
-
             if (!File.Exists(filePath))
             {
                 return danhSach;
             }
-
             try
             {
                 string[] lines = File.ReadAllLines(filePath);
-
                 foreach (string line in lines)
                 {
                     if (string.IsNullOrWhiteSpace(line))
                     {
                         continue;
                     }
-
                     HangHoa hh = MapLineToEntity(line);
 
                     if (hh != null)
@@ -47,8 +40,6 @@ namespace QuanLySieuThi.Data
 
             return danhSach;
         }
-
-        // Lưu danh sách hàng hóa vào file
         public void Save(List<HangHoa> danhSach)
         {
             string[] lines = new string[danhSach.Count];
@@ -59,7 +50,6 @@ namespace QuanLySieuThi.Data
                 lines[index] = MapEntityToLine(hh);
                 index = index + 1;
             }
-
             try
             {
                 File.WriteAllLines(filePath, lines);
@@ -76,13 +66,10 @@ namespace QuanLySieuThi.Data
         private HangHoa MapLineToEntity(string line)
         {
             string[] parts = line.Split('|');
-
-            // Cấu trúc: Loại + 8 tham số = 9 phần tử
             if (parts.Length < 9)
             {
                 return null;
             }
-
             try
             {
                 string loai = parts[0];
@@ -92,14 +79,12 @@ namespace QuanLySieuThi.Data
                 int ton = int.Parse(parts[4]);
                 string make = parts[5];
                 string donvi = parts[6];
-
                 if (loai == "DIENTU")
                 {
                     int baoHanh = int.Parse(parts[7]);
                     string hang = parts[8];
                     return new HangDienTu(ma, ten, gia, ton, make, donvi, baoHanh, hang);
                 }
-
                 if (loai == "THUCPHAM")
                 {
                     DateTime nsx = DateTime.Parse(parts[7]);
@@ -108,15 +93,9 @@ namespace QuanLySieuThi.Data
                 }
             }
             catch
-            {
-                // Bỏ qua đối tượng này nếu quá trình ép kiểu Parse gặp lỗi dữ liệu thô
-                return null;
-            }
-
+            { return null;}
             return null;
         }
-
-        // Chuyển đối tượng thành dòng text (Data Mapping)
         private string MapEntityToLine(HangHoa hh)
         {
             if (hh is HangDienTu)
@@ -137,7 +116,6 @@ namespace QuanLySieuThi.Data
                        tp.SoLuongTon + "|" + tp.MaKeHang + "|" + tp.DonViTinh + "|" +
                        sNSX + "|" + sHSD;
             }
-
             return "";
         }
     }

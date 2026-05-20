@@ -103,10 +103,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
 
                 if (thanhCong)
                 {
-                    // Lưu xuống File txt
                     voucherRepo.Save(DataStorage.Instance.DanhSachVoucher);
-
-                    // Cập nhật lại giao diện
                     HienThiLenBang();
 
                     MessageBox.Show("Đã thay đổi trạng thái Voucher thành công!");
@@ -118,7 +115,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
             }
             catch (ArgumentException)
             {
-                // Lỗi này xảy ra nếu DataGridView của Nhi thiết kế tay và đặt tên cột khác với "MaKM"
                 MessageBox.Show("Lỗi: Không tìm thấy cột 'MaKM' trong bảng. Hãy kiểm tra lại tên cột (Name) trong phần Design của DataGridView nhé!");
             }
             catch (Exception ex)

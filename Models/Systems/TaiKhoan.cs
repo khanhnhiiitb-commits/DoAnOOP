@@ -8,9 +8,6 @@ namespace QuanLySieuThi.Models.Systems
         private bool trangThai;
         private Role userRole;
 
-
-
-    
         public string TenDangNhap
         {
             get { return tenDangNhap; }
@@ -58,7 +55,6 @@ namespace QuanLySieuThi.Models.Systems
 
         public bool KiemTraMatKhau(string mk)
         {
-            // Kiểm tra xem mật khẩu nhập vào có khớp với mật khẩu lưu trữ không
             return this.matKhau == mk;
         }
     }

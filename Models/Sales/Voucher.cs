@@ -20,7 +20,6 @@ namespace QuanLySieuThi.Models.Sales
             set 
             {
                 ngayBatDau = value;
-                // Tự động đẩy ngày kết thúc lên nếu ngày bắt đầu bị dời qua ngày kết thúc hiện tại
                 if (ngayKetThuc != DateTime.MinValue && ngayBatDau > ngayKetThuc)
                 {
                     ngayKetThuc = ngayBatDau;
@@ -100,7 +99,7 @@ namespace QuanLySieuThi.Models.Sales
         }
     }
 
-      public class VoucherPhanTram : Voucher
+    public class VoucherPhanTram : Voucher
     {
         private float phanTramGiam;
         private double giamToiDa;

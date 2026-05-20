@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using ChuongtrinhQuanlybanhangsieuthi.View;
+using ChuongtrinhQuanlybanhangsieuthi.View.Admin;
 using QuanLySieuThi.Data;
 using QuanLySieuThi.Models.People;
 
@@ -21,7 +23,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
                 pnlContent.Controls.Add(uc);
             }
         }
-
+        
         private void FrmMain_Load(object sender, EventArgs e)
         {
             

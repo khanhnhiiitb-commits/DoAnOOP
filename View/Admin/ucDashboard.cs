@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,6 +36,12 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
                 dgvTopSanPham.Columns["DoanhThu"].DefaultCellStyle.Format = "N0";
                 dgvTopSanPham.Columns["TenHang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
+        }
+        public void CapNhatGiaoDien()
+        {
+            CapNhatDuLieuDashboard();
+            HienThiTopSanPham(serviceThongKe);
+            Console.WriteLine("Dashboard đã tự refresh lúc: " + DateTime.Now);
         }
         private void CapNhatDuLieuDashboard()
         {

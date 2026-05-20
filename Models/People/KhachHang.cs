@@ -4,19 +4,14 @@ namespace QuanLySieuThi.Models.People
 {
     public class KhachHang : Nguoi
     {
-    
         private string loaiKhachHang;
         private int diemTichLuy;
         private TheThanhVien theTV; // Có thể là null
-        
         public TheThanhVien TheTV 
         { 
             get { return theTV; } 
             set { theTV = value; } 
         }
-
-        
-
         public string LoaiKhachHang 
         { 
             get { return loaiKhachHang; } 
@@ -37,8 +32,6 @@ namespace QuanLySieuThi.Models.People
                 }
             } 
         }
-
-
         public KhachHang(){}
 
         public KhachHang(string ma, string hoTen, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi,

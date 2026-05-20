@@ -15,6 +15,8 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
 {
     public partial class ucManageProduct : UserControl
     {
+        public event EventHandler DuLieuDaThayDoi;
+
         private QuanLyKho serviceKho;
 
         private InventoryRepository inventoryRepo = new InventoryRepository();
@@ -223,8 +225,10 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                 {
                     inventoryRepo.Save(DataStorage.Instance.DanhSachHang);
                     HienThiLenBang();
-                    btnLuu.Enabled = false; // Lưu xong thì làm mờ lại cho đúng quy trình
+                    btnLuu.Enabled = false; 
                     MessageBox.Show("Đã lưu vào file database_hanghoa.txt thành công!");
+
+                    DuLieuDaThayDoi?.Invoke(this, EventArgs.Empty);
                 }
                 else
                 {

@@ -10,11 +10,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         public FrmLogin()
         {
             InitializeComponent();
-
-            // Đăng ký sự kiện Click cho nút Đăng nhập
             this.btnLogin.Click += new EventHandler(btnLogin_Click);
-
-            // Đăng ký sự kiện Click cho nút Thoát
             this.btnExit.Click += new EventHandler(btnExit_Click);
         }
 

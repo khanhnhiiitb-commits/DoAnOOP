@@ -63,7 +63,7 @@ namespace QuanLySieuThi.Services
         // Tính toán tổng số tiền được giảm dựa trên các chương trình hiện có
         public double TinhTienGiam(HoaDon hd)
         {
-            if (hd == null) return 0; // Thêm kiểm tra null để an toàn
+            if (hd == null) return 0; 
             double tongGiam = 0;
 
             foreach(ChuongTrinhKhuyenMai km in danhSachCTKM)
