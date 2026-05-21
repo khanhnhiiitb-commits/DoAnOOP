@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLySieuThi.Data;
 using QuanLySieuThi.Models.People;
+using QuanLySieuThi.Models.Products;
 using QuanLySieuThi.Services;
 
 namespace ChuongtrinhQuanlybanhangsieuthi.View
@@ -20,8 +20,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
 
         private void HienThiLenBang()
         {
-
-
             dgvNhanVien.DataSource = null;
             dgvNhanVien.DataSource = DataStorage.Instance.DanhSachNV;
             if (dgvNhanVien.Columns["MaNV"] != null) dgvNhanVien.Columns["MaNV"].HeaderText = "Mã nhân viên";
@@ -86,7 +84,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                     txtMaNV.Text = nv.Ma;
                     txtHoTen.Text = nv.HoTen;
                     cboGioiTinh.Text = nv.GioiTinh ? "Nam" : "Nữ";
-
+                    txtLuongCB.Text = nv.LuongCB.ToString("N0");
                     txtSDT.Text = nv.SoDienThoai;
                     txtChucVu.Text = nv.ChucVu;
                     txtDiaChi.Text = nv.DiaChi;
@@ -136,7 +134,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                 MessageBox.Show("Vui lòng chọn một nhân viên từ bảng để sửa!", "Thông báo");
             }
         }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
             try
@@ -144,8 +141,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                 string maSua = txtMaNV.Text.Trim();
                 if (string.IsNullOrEmpty(maSua)) return;
                 DateTime ngayVaoLamGoc = DateTime.Now;
-
-
                 foreach (NhanVien nvOld in DataStorage.Instance.DanhSachNV)
                 {
                     if (nvOld.Ma == maSua)
@@ -164,9 +159,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                 nvUpdate.GioiTinh = (cboGioiTinh.Text == "Nam");
                 nvUpdate.NgayVaoLam = ngayVaoLamGoc;
                 nvUpdate.LuongCB = 5000000;
-
                 bool thanhCong = serviceNhanSu.CapNhatThongTinNhanVien(maSua, nvUpdate);
-
                 if (thanhCong)
                 {
                     List<Nguoi> dsTam = new List<Nguoi>();
@@ -233,33 +226,24 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
             }
         }
 
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-
-            string tuKhoa = txtTim.Text.Trim();
-
-            if (string.IsNullOrEmpty(tuKhoa))
-            {
-                HienThiLenBang();
-                return;
-            }
-            List<NhanVien> dsKetQua = serviceNhanSu.TimKiemNhanVien(tuKhoa);
-
-            if (dsKetQua.Count > 0)
-            {
-                dgvNhanVien.DataSource = null;
-                dgvNhanVien.DataSource = dsKetQua;
-            }
-            else
-            {
-                dgvNhanVien.DataSource = null;
-                MessageBox.Show("Không tìm thấy nhân viên nào phù hợp!", "Thông báo");
-            }
-        }
-
         private void txtTim_Click(object sender, EventArgs e)
         {
-            txtTim.Text = "";
+            txtTim.Text= "";
+        }   
+
+
+        private void txtTim_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtTim.Text.Trim().ToLower();
+            List<NhanVien> ketQuaTimKiem = new List<NhanVien>();
+            foreach (NhanVien nv in DataStorage.Instance.DanhSachNV)
+            {
+                if (nv.Ma.ToLower().Contains(keyword) || nv.HoTen.ToLower().Contains(keyword))
+                {
+                    ketQuaTimKiem.Add(nv);
+                }
+            }
+            dgvNhanVien.DataSource = ketQuaTimKiem;
         }
     }
 

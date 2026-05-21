@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,25 +20,17 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
 
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
-
-            // Từ ngày: Lấy mốc 00:00:00
             DateTime tuNgay = DatePicker1.Value.Date;
-
-
             DateTime denNgay = DatePicker2.Value.Date.AddDays(1).AddSeconds(-1);
-
             if (tuNgay > denNgay)
             {
                 MessageBox.Show("Từ ngày không thể lớn hơn Đến ngày!");
                 return;
             }
-
             int tongSoHoaDon = 0;
             double tongDoanhThu = 0;
             List<HoaDon> dsHoaDonTrongKy = new List<HoaDon>();
             Dictionary<string, int> boDemSanPham = new Dictionary<string, int>();
-
-
             foreach (var hd in DataStorage.Instance.DanhSachHD)
             {
                 if (hd.NgayTao >= tuNgay && hd.NgayTao <= denNgay && hd.TrangThaiTT == true)
@@ -62,7 +53,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
             }
             string maBanChayNhat = "";
             int maxSoLuong = 0;
-
             foreach (var item in boDemSanPham)
             {
                 if (item.Value > maxSoLuong)
@@ -88,7 +78,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
             lblMathang.Text = tenMatHangBanChay;
             dgvLichSuGD.DataSource = null;
             var dsHienThi = new List<object>();
-
             foreach (var hd in dsHoaDonTrongKy)
             {
                 dsHienThi.Add(new
@@ -99,9 +88,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                     TrangThai = "Thành công"
                 });
             }
-
             dgvLichSuGD.DataSource = dsHienThi;
-
             if (dgvLichSuGD.Columns.Count > 0)
             {
                 dgvLichSuGD.Columns["MaHD"].HeaderText = "Mã Hóa Đơn";
@@ -123,6 +110,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
             sfd.Filter = "Text File (*.txt)|*.txt";
             sfd.Title = "Lưu báo cáo doanh thu";
             sfd.FileName = "BaoCao_" + DateTime.Now.ToString("ddMMyyyy_HHmm") + ".txt";
+
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -144,11 +132,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                         sw.WriteLine("II. CHI TIẾT GIAO DỊCH:");
                         sw.WriteLine(string.Format("{0,-15} | {1,-20} | {2,-15}", "Mã Hóa Đơn", "Thời Gian", "Tổng Tiền (VNĐ)"));
                         sw.WriteLine("---------------------------------------------------------");
+
                         for (int i = 0; i < dgvLichSuGD.Rows.Count; i++)
                         {
-                            var row = dgvLichSuGD.Rows[i];
-
-                            if (!row.IsNewRow) 
+                            DataGridViewRow row = dgvLichSuGD.Rows[i];
+                            if (!row.IsNewRow)
                             {
                                 string maHD = row.Cells["MaHD"].Value != null ? row.Cells["MaHD"].Value.ToString() : "";
                                 string thoiGian = row.Cells["NgayTao"].Value != null ? row.Cells["NgayTao"].Value.ToString() : "";
@@ -159,7 +147,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                         sw.WriteLine("=========================================================");
                         sw.WriteLine("                    KẾT THÚC BÁO CÁO                     ");
                     }
-
                     MessageBox.Show("Xuất báo cáo thành công tại:\n" + sfd.FileName, "Hoàn tất");
                 }
                 catch (Exception ex)

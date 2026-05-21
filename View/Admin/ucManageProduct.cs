@@ -73,7 +73,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                     txtMaHH.Text = hhChon.MaHH;
                     txtTenHH.Text = hhChon.TenHang;
                     txtDonGia.Text = hhChon.DonGia.ToString();
-
+                    txtDVT.Text = hhChon.DonViTinh;
                     txtMaHH.Enabled = false;
 
                     if (row.DataBoundItem is HangThucPham tp)
@@ -147,10 +147,50 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                 MessageBox.Show("Vui lòng chọn một sản phẩm từ bảng để cập nhật!", "Thông báo");
                 return;
             }
-
             btnLuu.Enabled = true;
-
             MessageBox.Show("Bây giờ bạn có thể sửa thông tin và bấm 'Lưu' để hoàn tất.", "Thông báo");
+        }
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maSua = txtMaHH.Text.Trim();
+                int soLuongHienTai = serviceKho.KiemTraTonKho(maSua);
+                string loaiChuan = (cbLoaiHH.Text == "Thực phẩm") ? "ThucPham" : "DienTu";
+
+                HangHoa spMoi = HangHoaFactory.TaoHangHoa(loaiChuan);
+                spMoi.MaHH = maSua;
+                spMoi.TenHang = txtTenHH.Text;
+                spMoi.DonGia = Convert.ToDouble(txtDonGia.Text);
+                spMoi.DonViTinh = txtDVT.Text;
+                spMoi.SoLuongTon = soLuongHienTai;
+                if (spMoi is HangThucPham tp)
+                {
+                    tp.HSD = DatePickerHSD.Value;
+                    tp.NgaySX = DatePickerSX.Value;
+                }
+                else if (spMoi is HangDienTu dt)
+                {
+                    dt.ThoiGianBH = int.Parse(txtThoiGianBH.Text);
+                }
+                bool ketQua = serviceKho.CapNhatThongTin(maSua, spMoi);
+                if (ketQua)
+                {
+                    inventoryRepo.Save(DataStorage.Instance.DanhSachHang);
+                    HienThiLenBang();
+                    btnLuu.Enabled = false;
+                    MessageBox.Show("Đã lưu vào file database_hanghoa.txt thành công!");
+                    DuLieuDaThayDoi?.Invoke(this, EventArgs.Empty);
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy Mã hàng '" + maSua + "' để cập nhật trong RAM!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -195,50 +235,20 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
             HienThiLenBang();
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
+       
+
+        private void txtTimHH_TextChanged(object sender, EventArgs e)
         {
-            try
+            string keyword = txtTimHH.Text.Trim().ToLower();
+            List<HangHoa> ketQuaTimKiem = new List<HangHoa>();
+            foreach (HangHoa hh in DataStorage.Instance.DanhSachHang)
             {
-                string maSua = txtMaHH.Text.Trim();
-                int soLuongHienTai = serviceKho.KiemTraTonKho(maSua);
-                string loaiChuan = (cbLoaiHH.Text == "Thực phẩm") ? "ThucPham" : "DienTu";
-
-                HangHoa spMoi = HangHoaFactory.TaoHangHoa(loaiChuan);
-                spMoi.MaHH = maSua;
-                spMoi.TenHang = txtTenHH.Text;
-                spMoi.DonGia = Convert.ToDouble(txtDonGia.Text);
-                spMoi.DonViTinh = txtDVT.Text;
-
-                spMoi.SoLuongTon = soLuongHienTai;
-
-                if (spMoi is HangThucPham tp)
+                if (hh.MaHH.ToLower().Contains(keyword) || hh.TenHang.ToLower().Contains(keyword))
                 {
-                    tp.HSD = DatePickerHSD.Value;
-                    tp.NgaySX = DatePickerSX.Value;
-                }
-                else if (spMoi is HangDienTu dt)
-                {
-                    dt.ThoiGianBH = int.Parse(txtThoiGianBH.Text);
-                }
-                bool ketQua = serviceKho.CapNhatThongTin(maSua, spMoi);
-                if (ketQua)
-                {
-                    inventoryRepo.Save(DataStorage.Instance.DanhSachHang);
-                    HienThiLenBang();
-                    btnLuu.Enabled = false; 
-                    MessageBox.Show("Đã lưu vào file database_hanghoa.txt thành công!");
-
-                    DuLieuDaThayDoi?.Invoke(this, EventArgs.Empty);
-                }
-                else
-                {
-                    MessageBox.Show("Không tìm thấy Mã hàng '" + maSua + "' để cập nhật trong RAM!");
+                    ketQuaTimKiem.Add(hh);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message);
-            }
+            dgvHangHoa.DataSource = ketQuaTimKiem;
         }
     }
 }

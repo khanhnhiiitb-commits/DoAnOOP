@@ -81,14 +81,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
         {
             try
             {
-                // 1. Kiểm tra xem có chọn dòng chưa, và dòng đó CÓ PHẢI LÀ DÒNG TRỐNG cuối cùng không
                 if (dgvKM.CurrentRow == null || dgvKM.CurrentRow.IsNewRow)
                 {
                     MessageBox.Show("Vui lòng chọn một Voucher hợp lệ từ bảng!");
                     return;
                 }
-
-                // 2. Lấy mã an toàn (kiểm tra null trước khi biến thành String)
                 var cellValue = dgvKM.CurrentRow.Cells["MaKM"].Value;
                 if (cellValue == null)
                 {
@@ -96,16 +93,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
                     return;
                 }
                 string maDaChon = cellValue.ToString();
-
-                // 3. Dùng trực tiếp biến serviceKM đã khai báo ở tít trên đầu Class
-                // (Xóa dòng new QuanLyKhuyenMai... cũ đi để tránh dư thừa và lỗi đồng bộ)
                 bool thanhCong = serviceKM.DoiTrangThaiVoucher(maDaChon);
-
                 if (thanhCong)
                 {
                     voucherRepo.Save(DataStorage.Instance.DanhSachVoucher);
                     HienThiLenBang();
-
                     MessageBox.Show("Đã thay đổi trạng thái Voucher thành công!");
                 }
                 else
@@ -115,7 +107,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
             }
             catch (ArgumentException)
             {
-                MessageBox.Show("Lỗi: Không tìm thấy cột 'MaKM' trong bảng. Hãy kiểm tra lại tên cột (Name) trong phần Design của DataGridView nhé!");
+                MessageBox.Show("Lỗi: Không tìm thấy cột 'MaKM' trong bảng.");
             }
             catch (Exception ex)
             {
@@ -132,13 +124,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
                     MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
                     return;
                 }
-
                 if (DatePicker2.Value.Date < DatePicker1.Value.Date)
                 {
                     MessageBox.Show("Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!");
                     return;
                 }
-
                 string loaiGiam = cbLoaiGiam.Text;
                 double mucGiam;
                 if (!double.TryParse(txtMucGiam.Text, out mucGiam))
@@ -146,9 +136,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
                     MessageBox.Show("Mức giảm phải là số!");
                     return;
                 }
-
                 Voucher vMoi = null;
-
                 if (loaiGiam == "%")
                 {
                     VoucherPhanTram vPt = new VoucherPhanTram();
@@ -162,16 +150,13 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
                     vTm.SoTienGiamCoDinh = mucGiam;
                     vMoi = vTm;
                 }
-
                 vMoi.MaVoucher = txtMaKM.Text.Trim();
                 vMoi.TenVoucher = txtTenKM.Text.Trim();
                 vMoi.NgayBatDau = DatePicker1.Value.Date;
                 vMoi.NgayKetThuc = DatePicker2.Value.Date;
                 vMoi.TrangThai = true;
-
                 serviceKM.ThemVoucher(vMoi);
                 voucherRepo.Save(DataStorage.Instance.DanhSachVoucher);
-
                 HienThiLenBang();
                 MessageBox.Show("Tạo Voucher thành công!");
             }

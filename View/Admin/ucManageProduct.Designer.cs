@@ -322,6 +322,7 @@
             txtTimHH.Name = "txtTimHH";
             txtTimHH.Size = new Size(429, 27);
             txtTimHH.TabIndex = 2;
+            txtTimHH.TextChanged += txtTimHH_TextChanged;
             // 
             // label9
             // 
