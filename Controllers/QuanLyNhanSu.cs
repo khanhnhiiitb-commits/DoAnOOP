@@ -10,32 +10,16 @@ namespace QuanLySieuThi.Services
         private List<NhanVien> danhNV;
         private List<BangChamCong> danhSachChamCong;
         private List<TaiKhoan> danhSachTaiKhoan;
-        public List<NhanVien> DanhNV
-        {
-            get { return danhNV; }
-        }
-        public List<BangChamCong> DanhSachChamCong
-        {
-            get { return danhSachChamCong; }
-        }
-        public List<TaiKhoan> DanhSachTaiKhoan
-        {
-            get { return danhSachTaiKhoan; }
-        }
+        public List<NhanVien> DanhNV  {  get { return danhNV; } }
+        public List<BangChamCong> DanhSachChamCong  {  get { return danhSachChamCong; }  }
+        public List<TaiKhoan> DanhSachTaiKhoan { get { return danhSachTaiKhoan; }  }
         public QuanLyNhanSu(List<NhanVien> dsNV, List<BangChamCong> dsCC, List<TaiKhoan> dsTK)
         {
             this.danhNV = dsNV;
             this.danhSachChamCong = dsCC;
             this.danhSachTaiKhoan = dsTK;
         }
-
-        // 2. Methods (Thực thi theo sơ đồ)
-
-        public void ThemNhanVien(NhanVien nv)
-        {
-            if (nv != null) danhNV.Add(nv);
-        }
-
+        public void ThemNhanVien(NhanVien nv)  {  if (nv != null) danhNV.Add(nv); }
         public bool CapNhatThongTinNhanVien(string maNV, NhanVien nvMoi)
         {
             int i;
@@ -43,7 +27,6 @@ namespace QuanLySieuThi.Services
             {
                 if (danhNV[i].Ma == maNV)
                 {
-   
                     danhNV[i].HoTen = nvMoi.HoTen;
                     danhNV[i].SoDienThoai = nvMoi.SoDienThoai;
                     danhNV[i].DiaChi = nvMoi.DiaChi;
@@ -67,8 +50,6 @@ namespace QuanLySieuThi.Services
             }
             return false; 
         }
-
-        // Logic Đăng nhập (Duyệt thủ công qua danh sách tài khoản)
         public TaiKhoan DangNhap(string tenDangNhap, string matKhau)
         {
             foreach (TaiKhoan tk in danhSachTaiKhoan)
@@ -80,33 +61,22 @@ namespace QuanLySieuThi.Services
             }
             return null;
         }
-
         public void ChamCongVao(string maNV)
         {
             int thangNay = DateTime.Now.Month;
             int namNay = DateTime.Now.Year;
-    
             foreach (BangChamCong bcc in danhSachChamCong)
             {
                 if (bcc.MaNhanVien == maNV && bcc.Thang == thangNay && bcc.Nam == namNay)
                 {
-
                     bcc.SoNgayLamViec++;
                     return;
                 }
             }
-            // Nếu chưa có bảng công cho tháng này, tạo mới một cái
             BangChamCong moi = new BangChamCong(maNV, thangNay, namNay, 1, 0, 0, "Mới khởi tạo");
             danhSachChamCong.Add(moi);
         }
-    
-
-        public void ChamCongRa(string maNV)
-        {
-            Console.WriteLine("Nhân viên " + maNV + " đã ra về lúc: " + DateTime.Now);
-        }
-
-        // Tính lương dựa trên số công trong tháng
+        public void ChamCongRa(string maNV)  {   Console.WriteLine("Nhân viên " + maNV + " đã ra về lúc: " + DateTime.Now); }
         public double TinhLuong(string maNV, int thang, int nam)
         {
             foreach (BangChamCong bcc in danhSachChamCong)
@@ -123,7 +93,6 @@ namespace QuanLySieuThi.Services
             }
             return 0;
         }
-
         public bool KhoaTaiKhoan(string tenDangNhap)
         {
             foreach (TaiKhoan tk in danhSachTaiKhoan)
@@ -140,13 +109,9 @@ namespace QuanLySieuThi.Services
         {
             List<NhanVien> ketQua = new List<NhanVien>();
             string lowerKey = tuKhoa.ToLower();
-
             foreach (NhanVien nv in danhNV)
             {
-                // Khắc phục: Đổi MaNV thành Ma
-                if (nv.Ma.ToLower().Contains(lowerKey) ||
-                    nv.HoTen.ToLower().Contains(lowerKey) ||
-                    nv.SoDienThoai.Contains(tuKhoa))
+                if (nv.Ma.ToLower().Contains(lowerKey) ||   nv.HoTen.ToLower().Contains(lowerKey) || nv.SoDienThoai.Contains(tuKhoa))
                 {
                     ketQua.Add(nv);
                 }

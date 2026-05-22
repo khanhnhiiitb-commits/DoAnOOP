@@ -12,31 +12,15 @@ namespace QuanLySieuThi.Models.Systems
         private DateTime ngayKetThuc;
         private string noiDung;
         private List<ChiTietChuongTrinhKM> danhSachChiTiet = new List<ChiTietChuongTrinhKM>();
-
-        // Properties
-        public string MaCTKM
-        {
-            get { return maCTKM; }
-            set { maCTKM = value; }
-        }
-
-        public string TenCT
-        {
-            get { return tenCT; }
-            set { tenCT = value; }
-        }
-
+        public string MaCTKM { get { return maCTKM; }  set { maCTKM = value; } }
+        public string TenCT { get { return tenCT; } set { tenCT = value; }  }
         public DateTime NgayBatDau
         {
             get { return ngayBatDau; }
             set 
             {
                 ngayBatDau = value;
-                // Nếu ngày bắt đầu bị dời về sau ngày kết thúc hiện tại, tự động đồng bộ ngày kết thúc
-                if (ngayKetThuc != DateTime.MinValue && ngayBatDau > ngayKetThuc)
-                {
-                    ngayKetThuc = ngayBatDau;
-                }
+                if (ngayKetThuc != DateTime.MinValue && ngayBatDau > ngayKetThuc) ngayKetThuc = ngayBatDau;
             }
         }
 
@@ -45,29 +29,13 @@ namespace QuanLySieuThi.Models.Systems
             get { return ngayKetThuc; }
             set 
             {
-                // Logic: Ngày kết thúc phải sau hoặc bằng ngày bắt đầu
-                if (value >= ngayBatDau)
-                    ngayKetThuc = value;
-                else
-                    ngayKetThuc = ngayBatDau;
+                if (value >= ngayBatDau) ngayKetThuc = value;
+                else ngayKetThuc = ngayBatDau;
             }
         }
-
-        public string NoiDung
-        {
-            get { return noiDung; }
-            set { noiDung = value; }
-        }
-
-        public List<ChiTietChuongTrinhKM> DanhSachChiTiet 
-        { 
-            get { return danhSachChiTiet; } 
-        }
-
-        // Constructor mặc định
+        public string NoiDung { get { return noiDung; }  set { noiDung = value; } }
+        public List<ChiTietChuongTrinhKM> DanhSachChiTiet   {   get { return danhSachChiTiet; }   }
         public ChuongTrinhKhuyenMai() { }
-
-        // Constructor đầy đủ tham số
         public ChuongTrinhKhuyenMai(string maKM, string ten, DateTime bd, DateTime kt, string nd)
         {
             this.MaCTKM = maKM;
@@ -76,7 +44,6 @@ namespace QuanLySieuThi.Models.Systems
             this.NgayKetThuc = kt;
             this.NoiDung = nd;
         }
-
         public bool DangDienRa()
         {
             DateTime hienTai = DateTime.Now;
@@ -84,10 +51,7 @@ namespace QuanLySieuThi.Models.Systems
         }
         public void ThemChiTiet(ChiTietChuongTrinhKM ct)
         {
-            if (ct != null)
-            {
-                this.DanhSachChiTiet.Add(ct);
-            }
+            if (ct != null)  this.DanhSachChiTiet.Add(ct);
         }
         public abstract bool KiemTraDieuKien(HoaDon hd);
         public abstract double TinhSoTienGiam(double tongTienHD);

@@ -10,29 +10,17 @@ namespace QuanLySieuThi.Services
     {
         private List<ChuongTrinhKhuyenMai> danhSachCTKM;
         private List<Voucher> danhSachVoucher;
-        public List<ChuongTrinhKhuyenMai> DanhSachCTKM
-        {
-            get { return danhSachCTKM; }
-        }
-
-        public List<Voucher> DanhSachVoucher
-        {
-            get { return danhSachVoucher; }
-        }
+        public List<ChuongTrinhKhuyenMai> DanhSachCTKM {  get { return danhSachCTKM; }  }
+        public List<Voucher> DanhSachVoucher  { get { return danhSachVoucher; } }
         public QuanLyKhuyenMai(List<ChuongTrinhKhuyenMai> dsKM, List<Voucher> dsVC)
         {
             this.danhSachCTKM = dsKM;
             this.danhSachVoucher = dsVC;
         }
-
         public void ThemChuongTrinh(ChuongTrinhKhuyenMai km)
         {
-            if (km != null)
-            {
-                danhSachCTKM.Add(km);
-            }
+            if (km != null)  { danhSachCTKM.Add(km);  }
         }
-
         public bool CapNhatChuongTrinh(string maCTrinh, ChuongTrinhKhuyenMai kmMoi)
         {
             for (int i = 0; i < danhSachCTKM.Count; i++)
@@ -45,13 +33,10 @@ namespace QuanLySieuThi.Services
             }
             return false;
         }
-
-        // Tìm kiếm và trả về Voucher nếu còn hiệu lực
         public Voucher KiemTraVoucher(string maVoucher)
         {
             foreach (Voucher v in danhSachVoucher)
             {
-                // Kiểm tra mã và hạn sử dụng (giả sử có hàm KiemTraHieuLuc trong lớp Voucher)
                 if (v.MaVoucher == maVoucher && v.KiemTraHieuLuc())
                 {
                     return v;
@@ -59,24 +44,16 @@ namespace QuanLySieuThi.Services
             }
             return null;
         }
-
-        // Tính toán tổng số tiền được giảm dựa trên các chương trình hiện có
         public double TinhTienGiam(HoaDon hd)
         {
             if (hd == null) return 0; 
             double tongGiam = 0;
-
             foreach(ChuongTrinhKhuyenMai km in danhSachCTKM)
             {
-                if (km.KiemTraDieuKien(hd))
-                {
-                    tongGiam += km.TinhSoTienGiam(hd.TongTien);
-                }
+                if (km.KiemTraDieuKien(hd)) {   tongGiam += km.TinhSoTienGiam(hd.TongTien);  }
             }
             return tongGiam;
         }
-
-        // Hàm chính để áp dụng khuyến mãi vào hóa đơn
         public void ApDungKhuyenMai(HoaDon hd)
         {
             if (KiemTraDieuKienApDung(hd))
@@ -85,23 +62,11 @@ namespace QuanLySieuThi.Services
                 hd.ApDungGiamGia(soTienGiam);
             }
         }
-
-        // Kiểm tra điều kiện chung của hóa đơn (ví dụ: hóa đơn trên 100k mới tính KM)
-        public bool KiemTraDieuKienApDung(HoaDon hd)
-        {
-            return hd != null && hd.TongTien > 0;
-        }
-
-          
+        public bool KiemTraDieuKienApDung(HoaDon hd) { return hd != null && hd.TongTien > 0;  }
         public void ThemVoucher(Voucher v)
         {
-            if (v != null)
-            {
-                danhSachVoucher.Add(v);
-            }
+            if (v != null)  {   danhSachVoucher.Add(v); }
         }
-
-        // 2. Cập nhật thông tin Voucher
         public bool CapNhatVoucher(string maVoucher, Voucher voucherMoi)
         {
             for (int i = 0; i < danhSachVoucher.Count; i++)
@@ -114,8 +79,6 @@ namespace QuanLySieuThi.Services
             }
             return false;
         }
-
-        // 3. Hàm Vô hiệu hóa / Khởi động lại Voucher (Toggle Status)
         public bool DoiTrangThaiVoucher(string maVoucher)
         {
             for (int i = 0; i < danhSachVoucher.Count; i++)
@@ -128,10 +91,7 @@ namespace QuanLySieuThi.Services
             }
             return false; 
         }
-        public List<Voucher> LayDanhSachVoucher()
-        {
-            return danhSachVoucher;
-        }
+        public List<Voucher> LayDanhSachVoucher()  {  return danhSachVoucher;  }
     }
 }
 
