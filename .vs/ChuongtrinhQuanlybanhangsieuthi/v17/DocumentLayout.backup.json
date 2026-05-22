@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|F:\\OOP\\New folder\\view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "View\\Admin\\ucReports.cs",
               "ToolTip": "F:\\OOP\\New folder\\View\\Admin\\ucReports.cs",
               "RelativeToolTip": "View\\Admin\\ucReports.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCAAAABRAAAAAAAAAA==",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAgwI4AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-22T07:53:43.75Z",
               "EditorCaption": ""
@@ -78,8 +78,7 @@
               "ToolTip": "F:\\OOP\\New folder\\View\\Admin\\ucReports.cs [Design]",
               "RelativeToolTip": "View\\Admin\\ucReports.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:53:40.492Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-05-22T07:53:40.492Z"
             },
             {
               "$type": "Document",
@@ -91,8 +90,7 @@
               "RelativeToolTip": "Controllers\\QuanLyNhapHang.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAhwDgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:45:12.469Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T07:45:12.469Z"
             },
             {
               "$type": "Document",
@@ -104,8 +102,7 @@
               "RelativeToolTip": "Controllers\\QuanLyNhanSu.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAArwFoAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:42:43.31Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T07:42:43.31Z"
             },
             {
               "$type": "Document",
@@ -117,8 +114,7 @@
               "RelativeToolTip": "Controllers\\QuanLyKhuyenMai.cs",
               "ViewState": "AgIAADEAAAAAAAAAAAAwwDcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:40:14.56Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T07:40:14.56Z"
             },
             {
               "$type": "Document",
@@ -130,8 +126,7 @@
               "RelativeToolTip": "Controllers\\QuanLyKho.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAAwwDsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:36:23.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T07:36:23.521Z"
             },
             {
               "$type": "Document",
@@ -143,8 +138,7 @@
               "RelativeToolTip": "Controllers\\BaoCaoThongKe.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAkwEgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:32:43.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T07:32:43.727Z"
             }
           ]
         },

@@ -13,13 +13,11 @@ namespace QuanLySieuThi.Services
         private List<HoaDon> danhSachHoaDon;
         private List<HangHoa> danhSachHangHoa;
         public List<HoaDon> DanhSachHoaDon { get {return danhSachHoaDon;} }
-
         public QuanLyBanHang(List<HangHoa> khoHang, List<HoaDon> dsHoaDon)
         {
             danhSachHoaDon = dsHoaDon;
             danhSachHangHoa = khoHang;
         }
-
         // 1. Tạo hóa đơn mới 
         public HoaDon TaoHoaDon(NhanVien nv, KhachHang kh)
         {
@@ -28,7 +26,6 @@ namespace QuanLySieuThi.Services
             danhSachHoaDon.Add(hdMoi);
             return hdMoi;
         }
-
         // 2. Thêm chi tiết 
         public string ThemChiTietHoaDon(HoaDon hd, HangHoa hh, int soLuong)
         {
@@ -56,7 +53,6 @@ namespace QuanLySieuThi.Services
             hh.SoLuongTon -= soLuong;
             return "Thành công: Đã thêm món hàng.";
         }
-
         // 3. Xóa chi tiết 
         public bool XoaChiTietHoaDon(HoaDon hd, string maHH)
         {
@@ -81,7 +77,6 @@ namespace QuanLySieuThi.Services
             }
             return false;
         }
-
         // 4. Áp dụng Voucher
         public string ApDungVoucher(HoaDon hd, Voucher v)
         {
@@ -99,7 +94,6 @@ namespace QuanLySieuThi.Services
             }
             return "Lỗi: Voucher không hiệu lực hoặc hết hạn.";
         }
-
         // 5. Thanh toán và Tích điểm
         public string ThanhToan(HoaDon hd, double soTienKhachDua, KhachHang kh, QuanLyDoiTac doiTacService)
         {
@@ -117,7 +111,6 @@ namespace QuanLySieuThi.Services
 
             return tienThua.ToString(); 
         }
-
         // 6. Hủy hóa đơn
         public bool HuyHoaDon(string maHD)
         {
@@ -131,7 +124,6 @@ namespace QuanLySieuThi.Services
             }
             return false;
         }
-
         public string LayNoiDungHoaDon(HoaDon hd)
         {
             string content = "========== SIÊU THỊ ==========\n";
