@@ -41,11 +41,12 @@ partial class FrmLogin
         // 
         lblTitle.AutoSize = true;
         lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-        lblTitle.Location = new Point(14, 35);
+        lblTitle.ForeColor = SystemColors.Highlight;
+        lblTitle.Location = new Point(171, 37);
         lblTitle.Name = "lblTitle";
-        lblTitle.Size = new Size(496, 41);
+        lblTitle.Size = new Size(200, 41);
         lblTitle.TabIndex = 6;
-        lblTitle.Text = "ĐĂNG NHẬP HỆ THỐNG SIÊU THỊ";
+        lblTitle.Text = "ĐĂNG NHẬP";
         // 
         // lblUser
         // 
@@ -66,7 +67,7 @@ partial class FrmLogin
         // txtUser
         // 
         txtUser.BackColor = SystemColors.Menu;
-        txtUser.Location = new Point(186, 119);
+        txtUser.Location = new Point(157, 120);
         txtUser.Margin = new Padding(3, 4, 3, 4);
         txtUser.Name = "txtUser";
         txtUser.Size = new Size(228, 27);
@@ -75,7 +76,7 @@ partial class FrmLogin
         // txtPass
         // 
         txtPass.BackColor = SystemColors.Menu;
-        txtPass.Location = new Point(186, 173);
+        txtPass.Location = new Point(157, 174);
         txtPass.Margin = new Padding(3, 4, 3, 4);
         txtPass.Name = "txtPass";
         txtPass.PasswordChar = '*';
@@ -84,21 +85,29 @@ partial class FrmLogin
         // 
         // btnLogin
         // 
-        btnLogin.Location = new Point(186, 230);
+        btnLogin.BackColor = SystemColors.ButtonHighlight;
+        btnLogin.FlatAppearance.BorderSize = 0;
+        btnLogin.FlatStyle = FlatStyle.Flat;
+        btnLogin.Location = new Point(221, 218);
         btnLogin.Margin = new Padding(3, 4, 3, 4);
         btnLogin.Name = "btnLogin";
         btnLogin.Size = new Size(103, 47);
         btnLogin.TabIndex = 1;
         btnLogin.Text = "Đăng nhập";
+        btnLogin.UseVisualStyleBackColor = false;
         // 
         // btnExit
         // 
-        btnExit.Location = new Point(311, 230);
+        btnExit.BackColor = SystemColors.ButtonHighlight;
+        btnExit.FlatAppearance.BorderSize = 0;
+        btnExit.FlatStyle = FlatStyle.Flat;
+        btnExit.Location = new Point(426, 266);
         btnExit.Margin = new Padding(3, 4, 3, 4);
         btnExit.Name = "btnExit";
         btnExit.Size = new Size(103, 47);
         btnExit.TabIndex = 0;
         btnExit.Text = "Thoát";
+        btnExit.UseVisualStyleBackColor = false;
         // 
         // panel1
         // 
@@ -119,7 +128,7 @@ partial class FrmLogin
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        BackColor = SystemColors.GradientInactiveCaption;
+        BackColor = SystemColors.ButtonHighlight;
         ClientSize = new Size(554, 341);
         Controls.Add(panel1);
         FormBorderStyle = FormBorderStyle.FixedDialog;

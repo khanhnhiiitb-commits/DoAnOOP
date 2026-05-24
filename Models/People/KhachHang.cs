@@ -17,7 +17,6 @@ namespace QuanLySieuThi.Models.People
             get { return loaiKhachHang; } 
             set { loaiKhachHang = value; } 
         }
-
         public int DiemTichLuy 
         { 
             get { return diemTichLuy; } 
@@ -33,17 +32,14 @@ namespace QuanLySieuThi.Models.People
             } 
         }
         public KhachHang(){}
-
         public KhachHang(string ma, string hoTen, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi,
                  string loaiKH, int diem, TheThanhVien the) 
                  : base(ma, hoTen, ngaySinh, gioiTinh, soDienThoai, diaChi)
             {
-
             this.LoaiKhachHang = loaiKH;
             this.DiemTichLuy = diem;
             this.TheTV = the;
             }
-
             // Constructor này không cần truyền tham số thẻ
         public KhachHang(string ma, string hoTen) : base(ma, hoTen)
         {

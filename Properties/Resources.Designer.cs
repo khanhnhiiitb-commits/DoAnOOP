@@ -119,5 +119,15 @@ namespace ChuongtrinhQuanlybanhangsieuthi.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40 {
+            get {
+                object obj = ResourceManager.GetObject("logout_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

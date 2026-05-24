@@ -7,7 +7,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
     public class TheThanhVienRepository 
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_thethanhvien.txt";
+        private readonly string filePath = @"\DataAccess\DatabaseFile\database_thethanhvien.txt";
         public List<TheThanhVien> GetAll()
         {
             List<TheThanhVien> danhSach = new List<TheThanhVien>();

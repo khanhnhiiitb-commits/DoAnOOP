@@ -8,7 +8,7 @@ namespace QuanLySieuThi.Data
 {
     public class InventoryRepository : ITextSerializable<HangHoa>
     {
-        private readonly string filePath = Application.StartupPath +@"\DataAccess\DatabaseFile\database_hanghoa.txt";
+        private readonly string filePath = @"\DataAccess\DatabaseFile\database_hanghoa.txt";
         public List<HangHoa> GetAll()
         {
             List<HangHoa> danhSach = new List<HangHoa>();

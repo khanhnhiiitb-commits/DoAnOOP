@@ -9,7 +9,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
     public class PhieuNhapRepository : ITextSerializable<PhieuNhap>
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_phieunhap.txt";
+        private readonly string filePath = @"\DataAccess\DatabaseFile\database_phieunhap.txt";
         public List<PhieuNhap> GetAll()
         {
             List<PhieuNhap> danhSach = new List<PhieuNhap>();

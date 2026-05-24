@@ -8,7 +8,7 @@ namespace QuanLySieuThi.Data
 {
     public class SalesRepository 
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_sales.txt";
+        private readonly string filePath = @"\DataAccess\DatabaseFile\database_sales.txt";
         // 1. Lấy danh sách Hóa đơn (bao gồm cả các Chi tiết bên trong)
         public List<HoaDon> GetHoaDons()
         {

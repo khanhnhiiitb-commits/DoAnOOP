@@ -11,7 +11,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
     public class KhuyenMaiRepository : ITextSerializable<ChuongTrinhKhuyenMai>
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_khuyenmai.txt";
+        private readonly string filePath = @"\DataAccess\DatabaseFile\database_khuyenmai.txt";
         public List<ChuongTrinhKhuyenMai> GetAll()
         {
             List<ChuongTrinhKhuyenMai> danhSach = new List<ChuongTrinhKhuyenMai>();

@@ -9,7 +9,7 @@ namespace QuanLySieuThi.Data
 {
     public class StaffRepository : ITextSerializable<Nguoi>
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_nhanvien.txt";
+        private readonly string filePath = @"\DataAccess\DatabaseFile\database_nhanvien.txt";
         public List<Nguoi> GetAll()
         {
             List<Nguoi> danhSach = new List<Nguoi>();

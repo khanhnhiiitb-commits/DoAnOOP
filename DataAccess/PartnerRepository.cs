@@ -8,7 +8,7 @@ namespace QuanLySieuThi.Data
 {
     public class PartnerRepository : ITextSerializable<NhaCungCap>
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_partner.txt";
+        private readonly string filePath = @"\DataAccess\DatabaseFile\database_partner.txt";
         public List<NhaCungCap> GetAll()
         {
             List<NhaCungCap> danhSach = new List<NhaCungCap>();

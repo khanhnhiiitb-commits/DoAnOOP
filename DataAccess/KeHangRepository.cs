@@ -8,8 +8,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
     public class KeHangRepository : ITextSerializable<KeHang>
     {
-        private readonly string filePath =
-            Application.StartupPath + @"\DataAccess\DatabaseFile\database_kehang.txt";
+        private readonly string filePath = @"\DataAccess\DatabaseFile\database_kehang.txt";
 
 
         public List<KeHang> GetAll()

@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using QuanLySieuThi.Models.Sales; // Nơi chứa các class Voucher
-using QuanLySieuThi.Data;         // Nơi chứa Interface ITextSerializable<T>
+using QuanLySieuThi.Models.Sales;  
+using QuanLySieuThi.Data; 
 using System.Windows.Forms;
 namespace QuanLySieuThi.Data
 {
     // Kế thừa Interface và truyền cụ thể kiểu dữ liệu là Voucher
     public class VoucherRepository : ITextSerializable<Voucher>
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_voucher.txt";
+        private readonly string filePath = @"\DataAccess\DatabaseFile\database_voucher.txt";
         public void Save(List<Voucher> danhSach)
         {
             try

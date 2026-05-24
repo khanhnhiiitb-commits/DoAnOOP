@@ -207,7 +207,7 @@
             // 
             // btnThanhToan
             // 
-            btnThanhToan.BackColor = SystemColors.InactiveCaption;
+            btnThanhToan.BackColor = SystemColors.ActiveCaption;
             btnThanhToan.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnThanhToan.ForeColor = SystemColors.Control;
             btnThanhToan.Location = new Point(166, 149);

@@ -7,7 +7,6 @@ namespace QuanLySieuThi.Services
 {
     public class QuanLyDoiTac
     {
-        // Đảm bảo tính đóng gói: private fields và public properties (chỉ get)
         private List<KhachHang> danhSachKH;
         private List<NhaCungCap> danhSachNCC;
 

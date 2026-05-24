@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "F:\\OOP\\New folder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|F:\\OOP\\New folder\\view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|F:\\OOP\\New folder\\view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\admin\\ucreports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\models\\systems\\bangchamcong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:models\\systems\\bangchamcong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\controllers\\baocaothongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:controllers\\baocaothongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\controllers\\quanlynhansu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:controllers\\quanlynhansu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\controllers\\quanlynhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:controllers\\quanlynhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\controllers\\quanlykhuyenmai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:controllers\\quanlykhuyenmai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\controllers\\quanlykho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:controllers\\quanlykho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\models\\systems\\calamviec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:models\\systems\\calamviec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,8 +21,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 1231,
-          "SelectedChildIndex": 4,
+          "DockedWidth": 732,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,97 +42,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ucReports.cs",
-              "DocumentMoniker": "F:\\OOP\\New folder\\View\\Admin\\ucReports.cs",
-              "RelativeDocumentMoniker": "View\\Admin\\ucReports.cs",
-              "ToolTip": "F:\\OOP\\New folder\\View\\Admin\\ucReports.cs",
-              "RelativeToolTip": "View\\Admin\\ucReports.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAgwI4AAAAsAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "CaLamViec.cs",
+              "DocumentMoniker": "F:\\OOP\\New folder\\Models\\Systems\\CaLamViec.cs",
+              "RelativeDocumentMoniker": "Models\\Systems\\CaLamViec.cs",
+              "ToolTip": "F:\\OOP\\New folder\\Models\\Systems\\CaLamViec.cs",
+              "RelativeToolTip": "Models\\Systems\\CaLamViec.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:53:43.75Z",
+              "WhenOpened": "2026-05-24T13:53:45.054Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ucReports.cs [Design]",
-              "DocumentMoniker": "F:\\OOP\\New folder\\View\\Admin\\ucReports.cs",
-              "RelativeDocumentMoniker": "View\\Admin\\ucReports.cs",
-              "ToolTip": "F:\\OOP\\New folder\\View\\Admin\\ucReports.cs [Design]",
-              "RelativeToolTip": "View\\Admin\\ucReports.cs [Design]",
+              "Title": "BangChamCong.cs",
+              "DocumentMoniker": "F:\\OOP\\New folder\\Models\\Systems\\BangChamCong.cs",
+              "RelativeDocumentMoniker": "Models\\Systems\\BangChamCong.cs",
+              "ToolTip": "F:\\OOP\\New folder\\Models\\Systems\\BangChamCong.cs",
+              "RelativeToolTip": "Models\\Systems\\BangChamCong.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:53:40.492Z"
+              "WhenOpened": "2026-05-24T13:52:48.347Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "QuanLyNhapHang.cs",
-              "DocumentMoniker": "F:\\OOP\\New folder\\Controllers\\QuanLyNhapHang.cs",
-              "RelativeDocumentMoniker": "Controllers\\QuanLyNhapHang.cs",
-              "ToolTip": "F:\\OOP\\New folder\\Controllers\\QuanLyNhapHang.cs",
-              "RelativeToolTip": "Controllers\\QuanLyNhapHang.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAhwDgAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "FrmLogin.cs [Design]",
+              "DocumentMoniker": "F:\\OOP\\New folder\\View\\FrmLogin.cs",
+              "RelativeDocumentMoniker": "View\\FrmLogin.cs",
+              "ToolTip": "F:\\OOP\\New folder\\View\\FrmLogin.cs [Design]",
+              "RelativeToolTip": "View\\FrmLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:45:12.469Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "QuanLyNhanSu.cs",
-              "DocumentMoniker": "F:\\OOP\\New folder\\Controllers\\QuanLyNhanSu.cs",
-              "RelativeDocumentMoniker": "Controllers\\QuanLyNhanSu.cs",
-              "ToolTip": "F:\\OOP\\New folder\\Controllers\\QuanLyNhanSu.cs",
-              "RelativeToolTip": "Controllers\\QuanLyNhanSu.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAArwFoAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:42:43.31Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "QuanLyKhuyenMai.cs",
-              "DocumentMoniker": "F:\\OOP\\New folder\\Controllers\\QuanLyKhuyenMai.cs",
-              "RelativeDocumentMoniker": "Controllers\\QuanLyKhuyenMai.cs",
-              "ToolTip": "F:\\OOP\\New folder\\Controllers\\QuanLyKhuyenMai.cs",
-              "RelativeToolTip": "Controllers\\QuanLyKhuyenMai.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAwwDcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:40:14.56Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "QuanLyKho.cs",
-              "DocumentMoniker": "F:\\OOP\\New folder\\Controllers\\QuanLyKho.cs",
-              "RelativeDocumentMoniker": "Controllers\\QuanLyKho.cs",
-              "ToolTip": "F:\\OOP\\New folder\\Controllers\\QuanLyKho.cs",
-              "RelativeToolTip": "Controllers\\QuanLyKho.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAwwDsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:36:23.521Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BaoCaoThongKe.cs",
-              "DocumentMoniker": "F:\\OOP\\New folder\\Controllers\\BaoCaoThongKe.cs",
-              "RelativeDocumentMoniker": "Controllers\\BaoCaoThongKe.cs",
-              "ToolTip": "F:\\OOP\\New folder\\Controllers\\BaoCaoThongKe.cs",
-              "RelativeToolTip": "Controllers\\BaoCaoThongKe.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAkwEgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:32:43.727Z"
+              "WhenOpened": "2026-05-24T13:43:51.498Z",
+              "EditorCaption": " [Design]"
             }
           ]
         },
         {
-          "DockedWidth": 191,
+          "DockedWidth": 690,
           "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
