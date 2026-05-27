@@ -1,9 +1,11 @@
+﻿using QuanLySieuThi.Models.Sales;
 using System;
 using System.Collections.Generic;
-using QuanLySieuThi.Models.Sales;
+using System.Text.Json.Serialization;
 
 namespace QuanLySieuThi.Models.Systems
 {//sua
+    [JsonDerivedType(typeof(KhuyenMaiCoBan), typeDiscriminator: "KhuyenMaiCoBan")]
     public abstract class ChuongTrinhKhuyenMai
     {
        private string maCTKM;

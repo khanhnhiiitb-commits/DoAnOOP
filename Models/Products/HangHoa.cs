@@ -1,5 +1,9 @@
+using System.Text.Json.Serialization;
+
 namespace QuanLySieuThi.Models.Products
 {
+    [JsonDerivedType(typeof(HangThucPham), typeDiscriminator: "ThucPham")]
+    [JsonDerivedType(typeof(HangDienTu), typeDiscriminator: "DienTu")]
     public abstract class HangHoa 
     {
        private string maHH;

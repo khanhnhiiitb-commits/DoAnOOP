@@ -1,8 +1,11 @@
-using System;
 using QuanLySieuThi.Models;
+using System;
+using System.Text.Json.Serialization;
 
 namespace QuanLySieuThi.Models.Sales
 {
+    [JsonDerivedType(typeof(VoucherTienMat), typeDiscriminator: "TienMat")]
+    [JsonDerivedType(typeof(VoucherPhanTram), typeDiscriminator: "PhanTram")]
     public abstract class Voucher
     {
         private string maVoucher;

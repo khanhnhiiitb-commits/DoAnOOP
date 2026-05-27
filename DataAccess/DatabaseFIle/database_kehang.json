@@ -1,0 +1,23 @@
+﻿[
+	{
+		"MaKe": "K01",
+		"KhuVuc": "Khu A",
+		"LoaiHang": "Điện tử",
+		"SucChua": 100,
+		"TrangThai": "Còn trống"
+	},
+	{
+		"MaKe": "K02",
+		"KhuVuc": "Khu B",
+		"LoaiHang": "Thực phẩm",
+		"SucChua": 80,
+		"TrangThai": "Đang sử dụng"
+	},
+	{
+		"MaKe": "K03",
+		"KhuVuc": "Khu C",
+		"LoaiHang": "Gia dụng",
+		"SucChua": 120,
+		"TrangThai": "Còn trống"
+	}
+]

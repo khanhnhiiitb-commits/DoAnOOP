@@ -1,0 +1,42 @@
+﻿[
+  {
+    "MaPN": "PN001",
+    "NgayNhap": "2026-04-10T00:00:00",
+    "MaNCC": "NCC001",
+    "TongTien": 1700000,
+    "TrangThai": "HoanThanh",
+    "SoDienThoai": "0901234567",
+    "Email": "info@tpsach.com",
+    "DanhSachChiTiet": [
+      {
+        "MaPN": "PN001",
+        "MaHH": "TP01",
+        "SoLuong": 100,
+        "DonGia": 15000
+      },
+      {
+        "MaPN": "PN001",
+        "MaHH": "TP02",
+        "SoLuong": 100,
+        "DonGia": 2000
+      }
+    ]
+  },
+  {
+    "MaPN": "PN002",
+    "NgayNhap": "2026-04-15T00:00:00",
+    "MaNCC": "NCC002",
+    "TongTien": 45000000,
+    "TrangThai": "ChoXacNhan",
+    "SoDienThoai": "0907778889",
+    "Email": "contact@giadung.vn",
+    "DanhSachChiTiet": [
+      {
+        "MaPN": "PN002",
+        "MaHH": "DT01",
+        "SoLuong": 5,
+        "DonGia": 9000000
+      }
+    ]
+  }
+]

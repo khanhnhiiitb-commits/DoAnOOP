@@ -1,0 +1,68 @@
+﻿{
+  "TaiKhoans": [
+    {
+      "TenDangNhap": "admin",
+      "MatKhau": "admin123",
+      "UserRole": { "MaRole": "QuanLy" },
+      "TrangThai": true
+    },
+    {
+      "TenDangNhap": "staff01",
+      "MatKhau": "123456",
+      "UserRole": { "MaRole": "NhanVien" },
+      "TrangThai": true
+    }
+  ],
+  "CaLamViecs": [
+    {
+      "MaCa": "CA01",
+      "TenCa": "Sang",
+      "GioBatDau": "07:00:00",
+      "GioKetThuc": "12:00:00"
+    },
+    {
+      "MaCa": "CA02",
+      "TenCa": "Chieu",
+      "GioBatDau": "12:00:00",
+      "GioKetThuc": "17:00:00"
+    },
+    {
+      "MaCa": "CA03",
+      "TenCa": "Toi",
+      "GioBatDau": "17:00:00",
+      "GioKetThuc": "22:00:00"
+    }
+  ],
+  "KhuyenMais": [
+    {
+      "$type": "KhuyenMaiCoBan",
+      "MaCTKM": "KM01",
+      "TenCT": "Mung 8/3",
+      "NgayBatDau": "2026-03-01T00:00:00",
+      "NgayKetThuc": "2026-03-10T00:00:00",
+      "NoiDung": "Giam gia quoc te phu nu",
+      "DanhSachChiTiet": [
+        {
+          "MaCTKM": "KM01",
+          "MaMH": "MH01",
+          "PhanTramGiam": 0.1
+        }
+      ]
+    },
+    {
+      "$type": "KhuyenMaiCoBan",
+      "MaCTKM": "KM001",
+      "TenCT": "Chao Xuan 2026",
+      "NgayBatDau": "2026-01-01T00:00:00",
+      "NgayKetThuc": "2026-02-15T00:00:00",
+      "NoiDung": "Giam gia thuc pham dip Tet Nguyen Dan",
+      "DanhSachChiTiet": [
+        {
+          "MaCTKM": "KM001",
+          "MaMH": "TP01",
+          "PhanTramGiam": 10
+        }
+      ]
+    }
+  ]
+}

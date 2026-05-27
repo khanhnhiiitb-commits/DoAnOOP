@@ -1,83 +1,69 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
+﻿using QuanLySieuThi.Models;
 using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Sales;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 using System.Windows.Forms;
 namespace QuanLySieuThi.Data
 {
-    public class PartnerRepository : ITextSerializable<NhaCungCap>
+    public class PartnerRepository 
     {
-        private readonly string filePath = @"\DataAccess\DatabaseFile\database_partner.txt";
+        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_partner.json";
+        private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+
+        // 1. Hàm nạp TẤT CẢ (Dành cho DataStorage gọi - Fix lỗi CS1061)
+        public PartnerData GetAllData()
+        {
+            PartnerData data = new PartnerData();
+            if (!File.Exists(filePath)) return data;
+            try
+            {
+                string json = File.ReadAllText(filePath);
+                if (!string.IsNullOrWhiteSpace(json))
+                    data = JsonSerializer.Deserialize<PartnerData>(json, options);
+            }
+            catch (Exception ex) { MessageBox.Show("Lỗi đọc JSON Partner: " + ex.Message); }
+            return data;
+        }
+
+        // 2. Hàm chỉ lấy Nhà Cung Cấp (Dành cho Giao diện ucNhaCungCap gọi - Fix lỗi CS0029)
         public List<NhaCungCap> GetAll()
         {
-            List<NhaCungCap> danhSach = new List<NhaCungCap>();
-            if (!File.Exists(filePath)) return danhSach;
+            PartnerData data = GetAllData();
+            if (data != null && data.NhaCungCaps != null)
+            {
+                return data.NhaCungCaps;
+            }
+            return new List<NhaCungCap>();
+        }
 
+        // 3. Hàm chỉ Lưu Nhà Cung Cấp (Dành cho Giao diện ucNhaCungCap gọi - Fix lỗi CS7036)
+        // Lưu ý: Phải đọc Khách hàng cũ lên để ghép vào, tránh làm mất dữ liệu Khách hàng
+        public void Save(List<NhaCungCap> nccList)
+        {
             try
             {
-                string[] lines = File.ReadAllLines(filePath);
-                foreach (string line in lines)
+                // Bước A: Lấy lại danh sách Khách Hàng đang có trong file
+                PartnerData dataCu = GetAllData();
+                List<KhachHang> khList = new List<KhachHang>();
+
+                if (dataCu != null && dataCu.KhachHangs != null)
                 {
-                    if (string.IsNullOrWhiteSpace(line)) continue;
-
-                    NhaCungCap ncc = MapLineToEntity(line);
-                    if (ncc != null) danhSach.Add(ncc);
+                    khList = dataCu.KhachHangs;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi đọc file đối tác: " + ex.Message);
-            }
-            return danhSach;
-        }
 
-        public void Save(List<NhaCungCap> danhSach)
-        {
-            List<string> lines = new List<string>();
-            try
-            {
-                File.WriteAllLines(filePath, lines.ToArray());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lưu file đối tác: " + ex.Message);
-            }
-        }
-        
-        // --- HELPER METHODS ---
-        private NhaCungCap MapLineToEntity(string line)
-        {
-            string[] parts = line.Split('|');
+                // Bước B: Ghép Nhà Cung Cấp mới từ Giao diện với Khách Hàng cũ
+                PartnerData dataMoi = new PartnerData();
+                dataMoi.NhaCungCaps = nccList;
+                dataMoi.KhachHangs = khList;
 
-            // Format: NCC | MaNCC | TenNCC | DiaChi | SDT | Email (Đủ 6 phần tử)
-            if (parts.Length < 6) return null;
-
-            try
-            {
-                string loaiDoiTac = parts[0];
-                if (loaiDoiTac == "NCC")
-                {
-                    return new NhaCungCap
-                    {
-                        MaNCC = parts[1],
-                        TenNCC = parts[2],
-                        DiaChi = parts[3],
-                        SoDienThoai = parts[4],
-                        Email = parts[5]
-                    };
-                }
+                // Bước C: Lưu xuống file JSON
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                File.WriteAllText(filePath, JsonSerializer.Serialize(dataMoi, options));
             }
-            catch
-            {
-                return null;
-            }
-
-            return null;
-        }
-        private string MapEntityToLine(NhaCungCap ncc)
-        {
-            return "NCC|" + ncc.MaNCC + "|" + ncc.TenNCC + "|" + ncc.DiaChi + "|" + ncc.SoDienThoai + "|" + ncc.Email;
+            catch (Exception ex) { MessageBox.Show("Lỗi lưu JSON Partner: " + ex.Message); }
         }
     }
 }

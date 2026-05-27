@@ -1,4 +1,0 @@
-﻿TM|VCTM001|Giảm giá 50k tri ân khách hàng|2026/05/01|2026/05/31|True|50000
-PT|VCPT001|Giảm 10% tuần lễ khai trương|2026/05/01|2026/05/31|True|10|100000
-TM|VCTM002|Mừng năm mới 2026|2026/01/01|2026/01/31|True|100000
-PT|VCPT002|Ngày vàng sinh viên UEH|2026/05/10|2026/05/20|False|20|50000

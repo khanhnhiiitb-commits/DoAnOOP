@@ -1,0 +1,30 @@
+{
+  "NhaCungCaps": [
+    {
+      "MaNCC": "NCC001",
+      "TenNCC": "Cong ty Thuc Pham Sach",
+      "DiaChi": "123 Quan 1, HCM",
+      "SoDienThoai": "0901234567",
+      "Email": "info@tpsach.com"
+    },
+    {
+      "MaNCC": "NCC002",
+      "TenNCC": "Gia Dung Viet",
+      "DiaChi": "456 Quan 7, HCM",
+      "SoDienThoai": "0907778889",
+      "Email": "contact@giadung.vn"
+    }
+  ],
+  "KhachHangs": [
+    {
+      "Ma": "KH001",
+      "DiemTichLuy": 150,
+      "TheTV": { "MaThe": "VIP999" }
+    },
+    {
+      "Ma": "KH002",
+      "DiemTichLuy": 50,
+      "TheTV": { "MaThe": "MEM123" }
+    }
+  ]
+}

@@ -1,113 +1,47 @@
-﻿using System;
+﻿using QuanLySieuThi.Data;
+using QuanLySieuThi.Models.Products;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using QuanLySieuThi.Data;
-using QuanLySieuThi.Models.Products;
+using System.Text.Json;
 using System.Windows.Forms;
 namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
     public class KeHangRepository : ITextSerializable<KeHang>
     {
-        private readonly string filePath = @"\DataAccess\DatabaseFile\database_kehang.txt";
-
+        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_kehang.json";
+        private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
 
         public List<KeHang> GetAll()
         {
-            List<KeHang> danhSach =
-                new List<KeHang>();
-
-            if (!File.Exists(filePath))
-            {
-                return danhSach;
-            }
-
+            List<KeHang> ds = new List<KeHang>();
+            if (!File.Exists(filePath)) return ds;
             try
             {
-                string[] lines = File.ReadAllLines(filePath);
-
-                foreach (string line in lines)
+                string json = File.ReadAllText(filePath);
+                if (!string.IsNullOrWhiteSpace(json))
                 {
-                    if (string.IsNullOrWhiteSpace(line))
-                    {
-                        continue;
-                    }
-
-                    KeHang ke = MapLineToEntity(line);
-
-                    if (ke != null)
-                    {
-                        danhSach.Add(ke);
-                    }
+                    ds = JsonSerializer.Deserialize<List<KeHang>>(json, options);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi đọc file kệ hàng: " + ex.Message);
+                MessageBox.Show("Lỗi đọc JSON Kệ Hàng: " + ex.Message);
             }
-
-            return danhSach;
+            return ds;
         }
 
-        public void Save
-        (
-            List<KeHang> danhSach
-        )
+        public void Save(List<KeHang> ds)
         {
-            List<string> lines =
-                new List<string>();
-
-            foreach (KeHang ke in danhSach)
-            {
-                lines.Add(MapEntityToLine(ke));
-            }
-
-            // Khắc phục: Bọc try-catch để bảo vệ luồng ghi file vật lý
             try
             {
-                File.WriteAllLines(filePath, lines.ToArray());
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                File.WriteAllText(filePath, JsonSerializer.Serialize(ds, options));
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lưu file kệ hàng: " + ex.Message);
+                MessageBox.Show("Lỗi lưu JSON Kệ Hàng: " + ex.Message);
             }
-        }
-        // --- PRIVATE HELPER METHODS (Đảm bảo SRP - Single Responsibility) ---
-
-        private KeHang MapLineToEntity(string line)
-        {
-            string[] parts = line.Split('|');
-
-            if (parts.Length < 5)
-            {
-                return null;
-            }
-
-            // Khắc phục: Bọc try-catch chặn lỗi Crash nếu file txt bị sửa sai định dạng số
-            try
-            {
-                KeHang ke = new KeHang();
-                ke.MaKe = parts[0];
-                ke.ViTri = parts[1];
-                ke.LoaiHang = parts[2];
-                ke.SucChua = int.Parse(parts[3]);
-                // parts[4] là TrangThai, thường được tính toán tự động trong Model nên không cần parse lại
-
-                return ke;
-            }
-            catch
-            {
-                return null; // Bỏ qua đối tượng lỗi
-            }
-        }
-
-        private string MapEntityToLine(KeHang ke)
-        {
-            // Điểm sáng: Tách biệt logic ghép chuỗi, giúp hàm Save() trở nên cực kỳ gọn gàng
-            return ke.MaKe + "|" +
-                   ke.ViTri + "|" +
-                   ke.LoaiHang + "|" +
-                   ke.SucChua + "|" +
-                   ke.TrangThai;
         }
     }
 }

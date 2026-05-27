@@ -1,7 +1,0 @@
-﻿TK|admin|admin123|QuanLy|True
-TK|staff01|123456|NhanVien|True
-CA|CA01|Sang|07:00|12:00
-CA|CA02|Chieu|12:00|17:00
-CA|CA03|Toi|17:00|22:00
-KM|KM01|Mung 8/3|2026-03-01|2026-03-10|Giam gia quoc te phu nu
-CTKM|KM01|MH01|0.1
