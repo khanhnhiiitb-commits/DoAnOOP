@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Windows.Forms;
 namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
-    public class KeHangRepository : ITextSerializable<KeHang>
+    public class KeHangRepository : IRepository<KeHang>
     {
         private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_kehang.json";
         private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };

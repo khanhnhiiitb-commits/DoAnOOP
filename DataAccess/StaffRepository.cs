@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Windows.Forms;
 namespace QuanLySieuThi.Data
 {
-    public class StaffRepository : ITextSerializable<Nguoi>
+    public class StaffRepository : IRepository<Nguoi>
     {
         private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_nhanvien.json";
         private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };

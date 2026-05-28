@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace QuanLySieuThi.Data
 {
-    public class InventoryRepository : ITextSerializable<HangHoa>
+    public class InventoryRepository : IRepository<HangHoa>
     {
         private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_hanghoa.json";
         private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };

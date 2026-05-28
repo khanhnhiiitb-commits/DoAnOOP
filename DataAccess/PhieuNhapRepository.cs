@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
-    public class PhieuNhapRepository : ITextSerializable<PhieuNhap>
+    public class PhieuNhapRepository : IRepository<PhieuNhap>
     {
         private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_phieunhap.json";
         private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace QuanLySieuThi.Data
 {
     // Kế thừa Interface và truyền cụ thể kiểu dữ liệu là Voucher
-    public class VoucherRepository : ITextSerializable<Voucher>
+    public class VoucherRepository : IRepository<Voucher>
     {
         private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_voucher.json";
         private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
