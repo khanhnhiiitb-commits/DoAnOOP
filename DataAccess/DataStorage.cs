@@ -13,21 +13,38 @@ namespace QuanLySieuThi.Data
     {
         private static DataStorage instance;
 
+        // --- KHAI BÁO BIẾN PRIVATE (ĐÓNG GÓI) ---
+        private List<HangHoa> danhSachHang;
+        private List<NhanVien> danhSachNV;
+        private List<HoaDon> danhSachHD;
+        private List<KhachHang> danhSachKH;
+        private List<NhaCungCap> danhSachNCC;
+        private List<BangChamCong> danhSachBCM;
+        private List<PhieuNhap> danhSachPhieuNhap;
+        private List<ChuongTrinhKhuyenMai> danhSachKhuyenMai;
+        private List<Voucher> danhSachVoucher;
+        private List<TheThanhVien> danhSachTheTV;
+        private List<TaiKhoan> danhSachTaiKhoan;
+        private List<KeHang> danhSachKeHang;
+        private List<CaLamViec> danhSachCaLamViec;
+
+        private NhanVien nhanVienDangNhap;
+
         private DataStorage()
         {
-            DanhSachHang = new List<HangHoa>();
-            DanhSachNV = new List<NhanVien>();
-            DanhSachHD = new List<HoaDon>();
-            DanhSachKH = new List<KhachHang>();
-            DanhSachNCC = new List<NhaCungCap>();
-            DanhSachBCM = new List<BangChamCong>();
-            DanhSachPhieuNhap = new List<PhieuNhap>();
-            DanhSachKhuyenMai = new List<ChuongTrinhKhuyenMai>();
-            DanhSachVoucher = new List<Voucher>();
-            DanhSachTheTV = new List<TheThanhVien>();
-            DanhSachKeHang = new List<KeHang>();
-            DanhSachTaiKhoan = new List<TaiKhoan>();
-            DanhSachCaLamViec = new List<CaLamViec>();
+            this.danhSachHang = new List<HangHoa>();
+            this.danhSachNV = new List<NhanVien>();
+            this.danhSachHD = new List<HoaDon>();
+            this.danhSachKH = new List<KhachHang>();
+            this.danhSachNCC = new List<NhaCungCap>();
+            this.danhSachBCM = new List<BangChamCong>();
+            this.danhSachPhieuNhap = new List<PhieuNhap>();
+            this.danhSachKhuyenMai = new List<ChuongTrinhKhuyenMai>();
+            this.danhSachVoucher = new List<Voucher>();
+            this.danhSachTheTV = new List<TheThanhVien>();
+            this.danhSachKeHang = new List<KeHang>();
+            this.danhSachTaiKhoan = new List<TaiKhoan>();
+            this.danhSachCaLamViec = new List<CaLamViec>();
 
             LoadAllData();
         }
@@ -44,23 +61,23 @@ namespace QuanLySieuThi.Data
             }
         }
 
-        // --- CÁC DANH SÁCH DỮ LIỆU ---
-        public List<HangHoa> DanhSachHang { get; set; }
-        public List<NhanVien> DanhSachNV { get; set; }
-        public List<HoaDon> DanhSachHD { get; set; }
-        public List<KhachHang> DanhSachKH { get; set; }
-        public List<NhaCungCap> DanhSachNCC { get; set; }
-        public List<BangChamCong> DanhSachBCM { get; set; }
-        public List<PhieuNhap> DanhSachPhieuNhap { get; set; }
-        public List<ChuongTrinhKhuyenMai> DanhSachKhuyenMai { get; set; }
-        public List<Voucher> DanhSachVoucher { get; set; }
-        public List<TheThanhVien> DanhSachTheTV { get; set; }
-        public List<TaiKhoan> DanhSachTaiKhoan { get; set; }
-        public List<KeHang> DanhSachKeHang { get; set; }
-        public List<CaLamViec> DanhSachCaLamViec { get; set; }
+        // --- CÁC THUỘC TÍNH PUBLIC (GIAO TIẾP) ---
+        public List<HangHoa> DanhSachHang { get { return danhSachHang; } set { danhSachHang = value; } }
+        public List<NhanVien> DanhSachNV { get { return danhSachNV; } set { danhSachNV = value; } }
+        public List<HoaDon> DanhSachHD { get { return danhSachHD; } set { danhSachHD = value; } }
+        public List<KhachHang> DanhSachKH { get { return danhSachKH; } set { danhSachKH = value; } }
+        public List<NhaCungCap> DanhSachNCC { get { return danhSachNCC; } set { danhSachNCC = value; } }
+        public List<BangChamCong> DanhSachBCM { get { return danhSachBCM; } set { danhSachBCM = value; } }
+        public List<PhieuNhap> DanhSachPhieuNhap { get { return danhSachPhieuNhap; } set { danhSachPhieuNhap = value; } }
+        public List<ChuongTrinhKhuyenMai> DanhSachKhuyenMai { get { return danhSachKhuyenMai; } set { danhSachKhuyenMai = value; } }
+        public List<Voucher> DanhSachVoucher { get { return danhSachVoucher; } set { danhSachVoucher = value; } }
+        public List<TheThanhVien> DanhSachTheTV { get { return danhSachTheTV; } set { danhSachTheTV = value; } }
+        public List<TaiKhoan> DanhSachTaiKhoan { get { return danhSachTaiKhoan; } set { danhSachTaiKhoan = value; } }
+        public List<KeHang> DanhSachKeHang { get { return danhSachKeHang; } set { danhSachKeHang = value; } }
+        public List<CaLamViec> DanhSachCaLamViec { get { return danhSachCaLamViec; } set { danhSachCaLamViec = value; } }
 
         // Lưu vết người đang sử dụng phần mềm
-        public NhanVien NhanVienDangNhap { get; set; }
+        public NhanVien NhanVienDangNhap { get { return nhanVienDangNhap; } set { nhanVienDangNhap = value; } }
 
         // --- HÀM NẠP DỮ LIỆU CHUẨN JSON ---
         public void LoadAllData()
@@ -81,7 +98,6 @@ namespace QuanLySieuThi.Data
                 else if (ng is KhachHang kh) DanhSachKH.Add(kh);
             }
 
-            // 2. Nạp Đối Tác (Từ database_partner.json)
             // 2. Nạp Đối Tác (Từ database_partner.json)
             PartnerRepository partnerRepo = new PartnerRepository();
             PartnerData pData = partnerRepo.GetAllData();
@@ -109,7 +125,7 @@ namespace QuanLySieuThi.Data
             InventoryRepository hangHoaRepo = new InventoryRepository();
             DanhSachHang = hangHoaRepo.GetAll();
 
-            // 4. Nạp Kệ Hàng (Đã bổ sung)
+            // 4. Nạp Kệ Hàng
             KeHangRepository keHangRepo = new KeHangRepository();
             DanhSachKeHang = keHangRepo.GetAll();
 
@@ -121,7 +137,7 @@ namespace QuanLySieuThi.Data
             TheThanhVienRepository theRepo = new TheThanhVienRepository();
             DanhSachTheTV = theRepo.GetAll();
 
-            // 7. Nạp Voucher (Từ file voucher độc lập)
+            // 7. Nạp Voucher
             VoucherRepository vRepo = new VoucherRepository();
             List<Voucher> dsVoucherFile = vRepo.GetAll();
             foreach (Voucher v in dsVoucherFile)
@@ -129,7 +145,7 @@ namespace QuanLySieuThi.Data
                 DanhSachVoucher.Add(v);
             }
 
-            // 8. Nạp Khuyến Mãi (Từ file khuyến mãi độc lập)
+            // 8. Nạp Khuyến Mãi
             KhuyenMaiRepository kmRepo = new KhuyenMaiRepository();
             List<ChuongTrinhKhuyenMai> dsKmFile = kmRepo.GetAll();
             foreach (ChuongTrinhKhuyenMai km in dsKmFile)
@@ -141,7 +157,6 @@ namespace QuanLySieuThi.Data
             SalesRepository salesRepo = new SalesRepository();
             DanhSachHD = salesRepo.GetHoaDons();
 
-            // Lấy thêm Voucher từ file Sales và gộp chung vào DanhSachVoucher
             List<Voucher> vcSales = salesRepo.GetVouchers();
             foreach (Voucher v in vcSales)
             {

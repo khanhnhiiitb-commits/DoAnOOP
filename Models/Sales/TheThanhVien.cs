@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace QuanLySieuThi.Models.Sales
 {
@@ -12,12 +13,13 @@ namespace QuanLySieuThi.Models.Sales
         public string MaThe { get { return maThe; } set { maThe = value; } }
         public DateTime NgayDangKy { get { return ngayDangKy; } set { ngayDangKy = value; } }
 
+        [JsonInclude]
         public int DiemTichLuy
         {
             get { return diemTichLuy; }
             private set { diemTichLuy = value; }
         }
-
+        [JsonInclude]
         public bool TrangThai 
         { 
             get { return trangThai; } 

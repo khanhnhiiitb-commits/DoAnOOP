@@ -42,11 +42,13 @@ namespace QuanLySieuThi.Models.Sales
         public bool TrangThaiTT
         {
             get { return trangThaiTT; }
+            set { trangThaiTT = value; } //thêm js
         }
 
         public List<ChiTietHoaDon> DanhSachChiTiet
         {
             get { return danhSachChiTiet; }
+            set { danhSachChiTiet = value; }// thêm js 
         }
         public string MaNV
         {

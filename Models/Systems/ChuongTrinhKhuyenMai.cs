@@ -36,7 +36,11 @@ namespace QuanLySieuThi.Models.Systems
             }
         }
         public string NoiDung { get { return noiDung; }  set { noiDung = value; } }
-        public List<ChiTietChuongTrinhKM> DanhSachChiTiet   {   get { return danhSachChiTiet; }   }
+        public List<ChiTietChuongTrinhKM> DanhSachChiTiet
+        {
+            get { return danhSachChiTiet; }
+            set { danhSachChiTiet = value; } // Thêm set để JSON có thể đổ dữ liệu vào
+        }
         public ChuongTrinhKhuyenMai() { }
         public ChuongTrinhKhuyenMai(string maKM, string ten, DateTime bd, DateTime kt, string nd)
         {

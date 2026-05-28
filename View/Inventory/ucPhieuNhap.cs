@@ -220,9 +220,8 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Inventory
 
             dsPhieuNhap[index].TrangThai =
                 cboTrangThai.Text;
-
-            dsPhieuNhap[index].TongTien =
-                double.Parse(txtTongTien.Text);
+            // sửa thử nghiệm 
+            dsPhieuNhap[index].TinhTongTien(); 
 
             repo.Save(dsPhieuNhap);
 

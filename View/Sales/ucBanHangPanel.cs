@@ -446,10 +446,19 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         {
             try
             {
-                SalesRepository repo = new SalesRepository();
-                repo.SaveAll(_db.DanhSachHD, _db.DanhSachTheTV, _db.DanhSachVoucher);
+                // 1. Lưu Hóa đơn và Voucher (SalesRepository chỉ nhận 2 danh sách này)
+                SalesRepository salesRepo = new SalesRepository();
+                salesRepo.SaveAll(_db.DanhSachHD, _db.DanhSachVoucher);
+
+                // 2. Lưu Thẻ thành viên (Sử dụng Repository riêng)
+                TheThanhVienRepository theRepo = new TheThanhVienRepository();
+                theRepo.Save(_db.DanhSachTheTV);
+
+                // 3. Lưu Hàng hóa
                 InventoryRepository productRepo = new InventoryRepository();
                 productRepo.Save(_db.DanhSachHang);
+
+                // (Nếu cần lưu thêm Khuyến mãi, Nhân viên... thì thêm repo.Save tương ứng ở đây)
             }
             catch (Exception ex)
             {

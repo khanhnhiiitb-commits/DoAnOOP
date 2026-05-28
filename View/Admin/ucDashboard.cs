@@ -15,10 +15,8 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
 {
     public partial class ucDashboard : UserControl
     {
-        BaoCaoThongKe serviceThongKe = new BaoCaoThongKe(
-                DataStorage.Instance.DanhSachHD,
-                DataStorage.Instance.DanhSachHang
-            );
+        //sửa
+        BaoCaoThongKe serviceThongKe;
         public ucDashboard()
         {
             InitializeComponent();
@@ -38,7 +36,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
             }
         }
         public void CapNhatGiaoDien()
-        {
+        {//sửa
+            serviceThongKe = new BaoCaoThongKe(
+                DataStorage.Instance.DanhSachHD,
+                DataStorage.Instance.DanhSachHang
+            );
             CapNhatDuLieuDashboard();
             HienThiTopSanPham(serviceThongKe);
             Console.WriteLine("Dashboard đã tự refresh lúc: " + DateTime.Now);
@@ -68,7 +70,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
         }
 
         private void ucDashboard_Load(object sender, EventArgs e)
-        {
+        {//sửa
+            serviceThongKe = new BaoCaoThongKe(
+                DataStorage.Instance.DanhSachHD,
+                DataStorage.Instance.DanhSachHang
+            );
             CapNhatDuLieuDashboard();
             HienThiTopSanPham(serviceThongKe);
         }
