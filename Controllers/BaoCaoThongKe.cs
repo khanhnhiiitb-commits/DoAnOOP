@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using QuanLySieuThi.Models.Products;
 using QuanLySieuThi.Models.Sales;
@@ -124,6 +124,64 @@ namespace QuanLySieuThi.Services
                 if (h.SoLuongTon < 10) { ketQua.Add(h); }
             }
             return ketQua;
+        }
+
+        public void LapBaoCaoChiTiet(DateTime tuNgay, DateTime denNgay,
+            out int tongSoHoaDon, out double tongDoanhThu, out string tenMatHangBanChay, out List<HoaDon> dsHoaDonTrongKy)
+        {
+            tongSoHoaDon = 0;
+            tongDoanhThu = 0;
+            dsHoaDonTrongKy = new List<HoaDon>();
+            Dictionary<string, int> boDemSanPham = new Dictionary<string, int>();
+
+            foreach (HoaDon hd in _danhSachHoaDon)
+            {
+                hd.TinhTongTien(); // Cập nhật lại tiền
+
+                if (hd.NgayTao >= tuNgay && hd.NgayTao <= denNgay && hd.TrangThaiTT == true)
+                {
+                    tongSoHoaDon++;
+                    tongDoanhThu += hd.TongTien;
+                    dsHoaDonTrongKy.Add(hd);
+
+                    foreach (ChiTietHoaDon ct in hd.DanhSachChiTiet)
+                    {
+                        if (boDemSanPham.ContainsKey(ct.MaHH))
+                        {
+                            boDemSanPham[ct.MaHH] += ct.SoLuongMua;
+                        }
+                        else
+                        {
+                            boDemSanPham.Add(ct.MaHH, ct.SoLuongMua);
+                        }
+                    }
+                }
+            }
+
+            string maBanChayNhat = "";
+            int maxSoLuong = 0;
+
+            foreach (KeyValuePair<string, int> item in boDemSanPham)
+            {
+                if (item.Value > maxSoLuong)
+                {
+                    maxSoLuong = item.Value;
+                    maBanChayNhat = item.Key;
+                }
+            }
+
+            tenMatHangBanChay = "Chưa có dữ liệu";
+            if (maxSoLuong > 0)
+            {
+                foreach (HangHoa hh in _danhSachHangHoa)
+                {
+                    if (hh.MaHH == maBanChayNhat)
+                    {
+                        tenMatHangBanChay = hh.TenHang;
+                        break;
+                    }
+                }
+            }
         }
     }
 }

@@ -5,12 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using System.Windows.Forms;
 namespace QuanLySieuThi.Data
 {
     public class SalesRepository 
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_sales.json";
+        private readonly string filePath = @"DataAccess\DatabaseFile\database_sales.json";
         private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
 
         private SalesData GetAllData()
@@ -23,7 +22,7 @@ namespace QuanLySieuThi.Data
                 if (!string.IsNullOrWhiteSpace(json))
                     data = JsonSerializer.Deserialize<SalesData>(json, options);
             }
-            catch (Exception ex) { MessageBox.Show("Lỗi đọc file JSON Sales: " + ex.Message); }
+            catch (Exception ex) { throw new Exception("Lỗi đọc file JSON Sales: " + ex.Message); }
             return data;
         }
 
@@ -52,7 +51,7 @@ namespace QuanLySieuThi.Data
                 Directory.CreateDirectory(Path.GetDirectoryName(filePath));
                 File.WriteAllText(filePath, JsonSerializer.Serialize(data, options));
             }
-            catch (Exception ex) { MessageBox.Show("Lỗi lưu file JSON Sales: " + ex.Message); }
+            catch (Exception ex) { throw new Exception("Lỗi lưu file JSON Sales: " + ex.Message); }
         }
     }
 }

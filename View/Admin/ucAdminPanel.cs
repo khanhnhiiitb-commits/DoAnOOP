@@ -18,11 +18,17 @@ namespace ChuongtrinhQuanlybanhangsieuthi
     {
         private ucDashboard manHinhDashboard;
         private ucManageProduct manHinhSanPham;
+        private ucManageStaff manHinhNhanSu;
+        private ucReports manHinhBaoCao;
+        private ucKM manHinhKhuyenMai;
         public ucAdminPanel()
         {
             InitializeComponent();
             manHinhDashboard = new ucDashboard();
             manHinhSanPham = new ucManageProduct();
+            manHinhNhanSu = new ucManageStaff();
+            manHinhBaoCao = new ucReports();
+            manHinhKhuyenMai = new ucKM();
             manHinhSanPham.DuLieuDaThayDoi += ManHinhSanPham_DuLieuDaThayDoi;
         }
         private void ManHinhSanPham_DuLieuDaThayDoi(object sender, EventArgs e)
@@ -75,7 +81,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         private void btnManageStaff_Click(object sender, EventArgs e)
         {
             HighlightActiveButton(sender);
-            Navigation(new ucManageStaff());
+            Navigation(manHinhNhanSu);
         }
 
 
@@ -85,7 +91,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         private void btnReports_Click(object sender, EventArgs e)
         {
             HighlightActiveButton(sender);
-            Navigation(new ucReports());
+            Navigation(manHinhBaoCao);
         }
         private void HighlightActiveButton(object sender)
         {
@@ -120,7 +126,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         private void btnKM_Click(object sender, EventArgs e)
         {
             HighlightActiveButton(sender);
-            Navigation(new ucKM());
+            Navigation(manHinhKhuyenMai);
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -66,14 +66,14 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1199, 676);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Black", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ActiveCaption;
-            label5.Location = new Point(30, 228);
+            label5.Location = new Point(30, 36);
             label5.Name = "label5";
             label5.Size = new Size(264, 60);
             label5.TabIndex = 6;
@@ -116,7 +116,7 @@
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(lblCPNhapHang);
             panel5.Controls.Add(label4);
-            panel5.Location = new Point(906, 36);
+            panel5.Location = new Point(895, 114);
             panel5.Name = "panel5";
             panel5.Size = new Size(258, 147);
             panel5.TabIndex = 1;
@@ -147,7 +147,7 @@
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(lblKHMoi);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(612, 36);
+            panel4.Location = new Point(611, 114);
             panel4.Name = "panel4";
             panel4.Size = new Size(258, 147);
             panel4.TabIndex = 1;
@@ -178,7 +178,7 @@
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(lblSoDonHang);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(318, 36);
+            panel3.Location = new Point(325, 114);
             panel3.Name = "panel3";
             panel3.Size = new Size(258, 147);
             panel3.TabIndex = 1;
@@ -209,7 +209,7 @@
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(lblTongDT);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(30, 36);
+            panel2.Location = new Point(36, 114);
             panel2.Name = "panel2";
             panel2.Size = new Size(258, 147);
             panel2.TabIndex = 0;

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
-using QuanLySieuThi.Models.Sales;
+using ChuongtrinhQuanlybanhangsieuthi.DataAccess;
+using QuanLySieuThi.Data;
 using QuanLySieuThi.Models.Products;
+using QuanLySieuThi.Models.Sales;
 using QuanLySieuThi.Models.Systems;
 
 namespace QuanLySieuThi.Services
@@ -92,6 +94,17 @@ namespace QuanLySieuThi.Services
             return false; 
         }
         public List<Voucher> LayDanhSachVoucher()  {  return danhSachVoucher;  }
+        public void LuuDuLieuVoucher()
+        {
+            VoucherRepository voucherRepo = new VoucherRepository();
+            voucherRepo.Save(this.danhSachVoucher);
+        }
+
+        public void LuuDuLieuKhuyenMai()
+        {
+            KhuyenMaiRepository kmRepo = new KhuyenMaiRepository();
+            kmRepo.Save(this.danhSachCTKM);
+        }
     }
 }
 

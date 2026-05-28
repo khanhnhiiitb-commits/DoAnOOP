@@ -27,9 +27,7 @@ namespace QuanLySieuThi.Data
         private List<TaiKhoan> danhSachTaiKhoan;
         private List<KeHang> danhSachKeHang;
         private List<CaLamViec> danhSachCaLamViec;
-
         private NhanVien nhanVienDangNhap;
-
         private DataStorage()
         {
             this.danhSachHang = new List<HangHoa>();
@@ -48,7 +46,6 @@ namespace QuanLySieuThi.Data
 
             LoadAllData();
         }
-
         public static DataStorage Instance
         {
             get

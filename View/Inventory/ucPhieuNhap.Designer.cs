@@ -111,7 +111,6 @@
             label1.Size = new Size(204, 28);
             label1.TabIndex = 0;
             label1.Text = "Quản Lý Phiếu Nhập";
-            label1.Click += label1_Click;
             // 
             // panel2
             // 

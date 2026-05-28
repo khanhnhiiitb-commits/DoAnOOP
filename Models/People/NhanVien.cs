@@ -44,6 +44,7 @@ namespace QuanLySieuThi.Models.People
             get { return maCa; } 
             set { maCa = value; } 
         }
+
         public NhanVien() : base() { }
         public NhanVien(string ma, string ten, DateTime ngaySinh, bool gioiTinh, string soDienThoai, string diaChi, string chucVu) 
         : base(ma, ten, ngaySinh, gioiTinh, soDienThoai, diaChi) 

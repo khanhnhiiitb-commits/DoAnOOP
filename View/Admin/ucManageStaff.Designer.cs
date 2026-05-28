@@ -79,7 +79,6 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
-            groupBox1.Enter += groupBox1_Enter;
             // 
             // btnReset
             // 
@@ -168,7 +167,6 @@
             label6.Size = new Size(82, 25);
             label6.TabIndex = 10;
             label6.Text = "Giới tính:";
-            label6.Click += label6_Click;
             // 
             // label5
             // 
@@ -219,7 +217,6 @@
             label1.Size = new Size(70, 25);
             label1.TabIndex = 0;
             label1.Text = "Họ tên:";
-            label1.Click += label1_Click;
             // 
             // dgvNhanVien
             // 

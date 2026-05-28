@@ -87,13 +87,15 @@
             btnTongQuan.FlatAppearance.MouseDownBackColor = SystemColors.Control;
             btnTongQuan.FlatAppearance.MouseOverBackColor = SystemColors.ControlLight;
             btnTongQuan.FlatStyle = FlatStyle.Flat;
+            btnTongQuan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTongQuan.ForeColor = SystemColors.ControlText;
             btnTongQuan.Image = Properties.Resources.iconHome;
             btnTongQuan.ImageAlign = ContentAlignment.MiddleLeft;
             btnTongQuan.Location = new Point(3, 3);
             btnTongQuan.Name = "btnTongQuan";
             btnTongQuan.Size = new Size(244, 53);
             btnTongQuan.TabIndex = 5;
-            btnTongQuan.Text = "Tổng quan Dashboard";
+            btnTongQuan.Text = "     Tổng quan Dashboard";
             btnTongQuan.UseVisualStyleBackColor = true;
             btnTongQuan.Click += btnTongQuan_Click;
             // 
@@ -103,6 +105,8 @@
             btnManageStaff.FlatAppearance.MouseDownBackColor = SystemColors.Control;
             btnManageStaff.FlatAppearance.MouseOverBackColor = SystemColors.ControlLight;
             btnManageStaff.FlatStyle = FlatStyle.Flat;
+            btnManageStaff.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnManageStaff.ForeColor = SystemColors.ControlText;
             btnManageStaff.Image = Properties.Resources.iconPeople;
             btnManageStaff.ImageAlign = ContentAlignment.MiddleLeft;
             btnManageStaff.Location = new Point(3, 62);
@@ -119,13 +123,15 @@
             btnKM.FlatAppearance.MouseDownBackColor = SystemColors.Control;
             btnKM.FlatAppearance.MouseOverBackColor = SystemColors.Control;
             btnKM.FlatStyle = FlatStyle.Flat;
+            btnKM.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnKM.ForeColor = SystemColors.ControlText;
             btnKM.Image = Properties.Resources.iconDiscount;
             btnKM.ImageAlign = ContentAlignment.MiddleLeft;
             btnKM.Location = new Point(3, 121);
             btnKM.Name = "btnKM";
             btnKM.Size = new Size(244, 53);
             btnKM.TabIndex = 6;
-            btnKM.Text = "Khuyến mãi & Voucher";
+            btnKM.Text = "    Khuyến mãi & Voucher";
             btnKM.UseVisualStyleBackColor = true;
             btnKM.Click += btnKM_Click;
             // 
@@ -135,13 +141,15 @@
             btnManageProducts.FlatAppearance.MouseDownBackColor = SystemColors.Control;
             btnManageProducts.FlatAppearance.MouseOverBackColor = SystemColors.Control;
             btnManageProducts.FlatStyle = FlatStyle.Flat;
+            btnManageProducts.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnManageProducts.ForeColor = SystemColors.ControlText;
             btnManageProducts.Image = Properties.Resources.iconPackage;
             btnManageProducts.ImageAlign = ContentAlignment.MiddleLeft;
             btnManageProducts.Location = new Point(3, 180);
             btnManageProducts.Name = "btnManageProducts";
             btnManageProducts.Size = new Size(244, 53);
             btnManageProducts.TabIndex = 1;
-            btnManageProducts.Text = "Quản lý Hàng hóa";
+            btnManageProducts.Text = " Quản lý Hàng hóa";
             btnManageProducts.UseVisualStyleBackColor = true;
             btnManageProducts.Click += btnManageProducts_Click;
             // 
@@ -151,13 +159,15 @@
             btnReports.FlatAppearance.MouseDownBackColor = SystemColors.Control;
             btnReports.FlatAppearance.MouseOverBackColor = SystemColors.Control;
             btnReports.FlatStyle = FlatStyle.Flat;
+            btnReports.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReports.ForeColor = SystemColors.ControlText;
             btnReports.Image = Properties.Resources.iconLineChart;
             btnReports.ImageAlign = ContentAlignment.MiddleLeft;
             btnReports.Location = new Point(3, 239);
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(244, 53);
             btnReports.TabIndex = 2;
-            btnReports.Text = "Thống kê doanh thu";
+            btnReports.Text = "   Thống kê doanh thu";
             btnReports.UseVisualStyleBackColor = true;
             btnReports.Click += btnReports_Click;
             // 

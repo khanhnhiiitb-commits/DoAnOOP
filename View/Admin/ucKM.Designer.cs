@@ -180,7 +180,6 @@
             label2.Size = new Size(134, 25);
             label2.TabIndex = 0;
             label2.Text = "Mã Khuyến mãi";
-            label2.Click += label2_Click;
             // 
             // panel2
             // 

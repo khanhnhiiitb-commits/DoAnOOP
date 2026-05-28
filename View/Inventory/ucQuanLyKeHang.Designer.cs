@@ -35,12 +35,10 @@
             btnXoaKeHang = new Button();
             btnSuaKeHang = new Button();
             btnThemKeHang = new Button();
-            label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            cboTrangThai = new ComboBox();
             cboLoaiHang = new ComboBox();
             cboKhuVuc = new ComboBox();
             txtSucChua = new TextBox();
@@ -50,6 +48,7 @@
             colKhuVuc = new DataGridViewTextBoxColumn();
             colLoaiHang = new DataGridViewTextBoxColumn();
             colSucChua = new DataGridViewTextBoxColumn();
+            colSoLuong = new DataGridViewTextBoxColumn();
             colTrangThai = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -90,12 +89,10 @@
             groupBox1.Controls.Add(btnXoaKeHang);
             groupBox1.Controls.Add(btnSuaKeHang);
             groupBox1.Controls.Add(btnThemKeHang);
-            groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(cboTrangThai);
             groupBox1.Controls.Add(cboLoaiHang);
             groupBox1.Controls.Add(cboKhuVuc);
             groupBox1.Controls.Add(txtSucChua);
@@ -112,7 +109,7 @@
             // 
             btnXoaKeHang.BackColor = SystemColors.GradientInactiveCaption;
             btnXoaKeHang.FlatStyle = FlatStyle.Flat;
-            btnXoaKeHang.Location = new Point(202, 317);
+            btnXoaKeHang.Location = new Point(163, 304);
             btnXoaKeHang.Name = "btnXoaKeHang";
             btnXoaKeHang.Size = new Size(94, 48);
             btnXoaKeHang.TabIndex = 16;
@@ -124,7 +121,7 @@
             // 
             btnSuaKeHang.BackColor = SystemColors.GradientInactiveCaption;
             btnSuaKeHang.FlatStyle = FlatStyle.Flat;
-            btnSuaKeHang.Location = new Point(132, 400);
+            btnSuaKeHang.Location = new Point(28, 388);
             btnSuaKeHang.Name = "btnSuaKeHang";
             btnSuaKeHang.Size = new Size(94, 48);
             btnSuaKeHang.TabIndex = 15;
@@ -136,22 +133,13 @@
             // 
             btnThemKeHang.BackColor = SystemColors.GradientInactiveCaption;
             btnThemKeHang.FlatStyle = FlatStyle.Flat;
-            btnThemKeHang.Location = new Point(59, 317);
+            btnThemKeHang.Location = new Point(28, 304);
             btnThemKeHang.Name = "btnThemKeHang";
             btnThemKeHang.Size = new Size(94, 48);
             btnThemKeHang.TabIndex = 14;
             btnThemKeHang.Text = "Thêm";
             btnThemKeHang.UseVisualStyleBackColor = false;
             btnThemKeHang.Click += btnThemKeHang_Click;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(16, 271);
-            label6.Name = "label6";
-            label6.Size = new Size(78, 20);
-            label6.TabIndex = 9;
-            label6.Text = "Trạng thái:";
             // 
             // label5
             // 
@@ -189,14 +177,6 @@
             label2.TabIndex = 5;
             label2.Text = "Mã kệ:";
             // 
-            // cboTrangThai
-            // 
-            cboTrangThai.FormattingEnabled = true;
-            cboTrangThai.Location = new Point(106, 263);
-            cboTrangThai.Name = "cboTrangThai";
-            cboTrangThai.Size = new Size(151, 28);
-            cboTrangThai.TabIndex = 4;
-            // 
             // cboLoaiHang
             // 
             cboLoaiHang.FormattingEnabled = true;
@@ -233,7 +213,7 @@
             dgvKeHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvKeHang.BorderStyle = BorderStyle.None;
             dgvKeHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvKeHang.Columns.AddRange(new DataGridViewColumn[] { colMaKe, colKhuVuc, colLoaiHang, colSucChua, colTrangThai });
+            dgvKeHang.Columns.AddRange(new DataGridViewColumn[] { colMaKe, colKhuVuc, colLoaiHang, colSucChua, colSoLuong, colTrangThai });
             dgvKeHang.Dock = DockStyle.Fill;
             dgvKeHang.Location = new Point(367, 113);
             dgvKeHang.Name = "dgvKeHang";
@@ -243,7 +223,6 @@
             dgvKeHang.Size = new Size(366, 487);
             dgvKeHang.TabIndex = 4;
             dgvKeHang.CellClick += dgvKeHang_CellClick;
-            dgvKeHang.CellContentClick += dgvKeHang_CellContentClick;
             // 
             // colMaKe
             // 
@@ -268,6 +247,12 @@
             colSucChua.HeaderText = "Sức chứa";
             colSucChua.MinimumWidth = 6;
             colSucChua.Name = "colSucChua";
+            // 
+            // colSoLuong
+            // 
+            colSoLuong.HeaderText = "Số Lượng Hàng";
+            colSoLuong.MinimumWidth = 6;
+            colSoLuong.Name = "colSoLuong";
             // 
             // colTrangThai
             // 
@@ -298,12 +283,10 @@
         private Label label1;
         private Panel panel1;
         private GroupBox groupBox1;
-        private ComboBox cboTrangThai;
         private ComboBox cboLoaiHang;
         private ComboBox cboKhuVuc;
         private TextBox txtSucChua;
         private TextBox txtMaKe;
-        private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
@@ -312,11 +295,12 @@
         private Button btnSuaKeHang;
         private Button btnThemKeHang;
         private DataGridView dgvKeHang;
+        private TextBox txtSearchKeHang;
         private DataGridViewTextBoxColumn colMaKe;
         private DataGridViewTextBoxColumn colKhuVuc;
         private DataGridViewTextBoxColumn colLoaiHang;
         private DataGridViewTextBoxColumn colSucChua;
+        private DataGridViewTextBoxColumn colSoLuong;
         private DataGridViewTextBoxColumn colTrangThai;
-        private TextBox txtSearchKeHang;
     }
 }

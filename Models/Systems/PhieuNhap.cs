@@ -68,7 +68,7 @@ namespace QuanLySieuThi.Models.Systems
             double tong = 0;
             int i;
             for (i = 0; i < danhSachChiTiet.Count; i++)
-            {     tong = tong + (danhSachChiTiet[i].SoLuong * danhSachChiTiet[i].DonGia); }
+            { tong = tong + danhSachChiTiet[i].ThanhTien; }
             this.TongTien = tong;
         }
         public PhieuNhap() { }
@@ -89,7 +89,7 @@ namespace QuanLySieuThi.Models.Systems
                 TinhTongTien(); 
             }
         }
-        public void XacNhanXuatKho() 
+        public void XacNhanNhapKho() 
         {
             this.trangThai = "DaNhapKho";
         }

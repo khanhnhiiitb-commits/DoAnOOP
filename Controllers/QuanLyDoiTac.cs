@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using QuanLySieuThi.Data;
+using QuanLySieuThi.Models;
 using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Sales;
 
@@ -19,10 +21,10 @@ namespace QuanLySieuThi.Services
             get {return danhSachNCC;} 
         }
 
-        public QuanLyDoiTac()
+        public QuanLyDoiTac(List<KhachHang> dsKH, List<NhaCungCap> dsNCC)
         {
-            danhSachKH = new List<KhachHang>();
-            danhSachNCC = new List<NhaCungCap>();
+            this.danhSachKH = dsKH;
+            this.danhSachNCC = dsNCC;
         }
 
         // 1. Thêm khách hàng mới
@@ -34,6 +36,18 @@ namespace QuanLySieuThi.Services
             }
             danhSachKH.Add(kh);
             return true;
+        }
+        public bool XoaNhaCungCap(string maNCC)
+        {
+            for (int i = 0; i < danhSachNCC.Count; i++)
+            {
+                if (danhSachNCC[i].MaNCC == maNCC)
+                {
+                    danhSachNCC.RemoveAt(i);
+                    return true;
+                }
+            }
+            return false;
         }
 
         // 2. Đăng ký thành viên (Cấp thẻ)
@@ -115,5 +129,12 @@ namespace QuanLySieuThi.Services
             }
             return false;
         }
+        public void LuuDuLieuDoiTac()
+        {
+            PartnerRepository repo = new PartnerRepository();
+
+            repo.SaveAll(this.danhSachKH, this.danhSachNCC);
+        }
     }
+
 }

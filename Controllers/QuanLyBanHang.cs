@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using QuanLySieuThi.Data;
 using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Products;
 using QuanLySieuThi.Models.Sales;
+using QuanLySieuThi.Models.Systems;
 using QuanLySieuThi.Services;
+using ChuongtrinhQuanlybanhangsieuthi.DataAccess;
 
 
 namespace QuanLySieuThi.Services
@@ -12,6 +15,7 @@ namespace QuanLySieuThi.Services
     {
         private List<HoaDon> danhSachHoaDon;
         private List<HangHoa> danhSachHangHoa;
+
         public List<HoaDon> DanhSachHoaDon { get {return danhSachHoaDon;} }
         public QuanLyBanHang(List<HangHoa> khoHang, List<HoaDon> dsHoaDon)
         {
@@ -157,6 +161,20 @@ namespace QuanLySieuThi.Services
             content += $"TỔNG CỘNG: {hd.TongTien.ToString("N0")} đ\n";
 
             return content;
+        }
+
+        public void LuuDuLieuBanHang(List<TheThanhVien> dsTheTV)
+        {
+            SalesRepository salesRepo = new SalesRepository();
+            salesRepo.SaveAll(this.danhSachHoaDon, DataStorage.Instance.DanhSachVoucher);
+
+            InventoryRepository invRepo = new InventoryRepository();
+            invRepo.Save(this.danhSachHangHoa);
+            if (dsTheTV != null)
+            {
+                TheThanhVienRepository theRepo = new TheThanhVienRepository();
+                theRepo.Save(dsTheTV);
+            }
         }
     }
 }

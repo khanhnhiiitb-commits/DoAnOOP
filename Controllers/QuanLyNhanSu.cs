@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using QuanLySieuThi.Data;
 using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Systems;
 
@@ -76,7 +77,7 @@ namespace QuanLySieuThi.Services
             BangChamCong moi = new BangChamCong(maNV, thangNay, namNay, 1, 0, 0, "Mới khởi tạo");
             danhSachChamCong.Add(moi);
         }
-        public void ChamCongRa(string maNV)  {   Console.WriteLine("Nhân viên " + maNV + " đã ra về lúc: " + DateTime.Now); }
+        public string ChamCongRa(string maNV)  { return "Đã chấm công ra lúc: " + DateTime.Now.ToString(); }
         public double TinhLuong(string maNV, int thang, int nam)
         {
             foreach (BangChamCong bcc in danhSachChamCong)
@@ -117,6 +118,18 @@ namespace QuanLySieuThi.Services
                 }
             }
             return ketQua;
+        }
+
+        public void LuuDuLieuNhanSu()
+        {
+            StaffRepository staffRepo = new StaffRepository();
+            List<Nguoi> dsTam = new List<Nguoi>();
+            foreach (NhanVien item in this.danhNV)
+            {
+                dsTam.Add(item);
+            }
+
+            staffRepo.Save(dsTam);
         }
     }
 }

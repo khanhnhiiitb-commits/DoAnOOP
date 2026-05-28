@@ -13,7 +13,7 @@ namespace QuanLySieuThi.Models.People
         private string soDienThoai;
         private string diaChi;
         public string Ma{ get{ return ma; } set {ma = value;} }
-        public string HoTen{ get{ return hoTen; } set {hoTen = value;} }
+        public string HoTen{ get{ return hoTen; } set { if (!string.IsNullOrEmpty(value)) hoTen = value;} }
         public DateTime NgaySinh{ get{ return ngaySinh; } set {ngaySinh = value;} }
         public bool GioiTinh{ get{ return gioiTinh; } set {gioiTinh = value;} }
         public string SoDienThoai{ get{ return soDienThoai; } set {soDienThoai = value;} }

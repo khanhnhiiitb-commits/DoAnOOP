@@ -4,12 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using System.Windows.Forms;
 namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
     public class KeHangRepository : IRepository<KeHang>
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_kehang.json";
+        private readonly string filePath = @"DataAccess\DatabaseFile\database_kehang.json";
         private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
 
         public List<KeHang> GetAll()
@@ -26,7 +25,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi đọc JSON Kệ Hàng: " + ex.Message);
+                throw new Exception("Lỗi đọc JSON Kệ Hàng: " + ex.Message);
             }
             return ds;
         }
@@ -40,7 +39,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi lưu JSON Kệ Hàng: " + ex.Message);
+                throw new Exception("Lỗi lưu JSON Kệ Hàng: " + ex.Message);
             }
         }
     }

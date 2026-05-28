@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using ChuongtrinhQuanlybanhangsieuthi.DataAccess;
 using QuanLySieuThi.Data;
 using QuanLySieuThi.Models.People;
 using QuanLySieuThi.Models.Products;
@@ -36,29 +35,25 @@ namespace ChuongtrinhQuanlybanhangsieuthi
 
         private void ucBanHangPanel_Load(object sender, EventArgs e)
         {
-            if (DataStorage.Instance.NhanVienDangNhap != null)
+            if (_db.NhanVienDangNhap != null)
             {
-
-                label1.Text = "Thu ngân: " + DataStorage.Instance.NhanVienDangNhap.HoTen;
+                label1.Text = "Thu ngân: " + _db.NhanVienDangNhap.HoTen;
             }
             else
             {
                 label1.Text = "Xin chào, Thu ngân ẩn danh!";
             }
-            _banHangService = new QuanLyBanHang(_db.DanhSachHang, _db.DanhSachHD);
-            _doiTacService = new QuanLyDoiTac();
 
-            for (int i = 0; i < _db.DanhSachKH.Count; i++)
-            {
-                _doiTacService.ThemKhachHang(_db.DanhSachKH[i]);
-            }
+            // Khởi tạo BLL
+            _banHangService = new QuanLyBanHang(_db.DanhSachHang, _db.DanhSachHD);
+            _doiTacService = new QuanLyDoiTac(_db.DanhSachKH, _db.DanhSachNCC);
 
             TaoHoaDonMoi();
 
             _danhSachHienThi = new List<HangHoa>(_db.DanhSachHang);
             HienThiDanhSachSanPham(_danhSachHienThi);
 
-            // Gán các sự kiện cho đúng tên mới
+            // Gán sự kiện
             dgvSanPham.CellDoubleClick += dgvSanPham_CellDoubleClick;
             dgvGioHang.CellDoubleClick += dgvGioHang_CellDoubleClick;
 
@@ -75,7 +70,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             txtTimKiem.LostFocus += txtTimKiem_LostFocus;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
         }
-
 
         private void KhoiTaoGridSanPham()
         {
@@ -94,7 +88,8 @@ namespace ChuongtrinhQuanlybanhangsieuthi
         private void HienThiDanhSachSanPham(List<HangHoa> ds)
         {
             dgvSanPham.Rows.Clear();
-            foreach (var sp in ds)
+            // ĐÃ SỬA: Thay var bằng kiểu HangHoa tường minh
+            foreach (HangHoa sp in ds)
             {
                 dgvSanPham.Rows.Add(sp.MaHH, sp.TenHang, sp.DonGia.ToString("N0") + " đ", sp.SoLuongTon);
             }
@@ -120,7 +115,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             dgvGioHang.Columns["ThanhTien"].HeaderText = "Thành tiền";
         }
 
-
         private void btnTatCa_Click(object sender, EventArgs e)
         {
             _danhSachHienThi = new List<HangHoa>(_db.DanhSachHang);
@@ -132,8 +126,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             List<HangHoa> ketQua = new List<HangHoa>();
             for (int i = 0; i < _db.DanhSachHang.Count; i++)
             {
-                if (_db.DanhSachHang[i] is HangDienTu)
-                    ketQua.Add(_db.DanhSachHang[i]);
+                if (_db.DanhSachHang[i] is HangDienTu) ketQua.Add(_db.DanhSachHang[i]);
             }
             _danhSachHienThi = ketQua;
             HienThiDanhSachSanPham(_danhSachHienThi);
@@ -144,13 +137,11 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             List<HangHoa> ketQua = new List<HangHoa>();
             for (int i = 0; i < _db.DanhSachHang.Count; i++)
             {
-                if (_db.DanhSachHang[i] is HangThucPham)
-                    ketQua.Add(_db.DanhSachHang[i]);
+                if (_db.DanhSachHang[i] is HangThucPham) ketQua.Add(_db.DanhSachHang[i]);
             }
             _danhSachHienThi = ketQua;
             HienThiDanhSachSanPham(_danhSachHienThi);
         }
-
 
         private void txtTimKH_GotFocus(object sender, EventArgs e)
         {
@@ -161,14 +152,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e) { }
-        private void groupBox2_Enter(object sender, EventArgs e) { }
-        private void button1_Click(object sender, EventArgs e) { }
-        private void pB1_Click(object sender, EventArgs e) { }
-        private void label9_Click(object sender, EventArgs e) { }
-        private void Giohang_Click(object sender, EventArgs e) { }
-        private void panel3_Paint(object sender, PaintEventArgs e) { }
-        private void btnLamMoi_Click(object sender, EventArgs e) { }
         private void txtTimKH_LostFocus(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTimKH.Text))
@@ -203,17 +186,16 @@ namespace ChuongtrinhQuanlybanhangsieuthi
                 string info = "Khách: " + khTimThay.HoTen + "  |  Điểm: " + khTimThay.DiemTichLuy;
                 if (khTimThay.TheTV != null) info += "  |  Thẻ: " + khTimThay.TheTV.MaThe;
 
-                Giohang.Text = info; // Nhớ đảm bảo có Label tên Giohang trên form
+                if (Giohang != null) Giohang.Text = info;
                 MessageBox.Show("Tìm thấy: " + khTimThay.HoTen, "Khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 _khachHangHienTai = null;
-                Giohang.Text = "Không tìm thấy khách - tính tiền vãng lai";
+                if (Giohang != null) Giohang.Text = "Không tìm thấy khách - tính tiền vãng lai";
                 MessageBox.Show("Không tìm thấy SĐT này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
 
         private void txtTimKiem_GotFocus(object sender, EventArgs e)
         {
@@ -259,7 +241,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             _danhSachHienThi = ketQua;
             HienThiDanhSachSanPham(_danhSachHienThi);
 
-
+            // Bắn mã vạch nhanh
             if (_danhSachHienThi.Count == 1 && tuKhoa.Length >= 4)
             {
                 ThemSanPhamVaoGio(_danhSachHienThi[0], 1);
@@ -267,15 +249,15 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             }
         }
 
-
         private void dgvSanPham_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || dgvSanPham.Rows[e.RowIndex].IsNewRow) return;
 
             string maSP = dgvSanPham.Rows[e.RowIndex].Cells["MaSP"].Value.ToString();
-
             HangHoa spChon = null;
-            foreach (var sp in _db.DanhSachHang)
+
+            // ĐÃ SỬA: Loại bỏ var
+            foreach (HangHoa sp in _db.DanhSachHang)
             {
                 if (sp.MaHH == maSP)
                 {
@@ -327,12 +309,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             NhanVien nv = _db.NhanVienDangNhap;
             if (nv == null)
             {
-                _hoaDonHienTai = new HoaDon()
-                {
-                    MaHD = "HD_TAM",
-                    MaNV = "NV_TEST",
-                    MaKH = "KH_VANGLAI"
-                };
+                _hoaDonHienTai = new HoaDon() { MaHD = "HD_TAM", MaNV = "NV_TEST", MaKH = "KH_VANGLAI" };
             }
             else
             {
@@ -343,10 +320,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             _khachHangHienTai = null;
             CapNhatGioHangUI();
             CapNhatTongTienUI();
-            if (Giohang != null)
-            {
-                Giohang.Text = "Khách hàng: Vãng lai";
-            }
+            if (Giohang != null) Giohang.Text = "Khách hàng: Vãng lai";
         }
 
         private void CapNhatGioHangUI()
@@ -358,8 +332,8 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             for (int i = 0; i < dsCT.Count; i++)
             {
                 ChiTietHoaDon ct = dsCT[i];
-
                 string tenHang = ct.MaHH;
+
                 for (int j = 0; j < _db.DanhSachHang.Count; j++)
                 {
                     if (_db.DanhSachHang[j].MaHH == ct.MaHH)
@@ -368,7 +342,6 @@ namespace ChuongtrinhQuanlybanhangsieuthi
                         break;
                     }
                 }
-
                 dtGioHang.Rows.Add(ct.MaHH, tenHang, (decimal)ct.GiaBan, ct.SoLuongMua, (decimal)ct.ThanhTien);
             }
             DatTieuDeCot();
@@ -382,88 +355,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             label2.Text = "Tạm tính: " + tong.ToString("N0") + " đ";
             label4.Text = "Tổng tiền: " + tong.ToString("N0") + " đ";
 
-            if (!_hoaDonHienTai.DaApDungVoucher)
-                label3.Text = "Giảm giá/Voucher: 0 đ";
-        }
-
-        // ============================================================
-        // THANH TOÁN (btnThanhToan)
-        // ============================================================
-        private void btnThanhToan_Click(object sender, EventArgs e)
-        {
-            if (_hoaDonHienTai == null || _hoaDonHienTai.DanhSachChiTiet.Count == 0)
-            {
-                MessageBox.Show("Giỏ hàng đang trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            string inputTien = Microsoft.VisualBasic.Interaction.InputBox(
-                "Tổng tiền cần thanh toán: " + _hoaDonHienTai.TongTien.ToString("N0") + " đ" + "\n\nNhập số tiền khách đưa:",
-                "Thanh toán", _hoaDonHienTai.TongTien.ToString("F0"));
-
-            if (string.IsNullOrWhiteSpace(inputTien)) return;
-
-            double tienKhachDua = 0;
-            bool hopLe = double.TryParse(inputTien, out tienKhachDua);
-            if (!hopLe)
-            {
-                MessageBox.Show("Số tiền không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string ketQua = _banHangService.ThanhToan(_hoaDonHienTai, tienKhachDua, _khachHangHienTai, _doiTacService);
-
-            if (ketQua == "Khong du tien" || ketQua == "Không đủ tiền")
-            {
-                MessageBox.Show("Tiền khách đưa không đủ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            double tienThua = 0;
-            double.TryParse(ketQua, out tienThua);
-
-            _db.DanhSachHD.Add(_hoaDonHienTai);
-            LuuDuLieu();
-
-            string bill = _banHangService.LayNoiDungHoaDon(_hoaDonHienTai);
-            bill += "\nTiền khách đưa : " + tienKhachDua.ToString("N0") + " đ";
-            bill += "\nTiền thừa      : " + tienThua.ToString("N0") + " đ";
-            bill += "\n\n   Cảm ơn quý khách! Hẹn gặp lại!";
-
-            MessageBox.Show(bill, "HÓA ĐƠN - " + _hoaDonHienTai.MaHD, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Reset UI sau khi thanh toán xong
-            TaoHoaDonMoi();
-            txtTimKH.Text = PLACEHOLDER_SDT;
-            txtTimKH.ForeColor = Color.Gray;
-            txtTimKiem.Text = PLACEHOLDER_TIM_KIEM;
-            txtTimKiem.ForeColor = Color.Gray;
-            _danhSachHienThi = new List<HangHoa>(_db.DanhSachHang);
-            HienThiDanhSachSanPham(_danhSachHienThi);
-        }
-
-        private void LuuDuLieu()
-        {
-            try
-            {
-                // 1. Lưu Hóa đơn và Voucher (SalesRepository chỉ nhận 2 danh sách này)
-                SalesRepository salesRepo = new SalesRepository();
-                salesRepo.SaveAll(_db.DanhSachHD, _db.DanhSachVoucher);
-
-                // 2. Lưu Thẻ thành viên (Sử dụng Repository riêng)
-                TheThanhVienRepository theRepo = new TheThanhVienRepository();
-                theRepo.Save(_db.DanhSachTheTV);
-
-                // 3. Lưu Hàng hóa
-                InventoryRepository productRepo = new InventoryRepository();
-                productRepo.Save(_db.DanhSachHang);
-
-                // (Nếu cần lưu thêm Khuyến mãi, Nhân viên... thì thêm repo.Save tương ứng ở đây)
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi lưu dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            if (!_hoaDonHienTai.DaApDungVoucher) label3.Text = "Giảm giá/Voucher: 0 đ";
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -494,7 +386,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             if (ketQua.StartsWith("Th"))
             {
                 double soTienGiam = tongTruoc - _hoaDonHienTai.TongTien;
-                label3.Text = "Giảm giá/Voucher: -" + soTienGiam.ToString("N0") + " đ";
+                label3.Text = "Giảm giá: -" + soTienGiam.ToString("N0") + " đ";
                 label4.Text = "Tổng tiền: " + _hoaDonHienTai.TongTien.ToString("N0") + " đ";
                 MessageBox.Show(ketQua, "Voucher", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -504,17 +396,56 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             }
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void btnThanhToan_Click(object sender, EventArgs e)
         {
-
-            DialogResult xacNhan = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?",
-                "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (xacNhan == DialogResult.Yes)
+            if (_hoaDonHienTai == null || _hoaDonHienTai.DanhSachChiTiet.Count == 0)
             {
-
-                Application.Restart();
+                MessageBox.Show("Giỏ hàng đang trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            string inputTien = Microsoft.VisualBasic.Interaction.InputBox(
+                "Tổng tiền cần thanh toán: " + _hoaDonHienTai.TongTien.ToString("N0") + " đ\n\nNhập số tiền khách đưa:",
+                "Thanh toán", _hoaDonHienTai.TongTien.ToString("F0"));
+
+            if (string.IsNullOrWhiteSpace(inputTien)) return;
+
+            double tienKhachDua = 0;
+            if (!double.TryParse(inputTien, out tienKhachDua))
+            {
+                MessageBox.Show("Số tiền không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string ketQua = _banHangService.ThanhToan(_hoaDonHienTai, tienKhachDua, _khachHangHienTai, _doiTacService);
+
+            if (ketQua == "Khong du tien" || ketQua == "Không đủ tiền")
+            {
+                MessageBox.Show("Tiền khách đưa không đủ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            double tienThua = 0;
+            double.TryParse(ketQua, out tienThua);
+
+            _db.DanhSachHD.Add(_hoaDonHienTai);
+
+            _banHangService.LuuDuLieuBanHang(_db.DanhSachTheTV);
+
+            string bill = _banHangService.LayNoiDungHoaDon(_hoaDonHienTai);
+            bill += "\nTiền khách đưa : " + tienKhachDua.ToString("N0") + " đ";
+            bill += "\nTiền thừa      : " + tienThua.ToString("N0") + " đ";
+            bill += "\n\n   Cảm ơn quý khách! Hẹn gặp lại!";
+
+            MessageBox.Show(bill, "HÓA ĐƠN - " + _hoaDonHienTai.MaHD, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            TaoHoaDonMoi();
+            txtTimKH.Text = PLACEHOLDER_SDT;
+            txtTimKH.ForeColor = Color.Gray;
+            txtTimKiem.Text = PLACEHOLDER_TIM_KIEM;
+            txtTimKiem.ForeColor = Color.Gray;
+            _danhSachHienThi = new List<HangHoa>(_db.DanhSachHang);
+            HienThiDanhSachSanPham(_danhSachHienThi);
         }
 
         private void btnDangKyThe_Click(object sender, EventArgs e)
@@ -523,14 +454,13 @@ namespace ChuongtrinhQuanlybanhangsieuthi
 
             if (_khachHangHienTai == null)
             {
-                if (string.IsNullOrEmpty(sdt) || sdt == "Nhập SĐT khách hàng...") 
+                if (string.IsNullOrEmpty(sdt) || sdt == PLACEHOLDER_SDT)
                 {
-                    MessageBox.Show("Vui lòng nhập SĐT khách hàng vào ô tìm kiếm trước!",
-                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng nhập SĐT khách hàng vào ô tìm kiếm trước!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                DialogResult hoiNhanh = MessageBox.Show("SĐT này chưa có trong hệ thống. Bạn có muốn tạo khách hàng mới để cấp thẻ không?",
+                DialogResult hoiNhanh = MessageBox.Show("SĐT chưa có trong hệ thống. Bạn có muốn tạo khách hàng mới để cấp thẻ không?",
                     "Khách hàng mới", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (hoiNhanh == DialogResult.Yes)
@@ -539,19 +469,16 @@ namespace ChuongtrinhQuanlybanhangsieuthi
                     if (string.IsNullOrWhiteSpace(tenKhach)) return;
 
                     KhachHang khMoi = new KhachHang();
-                    khMoi.Ma = "KH" + (DataStorage.Instance.DanhSachKH.Count + 1).ToString("D3");
+                    khMoi.Ma = "KH" + (_db.DanhSachKH.Count + 1).ToString("D3");
                     khMoi.HoTen = tenKhach;
                     khMoi.SoDienThoai = sdt;
                     khMoi.DiemTichLuy = 0;
-                    DataStorage.Instance.DanhSachKH.Add(khMoi);
+                    _doiTacService.ThemKhachHang(khMoi);
 
                     _khachHangHienTai = khMoi;
                     _hoaDonHienTai.MaKH = khMoi.Ma;
                 }
-                else
-                {
-                    return; 
-                }
+                else return;
             }
 
             string maTheMoi = "TV" + _khachHangHienTai.SoDienThoai;
@@ -559,15 +486,12 @@ namespace ChuongtrinhQuanlybanhangsieuthi
 
             if (ketQua == "Đăng ký thẻ thành viên thành công!")
             {
-                DataStorage.Instance.DanhSachTheTV.Add(_khachHangHienTai.TheTV);
-                TheThanhVienRepository theRepo = new TheThanhVienRepository();
-                theRepo.Save(DataStorage.Instance.DanhSachTheTV);
+                _db.DanhSachTheTV.Add(_khachHangHienTai.TheTV);
 
-                // Cập nhật lại giao diện ngay lập tức
-                string info = "Khách: " + _khachHangHienTai.HoTen
-                            + "  |  Điểm: " + _khachHangHienTai.DiemTichLuy
-                            + "  |  Thẻ: " + _khachHangHienTai.TheTV.MaThe;
-                Giohang.Text = info;
+                _doiTacService.LuuDuLieuDoiTac();// hiện chỉ lưu ncc
+
+                string info = "Khách: " + _khachHangHienTai.HoTen + "  |  Điểm: " + _khachHangHienTai.DiemTichLuy + "  |  Thẻ: " + _khachHangHienTai.TheTV.MaThe;
+                if (Giohang != null) Giohang.Text = info;
 
                 MessageBox.Show(ketQua, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -576,5 +500,21 @@ namespace ChuongtrinhQuanlybanhangsieuthi
                 MessageBox.Show(ketQua, "Lỗi đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult xacNhan = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (xacNhan == DialogResult.Yes) Application.Restart();
+        }
+
+        // Dọn dẹp các sự kiện rỗng
+        private void groupBox1_Enter(object sender, EventArgs e) { }
+        private void groupBox2_Enter(object sender, EventArgs e) { }
+        private void button1_Click(object sender, EventArgs e) { }
+        private void pB1_Click(object sender, EventArgs e) { }
+        private void label9_Click(object sender, EventArgs e) { }
+        private void Giohang_Click(object sender, EventArgs e) { }
+        private void panel3_Paint(object sender, PaintEventArgs e) { }
+        private void btnLamMoi_Click(object sender, EventArgs e) { }
     }
 }

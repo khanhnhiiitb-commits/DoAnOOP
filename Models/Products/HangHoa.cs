@@ -15,7 +15,15 @@ namespace QuanLySieuThi.Models.Products
         // Properties 
         public string MaHH { get { return maHH; } set { maHH = value; } }
         public string TenHang { get { return tenHang; } set { tenHang = value; } }
-        public double DonGia { get { return donGia; } set { if (value >= 0) donGia = value; } }
+        public double DonGia 
+        { 
+            get { return donGia; } 
+            set 
+            { 
+                if (value >= 0) donGia = value; 
+                else donGia = 0;
+            } 
+        }
         public int SoLuongTon 
         { get { return soLuongTon; } 
           set 

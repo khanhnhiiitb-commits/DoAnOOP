@@ -1,14 +1,14 @@
-﻿using QuanLySieuThi.Models.Sales;
+﻿using QuanLySieuThi.Data;
+using QuanLySieuThi.Models.Sales;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using System.Windows.Forms;
 namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
-    public class TheThanhVienRepository 
+    public class TheThanhVienRepository : IRepository<TheThanhVien>
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_thethanhvien.json";
+        private readonly string filePath = @"DataAccess\DatabaseFile\database_thethanhvien.json";
         private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
 
         public List<TheThanhVien> GetAll()
@@ -25,7 +25,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi đọc JSON Thẻ Thành Viên: " + ex.Message);
+                throw new Exception("Lỗi đọc JSON Thẻ Thành Viên: " + ex.Message);
             }
             return ds;
         }
@@ -39,7 +39,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi lưu JSON Thẻ Thành Viên: " + ex.Message);
+                throw new Exception("Lỗi lưu JSON Thẻ Thành Viên: " + ex.Message);
             }
         }
     }

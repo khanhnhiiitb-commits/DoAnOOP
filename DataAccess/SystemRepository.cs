@@ -12,7 +12,7 @@ namespace QuanLySieuThi.Data
 {
     public class SystemRepository
     {
-        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_system.json";
+        private readonly string filePath =   @"DataAccess\DatabaseFile\database_system.json";
         private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
 
         private SystemData GetAllData()
@@ -25,7 +25,7 @@ namespace QuanLySieuThi.Data
                 if (!string.IsNullOrWhiteSpace(json))
                     data = JsonSerializer.Deserialize<SystemData>(json, options);
             }
-            catch (Exception ex) { MessageBox.Show("Lỗi đọc file JSON System: " + ex.Message); }
+            catch (Exception ex) { throw new Exception("Lỗi đọc file JSON System: " + ex.Message); }
             return data;
         }
 
@@ -55,7 +55,7 @@ namespace QuanLySieuThi.Data
                 Directory.CreateDirectory(Path.GetDirectoryName(filePath));
                 File.WriteAllText(filePath, JsonSerializer.Serialize(data, options));
             }
-            catch (Exception ex) { MessageBox.Show("Lỗi lưu file JSON System: " + ex.Message); }
+            catch (Exception ex) { throw new Exception("Lỗi lưu file JSON System: " + ex.Message); }
         }
     }
 }

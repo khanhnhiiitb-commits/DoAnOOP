@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using QuanLySieuThi.Models.Systems;
-using QuanLySieuThi.Models.Sales; 
 using QuanLySieuThi.Models.Products; 
+using QuanLySieuThi.Models.Sales; 
+using QuanLySieuThi.Models.Systems;
+using ChuongtrinhQuanlybanhangsieuthi.DataAccess;
 
 namespace QuanLySieuThi.Services
 {
@@ -40,7 +41,7 @@ namespace QuanLySieuThi.Services
                     serviceKho.CapNhatSoLuong(ct.MaHH, ct.SoLuong);
                     CapNhatGiaNhap(ct.MaHH, ct.DonGia, serviceKho);
                 }
-                pn.XacNhanXuatKho();
+                pn.XacNhanNhapKho();
             }
         }
         public void CapNhatGiaNhap(string maHH, double giaMoi, QuanLyKho serviceKho)
@@ -69,6 +70,12 @@ namespace QuanLySieuThi.Services
                 }
             }
             return false;
+        }
+
+        public void LuuDuLieuPhieuNhap()
+        {
+            PhieuNhapRepository repo = new PhieuNhapRepository();
+            repo.Save(this.danhSachPhieuNhap);
         }
     }
 }

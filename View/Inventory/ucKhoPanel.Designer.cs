@@ -86,9 +86,9 @@
             // 
             btnNhaCungCap.BackColor = SystemColors.GradientInactiveCaption;
             btnNhaCungCap.FlatStyle = FlatStyle.Flat;
-            btnNhaCungCap.Location = new Point(16, 237);
+            btnNhaCungCap.Location = new Point(0, 237);
             btnNhaCungCap.Name = "btnNhaCungCap";
-            btnNhaCungCap.Size = new Size(229, 47);
+            btnNhaCungCap.Size = new Size(267, 49);
             btnNhaCungCap.TabIndex = 4;
             btnNhaCungCap.Text = "Nhà cung cấp";
             btnNhaCungCap.TextAlign = ContentAlignment.MiddleLeft;
@@ -99,9 +99,9 @@
             // 
             btnQuanLyKeHang.BackColor = SystemColors.GradientInactiveCaption;
             btnQuanLyKeHang.FlatStyle = FlatStyle.Flat;
-            btnQuanLyKeHang.Location = new Point(16, 184);
+            btnQuanLyKeHang.Location = new Point(0, 184);
             btnQuanLyKeHang.Name = "btnQuanLyKeHang";
-            btnQuanLyKeHang.Size = new Size(229, 47);
+            btnQuanLyKeHang.Size = new Size(267, 47);
             btnQuanLyKeHang.TabIndex = 3;
             btnQuanLyKeHang.Text = "Quản lý kệ hàng";
             btnQuanLyKeHang.TextAlign = ContentAlignment.MiddleLeft;
@@ -112,9 +112,9 @@
             // 
             btnPhieuNhap.BackColor = SystemColors.GradientInactiveCaption;
             btnPhieuNhap.FlatStyle = FlatStyle.Flat;
-            btnPhieuNhap.Location = new Point(16, 131);
+            btnPhieuNhap.Location = new Point(0, 131);
             btnPhieuNhap.Name = "btnPhieuNhap";
-            btnPhieuNhap.Size = new Size(229, 47);
+            btnPhieuNhap.Size = new Size(267, 47);
             btnPhieuNhap.TabIndex = 2;
             btnPhieuNhap.Text = "Phiếu nhập";
             btnPhieuNhap.TextAlign = ContentAlignment.MiddleLeft;
@@ -126,9 +126,9 @@
             btnTonKho.BackColor = SystemColors.GradientInactiveCaption;
             btnTonKho.FlatStyle = FlatStyle.Flat;
             btnTonKho.ForeColor = SystemColors.ActiveCaptionText;
-            btnTonKho.Location = new Point(15, 78);
+            btnTonKho.Location = new Point(0, 78);
             btnTonKho.Name = "btnTonKho";
-            btnTonKho.Size = new Size(229, 47);
+            btnTonKho.Size = new Size(267, 47);
             btnTonKho.TabIndex = 1;
             btnTonKho.Text = "Tồn kho";
             btnTonKho.TextAlign = ContentAlignment.MiddleLeft;
@@ -146,7 +146,6 @@
             label1.Size = new Size(151, 40);
             label1.TabIndex = 0;
             label1.Text = "Inventory";
-            label1.Click += label1_Click;
             // 
             // pnlContainer
             // 

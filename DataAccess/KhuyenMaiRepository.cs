@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
@@ -38,7 +38,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi đọc file JSON chương trình khuyến mãi: " + ex.Message, "Lỗi");
+                throw new Exception("Lỗi khi đọc file JSON chương trình khuyến mãi: " + ex.Message);
             }
 
             return danhSach;
@@ -60,7 +60,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lưu file JSON chương trình khuyến mãi: " + ex.Message, "Lỗi");
+                throw new Exception("Lỗi khi lưu file JSON chương trình khuyến mãi: " + ex.Message);
             }
         }
     }

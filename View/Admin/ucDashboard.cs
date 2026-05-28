@@ -1,87 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLySieuThi.Data;
-using QuanLySieuThi.Models.Systems;
 using QuanLySieuThi.Services;
-using static QuanLySieuThi.Services.BaoCaoThongKe;
+using static QuanLySieuThi.Services.BaoCaoThongKe; 
 
 namespace ChuongtrinhQuanlybanhangsieuthi.View.Admin
 {
     public partial class ucDashboard : UserControl
     {
-        //sửa
-        BaoCaoThongKe serviceThongKe;
+        private BaoCaoThongKe serviceThongKe;
+
         public ucDashboard()
         {
             InitializeComponent();
         }
-        private void HienThiTopSanPham(BaoCaoThongKe service)
-        {
-            List<HangHoaDoanhThu> top5 = service.LayTopSanPhamBanChay(5);
 
-            dgvTopSanPham.DataSource = null;
-            dgvTopSanPham.DataSource = top5;
-            if (dgvTopSanPham.Columns.Count > 0)
+        private void ucDashboard_Load(object sender, EventArgs e)
+        {
+            CapNhatGiaoDien();
+        }
+
+        public void CapNhatGiaoDien()
+        {
+            try
             {
-                dgvTopSanPham.Columns["TenHang"].HeaderText = "Sản phẩm";
-                dgvTopSanPham.Columns["DoanhThu"].HeaderText = "Doanh thu";
-                dgvTopSanPham.Columns["DoanhThu"].DefaultCellStyle.Format = "N0";
-                dgvTopSanPham.Columns["TenHang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                serviceThongKe = new BaoCaoThongKe(
+                    DataStorage.Instance.DanhSachHD,
+                    DataStorage.Instance.DanhSachHang
+                );
+                CapNhatDuLieuDashboard();
+                HienThiTopSanPham(serviceThongKe);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tải dữ liệu Tổng quan: " + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        public void CapNhatGiaoDien()
-        {//sửa
-            serviceThongKe = new BaoCaoThongKe(
-                DataStorage.Instance.DanhSachHD,
-                DataStorage.Instance.DanhSachHang
-            );
-            CapNhatDuLieuDashboard();
-            HienThiTopSanPham(serviceThongKe);
-            Console.WriteLine("Dashboard đã tự refresh lúc: " + DateTime.Now);
-        }
+
         private void CapNhatDuLieuDashboard()
         {
-
-            DateTime bayGio = DateTime.Now;
-            double doanhThuThang = serviceThongKe.TinhDoanhThuTheoThang(bayGio.Month, bayGio.Year);
-            int soDonHang = DataStorage.Instance.DanhSachHD.Count;
+            double doanhThuThang, chiPhiNhap;
+            int soDonHang;
+            serviceThongKe.LayThongSoDashboard(DataStorage.Instance.DanhSachPhieuNhap, out doanhThuThang, out soDonHang, out chiPhiNhap);
             int soKhachHang = DataStorage.Instance.DanhSachKH.Count;
-            double chiPhiNhap = 0;
-            foreach (PhieuNhap pn in DataStorage.Instance.DanhSachPhieuNhap)
-            {
-                chiPhiNhap += pn.TongTien;
-            }
-
             lblTongDT.Text = doanhThuThang.ToString("N0") + " đ";
             lblSoDonHang.Text = soDonHang.ToString();
             lblKHMoi.Text = soKhachHang.ToString();
             lblCPNhapHang.Text = chiPhiNhap.ToString("N0") + " đ";
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void HienThiTopSanPham(BaoCaoThongKe service)
         {
+            List<HangHoaDoanhThu> top5 = service.LayTopSanPhamBanChay(5);
+            dgvTopSanPham.DataSource = null;
+            dgvTopSanPham.DataSource = top5;
 
-        }
-
-        private void ucDashboard_Load(object sender, EventArgs e)
-        {//sửa
-            serviceThongKe = new BaoCaoThongKe(
-                DataStorage.Instance.DanhSachHD,
-                DataStorage.Instance.DanhSachHang
-            );
-            CapNhatDuLieuDashboard();
-            HienThiTopSanPham(serviceThongKe);
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
+            if (dgvTopSanPham.Columns.Count > 0)
+            {
+                dgvTopSanPham.Columns["TenHang"].HeaderText = "Sản phẩm";
+                dgvTopSanPham.Columns["DoanhThu"].HeaderText = "Doanh thu";
+                dgvTopSanPham.Columns["DoanhThu"].DefaultCellStyle.Format = "N0";
+                dgvTopSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
         }
     }
 }

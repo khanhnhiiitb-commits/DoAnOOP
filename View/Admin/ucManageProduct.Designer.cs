@@ -210,7 +210,6 @@
             label8.Size = new Size(129, 28);
             label8.TabIndex = 9;
             label8.Text = "Ngày hết hạn";
-            label8.Click += label8_Click;
             // 
             // label7
             // 
@@ -251,7 +250,6 @@
             label4.Size = new Size(135, 28);
             label4.TabIndex = 5;
             label4.Text = "Ngày sản xuất";
-            label4.Click += label4_Click;
             // 
             // label3
             // 

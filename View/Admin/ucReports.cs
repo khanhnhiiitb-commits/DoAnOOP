@@ -9,99 +9,48 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLySieuThi.Services;
 
 namespace ChuongtrinhQuanlybanhangsieuthi.View
 {
     public partial class ucReports : UserControl
     {
+        private BaoCaoThongKe serviceThongKe;
+
         public ucReports()
         {
             InitializeComponent();
         }
-        //sửa
+
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
             DateTime tuNgay = DatePicker1.Value.Date;
             DateTime denNgay = DatePicker2.Value.Date.AddDays(1).AddSeconds(-1);
+
             if (tuNgay > denNgay)
             {
-                MessageBox.Show("Từ ngày không thể lớn hơn Đến ngày!");
+                MessageBox.Show("Từ ngày không thể lớn hơn Đến ngày!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            serviceThongKe = new BaoCaoThongKe(DataStorage.Instance.DanhSachHD, DataStorage.Instance.DanhSachHang);
+            int tongSoHoaDon;
+            double tongDoanhThu;
+            string tenMatHangBanChay;
+            List<HoaDon> dsHoaDonTrongKy;
 
-            int tongSoHoaDon = 0;
-            double tongDoanhThu = 0;
-            List<HoaDon> dsHoaDonTrongKy = new List<HoaDon>();
-            Dictionary<string, int> boDemSanPham = new Dictionary<string, int>();
-
-            // 1. Dùng tường minh 'HoaDon' thay vì 'var'
-            foreach (HoaDon hd in DataStorage.Instance.DanhSachHD)
-            {
-                // QUAN TRỌNG: Gọi hàm tính tổng tiền vì JSON không có sẵn dữ liệu này!
-                hd.TinhTongTien();
-
-                if (hd.NgayTao >= tuNgay && hd.NgayTao <= denNgay && hd.TrangThaiTT == true)
-                {
-                    tongSoHoaDon++;
-                    tongDoanhThu += hd.TongTien;
-                    dsHoaDonTrongKy.Add(hd);
-
-                    // 2. Dùng tường minh 'ChiTietHoaDon' thay vì 'var'
-                    foreach (ChiTietHoaDon ct in hd.DanhSachChiTiet)
-                    {
-                        if (boDemSanPham.ContainsKey(ct.MaHH))
-                        {
-                            boDemSanPham[ct.MaHH] += ct.SoLuongMua;
-                        }
-                        else
-                        {
-                            boDemSanPham.Add(ct.MaHH, ct.SoLuongMua);
-                        }
-                    }
-                }
-            }
-
-            string maBanChayNhat = "";
-            int maxSoLuong = 0;
-
-            // 3. Dùng tường minh 'KeyValuePair<string, int>' thay vì 'var'
-            foreach (KeyValuePair<string, int> item in boDemSanPham)
-            {
-                if (item.Value > maxSoLuong)
-                {
-                    maxSoLuong = item.Value;
-                    maBanChayNhat = item.Key;
-                }
-            }
-
-            string tenMatHangBanChay = "Chưa có dữ liệu";
-            if (maxSoLuong > 0)
-            {
-                // 4. Dùng tường minh 'HangHoa' thay vì 'var'
-                foreach (HangHoa hh in DataStorage.Instance.DanhSachHang)
-                {
-                    if (hh.MaHH == maBanChayNhat)
-                    {
-                        tenMatHangBanChay = hh.TenHang;
-                        break;
-                    }
-                }
-            }
+            serviceThongKe.LapBaoCaoChiTiet(tuNgay, denNgay, out tongSoHoaDon, out tongDoanhThu, out tenMatHangBanChay, out dsHoaDonTrongKy);
 
             lblTongHD.Text = tongSoHoaDon.ToString();
             lblTongDT.Text = tongDoanhThu.ToString("N0") + " VNĐ";
             lblMathang.Text = tenMatHangBanChay;
 
             dgvLichSuGD.DataSource = null;
-
-            // 5. Khởi tạo DataTable thay vì dùng List<object> và anonymous type (new { ... })
             DataTable dtHienThi = new DataTable();
             dtHienThi.Columns.Add("MaHD", typeof(string));
             dtHienThi.Columns.Add("NgayTao", typeof(string));
             dtHienThi.Columns.Add("TongTien", typeof(string));
             dtHienThi.Columns.Add("TrangThai", typeof(string));
 
-            // 6. Dùng tường minh 'HoaDon' thay vì 'var'
             foreach (HoaDon hd in dsHoaDonTrongKy)
             {
                 dtHienThi.Rows.Add(

@@ -240,7 +240,6 @@
             dgvNCC.Size = new Size(366, 487);
             dgvNCC.TabIndex = 5;
             dgvNCC.CellClick += dgvNCC_CellClick;
-            dgvNCC.CellContentClick += dgvNCC_CellContentClick;
             // 
             // colMaNCC
             // 
