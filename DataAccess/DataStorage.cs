@@ -157,6 +157,15 @@ namespace QuanLySieuThi.Data
             SalesRepository salesRepo = new SalesRepository();
             DanhSachHD = salesRepo.GetHoaDons();
 
+            // ==========================================
+            // THÊM ĐOẠN NÀY ĐỂ TÍNH TỔNG TIỀN NGAY LẬP TỨC
+            foreach (HoaDon hd in DanhSachHD)
+            {
+                hd.TinhTongTien();
+            }
+            // ==========================================
+
+            // Lấy thêm Voucher từ file Sales và gộp chung vào DanhSachVoucher
             List<Voucher> vcSales = salesRepo.GetVouchers();
             foreach (Voucher v in vcSales)
             {
