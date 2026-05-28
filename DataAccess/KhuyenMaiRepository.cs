@@ -2,16 +2,18 @@
 using QuanLySieuThi.Models.Systems;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
     public class KhuyenMaiRepository : IRepository<ChuongTrinhKhuyenMai>
     {
-        private readonly string filePath = @"\DataAccess\DatabaseFile\database_khuyenmai.txt";
+        private readonly string filePath = @"DataAccess\DatabaseFile\database_khuyenmai.json";
+
         public List<ChuongTrinhKhuyenMai> GetAll()
         {
             List<ChuongTrinhKhuyenMai> danhSach = new List<ChuongTrinhKhuyenMai>();
@@ -19,34 +21,24 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 
             try
             {
-                string[] lines = File.ReadAllLines(filePath);
-                ChuongTrinhKhuyenMai currentKM = null;
+                // 1. Đọc toàn bộ nội dung file json
+                string jsonString = File.ReadAllText(filePath);
 
-                foreach (string line in lines)
+                // 2. Cài đặt tùy chọn phân tích JSON
+                JsonSerializerOptions options = new JsonSerializerOptions();
+                options.PropertyNameCaseInsensitive = true;
+
+                // 3. Ép kiểu tự động từ chuỗi JSON ra List object (Thay thế hoàn toàn maptoline)
+                List<ChuongTrinhKhuyenMai> ketQua = JsonSerializer.Deserialize<List<ChuongTrinhKhuyenMai>>(jsonString, options);
+
+                if (ketQua != null)
                 {
-                    if (string.IsNullOrWhiteSpace(line)) continue;
-
-                    string[] parts = line.Split('|');
-                    string loaiDong = parts[0];
-
-                    if (loaiDong == "KM")
-                    {
-                        currentKM = MapLineToKhuyenMai(parts);
-                        if (currentKM != null) danhSach.Add(currentKM);
-                    }
-                    else if (loaiDong == "CTKM" && currentKM != null)
-                    {
-                        ChiTietChuongTrinhKM chiTiet = MapLineToChiTiet(parts);
-                        if (chiTiet != null)
-                        {
-                            currentKM.ThemChiTiet(chiTiet);
-                        }
-                    }
+                    danhSach = ketQua;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi đọc file chương trình khuyến mãi: " + ex.Message);
+                MessageBox.Show("Lỗi khi đọc file JSON chương trình khuyến mãi: " + ex.Message, "Lỗi");
             }
 
             return danhSach;
@@ -54,90 +46,22 @@ namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 
         public void Save(List<ChuongTrinhKhuyenMai> danhSach)
         {
-            List<string> lines = new List<string>();
-            foreach (ChuongTrinhKhuyenMai km in danhSach)
-            {
-                lines.Add(MapKhuyenMaiToLine(km));
-
-                foreach (ChiTietChuongTrinhKM ct in km.DanhSachChiTiet)
-                {
-                    string lineCT = "CTKM|" + ct.MaCTKM + "|" + ct.MaMH + "|" + ct.PhanTramGiam;
-                    lines.Add(lineCT);
-                }
-            }
-
             try
             {
-                File.WriteAllLines(filePath, lines.ToArray());
+                // 1. Cài đặt tùy chọn để file JSON in ra có thụt lề cho đẹp, dễ đọc
+                JsonSerializerOptions options = new JsonSerializerOptions();
+                options.WriteIndented = true;
+
+                // 2. Tự động mã hóa List object thành chuỗi JSON
+                string jsonString = JsonSerializer.Serialize<List<ChuongTrinhKhuyenMai>>(danhSach, options);
+
+                // 3. Ghi đè vào file
+                File.WriteAllText(filePath, jsonString);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lưu file chương trình khuyến mãi: " + ex.Message);
+                MessageBox.Show("Lỗi khi lưu file JSON chương trình khuyến mãi: " + ex.Message, "Lỗi");
             }
-        }
-
-        // --- HELPER METHODS ---
-
-        private ChuongTrinhKhuyenMai MapLineToKhuyenMai(string[] p)
-        {
-            try
-            {
-                ChuongTrinhKhuyenMai km = null;
-                string loaiKM = p[1];
-
-                // Cần điền đúng tên lớp con của bạn tại đây
-                if (loaiKM == "GiamTheoSP")
-                {
-                    // km = new KhuyenMaiTheoSanPham(); 
-                }
-                else if (loaiKM == "GiamTongBill")
-                {
-                    // km = new KhuyenMaiTongBill();
-                }
-
-                if (km != null)
-                {
-                    km.MaCTKM = p[2];
-                    km.TenCT = p[3];
-                    km.NgayBatDau = DateTime.Parse(p[4]);
-                    km.NgayKetThuc = DateTime.Parse(p[5]);
-                    km.NoiDung = p[6];
-                }
-
-                return km;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        private ChiTietChuongTrinhKM MapLineToChiTiet(string[] p)
-        {
-            try
-            {
-                ChiTietChuongTrinhKM ct = new ChiTietChuongTrinhKM();
-                ct.MaCTKM = p[1];
-                ct.MaMH = p[2];
-                ct.PhanTramGiam = double.Parse(p[3]);
-                return ct;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        private string MapKhuyenMaiToLine(ChuongTrinhKhuyenMai km)
-        {
-            string nbd = km.NgayBatDau.ToString("yyyy-MM-dd");
-            string nkt = km.NgayKetThuc.ToString("yyyy-MM-dd");
-
-            string loaiKM = "Khac";
-            // Cần điền đúng tên lớp con của bạn tại đây
-            //if (km is KhuyenMaiTheoSanPham) loaiKM = "GiamTheoSP";
-            // else if (km is KhuyenMaiTongBill) loaiKM = "GiamTongBill";
-            return "KM|" + loaiKM + "|" + km.MaCTKM + "|" + km.TenCT + "|" + nbd + "|" + nkt + "|" + km.NoiDung;
         }
     }
 }
