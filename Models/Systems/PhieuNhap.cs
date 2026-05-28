@@ -5,7 +5,7 @@ using QuanLySieuThi.Models.Sales;
 namespace QuanLySieuThi.Models.Systems
 {
   public class PhieuNhap
- {
+  {
         private string maPN;
         private NhaCungCap nhaCC;
         private DateTime ngayNhap;

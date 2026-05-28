@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLySieuThi.Models.Products;
 using QuanLySieuThi.Data;
-using QuanLySieuThi.Models.Products;
 using QuanLySieuThi.Services;
 
 namespace ChuongtrinhQuanlybanhangsieuthi.View

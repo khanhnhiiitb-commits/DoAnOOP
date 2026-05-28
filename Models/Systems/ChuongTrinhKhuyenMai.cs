@@ -20,7 +20,8 @@ namespace QuanLySieuThi.Models.Systems
             set 
             {
                 ngayBatDau = value;
-                if (ngayKetThuc != DateTime.MinValue && ngayBatDau > ngayKetThuc) ngayKetThuc = ngayBatDau;
+                if (ngayKetThuc != DateTime.MinValue && ngayBatDau > ngayKetThuc) 
+                    ngayKetThuc = ngayBatDau;
             }
         }
 
