@@ -130,13 +130,28 @@
   <data name="iconPackage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\package_2_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logout_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inventory_2_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inventory_2_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconLineChart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\show_chart_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shelves_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shelves_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconPeople" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\contacts_product_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logout_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="order_approve_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\order_approve_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inventory_2_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inventory_2_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="partner_exchange_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\partner_exchange_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

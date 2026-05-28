@@ -84,54 +84,66 @@
             // 
             // btnNhaCungCap
             // 
-            btnNhaCungCap.BackColor = SystemColors.GradientInactiveCaption;
+            btnNhaCungCap.BackColor = SystemColors.ActiveCaption;
+            btnNhaCungCap.FlatAppearance.BorderSize = 0;
             btnNhaCungCap.FlatStyle = FlatStyle.Flat;
+            btnNhaCungCap.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNhaCungCap.Image = Properties.Resources.partner_exchange_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40;
+            btnNhaCungCap.ImageAlign = ContentAlignment.MiddleLeft;
             btnNhaCungCap.Location = new Point(0, 237);
             btnNhaCungCap.Name = "btnNhaCungCap";
             btnNhaCungCap.Size = new Size(267, 49);
             btnNhaCungCap.TabIndex = 4;
             btnNhaCungCap.Text = "Nhà cung cấp";
-            btnNhaCungCap.TextAlign = ContentAlignment.MiddleLeft;
             btnNhaCungCap.UseVisualStyleBackColor = false;
             btnNhaCungCap.Click += btnNhaCungCap_Click;
             // 
             // btnQuanLyKeHang
             // 
-            btnQuanLyKeHang.BackColor = SystemColors.GradientInactiveCaption;
+            btnQuanLyKeHang.BackColor = SystemColors.ActiveCaption;
+            btnQuanLyKeHang.FlatAppearance.BorderSize = 0;
             btnQuanLyKeHang.FlatStyle = FlatStyle.Flat;
+            btnQuanLyKeHang.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnQuanLyKeHang.Image = Properties.Resources.shelves_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40;
+            btnQuanLyKeHang.ImageAlign = ContentAlignment.MiddleLeft;
             btnQuanLyKeHang.Location = new Point(0, 184);
             btnQuanLyKeHang.Name = "btnQuanLyKeHang";
             btnQuanLyKeHang.Size = new Size(267, 47);
             btnQuanLyKeHang.TabIndex = 3;
             btnQuanLyKeHang.Text = "Quản lý kệ hàng";
-            btnQuanLyKeHang.TextAlign = ContentAlignment.MiddleLeft;
             btnQuanLyKeHang.UseVisualStyleBackColor = false;
             btnQuanLyKeHang.Click += btnQuanLyKeHang_Click;
             // 
             // btnPhieuNhap
             // 
-            btnPhieuNhap.BackColor = SystemColors.GradientInactiveCaption;
+            btnPhieuNhap.BackColor = SystemColors.ActiveCaption;
+            btnPhieuNhap.FlatAppearance.BorderSize = 0;
             btnPhieuNhap.FlatStyle = FlatStyle.Flat;
+            btnPhieuNhap.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPhieuNhap.Image = Properties.Resources.order_approve_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40;
+            btnPhieuNhap.ImageAlign = ContentAlignment.MiddleLeft;
             btnPhieuNhap.Location = new Point(0, 131);
             btnPhieuNhap.Name = "btnPhieuNhap";
             btnPhieuNhap.Size = new Size(267, 47);
             btnPhieuNhap.TabIndex = 2;
             btnPhieuNhap.Text = "Phiếu nhập";
-            btnPhieuNhap.TextAlign = ContentAlignment.MiddleLeft;
             btnPhieuNhap.UseVisualStyleBackColor = false;
             btnPhieuNhap.Click += btnPhieuNhap_Click;
             // 
             // btnTonKho
             // 
-            btnTonKho.BackColor = SystemColors.GradientInactiveCaption;
+            btnTonKho.BackColor = SystemColors.ActiveCaption;
+            btnTonKho.FlatAppearance.BorderSize = 0;
             btnTonKho.FlatStyle = FlatStyle.Flat;
+            btnTonKho.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTonKho.ForeColor = SystemColors.ActiveCaptionText;
+            btnTonKho.Image = Properties.Resources.inventory_2_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40__1_;
+            btnTonKho.ImageAlign = ContentAlignment.MiddleLeft;
             btnTonKho.Location = new Point(0, 78);
             btnTonKho.Name = "btnTonKho";
             btnTonKho.Size = new Size(267, 47);
             btnTonKho.TabIndex = 1;
             btnTonKho.Text = "Tồn kho";
-            btnTonKho.TextAlign = ContentAlignment.MiddleLeft;
             btnTonKho.UseVisualStyleBackColor = false;
             btnTonKho.Click += btnTonKho_Click;
             // 
@@ -139,11 +151,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ActiveCaption;
-            label1.Font = new Font("Segoe UI Emoji", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Font = new Font("Palatino Linotype", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(47, 18);
             label1.Name = "label1";
-            label1.Size = new Size(151, 40);
+            label1.Size = new Size(171, 46);
             label1.TabIndex = 0;
             label1.Text = "Inventory";
             // 

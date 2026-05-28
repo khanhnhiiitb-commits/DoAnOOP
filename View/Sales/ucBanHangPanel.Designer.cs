@@ -75,7 +75,7 @@
             btnDienTu.Location = new Point(517, 23);
             btnDienTu.Name = "btnDienTu";
             btnDienTu.RightToLeft = RightToLeft.Yes;
-            btnDienTu.Size = new Size(81, 30);
+            btnDienTu.Size = new Size(92, 44);
             btnDienTu.TabIndex = 2;
             btnDienTu.Text = "Điện tử";
             btnDienTu.UseVisualStyleBackColor = false;
@@ -116,7 +116,7 @@
             btnThucPham.Location = new Point(615, 23);
             btnThucPham.Name = "btnThucPham";
             btnThucPham.RightToLeft = RightToLeft.Yes;
-            btnThucPham.Size = new Size(120, 30);
+            btnThucPham.Size = new Size(120, 44);
             btnThucPham.TabIndex = 9;
             btnThucPham.Text = "Thực phẩm";
             btnThucPham.UseVisualStyleBackColor = false;
@@ -129,7 +129,7 @@
             btnTatCa.Location = new Point(415, 23);
             btnTatCa.Name = "btnTatCa";
             btnTatCa.RightToLeft = RightToLeft.Yes;
-            btnTatCa.Size = new Size(81, 30);
+            btnTatCa.Size = new Size(96, 44);
             btnTatCa.TabIndex = 8;
             btnTatCa.Text = "Tất cả";
             btnTatCa.UseVisualStyleBackColor = false;

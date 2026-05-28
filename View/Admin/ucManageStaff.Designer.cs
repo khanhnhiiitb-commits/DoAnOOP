@@ -82,8 +82,9 @@
             // 
             // btnReset
             // 
-            btnReset.BackColor = Color.Coral;
-            btnReset.Location = new Point(1008, 91);
+            btnReset.BackColor = Color.Maroon;
+            btnReset.ForeColor = SystemColors.ButtonHighlight;
+            btnReset.Location = new Point(977, 91);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(99, 43);
             btnReset.TabIndex = 8;
@@ -123,7 +124,7 @@
             txtDiaChi.BackColor = SystemColors.InactiveCaption;
             txtDiaChi.Location = new Point(593, 91);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(378, 34);
+            txtDiaChi.Size = new Size(358, 34);
             txtDiaChi.TabIndex = 15;
             // 
             // txtSDT
@@ -233,9 +234,9 @@
             // 
             btnThem.BackColor = SystemColors.ActiveCaption;
             btnThem.ForeColor = SystemColors.ControlText;
-            btnThem.Location = new Point(572, 193);
+            btnThem.Location = new Point(572, 195);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(138, 48);
+            btnThem.Size = new Size(139, 46);
             btnThem.TabIndex = 2;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;

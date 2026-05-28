@@ -50,9 +50,11 @@
             colSucChua = new DataGridViewTextBoxColumn();
             colSoLuong = new DataGridViewTextBoxColumn();
             colTrangThai = new DataGridViewTextBoxColumn();
+            groupBox2 = new GroupBox();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvKeHang).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -86,9 +88,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnXoaKeHang);
-            groupBox1.Controls.Add(btnSuaKeHang);
-            groupBox1.Controls.Add(btnThemKeHang);
+            groupBox1.Controls.Add(groupBox2);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
@@ -107,11 +107,14 @@
             // 
             // btnXoaKeHang
             // 
-            btnXoaKeHang.BackColor = SystemColors.GradientInactiveCaption;
+            btnXoaKeHang.BackColor = SystemColors.Control;
+            btnXoaKeHang.FlatAppearance.BorderSize = 0;
             btnXoaKeHang.FlatStyle = FlatStyle.Flat;
-            btnXoaKeHang.Location = new Point(163, 304);
+            btnXoaKeHang.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoaKeHang.ForeColor = SystemColors.Highlight;
+            btnXoaKeHang.Location = new Point(0, 153);
             btnXoaKeHang.Name = "btnXoaKeHang";
-            btnXoaKeHang.Size = new Size(94, 48);
+            btnXoaKeHang.Size = new Size(356, 48);
             btnXoaKeHang.TabIndex = 16;
             btnXoaKeHang.Text = "Xoá";
             btnXoaKeHang.UseVisualStyleBackColor = false;
@@ -119,11 +122,14 @@
             // 
             // btnSuaKeHang
             // 
-            btnSuaKeHang.BackColor = SystemColors.GradientInactiveCaption;
+            btnSuaKeHang.BackColor = SystemColors.Control;
+            btnSuaKeHang.FlatAppearance.BorderSize = 0;
             btnSuaKeHang.FlatStyle = FlatStyle.Flat;
-            btnSuaKeHang.Location = new Point(28, 388);
+            btnSuaKeHang.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSuaKeHang.ForeColor = SystemColors.Highlight;
+            btnSuaKeHang.Location = new Point(0, 99);
             btnSuaKeHang.Name = "btnSuaKeHang";
-            btnSuaKeHang.Size = new Size(94, 48);
+            btnSuaKeHang.Size = new Size(355, 48);
             btnSuaKeHang.TabIndex = 15;
             btnSuaKeHang.Text = "Sửa";
             btnSuaKeHang.UseVisualStyleBackColor = false;
@@ -131,11 +137,14 @@
             // 
             // btnThemKeHang
             // 
-            btnThemKeHang.BackColor = SystemColors.GradientInactiveCaption;
+            btnThemKeHang.BackColor = SystemColors.Control;
+            btnThemKeHang.FlatAppearance.BorderSize = 0;
             btnThemKeHang.FlatStyle = FlatStyle.Flat;
-            btnThemKeHang.Location = new Point(28, 304);
+            btnThemKeHang.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThemKeHang.ForeColor = SystemColors.Highlight;
+            btnThemKeHang.Location = new Point(0, 45);
             btnThemKeHang.Name = "btnThemKeHang";
-            btnThemKeHang.Size = new Size(94, 48);
+            btnThemKeHang.Size = new Size(355, 48);
             btnThemKeHang.TabIndex = 14;
             btnThemKeHang.Text = "Thêm";
             btnThemKeHang.UseVisualStyleBackColor = false;
@@ -260,6 +269,17 @@
             colTrangThai.MinimumWidth = 6;
             colTrangThai.Name = "colTrangThai";
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(btnThemKeHang);
+            groupBox2.Controls.Add(btnXoaKeHang);
+            groupBox2.Controls.Add(btnSuaKeHang);
+            groupBox2.Location = new Point(0, 263);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(361, 207);
+            groupBox2.TabIndex = 17;
+            groupBox2.TabStop = false;
+            // 
             // ucQuanLyKeHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -275,6 +295,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvKeHang).EndInit();
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -302,5 +323,6 @@
         private DataGridViewTextBoxColumn colSucChua;
         private DataGridViewTextBoxColumn colSoLuong;
         private DataGridViewTextBoxColumn colTrangThai;
+        private GroupBox groupBox2;
     }
 }

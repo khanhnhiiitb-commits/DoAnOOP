@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "F:\\OOP\\New folder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\models\\products\\kehang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:models\\products\\kehang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\controllers\\quanlynhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:controllers\\quanlynhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\controllers\\quanlynhansu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:controllers\\quanlynhansu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\controllers\\quanlykhuyenmai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:controllers\\quanlykhuyenmai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,14 +43,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "KeHang.cs",
-              "DocumentMoniker": "F:\\OOP\\New folder\\Models\\Products\\KeHang.cs",
-              "RelativeDocumentMoniker": "Models\\Products\\KeHang.cs",
-              "ToolTip": "F:\\OOP\\New folder\\Models\\Products\\KeHang.cs",
-              "RelativeToolTip": "Models\\Products\\KeHang.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
+              "Title": "QuanLyNhapHang.cs",
+              "DocumentMoniker": "F:\\OOP\\New folder\\Controllers\\QuanLyNhapHang.cs",
+              "RelativeDocumentMoniker": "Controllers\\QuanLyNhapHang.cs",
+              "ToolTip": "F:\\OOP\\New folder\\Controllers\\QuanLyNhapHang.cs",
+              "RelativeToolTip": "Controllers\\QuanLyNhapHang.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAA5wEoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T10:48:42.992Z",
+              "WhenOpened": "2026-05-28T13:27:49.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "QuanLyNhanSu.cs",
+              "DocumentMoniker": "F:\\OOP\\New folder\\Controllers\\QuanLyNhanSu.cs",
+              "RelativeDocumentMoniker": "Controllers\\QuanLyNhanSu.cs",
+              "ToolTip": "F:\\OOP\\New folder\\Controllers\\QuanLyNhanSu.cs",
+              "RelativeToolTip": "Controllers\\QuanLyNhanSu.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAowHoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T13:27:17.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuanLyKhuyenMai.cs",
+              "DocumentMoniker": "F:\\OOP\\New folder\\Controllers\\QuanLyKhuyenMai.cs",
+              "RelativeDocumentMoniker": "Controllers\\QuanLyKhuyenMai.cs",
+              "ToolTip": "F:\\OOP\\New folder\\Controllers\\QuanLyKhuyenMai.cs",
+              "RelativeToolTip": "Controllers\\QuanLyKhuyenMai.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAA0wGYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T13:26:32.014Z",
               "EditorCaption": ""
             }
           ]

@@ -57,23 +57,21 @@
             label9 = new Label();
             label1 = new Label();
             panel4 = new Panel();
+            groupBox1 = new GroupBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHangHoa).BeginInit();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(txtDVT);
             panel1.Controls.Add(label10);
-            panel1.Controls.Add(btnLuu);
-            panel1.Controls.Add(btnReset);
-            panel1.Controls.Add(btnXoa);
-            panel1.Controls.Add(btnCapnhat);
-            panel1.Controls.Add(btnThem);
             panel1.Controls.Add(DatePickerHSD);
             panel1.Controls.Add(DatePickerSX);
             panel1.Controls.Add(txtThoiGianBH);
@@ -95,16 +93,16 @@
             // 
             // txtDVT
             // 
-            txtDVT.Location = new Point(132, 206);
+            txtDVT.Location = new Point(318, 131);
             txtDVT.Name = "txtDVT";
-            txtDVT.Size = new Size(279, 27);
+            txtDVT.Size = new Size(94, 27);
             txtDVT.TabIndex = 21;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(18, 202);
+            label10.Location = new Point(204, 130);
             label10.Name = "label10";
             label10.Size = new Size(108, 28);
             label10.TabIndex = 20;
@@ -112,10 +110,14 @@
             // 
             // btnLuu
             // 
-            btnLuu.BackColor = SystemColors.ActiveCaption;
-            btnLuu.Location = new Point(146, 501);
+            btnLuu.BackColor = SystemColors.Control;
+            btnLuu.FlatAppearance.BorderSize = 0;
+            btnLuu.FlatStyle = FlatStyle.Flat;
+            btnLuu.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLuu.ForeColor = SystemColors.Highlight;
+            btnLuu.Location = new Point(-4, 169);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(125, 58);
+            btnLuu.Size = new Size(428, 46);
             btnLuu.TabIndex = 19;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = false;
@@ -123,10 +125,14 @@
             // 
             // btnReset
             // 
-            btnReset.BackColor = Color.IndianRed;
-            btnReset.Location = new Point(277, 501);
+            btnReset.BackColor = SystemColors.Control;
+            btnReset.FlatAppearance.BorderSize = 0;
+            btnReset.FlatStyle = FlatStyle.Flat;
+            btnReset.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReset.ForeColor = SystemColors.Highlight;
+            btnReset.Location = new Point(-4, 11);
             btnReset.Name = "btnReset";
-            btnReset.Size = new Size(125, 58);
+            btnReset.Size = new Size(428, 48);
             btnReset.TabIndex = 18;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = false;
@@ -134,10 +140,14 @@
             // 
             // btnXoa
             // 
-            btnXoa.BackColor = Color.IndianRed;
-            btnXoa.Location = new Point(220, 437);
+            btnXoa.BackColor = SystemColors.Control;
+            btnXoa.FlatAppearance.BorderSize = 0;
+            btnXoa.FlatStyle = FlatStyle.Flat;
+            btnXoa.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoa.ForeColor = SystemColors.Highlight;
+            btnXoa.Location = new Point(-4, 221);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(148, 58);
+            btnXoa.Size = new Size(428, 42);
             btnXoa.TabIndex = 17;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
@@ -145,10 +155,14 @@
             // 
             // btnCapnhat
             // 
-            btnCapnhat.BackColor = SystemColors.ActiveCaption;
-            btnCapnhat.Location = new Point(15, 501);
+            btnCapnhat.BackColor = SystemColors.Control;
+            btnCapnhat.FlatAppearance.BorderSize = 0;
+            btnCapnhat.FlatStyle = FlatStyle.Flat;
+            btnCapnhat.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCapnhat.ForeColor = SystemColors.Highlight;
+            btnCapnhat.Location = new Point(-4, 117);
             btnCapnhat.Name = "btnCapnhat";
-            btnCapnhat.Size = new Size(125, 58);
+            btnCapnhat.Size = new Size(428, 46);
             btnCapnhat.TabIndex = 16;
             btnCapnhat.Text = "Cập nhật";
             btnCapnhat.UseVisualStyleBackColor = false;
@@ -156,10 +170,14 @@
             // 
             // btnThem
             // 
-            btnThem.BackColor = SystemColors.ActiveCaption;
-            btnThem.Location = new Point(67, 437);
+            btnThem.BackColor = SystemColors.Control;
+            btnThem.FlatAppearance.BorderSize = 0;
+            btnThem.FlatStyle = FlatStyle.Flat;
+            btnThem.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThem.ForeColor = SystemColors.Highlight;
+            btnThem.Location = new Point(-4, 65);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(148, 58);
+            btnThem.Size = new Size(428, 46);
             btnThem.TabIndex = 15;
             btnThem.Text = "Thêm mới";
             btnThem.UseVisualStyleBackColor = false;
@@ -167,45 +185,45 @@
             // 
             // DatePickerHSD
             // 
-            DatePickerHSD.Location = new Point(158, 320);
+            DatePickerHSD.Location = new Point(158, 224);
             DatePickerHSD.Name = "DatePickerHSD";
-            DatePickerHSD.Size = new Size(250, 27);
+            DatePickerHSD.Size = new Size(254, 27);
             DatePickerHSD.TabIndex = 14;
             // 
             // DatePickerSX
             // 
-            DatePickerSX.Location = new Point(158, 266);
+            DatePickerSX.Location = new Point(159, 179);
             DatePickerSX.Name = "DatePickerSX";
-            DatePickerSX.Size = new Size(250, 27);
+            DatePickerSX.Size = new Size(253, 27);
             DatePickerSX.TabIndex = 13;
             // 
             // txtThoiGianBH
             // 
-            txtThoiGianBH.Location = new Point(201, 378);
+            txtThoiGianBH.Location = new Point(206, 273);
             txtThoiGianBH.Name = "txtThoiGianBH";
-            txtThoiGianBH.Size = new Size(202, 27);
+            txtThoiGianBH.Size = new Size(206, 27);
             txtThoiGianBH.TabIndex = 12;
             // 
             // txtDonGia
             // 
-            txtDonGia.Location = new Point(105, 159);
+            txtDonGia.Location = new Point(102, 134);
             txtDonGia.Name = "txtDonGia";
-            txtDonGia.Size = new Size(306, 27);
+            txtDonGia.Size = new Size(96, 27);
             txtDonGia.TabIndex = 11;
             // 
             // cbLoaiHH
             // 
             cbLoaiHH.FormattingEnabled = true;
-            cbLoaiHH.Location = new Point(220, 48);
+            cbLoaiHH.Location = new Point(220, 39);
             cbLoaiHH.Name = "cbLoaiHH";
-            cbLoaiHH.Size = new Size(188, 28);
+            cbLoaiHH.Size = new Size(192, 28);
             cbLoaiHH.TabIndex = 10;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(18, 318);
+            label8.Location = new Point(18, 222);
             label8.Name = "label8";
             label8.Size = new Size(129, 28);
             label8.TabIndex = 9;
@@ -215,7 +233,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(220, 19);
+            label7.Location = new Point(220, 9);
             label7.Name = "label7";
             label7.Size = new Size(92, 28);
             label7.TabIndex = 8;
@@ -225,7 +243,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(18, 155);
+            label6.Location = new Point(18, 130);
             label6.Name = "label6";
             label6.Size = new Size(81, 28);
             label6.TabIndex = 7;
@@ -235,7 +253,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(15, 374);
+            label5.Location = new Point(15, 269);
             label5.Name = "label5";
             label5.Size = new Size(180, 28);
             label5.TabIndex = 6;
@@ -245,7 +263,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(18, 264);
+            label4.Location = new Point(18, 177);
             label4.Name = "label4";
             label4.Size = new Size(135, 28);
             label4.TabIndex = 5;
@@ -255,7 +273,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(15, 97);
+            label3.Location = new Point(14, 87);
             label3.Name = "label3";
             label3.Size = new Size(90, 28);
             label3.TabIndex = 4;
@@ -263,14 +281,14 @@
             // 
             // txtTenHH
             // 
-            txtTenHH.Location = new Point(102, 101);
+            txtTenHH.Location = new Point(102, 88);
             txtTenHH.Name = "txtTenHH";
-            txtTenHH.Size = new Size(306, 27);
+            txtTenHH.Size = new Size(310, 27);
             txtTenHH.TabIndex = 3;
             // 
             // txtMaHH
             // 
-            txtMaHH.Location = new Point(18, 49);
+            txtMaHH.Location = new Point(18, 40);
             txtMaHH.Name = "txtMaHH";
             txtMaHH.Size = new Size(180, 27);
             txtMaHH.TabIndex = 2;
@@ -279,7 +297,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(18, 18);
+            label2.Location = new Point(15, 9);
             label2.Name = "label2";
             label2.Size = new Size(89, 28);
             label2.TabIndex = 1;
@@ -351,6 +369,21 @@
             panel4.Size = new Size(428, 42);
             panel4.TabIndex = 3;
             // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = SystemColors.Control;
+            groupBox1.Controls.Add(btnReset);
+            groupBox1.Controls.Add(btnThem);
+            groupBox1.Controls.Add(btnCapnhat);
+            groupBox1.Controls.Add(btnXoa);
+            groupBox1.Controls.Add(btnLuu);
+            groupBox1.FlatStyle = FlatStyle.Popup;
+            groupBox1.Location = new Point(3, 306);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(424, 282);
+            groupBox1.TabIndex = 22;
+            groupBox1.TabStop = false;
+            // 
             // ucManageProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -370,6 +403,7 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -404,5 +438,6 @@
         private Button btnLuu;
         private TextBox txtDVT;
         private Label label10;
+        private GroupBox groupBox1;
     }
 }

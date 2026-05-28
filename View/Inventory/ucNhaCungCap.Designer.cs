@@ -51,9 +51,11 @@
             colDiaChi = new DataGridViewTextBoxColumn();
             colSDT = new DataGridViewTextBoxColumn();
             colEmail = new DataGridViewTextBoxColumn();
+            groupBox2 = new GroupBox();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNCC).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -87,12 +89,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(groupBox2);
             groupBox1.Controls.Add(txtDiaChi);
             groupBox1.Controls.Add(txtSDT);
             groupBox1.Controls.Add(txtTenNCC);
-            groupBox1.Controls.Add(btnXoaNCC);
-            groupBox1.Controls.Add(btnSuaNCC);
-            groupBox1.Controls.Add(btnThemNCC);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
@@ -131,11 +131,14 @@
             // 
             // btnXoaNCC
             // 
-            btnXoaNCC.BackColor = SystemColors.GradientInactiveCaption;
+            btnXoaNCC.BackColor = SystemColors.Control;
+            btnXoaNCC.FlatAppearance.BorderSize = 0;
             btnXoaNCC.FlatStyle = FlatStyle.Flat;
-            btnXoaNCC.Location = new Point(202, 317);
+            btnXoaNCC.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoaNCC.ForeColor = SystemColors.Highlight;
+            btnXoaNCC.Location = new Point(-3, 128);
             btnXoaNCC.Name = "btnXoaNCC";
-            btnXoaNCC.Size = new Size(94, 48);
+            btnXoaNCC.Size = new Size(361, 48);
             btnXoaNCC.TabIndex = 16;
             btnXoaNCC.Text = "Xoá";
             btnXoaNCC.UseVisualStyleBackColor = false;
@@ -143,11 +146,14 @@
             // 
             // btnSuaNCC
             // 
-            btnSuaNCC.BackColor = SystemColors.GradientInactiveCaption;
+            btnSuaNCC.BackColor = SystemColors.Control;
+            btnSuaNCC.FlatAppearance.BorderSize = 0;
             btnSuaNCC.FlatStyle = FlatStyle.Flat;
-            btnSuaNCC.Location = new Point(132, 400);
+            btnSuaNCC.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSuaNCC.ForeColor = SystemColors.Highlight;
+            btnSuaNCC.Location = new Point(-3, 70);
             btnSuaNCC.Name = "btnSuaNCC";
-            btnSuaNCC.Size = new Size(94, 48);
+            btnSuaNCC.Size = new Size(361, 52);
             btnSuaNCC.TabIndex = 15;
             btnSuaNCC.Text = "Sửa";
             btnSuaNCC.UseVisualStyleBackColor = false;
@@ -155,11 +161,14 @@
             // 
             // btnThemNCC
             // 
-            btnThemNCC.BackColor = SystemColors.GradientInactiveCaption;
+            btnThemNCC.BackColor = SystemColors.Control;
+            btnThemNCC.FlatAppearance.BorderSize = 0;
             btnThemNCC.FlatStyle = FlatStyle.Flat;
-            btnThemNCC.Location = new Point(59, 317);
+            btnThemNCC.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThemNCC.ForeColor = SystemColors.Highlight;
+            btnThemNCC.Location = new Point(-3, 20);
             btnThemNCC.Name = "btnThemNCC";
-            btnThemNCC.Size = new Size(94, 48);
+            btnThemNCC.Size = new Size(361, 48);
             btnThemNCC.TabIndex = 14;
             btnThemNCC.Text = "Thêm";
             btnThemNCC.UseVisualStyleBackColor = false;
@@ -271,6 +280,18 @@
             colEmail.MinimumWidth = 6;
             colEmail.Name = "colEmail";
             // 
+            // groupBox2
+            // 
+            groupBox2.BackColor = SystemColors.Control;
+            groupBox2.Controls.Add(btnSuaNCC);
+            groupBox2.Controls.Add(btnThemNCC);
+            groupBox2.Controls.Add(btnXoaNCC);
+            groupBox2.Location = new Point(3, 311);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(358, 176);
+            groupBox2.TabIndex = 21;
+            groupBox2.TabStop = false;
+            // 
             // ucNhaCungCap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -286,6 +307,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNCC).EndInit();
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -317,5 +339,6 @@
         private DataGridViewTextBoxColumn colDiaChi;
         private DataGridViewTextBoxColumn colSDT;
         private DataGridViewTextBoxColumn colEmail;
+        private GroupBox groupBox2;
     }
 }
