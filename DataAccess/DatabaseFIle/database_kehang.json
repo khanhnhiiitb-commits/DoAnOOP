@@ -1,0 +1,20 @@
+﻿[
+  {
+    "MaKe": "K01",
+    "ViTri": "Khu A",
+    "LoaiHang": "Điện tử",
+    "SucChua": 100
+  },
+  {
+    "MaKe": "K02",
+    "ViTri": "Khu B",
+    "LoaiHang": "Thực phẩm",
+    "SucChua": 80
+  },
+  {
+    "MaKe": "K03",
+    "ViTri": "Khu C",
+    "LoaiHang": "Gia dụng",
+    "SucChua": 120
+  }
+]

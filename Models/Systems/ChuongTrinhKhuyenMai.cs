@@ -1,9 +1,11 @@
+﻿using QuanLySieuThi.Models.Sales;
 using System;
 using System.Collections.Generic;
-using QuanLySieuThi.Models.Sales;
+using System.Text.Json.Serialization;
 
 namespace QuanLySieuThi.Models.Systems
 {//sua
+    [JsonDerivedType(typeof(KhuyenMaiCoBan), typeDiscriminator: "KhuyenMaiCoBan")]
     public abstract class ChuongTrinhKhuyenMai
     {
        private string maCTKM;
@@ -35,7 +37,11 @@ namespace QuanLySieuThi.Models.Systems
             }
         }
         public string NoiDung { get { return noiDung; }  set { noiDung = value; } }
-        public List<ChiTietChuongTrinhKM> DanhSachChiTiet   {   get { return danhSachChiTiet; }   }
+        public List<ChiTietChuongTrinhKM> DanhSachChiTiet
+        {
+            get { return danhSachChiTiet; }
+            set { danhSachChiTiet = value; } // Thêm set để JSON có thể đổ dữ liệu vào
+        }
         public ChuongTrinhKhuyenMai() { }
         public ChuongTrinhKhuyenMai(string maKM, string ten, DateTime bd, DateTime kt, string nd)
         {

@@ -9,7 +9,7 @@ using System.IO;
 
 namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
-    public class KhuyenMaiRepository : ITextSerializable<ChuongTrinhKhuyenMai>
+    public class KhuyenMaiRepository : IRepository<ChuongTrinhKhuyenMai>
     {
         private readonly string filePath = @"\DataAccess\DatabaseFile\database_khuyenmai.txt";
         public List<ChuongTrinhKhuyenMai> GetAll()

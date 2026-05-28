@@ -1,0 +1,68 @@
+[
+  {
+    "$type": "ThucPham",
+    "MaHH": "TP01",
+    "TenHang": "Sua tuoi",
+    "DonGia": 20000,
+    "SoLuongTon": 50,
+    "MaKeHang": "K01",
+    "DonViTinh": "Hop",
+    "NgaySX": "2024-01-01T00:00:00",
+    "HSD": "2024-06-01T00:00:00"
+  },
+  {
+    "$type": "ThucPham",
+    "MaHH": "TP02",
+    "TenHang": "Mi goi",
+    "DonGia": 3500,
+    "SoLuongTon": 200,
+    "MaKeHang": "K02",
+    "DonViTinh": "Goi",
+    "NgaySX": "2024-02-01T00:00:00",
+    "HSD": "2024-08-01T00:00:00"
+  },
+  {
+    "$type": "ThucPham",
+    "MaHH": "TP03",
+    "TenHang": "Banh mi",
+    "DonGia": 5000,
+    "SoLuongTon": 100,
+    "MaKeHang": "K03",
+    "DonViTinh": "Cai",
+    "NgaySX": "2024-03-01T00:00:00",
+    "HSD": "2024-03-05T00:00:00"
+  },
+  {
+    "$type": "DienTu",
+    "MaHH": "DT01",
+    "TenHang": "Tivi Samsung",
+    "DonGia": 12000000,
+    "SoLuongTon": 5,
+    "MaKeHang": "K04",
+    "DonViTinh": "Cai",
+    "ThoiGianBH": 24,
+    "HangSX": "Samsung"
+  },
+  {
+    "$type": "DienTu",
+    "MaHH": "DT02",
+    "TenHang": "Tu lanh LG",
+    "DonGia": 8000000,
+    "SoLuongTon": 3,
+    "MaKeHang": "K05",
+    "DonViTinh": "Cai",
+    "ThoiGianBH": 36,
+    "HangSX": "LG"
+  },
+  {
+    "$type": "DienTu",
+    "MaHH": "DT03",
+    "TenHang": "Noi com dien",
+    "DonGia": 900000,
+    "SoLuongTon": 10,
+    "MaKeHang": "K06",
+    "DonViTinh": "Cai",
+    "ThoiGianBH": 12,
+    "HangSX": "Panasonic"
+  }
+]

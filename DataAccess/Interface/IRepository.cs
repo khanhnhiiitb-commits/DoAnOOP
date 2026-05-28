@@ -3,7 +3,7 @@
 namespace QuanLySieuThi.Data
 {
     // Interface Generic áp dụng cho mọi Repository
-    public interface ITextSerializable<T>
+    public interface IRepository<T>
     {
         List<T> GetAll();
         void Save(List<T> danhSach);

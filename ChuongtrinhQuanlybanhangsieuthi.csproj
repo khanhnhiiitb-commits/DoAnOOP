@@ -6,14 +6,11 @@
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="DataAccess\DatabaseFIle\database_hanghoa.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="DataAccess\DatabaseFIle\database_hanghoa.txt">
+    <Content Include="DataAccess\DatabaseFIle\database_hanghoa.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -41,31 +38,31 @@
     <None Update="DataAccess\DatabaseFIle\database_hanghoa.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="DataAccess\DatabaseFIle\database_kehang.txt">
+    <None Update="DataAccess\DatabaseFIle\database_kehang.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DataAccess\DatabaseFIle\database_khuyenmai.txt">
+    <None Update="DataAccess\DatabaseFIle\database_khuyenmai.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DataAccess\DatabaseFIle\database_nhanvien.txt">
+    <None Update="DataAccess\DatabaseFIle\database_nhanvien.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DataAccess\DatabaseFIle\database_partner.txt">
+    <None Update="DataAccess\DatabaseFIle\database_partner.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DataAccess\DatabaseFIle\database_phieunhap.txt">
+    <None Update="DataAccess\DatabaseFIle\database_phieunhap.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DataAccess\DatabaseFIle\database_sales.txt">
+    <None Update="DataAccess\DatabaseFIle\database_sales.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DataAccess\DatabaseFIle\database_system.txt">
+    <None Update="DataAccess\DatabaseFIle\database_system.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DataAccess\DatabaseFIle\database_thethanhvien.txt">
+    <None Update="DataAccess\DatabaseFIle\database_thethanhvien.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DataAccess\DatabaseFIle\database_voucher.txt">
+    <None Update="DataAccess\DatabaseFIle\database_voucher.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

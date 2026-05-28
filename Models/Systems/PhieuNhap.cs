@@ -1,6 +1,7 @@
+﻿using QuanLySieuThi.Models.Sales;
 using System;
 using System.Collections.Generic;
-using QuanLySieuThi.Models.Sales;
+using System.Text.Json.Serialization;
 
 namespace QuanLySieuThi.Models.Systems
 {
@@ -44,16 +45,24 @@ namespace QuanLySieuThi.Models.Systems
             }
         }
         public DateTime NgayNhap { get { return ngayNhap; } set { ngayNhap = value; } }
+
+        [JsonInclude]
         public double TongTien
         {
             get { return tongTien; }
-            internal set 
-            { 
-                if (value >= 0)   tongTien = value; 
-                else   tongTien = 0;
+
+            private set // đổi từ internal set sang private set 
+            {
+                if (value >= 0) tongTien = value;
+                else tongTien = 0;
             }
         }
-        public List<ChiTietPhieuNhap> DanhSachChiTiet   {   get { return danhSachChiTiet; }  }
+
+        [JsonInclude]
+        public List<ChiTietPhieuNhap> DanhSachChiTiet  
+        {   get { return danhSachChiTiet; }
+            private set { danhSachChiTiet = value; } //thêm js
+        }
         public void TinhTongTien()
         {
             double tong = 0;

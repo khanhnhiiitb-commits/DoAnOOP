@@ -1,3 +1,0 @@
-﻿K01|Khu A|Điện tử|100|Còn trống
-K02|Khu B|Thực phẩm|80|Đang sử dụng
-K03|Khu C|Gia dụng|120|Còn trống

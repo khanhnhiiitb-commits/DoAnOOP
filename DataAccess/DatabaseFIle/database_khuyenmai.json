@@ -1,0 +1,87 @@
+﻿[
+  {
+    "$type": "KhuyenMaiCoBan",
+    "MaCTKM": "KM001",
+    "TenCT": "Chao Xuan 2026",
+    "NgayBatDau": "2026-01-01T00:00:00",
+    "NgayKetThuc": "2026-02-15T00:00:00",
+    "NoiDung": "Giam gia thuc pham dip Tet Nguyen Dan",
+    "DanhSachChiTiet": [
+      {
+        "MaCTKM": "KM001",
+        "MaMH": "TP01",
+        "PhanTramGiam": 10
+      },
+      {
+        "MaCTKM": "KM001",
+        "MaMH": "TP02",
+        "PhanTramGiam": 15
+      },
+      {
+        "MaCTKM": "KM001",
+        "MaMH": "TP03",
+        "PhanTramGiam": 5
+      }
+    ]
+  },
+  {
+    "$type": "KhuyenMaiCoBan",
+    "MaCTKM": "KM002",
+    "TenCT": "Sieu Sale Thang 3",
+    "NgayBatDau": "2026-03-01T00:00:00",
+    "NgayKetThuc": "2026-03-31T00:00:00",
+    "NoiDung": "Day manh tieu thu hang dien tu",
+    "DanhSachChiTiet": [
+      {
+        "MaCTKM": "KM002",
+        "MaMH": "DT01",
+        "PhanTramGiam": 20
+      },
+      {
+        "MaCTKM": "KM002",
+        "MaMH": "DT02",
+        "PhanTramGiam": 10
+      }
+    ]
+  },
+  {
+    "$type": "KhuyenMaiCoBan",
+    "MaCTKM": "KM003",
+    "TenCT": "Tri An Khach Hang",
+    "NgayBatDau": "2026-04-10T00:00:00",
+    "NgayKetThuc": "2026-04-30T00:00:00",
+    "NoiDung": "Giam gia toan bo he thong",
+    "DanhSachChiTiet": [
+      {
+        "MaCTKM": "KM003",
+        "MaMH": "ALL",
+        "PhanTramGiam": 5
+      }
+    ]
+  },
+  {
+    "$type": "KhuyenMaiCoBan",
+    "MaCTKM": "KM004",
+    "TenCT": "Giai Nhiet Mua He",
+    "NgayBatDau": "2026-05-01T00:00:00",
+    "NgayKetThuc": "2026-06-30T00:00:00",
+    "NoiDung": "Sale sua tuoi va tu lanh",
+    "DanhSachChiTiet": [
+      {
+        "MaCTKM": "KM004",
+        "MaMH": "TP01",
+        "PhanTramGiam": 12
+      },
+      {
+        "MaCTKM": "KM004",
+        "MaMH": "DT02",
+        "PhanTramGiam": 8
+      },
+      {
+        "MaCTKM": "KM004",
+        "MaMH": "DT03",
+        "PhanTramGiam": 15
+      }
+    ]
+  }
+]

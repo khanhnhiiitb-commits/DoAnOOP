@@ -1,4 +1,7 @@
-﻿using System;
+﻿using QuanLySieuThi.Data;
+using QuanLySieuThi.Models.Products;
+using QuanLySieuThi.Models.Sales;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,8 +9,6 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLySieuThi.Data;
-using QuanLySieuThi.Models.Sales;
 
 namespace ChuongtrinhQuanlybanhangsieuthi.View
 {
@@ -17,7 +18,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
         {
             InitializeComponent();
         }
-
+        //sửa
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
             DateTime tuNgay = DatePicker1.Value.Date;
@@ -27,18 +28,26 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                 MessageBox.Show("Từ ngày không thể lớn hơn Đến ngày!");
                 return;
             }
+
             int tongSoHoaDon = 0;
             double tongDoanhThu = 0;
             List<HoaDon> dsHoaDonTrongKy = new List<HoaDon>();
             Dictionary<string, int> boDemSanPham = new Dictionary<string, int>();
-            foreach (var hd in DataStorage.Instance.DanhSachHD)
+
+            // 1. Dùng tường minh 'HoaDon' thay vì 'var'
+            foreach (HoaDon hd in DataStorage.Instance.DanhSachHD)
             {
+                // QUAN TRỌNG: Gọi hàm tính tổng tiền vì JSON không có sẵn dữ liệu này!
+                hd.TinhTongTien();
+
                 if (hd.NgayTao >= tuNgay && hd.NgayTao <= denNgay && hd.TrangThaiTT == true)
                 {
                     tongSoHoaDon++;
                     tongDoanhThu += hd.TongTien;
                     dsHoaDonTrongKy.Add(hd);
-                    foreach (var ct in hd.DanhSachChiTiet)
+
+                    // 2. Dùng tường minh 'ChiTietHoaDon' thay vì 'var'
+                    foreach (ChiTietHoaDon ct in hd.DanhSachChiTiet)
                     {
                         if (boDemSanPham.ContainsKey(ct.MaHH))
                         {
@@ -51,9 +60,12 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                     }
                 }
             }
+
             string maBanChayNhat = "";
             int maxSoLuong = 0;
-            foreach (var item in boDemSanPham)
+
+            // 3. Dùng tường minh 'KeyValuePair<string, int>' thay vì 'var'
+            foreach (KeyValuePair<string, int> item in boDemSanPham)
             {
                 if (item.Value > maxSoLuong)
                 {
@@ -61,10 +73,12 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                     maBanChayNhat = item.Key;
                 }
             }
+
             string tenMatHangBanChay = "Chưa có dữ liệu";
             if (maxSoLuong > 0)
             {
-                foreach (var hh in DataStorage.Instance.DanhSachHang)
+                // 4. Dùng tường minh 'HangHoa' thay vì 'var'
+                foreach (HangHoa hh in DataStorage.Instance.DanhSachHang)
                 {
                     if (hh.MaHH == maBanChayNhat)
                     {
@@ -73,22 +87,33 @@ namespace ChuongtrinhQuanlybanhangsieuthi.View
                     }
                 }
             }
+
             lblTongHD.Text = tongSoHoaDon.ToString();
             lblTongDT.Text = tongDoanhThu.ToString("N0") + " VNĐ";
             lblMathang.Text = tenMatHangBanChay;
+
             dgvLichSuGD.DataSource = null;
-            var dsHienThi = new List<object>();
-            foreach (var hd in dsHoaDonTrongKy)
+
+            // 5. Khởi tạo DataTable thay vì dùng List<object> và anonymous type (new { ... })
+            DataTable dtHienThi = new DataTable();
+            dtHienThi.Columns.Add("MaHD", typeof(string));
+            dtHienThi.Columns.Add("NgayTao", typeof(string));
+            dtHienThi.Columns.Add("TongTien", typeof(string));
+            dtHienThi.Columns.Add("TrangThai", typeof(string));
+
+            // 6. Dùng tường minh 'HoaDon' thay vì 'var'
+            foreach (HoaDon hd in dsHoaDonTrongKy)
             {
-                dsHienThi.Add(new
-                {
-                    MaHD = hd.MaHD,
-                    NgayTao = hd.NgayTao.ToString("dd/MM/yyyy HH:mm"),
-                    TongTien = hd.TongTien.ToString("N0"),
-                    TrangThai = "Thành công"
-                });
+                dtHienThi.Rows.Add(
+                    hd.MaHD,
+                    hd.NgayTao.ToString("dd/MM/yyyy HH:mm"),
+                    hd.TongTien.ToString("N0"),
+                    "Thành công"
+                );
             }
-            dgvLichSuGD.DataSource = dsHienThi;
+
+            dgvLichSuGD.DataSource = dtHienThi;
+
             if (dgvLichSuGD.Columns.Count > 0)
             {
                 dgvLichSuGD.Columns["MaHD"].HeaderText = "Mã Hóa Đơn";

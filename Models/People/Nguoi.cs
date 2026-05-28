@@ -1,5 +1,9 @@
-﻿namespace QuanLySieuThi.Models.People
+﻿using System.Text.Json.Serialization;
+
+namespace QuanLySieuThi.Models.People
 {
+    [JsonDerivedType(typeof(NhanVien), typeDiscriminator: "NhanVien")]
+    [JsonDerivedType(typeof(KhachHang), typeDiscriminator: "KhachHang")]
     public abstract class Nguoi
     {
         private string ma;

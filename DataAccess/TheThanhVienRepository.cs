@@ -2,87 +2,45 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 using System.Windows.Forms;
 namespace ChuongtrinhQuanlybanhangsieuthi.DataAccess
 {
     public class TheThanhVienRepository 
     {
-        private readonly string filePath = @"\DataAccess\DatabaseFile\database_thethanhvien.txt";
+        private readonly string filePath = Application.StartupPath + @"\DataAccess\DatabaseFile\database_thethanhvien.json";
+        private JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+
         public List<TheThanhVien> GetAll()
         {
-            List<TheThanhVien> danhSach = new List<TheThanhVien>();
-            if (!File.Exists(filePath)) return danhSach;
-
+            List<TheThanhVien> ds = new List<TheThanhVien>();
+            if (!File.Exists(filePath)) return ds;
             try
             {
-                string[] lines = File.ReadAllLines(filePath);
-                foreach (string line in lines)
+                string json = File.ReadAllText(filePath);
+                if (!string.IsNullOrWhiteSpace(json))
                 {
-                    if (string.IsNullOrWhiteSpace(line)) continue;
-
-                    TheThanhVien tv = MapLineToEntity(line);
-                    if (tv != null) danhSach.Add(tv);
+                    ds = JsonSerializer.Deserialize<List<TheThanhVien>>(json, options);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi đọc file thẻ thành viên: " + ex.Message);
+                MessageBox.Show("Lỗi đọc JSON Thẻ Thành Viên: " + ex.Message);
             }
-            return danhSach;
+            return ds;
         }
 
-        public void Save(List<TheThanhVien> danhSach)
+        public void Save(List<TheThanhVien> ds)
         {
-            List<string> lines = new List<string>();
-            foreach (TheThanhVien tv in danhSach)
-            {
-                lines.Add(MapEntityToLine(tv));
-            }
-
             try
             {
-                File.WriteAllLines(filePath, lines.ToArray());
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                File.WriteAllText(filePath, JsonSerializer.Serialize(ds, options));
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi lưu file thẻ thành viên: " + ex.Message);
+                MessageBox.Show("Lỗi lưu JSON Thẻ Thành Viên: " + ex.Message);
             }
-        }
-        // --- HELPER METHODS ---
-
-        private TheThanhVien MapLineToEntity(string line)
-        {
-            try
-            {
-                string[] parts = line.Split('|');
-                if (parts.Length < 5) return null;
-
-                TheThanhVien tv = new TheThanhVien();
-                tv.MaThe = parts[1];
-                tv.NgayDangKy = DateTime.Parse(parts[2]);
-                tv.NapDiemTuFile(int.Parse(parts[3]));
-
-                bool trangThaiTuFile = bool.Parse(parts[4]);
-                if (trangThaiTuFile)
-                {
-                    tv.KichHoatThe();
-                }
-                else
-                {
-                    tv.KhoaThe();
-                }
-                return tv;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        private string MapEntityToLine(TheThanhVien tv)
-        {
-            string ngay = tv.NgayDangKy.ToString("yyyy-MM-dd");
-            return "TV|" + tv.MaThe + "|" + ngay + "|" + tv.DiemTichLuy + "|" + tv.TrangThai;
         }
     }
 }

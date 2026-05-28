@@ -1,0 +1,40 @@
+﻿[
+  {
+    "$type": "TienMat",
+    "MaVoucher": "VCTM001",
+    "TenVoucher": "Giảm giá 50k tri ân khách hàng",
+    "NgayBatDau": "2026-05-01T00:00:00",
+    "NgayKetThuc": "2026-05-31T00:00:00",
+    "TrangThai": true,
+    "SoTienGiamCoDinh": 50000
+  },
+  {
+    "$type": "PhanTram",
+    "MaVoucher": "VCPT001",
+    "TenVoucher": "Giảm 10% tuần lễ khai trương",
+    "NgayBatDau": "2026-05-01T00:00:00",
+    "NgayKetThuc": "2026-05-31T00:00:00",
+    "TrangThai": true,
+    "PhanTramGiam": 10,
+    "GiamToiDa": 100000
+  },
+  {
+    "$type": "TienMat",
+    "MaVoucher": "VCTM002",
+    "TenVoucher": "Mừng năm mới 2026",
+    "NgayBatDau": "2026-01-01T00:00:00",
+    "NgayKetThuc": "2026-01-31T00:00:00",
+    "TrangThai": true,
+    "SoTienGiamCoDinh": 100000
+  },
+  {
+    "$type": "PhanTram",
+    "MaVoucher": "VCPT002",
+    "TenVoucher": "Ngày vàng sinh viên UEH",
+    "NgayBatDau": "2026-05-10T00:00:00",
+    "NgayKetThuc": "2026-05-20T00:00:00",
+    "TrangThai": false,
+    "PhanTramGiam": 20,
+    "GiamToiDa": 50000
+  }
+]
