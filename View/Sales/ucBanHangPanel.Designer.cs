@@ -107,6 +107,7 @@
             dgvSanPham.RowHeadersWidth = 51;
             dgvSanPham.Size = new Size(708, 505);
             dgvSanPham.TabIndex = 10;
+            dgvSanPham.KeyDown += txtTimKH_KeyDown;
             // 
             // btnThucPham
             // 
@@ -228,6 +229,7 @@
             txtTimKH.Size = new Size(569, 27);
             txtTimKH.TabIndex = 6;
             txtTimKH.Text = "Nhập SĐT khách hàng...";
+            txtTimKH.KeyDown += txtTimKH_KeyDown;
             // 
             // Giohang
             // 

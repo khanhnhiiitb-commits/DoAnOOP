@@ -3,28 +3,24 @@
   "WorkspaceRootPath": "F:\\OOP\\New folder\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\view\\sales\\ucbanhangpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\sales\\ucbanhangpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\view\\sales\\ucbanhangpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\sales\\ucbanhangpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\view\\inventory\\uctonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\uctonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\dataaccess\\databasefile\\database_partner.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\databasefile\\database_partner.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\view\\inventory\\ucquanlykehang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\ucquanlykehang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\controllers\\quanlydoitac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:controllers\\quanlydoitac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\view\\inventory\\ucphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\ucphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\view\\inventory\\ucnhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\ucnhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\view\\inventory\\uckhopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:view\\inventory\\uckhopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|f:\\oop\\new folder\\dataaccess\\databasefile\\database_thethanhvien.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7980DAFE-375A-F1CF-3891-0BF2CB3A496C}|ChuongtrinhQuanlybanhangsieuthi.csproj|solutionrelative:dataaccess\\databasefile\\database_thethanhvien.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 732,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,74 +50,66 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuanLyDoiTac.cs",
+              "DocumentMoniker": "F:\\OOP\\New folder\\Controllers\\QuanLyDoiTac.cs",
+              "RelativeDocumentMoniker": "Controllers\\QuanLyDoiTac.cs",
+              "ToolTip": "F:\\OOP\\New folder\\Controllers\\QuanLyDoiTac.cs",
+              "RelativeToolTip": "Controllers\\QuanLyDoiTac.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAA9wIkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-30T15:07:48.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "database_thethanhvien.json",
+              "DocumentMoniker": "F:\\OOP\\New folder\\DataAccess\\DatabaseFIle\\database_thethanhvien.json",
+              "RelativeDocumentMoniker": "DataAccess\\DatabaseFIle\\database_thethanhvien.json",
+              "ToolTip": "F:\\OOP\\New folder\\DataAccess\\DatabaseFIle\\database_thethanhvien.json",
+              "RelativeToolTip": "DataAccess\\DatabaseFIle\\database_thethanhvien.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-30T14:58:45.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "database_partner.json",
+              "DocumentMoniker": "F:\\OOP\\New folder\\DataAccess\\DatabaseFIle\\database_partner.json",
+              "RelativeDocumentMoniker": "DataAccess\\DatabaseFIle\\database_partner.json",
+              "ToolTip": "F:\\OOP\\New folder\\DataAccess\\DatabaseFIle\\database_partner.json",
+              "RelativeToolTip": "DataAccess\\DatabaseFIle\\database_partner.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-30T14:58:36.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ucBanHangPanel.cs",
+              "DocumentMoniker": "F:\\OOP\\New folder\\View\\Sales\\ucBanHangPanel.cs",
+              "RelativeDocumentMoniker": "View\\Sales\\ucBanHangPanel.cs",
+              "ToolTip": "F:\\OOP\\New folder\\View\\Sales\\ucBanHangPanel.cs",
+              "RelativeToolTip": "View\\Sales\\ucBanHangPanel.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAcwNwBAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-30T14:57:13.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ucBanHangPanel.cs [Design]",
               "DocumentMoniker": "F:\\OOP\\New folder\\View\\Sales\\ucBanHangPanel.cs",
               "RelativeDocumentMoniker": "View\\Sales\\ucBanHangPanel.cs",
               "ToolTip": "F:\\OOP\\New folder\\View\\Sales\\ucBanHangPanel.cs [Design]",
               "RelativeToolTip": "View\\Sales\\ucBanHangPanel.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T14:05:07.95Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ucQuanLyKeHang.cs [Design]",
-              "DocumentMoniker": "F:\\OOP\\New folder\\View\\Inventory\\ucQuanLyKeHang.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucQuanLyKeHang.cs",
-              "ToolTip": "F:\\OOP\\New folder\\View\\Inventory\\ucQuanLyKeHang.cs [Design]",
-              "RelativeToolTip": "View\\Inventory\\ucQuanLyKeHang.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T14:05:06.136Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ucPhieuNhap.cs [Design]",
-              "DocumentMoniker": "F:\\OOP\\New folder\\View\\Inventory\\ucPhieuNhap.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucPhieuNhap.cs",
-              "ToolTip": "F:\\OOP\\New folder\\View\\Inventory\\ucPhieuNhap.cs [Design]",
-              "RelativeToolTip": "View\\Inventory\\ucPhieuNhap.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T14:05:05.461Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ucNhaCungCap.cs [Design]",
-              "DocumentMoniker": "F:\\OOP\\New folder\\View\\Inventory\\ucNhaCungCap.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucNhaCungCap.cs",
-              "ToolTip": "F:\\OOP\\New folder\\View\\Inventory\\ucNhaCungCap.cs [Design]",
-              "RelativeToolTip": "View\\Inventory\\ucNhaCungCap.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T14:05:04.585Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ucKhoPanel.cs [Design]",
-              "DocumentMoniker": "F:\\OOP\\New folder\\View\\Inventory\\ucKhoPanel.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucKhoPanel.cs",
-              "ToolTip": "F:\\OOP\\New folder\\View\\Inventory\\ucKhoPanel.cs [Design]",
-              "RelativeToolTip": "View\\Inventory\\ucKhoPanel.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T14:05:03.562Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ucTonKho.cs [Design]",
-              "DocumentMoniker": "F:\\OOP\\New folder\\View\\Inventory\\ucTonKho.cs",
-              "RelativeDocumentMoniker": "View\\Inventory\\ucTonKho.cs",
-              "ToolTip": "F:\\OOP\\New folder\\View\\Inventory\\ucTonKho.cs [Design]",
-              "RelativeToolTip": "View\\Inventory\\ucTonKho.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T14:04:56.465Z",
+              "WhenOpened": "2026-05-30T14:56:57.124Z",
               "EditorCaption": " [Design]"
             }
           ]

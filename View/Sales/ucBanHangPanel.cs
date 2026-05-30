@@ -431,6 +431,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
             _db.DanhSachHD.Add(_hoaDonHienTai);
 
             _banHangService.LuuDuLieuBanHang(_db.DanhSachTheTV);
+            _doiTacService.TichDiem(_khachHangHienTai.Ma, _hoaDonHienTai.TongTien);
 
             string bill = _banHangService.LayNoiDungHoaDon(_hoaDonHienTai);
             bill += "\nTiền khách đưa : " + tienKhachDua.ToString("N0") + " đ";
@@ -474,7 +475,7 @@ namespace ChuongtrinhQuanlybanhangsieuthi
                     khMoi.SoDienThoai = sdt;
                     khMoi.DiemTichLuy = 0;
                     _doiTacService.ThemKhachHang(khMoi);
-
+                    _doiTacService.LuuDuLieuDoiTac();
                     _khachHangHienTai = khMoi;
                     _hoaDonHienTai.MaKH = khMoi.Ma;
                 }

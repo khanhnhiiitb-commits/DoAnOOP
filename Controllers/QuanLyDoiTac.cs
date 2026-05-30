@@ -89,7 +89,6 @@ namespace QuanLySieuThi.Services
                     if (kh.TheTV == null)
                         return "Khách hàng này chưa đăng ký thẻ thành viên!";
 
-                    // Điểm sáng Đóng gói: Ủy thác cho thẻ tự kiểm tra quỹ điểm nội bộ và thực hiện trừ điểm
                     if (kh.TheTV.TruDiem(diemDoi) == true)
                     {
                         return "Trừ điểm thành công!";
